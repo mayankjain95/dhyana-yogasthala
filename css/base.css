@@ -1,0 +1,4 @@
+  :root{--saffron:#C8622A;--deep-saffron:#A04820;--terracotta:#D4845A;--gold:#C9A84C;--ivory:#F5EFE0;--cream:#FAF6ED;--dark:#1E1710;--warm-dark:#2E2018;--forest:#3D5A40;--muted:#7A6A58;--light-muted:#B5A898;--earthy:#8B6914;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}

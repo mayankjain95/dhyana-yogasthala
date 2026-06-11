@@ -1,0 +1,225 @@
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4vw;background:rgba(30,23,16,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;letter-spacing:0.04em;color:var(--gold);text-decoration:none;}
+  .nav-logo span{color:var(--ivory);font-style:italic;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+  .nav-links a{color:var(--light-muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-cta{background:var(--saffron);color:var(--ivory)!important;padding:0.5rem 1.2rem;border-radius:2px;}
+  .nav-cta:hover{background:var(--deep-saffron)!important;}
+  .nav-wa{background:rgba(139,105,20,0.85);color:var(--ivory)!important;padding:0.45rem 1rem;border-radius:2px;font-size:0.72rem;display:flex;align-items:center;gap:0.4rem;transition:background 0.3s!important;}
+  .nav-wa:hover{background:var(--earthy)!important;}
+
+  /* HERO */
+  #hero{min-height:100vh;background:var(--warm-dark);display:flex;align-items:center;position:relative;overflow:hidden;padding:0 4vw;}
+  .hero-bg-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:0.55;object-position:center center;}
+  .hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,23,16,0.96) 35%,rgba(30,23,16,0.3) 75%,rgba(30,23,16,0.15) 100%);}
+  .hero-mandala{position:absolute;right:-5vw;top:50%;transform:translateY(-50%);width:55vw;max-width:700px;opacity:0.06;}
+  .hero-mandala svg{width:100%;height:100%;animation:slowspin 80s linear infinite;}
+  @keyframes slowspin{to{transform:rotate(360deg);}}
+  .hero-line{position:absolute;left:0;bottom:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .hero-content{position:relative;z-index:2;max-width:700px;animation:fadeUp 1.2s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+  .hero-label{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;}
+  .hero-label::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);}
+  .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:300;line-height:1.05;color:var(--ivory);margin-bottom:1.2rem;}
+  .hero-title em{font-style:italic;color:var(--terracotta);}
+  .hero-sub{font-size:1rem;line-height:1.8;color:var(--light-muted);max-width:480px;margin-bottom:2.5rem;font-weight:300;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
+  .btn-primary{background:var(--saffron);color:var(--ivory);padding:0.85rem 2rem;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.3s,transform 0.2s;}
+  .btn-primary:hover{background:var(--deep-saffron);transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--gold);padding:0.85rem 2rem;border:1px solid var(--gold);cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;}
+  .btn-outline:hover{background:var(--gold);color:var(--dark);}
+  .btn-wa-earthy{background:rgba(139,105,20,0.9);color:var(--ivory);padding:0.85rem 1.6rem;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:background 0.3s,transform 0.2s;}
+  .btn-wa-earthy:hover{background:var(--earthy);transform:translateY(-2px);}
+  .hero-badges{position:absolute;right:4vw;bottom:8vh;z-index:2;display:flex;flex-direction:column;gap:0.8rem;}
+  .badge{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);padding:0.6rem 1.2rem;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light-muted);text-align:center;}
+  .badge strong{display:block;color:var(--gold);font-size:1rem;font-weight:400;}
+
+  /* FLOATING WA */
+  .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:500;background:rgba(139,105,20,0.92);color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(139,105,20,0.5);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;font-size:1.4rem;}
+  .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(139,105,20,0.65);}
+
+  section{padding:6rem 4vw;}
+  .section-label{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;}
+  .section-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--saffron);}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;}
+  .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.5rem 0;}
+
+  /* STHIRA */
+  #online{background:linear-gradient(135deg,var(--forest) 0%,#2A3E2C 100%);position:relative;overflow:hidden;}
+  #online::before{content:'STHIRA';position:absolute;top:-20px;right:40px;font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:600;opacity:0.04;color:var(--ivory);letter-spacing:-0.02em;}
+  .online-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .online-badge-new{display:inline-block;background:var(--gold);color:var(--dark);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.3rem 0.8rem;margin-bottom:0.6rem;font-weight:500;}
+  .online-exclusive{display:block;font-size:0.75rem;letter-spacing:0.12em;color:rgba(245,239,224,0.55);margin-bottom:1.2rem;font-style:italic;}
+  #online .section-title{color:var(--ivory);font-style:italic;}
+  #online .section-label{color:var(--gold);}
+  #online .section-label::before{background:var(--gold);}
+  .online-tagline{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(245,239,224,0.65);letter-spacing:0.06em;margin-bottom:1.5rem;font-style:italic;}
+  .online-text{color:rgba(245,239,224,0.8);line-height:1.9;font-weight:300;margin-bottom:1.4rem;}
+  .online-features-compact{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.6rem;}
+  .online-feature{display:flex;align-items:flex-start;gap:0.8rem;color:rgba(245,239,224,0.85);font-size:0.9rem;}
+  .online-feature::before{content:'◆';color:var(--gold);font-size:0.5rem;margin-top:0.35rem;flex-shrink:0;}
+  .batch-info{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);padding:1rem 1.4rem;margin-bottom:1.6rem;}
+  .batch-info-title{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.7rem;}
+  .batch-row{display:flex;gap:2.5rem;flex-wrap:wrap;}
+  .batch-item{color:rgba(245,239,224,0.85);font-size:0.9rem;}
+  .batch-item strong{display:block;color:var(--gold);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.2rem;}
+  .sthira-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
+
+  /* Sthira captions */
+  .sthira-captions{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1rem 0 1.4rem;}
+  .sthira-caption{font-size:0.75rem;color:rgba(245,239,224,0.7);letter-spacing:0.05em;padding:0.3rem 0.8rem;border:1px solid rgba(201,168,76,0.25);background:rgba(201,168,76,0.07);}
+  .sthira-quote-standalone{padding:2rem;border:1px solid rgba(201,168,76,0.2);background:rgba(255,255,255,0.04);}
+
+  /* Sthira right card - aligned lower */
+  .sthira-right-col{display:flex;flex-direction:column;}
+  .sthira-spacer{flex:1;min-height:3.5rem;}
+  .sthira-merged-card{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.25);padding:2.2rem 2.5rem;position:relative;display:flex;flex-direction:column;}
+  .sthira-merged-card::before{content:'For CA Students';position:absolute;top:-12px;left:24px;background:var(--saffron);color:var(--ivory);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.8rem;}
+  .sthira-checklist{display:flex;flex-direction:column;gap:0.65rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(201,168,76,0.15);}
+  .sthira-check-item{display:flex;align-items:center;gap:0.8rem;color:rgba(245,239,224,0.85);font-size:0.88rem;}
+  .sthira-check-item::before{content:'✓';color:var(--gold);font-size:0.85rem;flex-shrink:0;font-weight:500;}
+  .oc-highlight{background:rgba(201,168,76,0.1);border-left:3px solid var(--gold);padding:1rem 1.2rem;font-size:0.87rem;color:var(--gold);font-style:italic;line-height:1.7;}
+
+  /* WHAT IS YOGA */
+  #what-is-yoga{background:var(--dark);position:relative;overflow:hidden;}
+  #what-is-yoga::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,0.06) 0%,transparent 65%);}
+  .yoga-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+  .yoga-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:400;color:var(--ivory);line-height:1.25;margin-bottom:2rem;}
+  .yoga-headline .line1{color:rgba(245,239,224,0.55);font-size:0.8em;}
+  .yoga-headline .line2{color:var(--terracotta);font-style:italic;font-size:1.05em;display:block;border-left:3px solid var(--gold);padding-left:1rem;margin-top:0.8rem;line-height:1.3;}
+  .yoga-headline em{font-style:italic;color:var(--terracotta);}
+  .yoga-try-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);font-style:italic;margin-top:1.5rem;line-height:1.5;}
+  .yoga-para{color:var(--light-muted);line-height:2;font-weight:300;font-size:0.95rem;margin-bottom:1.3rem;}
+  .yoga-para strong{color:var(--gold);font-weight:400;}
+  .yoga-animal-block{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.4rem 1.6rem;margin:1.8rem 0;}
+  .yoga-animal-block p{color:rgba(245,239,224,0.75);font-size:0.92rem;line-height:1.85;font-weight:300;font-style:italic;}
+  .yoga-cta-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);font-style:italic;margin-top:1.8rem;line-height:1.5;}
+
+  /* ABOUT */
+  #about-yoga{background:var(--ivory);}
+  .about-yoga-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start;overflow:hidden;}
+  .about-yoga-left{position:sticky;top:100px;z-index:1;}
+  .quote-block{border-left:3px solid var(--saffron);padding:1.5rem 1.5rem 1.5rem 2rem;background:white;margin-top:2rem;}
+  .quote-block p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;line-height:1.7;color:var(--warm-dark);}
+  .quote-block cite{display:block;margin-top:0.8rem;font-size:0.75rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;}
+  .about-yoga-text p{line-height:1.9;color:var(--muted);margin-bottom:1.1rem;font-weight:300;font-size:0.95rem;position:relative;z-index:2;}
+  .about-yoga-text strong{color:var(--warm-dark);font-weight:500;}
+
+  /* PRACTICES */
+  #practices{background:var(--warm-dark);}
+  #practices .section-title{color:var(--ivory);}
+  #practices .section-label{color:var(--gold);}
+  #practices .section-label::before{background:var(--gold);}
+  .practices-intro{color:var(--light-muted);max-width:600px;line-height:1.8;margin-bottom:3rem;font-weight:300;}
+  .practices-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5px;background:rgba(201,168,76,0.15);}
+  .practice-card{background:var(--warm-dark);padding:0;position:relative;overflow:hidden;transition:background 0.3s;display:flex;flex-direction:column;}
+  .practice-card-img-wrap{overflow:hidden;height:200px;flex-shrink:0;}
+  .practice-card-img{width:100%;height:200px;object-fit:cover;display:block;opacity:0.85;transition:opacity 0.3s,transform 0.4s;}
+  .practice-card:hover .practice-card-img{opacity:1;transform:scale(1.03);}
+  .practice-card-body{padding:1.8rem;flex:1;display:flex;flex-direction:column;}
+  .practice-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width 0.4s ease;}
+  .practice-card:hover{background:#2A1E12;}
+  .practice-card:hover::after{width:100%;}
+  .practice-card.featured{background:linear-gradient(135deg,#2E1A0A,#1E1710);border:1px solid rgba(201,168,76,0.2);}
+  .practice-tag{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+  .practice-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:0.6rem;font-weight:400;}
+  .practice-desc{font-size:0.85rem;color:var(--light-muted);line-height:1.7;margin-bottom:1rem;font-weight:300;}
+  .practice-benefits{list-style:none;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:0.4rem;flex:1;}
+  .practice-benefits li{font-size:0.82rem;color:var(--light-muted);padding-left:1rem;position:relative;line-height:1.5;font-weight:300;}
+  .practice-benefits li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+  .practice-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.4rem;}
+  .practice-duration{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta);}
+  .practice-target{font-size:0.7rem;color:var(--muted);font-style:italic;}
+  .btn-book{width:100%;background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.65rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;margin-top:auto;}
+  .btn-book:hover{background:var(--saffron);border-color:var(--saffron);color:var(--ivory);}
+  .btn-consult{width:100%;background:rgba(139,105,20,0.12);border:1px solid rgba(139,105,20,0.4);color:#c9a84c;padding:0.55rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s;margin-top:0.5rem;text-decoration:none;display:block;text-align:center;}
+  .btn-consult:hover{background:var(--earthy);color:var(--ivory);border-color:var(--earthy);}
+
+  /* TESTIMONIALS */
+  #testimonials{background:var(--warm-dark);padding:5rem 4vw;}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;}
+  .testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);padding:2rem;position:relative;}
+  .testi-quote-mark{font-size:3rem;color:var(--gold);opacity:0.3;font-family:'Cormorant Garamond',serif;line-height:1;margin-bottom:0.5rem;}
+  .testi-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;color:var(--ivory);line-height:1.75;margin-bottom:1.2rem;}
+  .testi-author{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);}
+
+  /* TEACHER - smaller photo, concise */
+  #teacher{background:var(--cream);}
+  .teacher-grid{display:grid;grid-template-columns:0.45fr 1.9fr;gap:3rem;align-items:start;}
+  .teacher-photo-wrap{position:relative;}
+  .teacher-photo-bg{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;background:#E8E3DB;}
+  .teacher-photo-actual{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .teacher-frame{position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid var(--gold);z-index:-1;opacity:0.4;}
+  .teacher-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--warm-dark);margin-bottom:0.3rem;}
+  .teacher-title-line{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--saffron);margin-bottom:1.5rem;}
+  .teacher-bio p{line-height:1.9;color:var(--muted);margin-bottom:0.9rem;font-weight:300;font-size:0.93rem;}
+  .teacher-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.2rem;}
+  .pill{background:white;border:1px solid rgba(200,98,42,0.25);padding:0.35rem 0.9rem;font-size:0.68rem;letter-spacing:0.08em;color:var(--saffron);text-transform:uppercase;}
+
+  /* LOCATIONS */
+  #locations{background:var(--ivory);}
+  .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+  .loc-card{padding:2.5rem 2rem;border:1px solid rgba(200,98,42,0.15);background:white;position:relative;overflow:hidden;}
+  .loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--saffron);}
+  .loc-icon{font-size:1.8rem;margin-bottom:1rem;}
+  .loc-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--warm-dark);margin-bottom:0.5rem;}
+  .loc-detail{font-size:0.85rem;color:var(--muted);line-height:1.7;font-weight:300;}
+
+  /* CONTACT */
+  #contact{background:var(--dark);}
+  #contact .section-title{color:var(--ivory);}
+  #contact .section-label{color:var(--gold);}
+  #contact .section-label::before{background:var(--gold);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;margin-top:3rem;}
+  .contact-info{display:flex;flex-direction:column;gap:1.5rem;}
+  .contact-item{display:flex;gap:1rem;align-items:flex-start;}
+  .contact-icon{width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .contact-item-text label{display:block;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+  .contact-item-text span{color:var(--light-muted);font-size:0.9rem;font-weight:300;}
+  .contact-form{display:flex;flex-direction:column;gap:1.2rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-group label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-muted);}
+  .form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--ivory);padding:0.8rem 1rem;font-family:'Jost',sans-serif;font-size:0.88rem;font-weight:300;outline:none;transition:border-color 0.3s;resize:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+  .form-group select option{background:var(--dark);}
+  .btn-submit-contact{background:var(--saffron);color:var(--ivory);border:none;padding:1rem 2.5rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;align-self:flex-start;transition:background 0.3s,transform 0.2s;}
+  .btn-submit-contact:hover{background:var(--deep-saffron);transform:translateY(-2px);}
+
+  /* MODAL */
+  .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:2rem;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:var(--warm-dark);max-width:540px;width:100%;border:1px solid rgba(201,168,76,0.25);padding:2.5rem;position:relative;animation:fadeUp 0.3s ease;max-height:90vh;overflow-y:auto;}
+  .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--light-muted);font-size:1.5rem;cursor:pointer;}
+  .modal-close:hover{color:var(--ivory);}
+  .modal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:0.3rem;}
+  .modal-subtitle{font-size:0.78rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:2rem;}
+  .modal-form{display:flex;flex-direction:column;gap:1rem;}
+  .success-msg{display:none;text-align:center;padding:2rem;}
+  .success-msg .check{font-size:3rem;}
+  .success-msg p{color:var(--ivory);font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-top:1rem;}
+
+  footer{background:#0E0C08;padding:3rem 4vw;border-top:1px solid rgba(201,168,76,0.15);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);}
+  .footer-logo small{display:block;font-size:0.65rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;font-family:'Jost',sans-serif;margin-top:0.3rem;}
+  .footer-links{display:flex;gap:2rem;}
+  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{color:var(--muted);font-size:0.72rem;}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:900px){
+    .about-yoga-grid,.teacher-grid,.contact-grid,.online-inner,.yoga-intro-grid{grid-template-columns:1fr;gap:2.5rem;}
+    .loc-grid{grid-template-columns:1fr;}
+    .hero-badges{display:none;}
+    .form-row{grid-template-columns:1fr;}
+    nav{padding:1rem 4vw;}
+    .nav-links{display:none;}
+  }
+  @media(max-width:600px){.practices-grid{grid-template-columns:1fr;}}
