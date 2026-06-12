@@ -28,6 +28,42 @@
   function getDiscount(count){ if(count>=5)return 25; if(count>=3)return 15; if(count>=2)return 10; return 0; }
   function getBasePrice(m){ if(m===1)return PRICE_1M; if(m===3)return PRICE_3M; return 0; }
 
+  function updateAttemptOptions(){
+    const level=getValue('ca-level');
+    const attempt=document.getElementById('attempt');
+    if(!attempt)return;
+
+    let options=[];
+    if(level==='CA Foundation' || level==='CA Intermediate'){
+      options=[
+        'September 2026',
+        'January 2027',
+        'May 2027',
+        'Later attempt'
+      ];
+    }else if(level==='CA Final' || level==='Articleship / Post-Qualification'){
+      options=[
+        "November'26",
+        "May/Nov'27",
+        "May/Nov'28",
+        'Future date'
+      ];
+    }
+
+    const placeholder=level ? '— Select upcoming exam —' : '— Select CA level first —';
+    attempt.innerHTML='';
+    const placeholderOption=document.createElement('option');
+    placeholderOption.value='';
+    placeholderOption.textContent=placeholder;
+    attempt.appendChild(placeholderOption);
+
+    options.forEach(optionText=>{
+      const option=document.createElement('option');
+      option.textContent=optionText;
+      attempt.appendChild(option);
+    });
+  }
+
   function calculateFee(){
     const months=getDuration();
     const people=getGroupCount();
@@ -273,4 +309,6 @@ Please confirm my registration.`;
     document.getElementById('success-overlay').classList.add('show');
   }
 
+  document.getElementById('ca-level').addEventListener('change', updateAttemptOptions);
+  updateAttemptOptions();
   updateCalc();
