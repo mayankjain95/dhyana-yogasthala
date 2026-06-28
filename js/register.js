@@ -1,8 +1,9 @@
   const PRICE_1M = 1050;
   const PRICE_3M = 2500;
-  const REGISTRATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
+  // Use shared config — update endpoint/number in js/config.js only
+  const REGISTRATION_ENDPOINT = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG.registrationEndpoint : 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
   const FORM_KEY = 'sthira-2026';
-  const WHATSAPP_NUMBER = '918950867190';
+  const WHATSAPP_NUMBER = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG.whatsappNumber : '918950867190';
 
   let lastRegistrationData = null;
 
