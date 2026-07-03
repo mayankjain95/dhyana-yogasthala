@@ -104,3 +104,10 @@
       window.open('https://wa.me/918950867190?text=' + waMsg, '_blank');
     }
   }
+
+  function toggleNav() {
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks) {
+      navLinks.classList.toggle('active');
+    }
+  }

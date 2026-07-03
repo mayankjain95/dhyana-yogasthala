@@ -6,6 +6,7 @@
 
 const NAV_MAIN = `
 <a href="index.html#hero" class="nav-logo">Dhyana<span>Yogasthala</span></a>
+<button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">☰</button>
 <ul class="nav-links">
   <li><a href="index.html#what-is-yoga">What is Classical Hatha Yoga</a></li>
   <li><a href="index.html#practices">Practices</a></li>
@@ -16,8 +17,8 @@ const NAV_MAIN = `
 </ul>`;
 
 const NAV_SUBPAGE = `
-<a href="index.html" class="nav-logo">Dhyana<span>Yogasthala</span></a>
-<a href="index.html" class="nav-back">← Back to Main Site</a>`;
+<a href="../index.html" class="nav-logo">Dhyana<span>Yogasthala</span></a>
+<a href="../index.html" class="nav-back">← Back to Main Site</a>`;
 
 const FOOTER_MAIN = `
 <div class="footer-inner">
@@ -32,9 +33,9 @@ const FOOTER_MAIN = `
 </div>`;
 
 const FOOTER_SUBPAGE = `
-<a href="index.html" class="footer-logo">Dhyana<span>Yogasthala</span></a>
+<a href="../index.html" class="footer-logo">Dhyana<span>Yogasthala</span></a>
 <span class="footer-copy">© ${(typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG.year : '2026')} Dhyana Yogasthala · Shruti Jain, Sonepat</span>
-<a href="index.html" class="footer-back">← Back to Main Site</a>`;
+<a href="../index.html" class="footer-back">← Back to Main Site</a>`;
 
 const WA_FLOAT = `<a href="#" class="wa-float" target="_blank" title="Chat with Shruti on WhatsApp" data-wa="default">🌿</a>`;
 
