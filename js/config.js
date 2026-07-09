@@ -1,7 +1,7 @@
 /**
  * js/config.js — Dhyana Yogasthala
  * Single source of truth for all shared constants.
- * To update the WhatsApp number, endpoint, or UPI ID, edit ONLY this file.
+ * To update the WhatsApp number, endpoint, UPI ID, or email, edit ONLY this file.
  */
 const SITE_CONFIG = {
   siteName: 'Dhyana Yogasthala',
@@ -20,6 +20,9 @@ const SITE_CONFIG = {
   // Payment
   upiId: 'shruti.shruti.jain84@okaxis',
   upiName: 'Shruti Jain',
+
+  // Contact email
+  email: 'seekwithshruti@gmail.com',
 };
 
 /** Returns a full wa.me URL for a given message key ('default' or 'sthira') */
@@ -35,4 +38,15 @@ function applyWaLinks() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', applyWaLinks);
+/** Applies correct mailto href + display text to all elements with [data-email] attribute */
+function applyEmailLinks() {
+  document.querySelectorAll('[data-email]').forEach(el => {
+    el.href = `mailto:${SITE_CONFIG.email}`;
+    el.textContent = SITE_CONFIG.email;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyWaLinks();
+  applyEmailLinks();
+});
