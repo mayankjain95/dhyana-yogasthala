@@ -26,7 +26,7 @@
 
 <!-- HERO -->
 <section class="maitreyi-hero">
-  <img src="../assets/images/practice-yoga-cervical-back-pain.jpg" alt="Yoga for Cervical &amp; Back Pain — Free Classical Hatha Yoga Session" class="maitreyi-hero-img" loading="lazy">
+  <img src="../assets/images/practice-yoga-cervical-back-pain.webp" alt="Yoga for Cervical &amp; Back Pain — Free Classical Hatha Yoga Session" class="maitreyi-hero-img" loading="lazy">
   <div class="maitreyi-hero-overlay"></div>
   <div class="maitreyi-hero-content">
     <div class="maitreyi-label">Free · Online · 2 Aug 2026 · 11:30 AM – 12:30 PM IST</div>
@@ -154,16 +154,6 @@
           <label class="radio-option"><input type="radio" name="cb-consent" value="No"> No</label>
         </div>
       </div>
-      <br>
-      <div class="consent-block" style="margin-top:0;">
-        <div class="consent-text">
-          <strong style="color:var(--gold);">Payment &amp; Cancellation terms:</strong> Your registration will be completed upon receipt of the applicable fee. For recurring programs, fees must be paid in advance on a monthly basis. Incase the participant has cancelled a scheduled session, rescheduling requests will be accommodated subject to availability.
-        </div>
-        <div class="radio-group" style="margin-top:0.8rem;">
-          <label class="radio-option"><input type="radio" name="cb-payment-consent" value="Yes, I understand that"> Yes, I understand that</label>
-          <label class="radio-option"><input type="radio" name="cb-payment-consent" value="No"> No</label>
-        </div>
-      </div>
     </div>
 
     <!-- 6. Anything Else -->
@@ -176,38 +166,14 @@
     </div>
 
     <div class="submit-area reveal">
-      <button class="btn-submit-main" onclick="handleCervicalSubmit()">Submit Registration →</button>
-      <p class="submit-note">After submitting, a payment screen will appear with a QR code. Pay via any UPI app. Shruti will confirm your registration within 24 hours.</p>
+      <button class="btn-submit-main" onclick="handleCervicalSubmit()">Register for Free Session →</button>
+      <p class="submit-note">This session is completely free. You will receive the joining link via WhatsApp or email before the session.</p>
     </div>
   </div>
 </section>
 
 <footer id="site-footer"></footer>
 
-<!-- PAYMENT OVERLAY -->
-<div class="payment-overlay" id="payment-overlay">
-  <div class="payment-box">
-    <div class="payment-box-header">
-      <div class="payment-box-pretitle">Yoga for Cervical &amp; Back Pain · Dhyana Yogasthala</div>
-      <div class="payment-box-title">Complete Your Payment</div>
-    </div>
-    <div class="payment-box-body">
-      <div class="payment-steps">
-        <div class="payment-step"><div class="payment-step-num">1</div><span>Scan the QR code below using Google Pay, PhonePe, Paytm, or any UPI app</span></div>
-        <div class="payment-step"><div class="payment-step-num">2</div><span>Make the payment for your chosen programme duration</span></div>
-        <div class="payment-step"><div class="payment-step-num">3</div><span>Click "I Have Paid" — Shruti will confirm your registration within 24 hours</span></div>
-      </div>
-      <div class="qr-wrap">
-        <img src="../assets/images/upi-qr.webp" alt="UPI QR — Shruti Jain" class="qr-img">
-        <div class="qr-upi">
-          <strong>UPI ID: shruti.shruti.jain84@okaxis</strong>
-          Scan with any UPI app · Seek with Shruti
-        </div>
-      </div>
-      <button class="payment-done-btn" onclick="showCervicalSuccess()">✓ I Have Paid — Complete Registration</button>
-    </div>
-  </div>
-</div>
 
 <!-- SUCCESS OVERLAY -->
 <div class="success-overlay" id="success-overlay">
@@ -280,7 +246,6 @@
     const health = val('cb-health');
     const injury = val('cb-injury');
     const consent = checked('cb-consent');
-    const paymentConsent = checked('cb-payment-consent');
 
     if (!name || name.length < 2) return 'Please enter your name.';
     if (!age || Number(age) < 5 || Number(age) > 90) return 'Please enter a valid age.';
@@ -292,7 +257,6 @@
     if (!health) return "Please fill in the health/pain details field (write 'None' if not applicable).";
     if (!injury) return "Please fill in the illness/injury field (write 'None' if not applicable).";
     if (consent !== 'Yes') return 'Please confirm the declaration by selecting Yes.';
-    if (paymentConsent !== 'Yes, I understand that') return 'Please acknowledge the Payment & Cancellation terms.';
     return '';
   }
 
@@ -331,15 +295,6 @@
     }
   }
 
-  function buildPaymentWhatsAppMessage(data) {
-    return 'Hi Shruti, I have completed the UPI payment for Yoga for Cervical & Back Pain session.\n\n'
-      + 'Name: ' + data.name + '\n'
-      + 'Phone: ' + data.phone + '\n'
-      + 'Email: ' + data.email + '\n'
-      + 'Goal: ' + (data.goal || '-') + '\n\n'
-      + 'Please confirm my registration.';
-  }
-
   function buildWhatsAppMessage(data) {
     return 'Hi Shruti, I have registered for the free Yoga for Cervical & Back Pain session.\n\n'
       + 'Name: ' + data.name + '\n'
@@ -373,10 +328,7 @@
 
     try {
       await sendToSheet(data);
-      lastRegistrationData = data;
     } catch(err) {
-      lastRegistrationData = data;
-      alert('We could not save your registration automatically. WhatsApp will open with your details as a fallback.');
       const waMsg = encodeURIComponent(buildWhatsAppMessage(data));
       window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg, '_blank');
     } finally {
@@ -384,52 +336,9 @@
       btn.disabled = false;
     }
 
-    // Show payment overlay
-    document.getElementById('payment-overlay').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-
-  async function showCervicalSuccess() {
-    const btn = document.querySelector('.payment-done-btn');
-    const originalText = btn ? btn.textContent : '';
-    if (btn) {
-      btn.textContent = 'Recording Payment Confirmation\u2026';
-      btn.disabled = true;
-    }
-
-    try {
-      if (lastRegistrationData) {
-        const paymentData = {
-          formKey: FORM_KEY,
-          submissionType: 'payment_confirmation',
-          source: 'Yoga for Cervical & Back Pain payment confirmation',
-          confirmedAt: new Date().toISOString(),
-          paymentStatus: 'User clicked I Have Paid',
-          programme: 'Yoga for Cervical & Back Pain',
-          name: lastRegistrationData.name,
-          phone: lastRegistrationData.phone,
-          email: lastRegistrationData.email,
-          city: lastRegistrationData.city,
-          goal: lastRegistrationData.goal,
-          notes: lastRegistrationData.notes
-        };
-        await sendToSheet(paymentData);
-      }
-    } catch(err) {
-      if (lastRegistrationData) {
-        alert('We could not record the payment confirmation automatically. WhatsApp will open as a backup.');
-        const waMsg = encodeURIComponent(buildPaymentWhatsAppMessage(lastRegistrationData));
-        window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg, '_blank');
-      }
-    } finally {
-      if (btn) {
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
-    }
-
-    document.getElementById('payment-overlay').classList.remove('show');
+    // Show success overlay directly (no payment step)
     document.getElementById('success-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
   }
 </script>
 </body>
