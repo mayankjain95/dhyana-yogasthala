@@ -35,10 +35,11 @@
     if (el) el.setAttribute('content', content);
   }
 
-  // ── 3. Inject nav / footer / WA ──────────────────────────────────────────
+  // ── 3. Inject nav / footer / WA / Form ────────────────────────────────────
   injectNav('subpage');
   injectFooter('subpage');
   injectWaFloat();
+  if (typeof injectForm === 'function') injectForm();
   applyWaLinks();
 
   // ── 4. Render hero ────────────────────────────────────────────────────────
@@ -200,7 +201,7 @@
     try {
       if (lastRegistrationData) {
         await sendToSheet({
-          formKey: prog.id + '-payment-confirmation',
+          formKey: 'maitreyi-2026',
           submissionType: 'payment_confirmation',
           confirmedAt: new Date().toISOString(),
           paymentStatus: 'User clicked I Have Paid',
@@ -208,6 +209,9 @@
           name: lastRegistrationData.name,
           phone: lastRegistrationData.phone,
           email: lastRegistrationData.email,
+          city: lastRegistrationData.city,
+          goal: lastRegistrationData.goal,
+          notes: lastRegistrationData.notes,
         });
       }
     } catch (err) {
@@ -249,6 +253,7 @@
     if ((val('p-phone') || '').length < 7) return 'Please enter your mobile number.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('p-email'))) return 'Please enter a valid email address.';
     if ((val('p-city') || '').length < 2) return 'Please enter your city and country.';
+    if ((val('p-emergency') || '').length < 5) return 'Please enter emergency contact details.';
     if (!radio('p-pregnancy')) return 'Please answer the pregnancy question.';
     if (!val('p-health')) return "Please fill in the health details field (write 'None' if not applicable).";
     if (!val('p-injury')) return "Please fill in the illness/injury field (write 'None' if not applicable).";
@@ -262,7 +267,7 @@
   function collectData() {
     return {
       submittedAt:    new Date().toISOString(),
-      formKey:        prog.id + '-registration',
+      formKey:        'maitreyi-2026',
       submissionType: 'registration',
       programme:      prog.title,
       isFree:         prog.isFree,
@@ -272,6 +277,7 @@
       phone:          val('p-phone'),
       email:          val('p-email'),
       city:           val('p-city'),
+      emergency:      val('p-emergency'),
       goal:           radio('p-goal'),
       practicedBefore:radio('p-practiced'),
       pregnancy:      radio('p-pregnancy'),
