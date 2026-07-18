@@ -203,6 +203,7 @@
         await sendToSheet({
           formKey: 'maitreyi-2026',
           submissionType: 'payment_confirmation',
+          source: prog.title + ' payment confirmation',
           confirmedAt: new Date().toISOString(),
           paymentStatus: 'User clicked I Have Paid',
           programme: prog.title,
@@ -250,7 +251,7 @@
     const age = Number(val('p-age'));
     if (!age || age < 5 || age > 90) return 'Please enter a valid age.';
     if (!radio('p-gender')) return 'Please select your gender.';
-    if ((val('p-phone') || '').length < 7) return 'Please enter your mobile number.';
+    if ((val('p-phone') || '').replace(/\D/g,'').length < 8) return 'Please enter a valid mobile number (min 8 digits).';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('p-email'))) return 'Please enter a valid email address.';
     if ((val('p-city') || '').length < 2) return 'Please enter your city and country.';
     if ((val('p-emergency') || '').length < 5) return 'Please enter emergency contact details.';
@@ -265,10 +266,19 @@
   }
 
   function collectData() {
+    const rawNotes = val('p-notes');
+    const emergencyStr = val('p-emergency') ? ('Emergency Contact: ' + val('p-emergency')) : '';
+    const pregnancyStr = radio('p-pregnancy') ? ('Pregnancy/Recent Birth: ' + radio('p-pregnancy')) : '';
+    
+    let combinedNotes = rawNotes;
+    if (emergencyStr) combinedNotes += (combinedNotes ? '\n' : '') + emergencyStr;
+    if (pregnancyStr) combinedNotes += (combinedNotes ? '\n' : '') + pregnancyStr;
+
     return {
       submittedAt:    new Date().toISOString(),
       formKey:        'maitreyi-2026',
       submissionType: 'registration',
+      source:         prog.title + ' registration page',
       programme:      prog.title,
       isFree:         prog.isFree,
       name:           val('p-name'),
@@ -279,11 +289,12 @@
       city:           val('p-city'),
       emergency:      val('p-emergency'),
       goal:           radio('p-goal'),
+      experience:     radio('p-practiced'), 
       practicedBefore:radio('p-practiced'),
       pregnancy:      radio('p-pregnancy'),
       health:         val('p-health'),
       injury:         val('p-injury'),
-      notes:          val('p-notes'),
+      notes:          combinedNotes,
     };
   }
 
@@ -299,8 +310,10 @@
   function buildWhatsAppMessage(data) {
     return 'Hi Shruti, I have registered for ' + prog.title + '.\n\n' +
       'Name: ' + data.name + '\nAge: ' + data.age + ' | Gender: ' + data.gender + '\n' +
-      'Phone: ' + data.phone + '\nEmail: ' + data.email + '\nCity: ' + data.city + '\n\n' +
+      'Phone: ' + data.phone + '\nEmail: ' + data.email + '\nCity: ' + data.city + '\n' +
+      'Emergency Contact: ' + (data.emergency || '—') + '\n\n' +
       'Goal: ' + (data.goal || '—') + '\nPrior experience: ' + (data.practicedBefore || '—') + '\n' +
+      'Pregnancy/Birth in last 3 months: ' + (data.pregnancy || '—') + '\n' +
       'Health details: ' + data.health + '\nIllness/Injury (last 3 yrs): ' + data.injury + '\n' +
       'Additional notes: ' + (data.notes || '—') + '\n\nPlease confirm my registration.';
   }
