@@ -51,6 +51,27 @@ const SITE_CONFIG = {
  */
 const UPCOMING_PROGRAMS = [
   {
+    id: 'kaithal',
+    tag: '✦ Kaithal',
+    title: 'Classical Hatha Yoga in Kaithal',
+    image: 'assets/images/hero-bg.webp',
+    cardDesc: 'Yogasanas, Bhuta Shuddhi & Surya Kriya Review are coming to Kaithal! Join us from 14th - 16th August.',
+    pageDesc: 'Namaskaram,\n\nClassical Hatha Yoga Programs are coming to Kaithal! 🙏\n\n🧘Yogasanas\n📅 14 Aug (Fri): 6:00 PM – 8:30 PM\n📅 15 Aug (Sat): 11:00 AM – 1:30 PM & 6:00 PM – 8:30 PM\n📅 16 Aug (Sun): 11:00 AM – 1:30 PM\n\n🔥 Bhuta Shuddhi\n📅 16 Aug (Sun): 3:00 PM – 4:15 PM\n\n☀️ Surya Kriya Review (for those already initiated into Surya Kriya)\n📅 16 Aug (Sun): 6:00 PM – 7:30 PM',
+    subtitle: '14 - 16 Aug | Kaithal',
+    benefits: [
+      'Yogasanas',
+      'Bhuta Shuddhi',
+      'Surya Kriya Review'
+    ],
+    date: '14th–16th August',
+    time: 'Multiple Timings',
+    location: 'Pant nagar, Near Suncity, Kaithal',
+    link: 'programs/kaithal.html',
+    linkText: 'Know More / Register',
+    isFree: false,
+    active: true,
+  },
+  {
     id: 'yogasanas',
     tag: '✦ Workshop',
     title: 'Yogasanas',
