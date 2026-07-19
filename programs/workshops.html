@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/main.css">
+<script src="../js/i18n.js"></script>
 <script src="../js/config.js?v=3"></script>
 <script src="../js/components.js?v=3"></script>
 </head>
@@ -18,9 +19,9 @@
 <nav id="site-nav"></nav>
 
 <div style="background:var(--warm-dark);padding:8rem 4vw 4rem;text-align:center;">
-  <div class="section-label" style="color:var(--gold);">Classical Hatha Yoga</div>
-  <h1 class="section-title" style="color:var(--ivory);">Workshops</h1>
-  <p style="color:var(--light-muted);max-width:700px;margin:0 auto;line-height:1.8;">
+  <div class="section-label" style="color:var(--gold);" data-i18n="about.label">Classical Hatha Yoga</div>
+  <h1 class="section-title" style="color:var(--ivory);" data-i18n="workshops.title">Workshops</h1>
+  <p style="color:var(--light-muted);max-width:700px;margin:0 auto;line-height:1.8;" data-i18n="workshops.desc">
     We offer workshops such as Angamardana, Surya Kriya, and Yogasanas ranging from one to five days. Each is dedicated to teaching a specific yogic practice in a way that enables you to continue it independently, without the need for ongoing guidance from a teacher. These powerful programs have been structured by Sadhguru.
   </p>
 </div>
@@ -39,32 +40,33 @@
   injectWaFloat();
   applyWaLinks();
 
-  (function () {
+  function renderWorkshops() {
     const grid = document.getElementById('workshops-grid');
     if (!grid || typeof WORKSHOPS === 'undefined') return;
     const active = WORKSHOPS.filter(w => w.active !== false);
     grid.innerHTML = active.map(w => {
-      const benefitsHtml = (w.cardBenefits && w.cardBenefits.length)
-        ? `<ul class="practice-benefits">${w.cardBenefits.map(b => `<li>${b}</li>`).join('')}</ul>`
+      const bText = t(w.cardBenefits, w.cardBenefitsHi || w.cardBenefits);
+      const benefitsHtml = (bText && bText.length)
+        ? `<ul class="practice-benefits">${bText.map(b => `<li>${b}</li>`).join('')}</ul>`
         : '';
       const metaHtml = (w.cardDuration || w.cardTarget)
         ? `<div class="practice-meta">
              ${w.cardDuration ? `<span class="practice-duration">${w.cardDuration}</span>` : ''}
-             ${w.cardTarget   ? `<span class="practice-target">${w.cardTarget}</span>`     : ''}
+             ${w.cardTarget   ? `<span class="practice-target">${t(w.cardTarget, w.cardTargetHi || w.cardTarget)}</span>`     : ''}
            </div>`
         : '';
       return `
         <div class="practice-card reveal">
           <div class="practice-card-img-wrap">
-            <img src="../${w.image}" alt="${w.title}" class="practice-card-img" loading="lazy">
+            <img src="../${w.image}" alt="${t(w.title, w.titleHi)}" class="practice-card-img" loading="lazy">
           </div>
           <div class="practice-card-body">
-            <div class="practice-tag">${w.tag}</div>
-            <div class="practice-name">${w.title}</div>
-            <div class="practice-desc">${w.cardDesc}</div>
+            <div class="practice-tag">${t(w.tag, w.tagHi)}</div>
+            <div class="practice-name">${t(w.title, w.titleHi)}</div>
+            <div class="practice-desc">${t(w.cardDesc, w.cardDescHi)}</div>
             ${benefitsHtml}
             ${metaHtml}
-            <a href="${w.link.replace('programs/', '')}" class="btn-book" style="text-align:center;display:block;">${w.linkText}</a>
+            <a href="${w.link.replace('programs/', '')}" class="btn-book" style="text-align:center;display:block;">${t(w.linkText, w.linkTextHi)}</a>
           </div>
         </div>`;
     }).join('');
@@ -76,7 +78,12 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
-  })();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderWorkshops();
+  });
+  document.addEventListener('langchange', renderWorkshops);
 </script>
 </body>
 </html>

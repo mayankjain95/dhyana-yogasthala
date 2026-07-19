@@ -63,8 +63,8 @@
     }
   }
 
-  setText('prog-hero-title',    prog.title);
-  setText('prog-hero-subtitle', prog.subtitle || '');
+  setText('prog-hero-title',    t(prog.title, prog.titleHi));
+  setText('prog-hero-subtitle', t(prog.subtitle || '', prog.subtitleHi || ''));
 
   // Hero content: heroFeatures (Maitreyi-style bullet list) OR pageDesc paragraph
   const heroDesc    = document.getElementById('prog-hero-desc');
@@ -81,8 +81,9 @@
     if (heroDesc) heroDesc.style.display = 'none';
   } else {
     // Render paragraph desc
-    if (heroDesc && prog.pageDesc) {
-      heroDesc.innerHTML = escapeHtml(prog.pageDesc)
+    const desc = t(prog.pageDesc, prog.pageDescHi);
+    if (heroDesc && desc) {
+      heroDesc.innerHTML = escapeHtml(desc)
         .replace(/\n\n/g, '<br><br>')
         .replace(/\n/g, '<br>');
       heroDesc.style.display = '';
@@ -99,24 +100,34 @@
     benefitsLabel.textContent = prog.benefitsLabel;
   }
 
-  if (benefitsGrid && prog.benefits && prog.benefits.length) {
-    benefitsGrid.innerHTML = prog.benefits.map(b => {
-      const icon = (typeof b === 'object' && b.icon) ? b.icon : '✦';
-      const text = (typeof b === 'object') ? b.text : b;
-      return `<div class="about-highlight"><div class="about-highlight-icon">${icon}</div><div>${escapeHtml(text)}</div></div>`;
-    }).join('');
-    if (benefitsSection) benefitsSection.style.display = '';
+  if (benefitsGrid) {
+    const bens = currentLang() === 'hi' && prog.benefitsHi ? prog.benefitsHi : (prog.benefits || []);
+    if (bens.length) {
+      benefitsGrid.innerHTML = bens.map(b => {
+        const icon = (typeof b === 'object' && b.icon) ? b.icon : '✦';
+        const text = (typeof b === 'object') ? b.text : b;
+        return `<div class="about-highlight"><div class="about-highlight-icon">${icon}</div><div>${escapeHtml(text)}</div></div>`;
+      }).join('');
+      if (benefitsSection) benefitsSection.style.display = '';
+    } else {
+      if (benefitsSection) benefitsSection.style.display = 'none';
+    }
   } else {
     if (benefitsSection) benefitsSection.style.display = 'none';
   }
 
   // ── 6. Render form header ─────────────────────────────────────────────────
-  setText('prog-form-title',
-    prog.isFree ? 'Register for Free Session' : 'Register for ' + prog.title);
-  setText('prog-form-sub',
-    prog.isFree
-      ? 'This session is completely free. You will receive the joining link via WhatsApp or email before the session. Seats are limited — register early.'
-      : 'Please fill in the details below. Shruti will review your registration and confirm within 24 hours.');
+  function renderFormHeader() {
+    setText('prog-form-title',
+      prog.isFree
+        ? tr('prog.form.title.free', 'Register for Free Session')
+        : tr('prog.form.title.paid', 'Register for') + ' ' + t(prog.title, prog.titleHi));
+    setText('prog-form-sub',
+      prog.isFree
+        ? tr('prog.form.sub.free', 'This session is completely free. You will receive the joining link via WhatsApp or email before the session. Seats are limited — register early.')
+        : tr('prog.form.sub.paid', 'Please fill in the details below. Shruti will review your registration and confirm within 24 hours.'));
+  }
+  renderFormHeader();
 
   // ── 7. Show/hide payment consent in form ─────────────────────────────────
   const paymentConsentBlock = document.getElementById('prog-payment-consent-block');
@@ -125,16 +136,25 @@
   }
 
   // ── 8. Submit button text & note ─────────────────────────────────────────
-  const submitBtn = document.querySelector('.btn-submit-main');
-  if (submitBtn) {
-    submitBtn.textContent = prog.isFree ? 'Register for Free Session →' : 'Submit Registration →';
+  function renderSubmitBtn() {
+    const submitBtn = document.querySelector('.btn-submit-main');
+    if (submitBtn) {
+      submitBtn.textContent = prog.isFree
+        ? tr('prog.submit.free', 'Register for Free Session →')
+        : tr('prog.submit.paid', 'Submit Registration →');
+    }
+    const submitNote = document.querySelector('.submit-note');
+    if (submitNote) {
+      submitNote.textContent = prog.isFree
+        ? tr('prog.submit.note.free', 'This session is completely free. You will receive the joining link via WhatsApp or email before the session.')
+        : tr('prog.submit.note.paid', 'After submitting, a payment screen will appear with a QR code. Pay via any UPI app. Shruti will confirm your registration within 24 hours.');
+    }
+    const heroBtn = document.querySelector('.hero-scroll-cta');
+    if (heroBtn) {
+      heroBtn.textContent = tr('prog.hero.book', 'Register →');
+    }
   }
-  const submitNote = document.querySelector('.submit-note');
-  if (submitNote) {
-    submitNote.textContent = prog.isFree
-      ? 'This session is completely free. You will receive the joining link via WhatsApp or email before the session.'
-      : 'After submitting, a payment screen will appear with a QR code. Pay via any UPI app. Shruti will confirm your registration within 24 hours.';
-  }
+  renderSubmitBtn();
 
   // ── 9. Show/hide payment overlay ─────────────────────────────────────────
   const paymentOverlay = document.getElementById('payment-overlay');
@@ -148,6 +168,7 @@
 
   // ── 10. Success overlay program name ─────────────────────────────────────
   setText('prog-success-name', prog.title);
+  setText('prog-success-name-hi', t(prog.title, prog.titleHi));
 
   // ── 11. Scroll reveal ────────────────────────────────────────────────────
   const reveals = document.querySelectorAll('.reveal');
@@ -158,7 +179,31 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── 12. Form logic ────────────────────────────────────────────────────────
+  // ── 12. Re-render on language change ─────────────────────────────────────
+  document.addEventListener('langchange', () => {
+    setText('prog-hero-title',    t(prog.title, prog.titleHi));
+    setText('prog-hero-subtitle', t(prog.subtitle || '', prog.subtitleHi || ''));
+    // Re-render description
+    const heroDesc = document.getElementById('prog-hero-desc');
+    const desc = t(prog.pageDesc, prog.pageDescHi);
+    if (heroDesc && desc) {
+      heroDesc.innerHTML = escapeHtml(desc).replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
+    }
+    // Re-render benefits
+    const benefitsGrid = document.getElementById('prog-benefits-grid');
+    if (benefitsGrid) {
+      const bens = currentLang() === 'hi' && prog.benefitsHi ? prog.benefitsHi : (prog.benefits || []);
+      benefitsGrid.innerHTML = bens.map(b => {
+        const icon = (typeof b === 'object' && b.icon) ? b.icon : '✦';
+        const text = (typeof b === 'object') ? b.text : b;
+        return `<div class="about-highlight"><div class="about-highlight-icon">${icon}</div><div>${escapeHtml(text)}</div></div>`;
+      }).join('');
+    }
+    // Re-render form header and submit button
+    if (typeof renderFormHeader === 'function') renderFormHeader();
+    if (typeof renderSubmitBtn === 'function') renderSubmitBtn();
+  });
+
   let lastRegistrationData = null;
 
   window.handleProgramSubmit = async function () {

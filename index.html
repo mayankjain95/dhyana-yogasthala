@@ -16,7 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/main.css">
-<script src="js/config.js?v=3"></script>
+<script src="js/i18n.js"></script>
+<script src="js/config.js?v=4"></script>
 </head>
 <body>
 
@@ -26,12 +27,18 @@
   <a href="#hero" class="nav-logo">Dhyana<span>Yogasthala</span></a>
   <button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">☰</button>
   <ul class="nav-links">
-    <li><a href="#what-is-yoga">What is Classical Hatha Yoga</a></li>
-    <li><a href="#offerings">Offerings</a></li>
-    <li><a href="#teacher">Teacher</a></li>
-    <li><a href="#locations">Locations</a></li>
-    <li><a href="#" class="nav-wa" data-wa="default">🌿 Consult Teacher</a></li>
-    <li><a href="#contact" class="nav-cta">Enquire</a></li>
+    <li><a href="#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
+    <li><a href="#offerings" data-i18n="nav.offerings">Offerings</a></li>
+    <li><a href="#teacher" data-i18n="nav.teacher">Teacher</a></li>
+    <li><a href="#locations" data-i18n="nav.locations">Locations</a></li>
+    <li><a href="#" class="nav-wa" data-wa="default" data-i18n="nav.consult">🌿 Consult Teacher</a></li>
+    <li><a href="#contact" class="nav-cta" data-i18n="nav.enquire">Enquire</a></li>
+    <li>
+      <div class="lang-toggle" title="Switch Language / भाषा बदलें">
+        <button class="lang-opt" data-lang="en" onclick="toggleLang('en')">EN</button>
+        <button class="lang-opt" data-lang="hi" onclick="toggleLang('hi')">हिं</button>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -49,18 +56,18 @@
     </svg>
   </div>
   <div class="hero-content">
-    <div class="hero-label">Classical Hatha Yoga · Isha Certified</div>
-    <h1 class="hero-title">Where the Body<br>becomes a <em>Sacred</em><br>Instrument</h1>
-    <p class="hero-sub">Ancient yogic practices transmitted in their purest form. Sonepat, Gurgaon &amp; online sessions across India.</p>
+    <div class="hero-label" data-i18n="hero.label">Classical Hatha Yoga · Isha Certified</div>
+    <h1 class="hero-title" data-i18n="hero.title">Where the Body<br>becomes a <em>Sacred</em><br>Instrument</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Ancient yogic practices transmitted in their purest form. Sonepat, Gurgaon &amp; online sessions across India.</p>
     <div class="hero-btns">
-      <a href="#offerings" class="btn-primary">Explore Offerings</a>
-      <a href="#contact" class="btn-outline">Book a Session</a>
-      <a href="#" target="_blank" class="btn-wa-earthy" data-wa="default">🌿 Consult a Teacher</a>
+      <a href="#offerings" class="btn-primary" data-i18n="hero.explore">Explore Offerings</a>
+      <a href="#contact" class="btn-outline" data-i18n="hero.book">Book a Session</a>
+      <a href="#" target="_blank" class="btn-wa-earthy" data-wa="default" data-i18n="hero.wa">🌿 Consult a Teacher</a>
     </div>
   </div>
   <div class="hero-badges">
-    <div class="badge"><strong>Isha</strong>Certified Teacher</div>
-    <div class="badge"><strong>10+</strong>Practices</div>
+    <div class="badge" data-i18n="hero.badge.certified"><strong>Isha</strong>Certified Teacher</div>
+    <div class="badge" data-i18n="hero.badge.practices"><strong>10+</strong>Practices</div>
   </div>
   <div class="hero-line"></div>
 </section>
@@ -68,8 +75,8 @@
 
 <!-- UPCOMING PROGRAMS -->
 <section id="upcoming" style="background:var(--warm-dark);padding:5rem 4vw;">
-  <div class="section-label" style="color:var(--gold);">Don't Miss Out</div>
-  <h2 class="section-title" style="color:var(--ivory);">Upcoming Programs</h2>
+  <div class="section-label" style="color:var(--gold);" data-i18n="upcoming.label">Don't Miss Out</div>
+  <h2 class="section-title" style="color:var(--ivory);" data-i18n="upcoming.title">Upcoming Programs</h2>
   <div class="practices-grid" id="upcoming-programs-grid">
     <!-- Cards are rendered dynamically from UPCOMING_PROGRAMS in js/config.js -->
     <!-- ARCHIVED: Three-Day Classical Hatha Yoga Retreat
@@ -88,41 +95,51 @@
 
 <script>
   (function () {
-    const grid = document.getElementById('upcoming-programs-grid');
-    if (!grid || typeof UPCOMING_PROGRAMS === 'undefined') return;
-    const active = UPCOMING_PROGRAMS.filter(p => p.active);
-    if (!active.length) {
-      grid.innerHTML = '<p style="color:var(--light-muted);padding:2rem 0;">No upcoming programs at this time. Check back soon.</p>';
-      return;
-    }
-    grid.innerHTML = active.map(p => {
-      const meta = [
-        p.date     ? '<div>📅 ' + p.date + '</div>'     : '',
-        p.time     ? '<div>🕒 ' + p.time + '</div>'     : '',
-        p.location ? '<div>📍 ' + p.location + '</div>' : '',
-      ].join('');
-      return `
-        <div class="practice-card reveal">
-          <div class="practice-card-img-wrap">
-            <img src="${p.image}" alt="${p.title}" class="practice-card-img" style="object-position:center top;" loading="lazy">
-          </div>
-          <div class="practice-card-body">
-            <div class="practice-tag">${p.tag}</div>
-            <div class="practice-name">${p.title}</div>
-            <div class="practice-desc">${p.cardDesc}</div>
-            <div style="margin-bottom:1rem;font-size:0.85rem;color:var(--light-muted);line-height:1.6;">${meta}</div>
-            <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${p.linkText}</a>
-          </div>
-        </div>`;
-    }).join('');
+    function renderUpcoming() {
+      const grid = document.getElementById('upcoming-programs-grid');
+      if (!grid || typeof UPCOMING_PROGRAMS === 'undefined') return;
+      const active = UPCOMING_PROGRAMS.filter(p => p.active);
+      if (!active.length) {
+        const emptyMsg = (typeof t === 'function') ? t('No upcoming programs at this time. Check back soon.', 'अभी कोई आगामी कार्यक्रम नहीं है। जल्द ही वापस देखें।') : 'No upcoming programs at this time. Check back soon.';
+        grid.innerHTML = '<p style="color:var(--light-muted);padding:2rem 0;">' + emptyMsg + '</p>';
+        return;
+      }
+      grid.innerHTML = active.map(p => {
+        const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
+        const title = (isHi && p.titleHi) ? p.titleHi : p.title;
+        const tag   = (isHi && p.tagHi)   ? p.tagHi   : p.tag;
+        const desc  = (isHi && p.cardDescHi) ? p.cardDescHi : p.cardDesc;
+        const link  = (isHi && p.linkTextHi) ? p.linkTextHi : p.linkText;
+        const meta = [
+          p.date     ? '<div>📅 ' + p.date + '</div>'     : '',
+          p.time     ? '<div>🕒 ' + p.time + '</div>'     : '',
+          p.location ? '<div>📍 ' + p.location + '</div>' : '',
+        ].join('');
+        return `
+          <div class="practice-card reveal">
+            <div class="practice-card-img-wrap">
+              <img src="${p.image}" alt="${title}" class="practice-card-img" style="object-position:center top;" loading="lazy">
+            </div>
+            <div class="practice-card-body">
+              <div class="practice-tag">${tag}</div>
+              <div class="practice-name">${title}</div>
+              <div class="practice-desc">${desc}</div>
+              <div style="margin-bottom:1rem;font-size:0.85rem;color:var(--light-muted);line-height:1.6;">${meta}</div>
+              <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${link}</a>
+            </div>
+          </div>`;
+      }).join('');
 
-    // Re-run scroll reveal on dynamically added cards
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-      });
-    }, { threshold: 0.1 });
-    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+        });
+      }, { threshold: 0.1 });
+      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    renderUpcoming();
+    document.addEventListener('langchange', renderUpcoming);
   })();
 </script>
 
@@ -131,22 +148,22 @@
 <section id="what-is-yoga">
   <div class="yoga-intro-grid">
     <div class="yoga-intro-left reveal">
-      <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span>A Question Worth Asking</div>
+      <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span><span data-i18n="yoga.section.label">A Question Worth Asking</span></div>
       <h2 class="yoga-headline">
-        <span class="line1">Yoga is not a solution<br>for everything in life.</span>
-        <span class="line2">Yoga could be exactly<br>what you need right now.</span>
+        <span class="line1" data-i18n="yoga.headline.line1">Yoga is not a solution<br>for everything in life.</span>
+        <span class="line2" data-i18n="yoga.headline.line2">Yoga could be exactly<br>what you need right now.</span>
       </h2>
       <div style="margin-top:1.5rem;padding:1rem 1.4rem;border:1px solid rgba(201,168,76,0.3);display:inline-block;background:rgba(201,168,76,0.06);">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-style:italic;">Would you like to try it?</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-style:italic;" data-i18n="yoga.question">Would you like to try it?</p>
       </div>
     </div>
     <div class="yoga-intro-right reveal">
-      <p class="yoga-para">What is Yoga, first of all? Think — what do you think it is? When you utter the word yoga, everyone has a notion of what it could be or should be. <strong>People think yoga means standing on your head,</strong> and normal means standing on your feet.</p>
-      <p class="yoga-para">The word Yoga means <strong>Union</strong> — or we can say, being in tune with existence. Right now, how you experience yourself is as body and mind. Body going through physical ailments, or mind going through stress and overthinking — this is happening simply because these two are not in tune with existence.</p>
+      <p class="yoga-para" data-i18n="yoga.para1">What is Yoga, first of all? Think — what do you think it is? When you utter the word yoga, everyone has a notion of what it could be or should be. <strong>People think yoga means standing on your head,</strong> and normal means standing on your feet.</p>
+      <p class="yoga-para" data-i18n="yoga.para2">The word Yoga means <strong>Union</strong> — or we can say, being in tune with existence. Right now, how you experience yourself is as body and mind. Body going through physical ailments, or mind going through stress and overthinking — this is happening simply because these two are not in tune with existence.</p>
       <div class="yoga-animal-block">
-        <p>Have you ever seen an animal going through stress or developing knee pain? No — because they are in tune with nature. It is only humans who are miserable. Yoga, created by the ancient yogis, simply brings that natural attunement back. Physical health, mental wellbeing, joy — these become a natural consequence.</p>
+        <p data-i18n="yoga.animal">Have you ever seen an animal going through stress or developing knee pain? No — because they are in tune with nature. It is only humans who are miserable. Yoga, created by the ancient yogis, simply brings that natural attunement back. Physical health, mental wellbeing, joy — these become a natural consequence.</p>
       </div>
-      <p class="yoga-cta-text">Simple yet powerful tools.<br>You already have everything you need.</p>
+      <p class="yoga-cta-text" data-i18n="yoga.cta">Simple yet powerful tools.<br>You already have everything you need.</p>
     </div>
   </div>
 </section>
@@ -155,27 +172,27 @@
 <section id="about-yoga">
   <div class="about-yoga-grid">
     <div class="about-yoga-left">
-      <div class="section-label">Ancient Science</div>
-      <h2 class="section-title">What is Classical<br>Hatha Yoga?</h2>
+      <div class="section-label" data-i18n="about.label">Ancient Science</div>
+      <h2 class="section-title" data-i18n="about.title">What is Classical<br>Hatha Yoga?</h2>
       <div class="divider"></div>
       <div class="quote-block">
-        <p>"Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment."</p>
-        <cite>— Sadhguru</cite>
+        <p data-i18n="about.quote">"Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment."</p>
+        <cite data-i18n="about.quote.cite">— Sadhguru</cite>
       </div>
     </div>
     <div class="about-yoga-text reveal">
-      <p>Classical Hatha Yoga is a meticulous science — not exercise, not stretching, but a precise technology for aligning the body, mind, and energy with the laws of existence. Rooted in a tradition preserved in its purity for thousands of years, it offers a path to health, joy, and inner wellbeing far beyond physical fitness.</p>
-      <p>At Dhyana Yogasthala, every practice is offered exactly as <strong>transmitted by Sadhguru through the Sadhguru Gurukulam</strong> — one of the most rigorous yoga teacher training programmes in the world. Not as fitness choreography, but as a sacred process of transformation.</p>
-      <p>These are not beliefs or philosophies. They are technologies that <strong>work, if you work them.</strong></p>
+      <p data-i18n="about.p1">Classical Hatha Yoga is a meticulous science — not exercise, not stretching, but a precise technology for aligning the body, mind, and energy with the laws of existence. Rooted in a tradition preserved in its purity for thousands of years, it offers a path to health, joy, and inner wellbeing far beyond physical fitness.</p>
+      <p data-i18n="about.p2">At Dhyana Yogasthala, every practice is offered exactly as <strong>transmitted by Sadhguru through the Sadhguru Gurukulam</strong> — one of the most rigorous yoga teacher training programmes in the world. Not as fitness choreography, but as a sacred process of transformation.</p>
+      <p data-i18n="about.p3">These are not beliefs or philosophies. They are technologies that <strong>work, if you work them.</strong></p>
     </div>
   </div>
 </section>
 
 <!-- OFFERINGS -->
 <section id="offerings">
-  <div class="section-label">What We Offer</div>
-  <h2 class="section-title">Offerings</h2>
-  <p class="practices-intro">Explore our diverse range of programmes — from intensive workshops to immersive retreats.</p>
+  <div class="section-label" data-i18n="offerings.label">What We Offer</div>
+  <h2 class="section-title" data-i18n="offerings.title">Offerings</h2>
+  <p class="practices-intro" data-i18n="offerings.intro">Explore our diverse range of programmes — from intensive workshops to immersive retreats.</p>
   <div class="practices-grid" id="offerings-grid">
     <!-- Rendered dynamically from OFFERINGS in js/config.js -->
   </div>
@@ -183,60 +200,70 @@
 
 <script>
   (function () {
-    const grid = document.getElementById('offerings-grid');
-    if (!grid || typeof OFFERINGS === 'undefined') return;
-    const active = OFFERINGS.filter(p => p.active !== false);
-    grid.innerHTML = active.map(p => {
-      const cardClass = 'practice-card' + (p.featured ? ' featured' : '') + ' reveal';
-      const metaHtml = (p.cardDuration || p.cardTarget)
-        ? `<div class="practice-meta">
-             ${p.cardDuration ? `<span class="practice-duration">${p.cardDuration}</span>` : ''}
-             ${p.cardTarget   ? `<span class="practice-target">${p.cardTarget}</span>`     : ''}
-           </div>`
-        : '';
-      const benefitsHtml = (p.cardBenefits && p.cardBenefits.length)
-        ? `<ul class="practice-benefits">${p.cardBenefits.map(b => `<li>${b}</li>`).join('')}</ul>`
-        : '';
-      return `
-        <div class="${cardClass}">
-          <div class="practice-card-img-wrap">
-            <img src="${p.image}" alt="${p.title}" class="practice-card-img" loading="lazy">
-          </div>
-          <div class="practice-card-body">
-            <div class="practice-tag">${p.tag}</div>
-            <div class="practice-name">${p.title}</div>
-            <div class="practice-desc">${p.cardDesc}</div>
-            ${benefitsHtml}
-            ${metaHtml}
-            <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${p.linkText}</a>
-          </div>
-        </div>`;
-    }).join('');
+    function renderOfferings() {
+      const grid = document.getElementById('offerings-grid');
+      if (!grid || typeof OFFERINGS === 'undefined') return;
+      const active = OFFERINGS.filter(p => p.active !== false);
+      const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
+      grid.innerHTML = active.map(p => {
+        const cardClass = 'practice-card' + (p.featured ? ' featured' : '') + ' reveal';
+        const title = (isHi && p.titleHi) ? p.titleHi : p.title;
+        const tag   = (isHi && p.tagHi)   ? p.tagHi   : p.tag;
+        const desc  = (isHi && p.cardDescHi) ? p.cardDescHi : p.cardDesc;
+        const link  = (isHi && p.linkTextHi) ? p.linkTextHi : p.linkText;
+        const metaHtml = (p.cardDuration || p.cardTarget)
+          ? `<div class="practice-meta">
+               ${p.cardDuration ? `<span class="practice-duration">${p.cardDuration}</span>` : ''}
+               ${p.cardTarget   ? `<span class="practice-target">${p.cardTarget}</span>`     : ''}
+             </div>`
+          : '';
+        const benefitsHtml = (p.cardBenefits && p.cardBenefits.length)
+          ? `<ul class="practice-benefits">${p.cardBenefits.map(b => `<li>${b}</li>`).join('')}</ul>`
+          : '';
+        return `
+          <div class="${cardClass}">
+            <div class="practice-card-img-wrap">
+              <img src="${p.image}" alt="${title}" class="practice-card-img" loading="lazy">
+            </div>
+            <div class="practice-card-body">
+              <div class="practice-tag">${tag}</div>
+              <div class="practice-name">${title}</div>
+              <div class="practice-desc">${desc}</div>
+              ${benefitsHtml}
+              ${metaHtml}
+              <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${link}</a>
+            </div>
+          </div>`;
+      }).join('');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-      });
-    }, { threshold: 0.1 });
-    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+        });
+      }, { threshold: 0.1 });
+      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    renderOfferings();
+    document.addEventListener('langchange', renderOfferings);
   })();
 </script>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" style="background:var(--warm-dark);padding:5rem 4vw;">
-  <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span>What People Say</div>
-  <h2 class="section-title" style="color:var(--ivory);">From Those Who Have Practised</h2>
+  <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span><span data-i18n="testi.label">What People Say</span></div>
+  <h2 class="section-title" style="color:var(--ivory);" data-i18n="testi.title">From Those Who Have Practised</h2>
   <div class="testimonials-grid">
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text">Surya Kriya keeps me very energetic and alive the whole day.</p><div class="testi-author">— Kalpana</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text">I am able to focus for a longer period of time.</p><div class="testi-author">— Simone, United States</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text">Not just physical wellbeing — the practices created clarity and inner balance.</p><div class="testi-author">— Programme Participant</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text">One of the most immediate effects I've noticed is the significant reduction in stress levels. It's as if with each yoga session, a weight is lifted off my shoulders, leaving me feeling lighter and more at ease.</p><div class="testi-author">— Programme Participant</div></div>
+    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.1.text">Surya Kriya keeps me very energetic and alive the whole day.</p><div class="testi-author" data-i18n="testi.1.author">— Kalpana</div></div>
+    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.2.text">I am able to focus for a longer period of time.</p><div class="testi-author" data-i18n="testi.2.author">— Simone, United States</div></div>
+    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.3.text">Not just physical wellbeing — the practices created clarity and inner balance.</p><div class="testi-author" data-i18n="testi.3.author">— Programme Participant</div></div>
+    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.4.text">One of the most immediate effects I've noticed is the significant reduction in stress levels. It's as if with each yoga session, a weight is lifted off my shoulders, leaving me feeling lighter and more at ease.</p><div class="testi-author" data-i18n="testi.4.author">— Programme Participant</div></div>
   </div>
 </section>
 
 <!-- TEACHER -->
 <section id="teacher">
-  <div class="section-label">The Teacher</div>
+  <div class="section-label" data-i18n="teacher.section.label">The Teacher</div>
   <div class="teacher-grid">
     <div class="teacher-photo-wrap">
       <div class="teacher-photo-bg">
@@ -245,21 +272,21 @@
       <div class="teacher-frame"></div>
     </div>
     <div class="reveal">
-      <h2 class="teacher-name">Shruti Jain</h2>
-      <div class="teacher-title-line">CA · Classical Hatha Yoga Teacher · Isha Certified</div>
+      <h2 class="teacher-name" data-i18n="teacher.name">Shruti Jain</h2>
+      <div class="teacher-title-line" data-i18n="teacher.title.line">CA · Classical Hatha Yoga Teacher · Isha Certified</div>
       <div class="teacher-bio">
-        <p>Shruti Jain's journey spans worlds most would consider unrelated — Chartered Accountancy, corporate life, and the ancient science of Classical Hatha Yoga. After qualifying as a CA, she spent nearly <strong>five years in the corporate world</strong> with organisations such as <strong>PricewaterhouseCoopers</strong> and <strong>MaxLife Insurance</strong> — before choosing to follow a deeper calling. She then spent <strong>24+ months at the Isha Yoga Center, Coimbatore</strong>, completing an intensive 21-week teacher training at the Sadhguru Gurukulam — one of the most demanding yoga teacher training programmes in the world — immersing herself in Yoga in its truest essence.</p>
-        <p>Over the years she has shared these practices with a remarkable range of people: from young children to officers of the Indian Army, from homemakers to CEOs of leading organisations. She brings the precision of a CA and the sensitivity of a dedicated practitioner to every class.</p>
-        <p>Shruti teaches in <strong>Sonepat and Gurgaon</strong> and offers online sessions — bringing Classical Hatha Yoga to those who need it most.</p>
+        <p data-i18n="teacher.bio1">Shruti Jain's journey spans worlds most would consider unrelated — Chartered Accountancy, corporate life, and the ancient science of Classical Hatha Yoga. After qualifying as a CA, she spent nearly <strong>five years in the corporate world</strong> with organisations such as <strong>PricewaterhouseCoopers</strong> and <strong>MaxLife Insurance</strong> — before choosing to follow a deeper calling. She then spent <strong>24+ months at the Isha Yoga Center, Coimbatore</strong>, completing an intensive 21-week teacher training at the Sadhguru Gurukulam — one of the most demanding yoga teacher training programmes in the world — immersing herself in Yoga in its truest essence.</p>
+        <p data-i18n="teacher.bio2">Over the years she has shared these practices with a remarkable range of people: from young children to officers of the Indian Army, from homemakers to CEOs of leading organisations. She brings the precision of a CA and the sensitivity of a dedicated practitioner to every class.</p>
+        <p data-i18n="teacher.bio3">Shruti teaches in <strong>Sonepat and Gurgaon</strong> and offers online sessions — bringing Classical Hatha Yoga to those who need it most.</p>
         <p></p>
       </div>
       <div class="teacher-pills">
-        <span class="pill">Isha Certified</span>
-        <span class="pill">CA Background</span>
-        <span class="pill">21 Classical Hatha Yoga Teacher Training</span>
-        <span class="pill">Sonepat</span>
-        <span class="pill">Gurgaon</span>
-        <span class="pill">Online</span>
+        <span class="pill" data-i18n="teacher.pill.certified">Isha Certified</span>
+        <span class="pill" data-i18n="teacher.pill.ca">CA Background</span>
+        <span class="pill" data-i18n="teacher.pill.training">21 Classical Hatha Yoga Teacher Training</span>
+        <span class="pill" data-i18n="teacher.pill.sonepat">Sonepat</span>
+        <span class="pill" data-i18n="teacher.pill.gurgaon">Gurgaon</span>
+        <span class="pill" data-i18n="teacher.pill.online">Online</span>
       </div>
     </div>
   </div>
@@ -267,54 +294,53 @@
 
 <!-- LOCATIONS -->
 <section id="locations">
-  <div class="section-label">Find Us</div>
-  <h2 class="section-title">Where We Teach</h2>
+  <div class="section-label" data-i18n="locations.label">Find Us</div>
+  <h2 class="section-title" data-i18n="locations.title">Where We Teach</h2>
   <div class="loc-grid">
     <div class="loc-card reveal">
       <div class="loc-icon">🏛</div>
-      <div class="loc-name">Sonepat</div>
-      <div class="loc-detail">In-person workshops and regular classes at the heart of Dhyana Yogasthala.<br><br>812, Sector 15, Sonepat,<br>Haryana, India</div>
+      <div class="loc-name" data-i18n="loc.sonepat.name">Sonepat</div>
+      <div class="loc-detail" data-i18n="loc.sonepat.detail">In-person workshops and regular classes at the heart of Dhyana Yogasthala.<br><br>812, Sector 15, Sonepat,<br>Haryana, India</div>
     </div>
     <div class="loc-card reveal">
       <div class="loc-icon">🌆</div>
-      <div class="loc-name">Gurgaon</div>
-      <div class="loc-detail">In-person workshops and regular classes. Programs available on weekdays and weekends.<br><br>Sector 54, Gurgaon,<br>Haryana, India</div>
+      <div class="loc-name" data-i18n="loc.gurgaon.name">Gurgaon</div>
+      <div class="loc-detail" data-i18n="loc.gurgaon.detail">In-person workshops and regular classes. Programs available on weekdays and weekends.<br><br>Sector 54, Gurgaon,<br>Haryana, India</div>
     </div>
     <div class="loc-card reveal">
       <div class="loc-icon">💻</div>
-      <div class="loc-name">Online</div>
-      <div class="loc-detail">Live sessions with flexible batch timings — morning &amp; evening options available.<br><br><em>Anywhere in India</em></div>
+      <div class="loc-name" data-i18n="loc.online.name">Online</div>
+      <div class="loc-detail" data-i18n="loc.online.detail">Live sessions with flexible batch timings — morning &amp; evening options available.<br><br><em>Anywhere in India</em></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">Connect</div>
-  <h2 class="section-title">Reach Out to Us</h2>
+  <div class="section-label" data-i18n="contact.label">Connect</div>
+  <h2 class="section-title" data-i18n="contact.title">Reach Out to Us</h2>
   <div class="contact-grid">
     <div>
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-icon">📍</div>
-          <div class="contact-item-text"><label>Address</label><span>812, Sector 15, Sonepat, Haryana<br>Sector 54, Gurgaon, Haryana</span></div>
+          <div class="contact-item-text"><label data-i18n="contact.address.label">Address</label><span>812, Sector 15, Sonepat, Haryana<br>Sector 54, Gurgaon, Haryana</span></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
-          <div class="contact-item-text"><label>Phone / WhatsApp</label><span>+91 89508 67190</span></div>
+          <div class="contact-item-text"><label data-i18n="contact.phone.label">Phone / WhatsApp</label><span>+91 89508 67190</span></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div class="contact-item-text"><label>Email</label><span><a data-email href="mailto:seekwithshruti@gmail.com" style="color:inherit;text-decoration:none;">seekwithshruti@gmail.com</a></span></div>
+          <div class="contact-item-text"><label data-i18n="contact.email.label">Email</label><span><a data-email href="mailto:seekwithshruti@gmail.com" style="color:inherit;text-decoration:none;">seekwithshruti@gmail.com</a></span></div>
         </div>
         <div class="contact-item" style="margin-top:0.5rem;">
-          <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" class="btn-wa-earthy" style="font-size:0.78rem;">🌿 Click here to consult a teacher</a>
+          <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" class="btn-wa-earthy" style="font-size:0.78rem;" data-i18n="contact.wa.btn">🌿 Click here to consult a teacher</a>
         </div>
       </div>
     </div>
     <div class="contact-form reveal" id="contact-enquiry-form">
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" id="cq-name" name="name" placeholder="Full name"></div>
         <div class="form-group"><label>Email Address</label><input type="email" id="cq-email" name="email" placeholder="your@email.com"></div>
       </div>
       <div class="form-row">
@@ -337,8 +363,8 @@
         </select>
       </div>
       <div class="form-group"><label>Your Query</label><textarea id="cq-query" name="query" rows="4" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea></div>
-      <button class="btn-submit-contact" onclick="submitContactFormspree(event)">Send Enquiry →</button>
-      <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;">
+      <button class="btn-submit-contact" onclick="submitContactFormspree(event)" data-i18n="contact.form.submit">Send Enquiry →</button>
+      <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;" data-i18n="contact.success">
         Thank you for your interest. Shruti will connect with you shortly. 🙏
       </div>
     </div>
@@ -347,12 +373,12 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Dhyana Yogasthala<small>Classical Hatha Yoga · Isha Certified</small></div>
+    <div class="footer-logo">Dhyana Yogasthala<small data-i18n="footer.tagline">Classical Hatha Yoga · Isha Certified</small></div>
     <div class="footer-links">
-      <a href="#what-is-yoga">What is Classical Hatha Yoga</a>
-      <a href="#offerings">Offerings</a>
-      <a href="#teacher">Teacher</a>
-      <a href="#contact">Contact</a>
+      <a href="#what-is-yoga" data-i18n="footer.what-is-yoga">What is Classical Hatha Yoga</a>
+      <a href="#offerings" data-i18n="footer.offerings">Offerings</a>
+      <a href="#teacher" data-i18n="footer.teacher">Teacher</a>
+      <a href="#contact" data-i18n="footer.contact">Contact</a>
     </div>
     <div class="footer-copy">© 2025 Dhyana Yogasthala. Shruti Jain, Sonepat.</div>
   </div>
