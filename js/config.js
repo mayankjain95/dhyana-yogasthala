@@ -139,6 +139,52 @@ const UPCOMING_PROGRAMS = [
     isFree: false,
     active: false, // Archived
   },
+  {
+    id: 'inner-peace',
+    tag: '✦ Free · In-person Session',
+    title: 'Yoga for Inner Peace',
+    image: 'assets/images/yoga-inner-peace.webp',
+    cardDesc: 'Join us for a rejuvenating hour dedicated to stillness and self-connection. This session will introduce a few simple yet powerful yogic practices designed to release physical tension, calm the mind, and restore natural balance.',
+    pageDesc: 'Join us for a rejuvenating hour dedicated to stillness and self-connection.\n\nThis session will introduce a few simple yet powerful yogic practices designed to release physical tension, calm the mind, and restore natural balance in the body followed by guided meditations that gently quiet the mental chatter, leaving you in a state of deep peace and clarity.\n\nNo prior experience needed.\n\nSeats are limited, so pre-registration is mandatory. Reserve your spot below and take the first step toward a calmer, more centered you.',
+    subtitle: 'Free Classical Hatha Yoga Session',
+    benefits: [
+      'Release physical tension',
+      'Calm the mind',
+      'Restore natural balance in the body',
+      'Experience deep peace and clarity',
+      'No prior experience needed'
+    ],
+    date: '28th July 2026',
+    time: '12:00 – 1:00 PM',
+    location: 'Dhyana Yogasthala, 812, Sector-15, Sonepat',
+    link: 'programs/yoga-inner-peace.html',
+    linkText: 'Register Free →',
+    isFree: true,
+    active: true,
+  },
+  {
+    id: 'surya-kriya-free',
+    tag: '✦ Free · Suited for Beginners',
+    title: 'Surya Kriya',
+    image: 'assets/images/surya-kriya-free.webp',
+    cardDesc: '"An asana is a dynamic form of meditating" - Sadhguru. Move. Breathe. Meditate. Transform.',
+    pageDesc: 'Move. Breathe. Meditate. Transform.\n\n"An asana is a dynamic form of meditating" - Sadhguru\n\nJoin us for this free Surya Kriya session. Pre-registration is mandatory and the program is suited for beginners.',
+    subtitle: 'Free Classical Hatha Yoga Session',
+    benefits: [
+      'Relieve Cervical & Back Pain',
+      'Improve energy levels',
+      'Bring mental clarity and emotional balance',
+      'Brings inner stillness and ease',
+      'Enhances meditativeness'
+    ],
+    date: 'Jul 30 – 1 Aug 2026',
+    time: '1:45 – 3:45 PM',
+    location: 'Dhyana Yogasthala, 812, Sec-15, Sonepat',
+    link: 'programs/surya-kriya-free.html',
+    linkText: 'Register Free →',
+    isFree: true,
+    active: true,
+  },
 ];
 
 /**
