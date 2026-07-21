@@ -114,7 +114,7 @@ const UPCOMING_PROGRAMS = [
     linkText: 'Know More / Explore',
     linkTextHi: 'अधिक जानें / देखें',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'cervical-back-pain',
