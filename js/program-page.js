@@ -163,6 +163,11 @@
       paymentOverlay.remove();
     } else {
       setText('prog-payment-pretitle', prog.title + ' · Dhyana Yogasthala');
+      // Optional per-program custom payment message
+      if (prog.paymentMsg) {
+        const titleEl = paymentOverlay.querySelector('.payment-box-title');
+        if (titleEl) titleEl.textContent = prog.paymentMsg;
+      }
     }
   }
 
