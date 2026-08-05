@@ -21,8 +21,7 @@
   min-height: 90vh;
   background: linear-gradient(135deg, #0f0d0a 0%, #1e1408 50%, #0f0d0a 100%);
   display: grid;
-  /* poster column auto-sizes to image natural width at full height; text takes the rest */
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   align-items: stretch;
   position: relative;
   overflow: hidden;
@@ -272,11 +271,7 @@
 
 <!-- SPLIT HERO — left: full-height poster flush to edge, right: text content -->
 <section class="cbp-hero">
-  <!-- Poster: LEFT, full height, flush to left edge -->
-  <div class="cbp-hero-poster">
-    <img id="prog-hero-img" src="" alt="Yoga for Cervical &amp; Back Pain Workshop" class="cbp-poster-img" loading="eager">
-  </div>
-  <!-- Text: RIGHT -->
+  <!-- Text: full width -->
   <div class="cbp-hero-left">
     <div class="cbp-price-badge">
       <span>2-Day Online Workshop</span>
