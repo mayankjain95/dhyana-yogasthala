@@ -114,7 +114,7 @@ const UPCOMING_PROGRAMS = [
     linkText: 'Know More / Register',
     linkTextHi: 'अधिक जानें / पंजीकरण करें',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'yogasanas',
