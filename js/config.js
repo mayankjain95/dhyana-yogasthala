@@ -52,8 +52,8 @@ const SITE_CONFIG = {
 const UPCOMING_PROGRAMS = [
   {
     id: 'yogasanas-sonepat',
-    tag: '✦ Classical Hatha Yoga · Sonepat · ₹5,500',
-    tagHi: '✦ क्लासिकल हठ योग · सोनीपत · ₹5,500',
+    tag: '✦ Classical Hatha Yoga · Sonepat',
+    tagHi: '✦ क्लासिकल हठ योग · सोनीपत',
     title: 'Yogasanas',
     titleHi: 'योगासन',
     image: 'assets/images/practice-yogasanas.webp',
@@ -61,8 +61,8 @@ const UPCOMING_PROGRAMS = [
     cardDescHi: 'योगासन को उनके शास्त्रीय रूप में अनुभव करें — शरीर और मन में स्थिरता, संतुलन और गहरे कल्याण की भावना लाने के लिए एक शक्तिशाली अभ्यास।',
     pageDesc: 'Experience Yogasanas in their classical form — a powerful practice to bring stability, balance and a deeper sense of wellbeing to the body and mind.\n\n🌿 Conducted by a Sadhguru Gurukulam Certified Classical Hatha Yoga Teacher\n\n📅 15 Aug (Sat): 11:00 AM – 1:30 PM & 6:00 – 8:30 PM\n📅 16 Aug (Sun): 11:00 AM – 1:30 PM & 6:00 – 8:30 PM',
     pageDescHi: 'योगासन को उनके शास्त्रीय रूप में अनुभव करें — शरीर और मन में स्थिरता, संतुलन और गहरे कल्याण की भावना लाने के लिए एक शक्तिशाली अभ्यास।\n\n🌿 सद्गुरु गुरुकुलम प्रमाणित क्लासिकल हठ योग शिक्षक द्वारा संचालित\n\n📅 15 अगस्त (शनि): सुबह 11:00 – 1:30 बजे और शाम 6:00 – 8:30 बजे\n📅 16 अगस्त (रवि): सुबह 11:00 – 1:30 बजे और शाम 6:00 – 8:30 बजे',
-    subtitle: '15–16 Aug | Adiyog Yogashala, Nirthan Village, Sonepat | ₹5,500',
-    subtitleHi: '15–16 अगस्त | आदियोग योगशाला, निर्थान गांव, सोनीपत | ₹5,500',
+    subtitle: '15–16 Aug | Adiyog Yogashala, Nirthan Village, Sonepat',
+    subtitleHi: '15–16 अगस्त | आदियोग योगशाला, निर्थान गांव, सोनीपत',
     benefits: [
       'Improve physical health & flexibility',
       'Bring mental clarity and emotional balance',
