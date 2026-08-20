@@ -82,7 +82,7 @@ const UPCOMING_PROGRAMS = [
     linkText: 'Know More / Register',
     linkTextHi: 'अधिक जानें / पंजीकरण करें',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'kaithal',
@@ -316,7 +316,7 @@ const UPCOMING_PROGRAMS = [
     linkTextHi: 'अभी पंजीकरण करें →',
     paymentMsg: 'Thank you for sharing your details. Please complete the payment to confirm your registration.',
     isFree: false,
-    active: true,
+    active: false,
   },
 ];
 
