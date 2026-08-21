@@ -106,7 +106,22 @@
               'अभी कोई कार्यक्रम निर्धारित नहीं है। आप <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">एक पूछताछ भेजकर</a> कार्यक्रम का अनुरोध कर सकते हैं।'
             )
           : 'No programs scheduled yet. You can request for a program by <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">sending an enquiry</a>.';
-        grid.innerHTML = '<p style="color:var(--light-muted);padding:2rem 0;">' + emptyMsg + '</p>';
+        grid.innerHTML = `<div style="
+            width:100%;
+            text-align:center;
+            padding:3.5rem 2rem;
+            border-top:2px solid var(--gold);
+            margin-top:1rem;
+          ">
+            <p style="
+              color:var(--light-muted);
+              font-size:1.05rem;
+              line-height:1.8;
+              max-width:480px;
+              margin:0 auto;
+              letter-spacing:0.01em;
+            ">${emptyMsg}</p>
+          </div>`;
         return;
       }
       grid.innerHTML = active.map(p => {
