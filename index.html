@@ -100,7 +100,12 @@
       if (!grid || typeof UPCOMING_PROGRAMS === 'undefined') return;
       const active = UPCOMING_PROGRAMS.filter(p => p.active);
       if (!active.length) {
-        const emptyMsg = (typeof t === 'function') ? t('No upcoming programs at this time. Check back soon.', 'अभी कोई आगामी कार्यक्रम नहीं है। जल्द ही वापस देखें।') : 'No upcoming programs at this time. Check back soon.';
+        const emptyMsg = (typeof t === 'function')
+          ? t(
+              'No programs scheduled yet. You can request for a program by <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">sending an enquiry</a>.',
+              'अभी कोई कार्यक्रम निर्धारित नहीं है। आप <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">एक पूछताछ भेजकर</a> कार्यक्रम का अनुरोध कर सकते हैं।'
+            )
+          : 'No programs scheduled yet. You can request for a program by <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">sending an enquiry</a>.';
         grid.innerHTML = '<p style="color:var(--light-muted);padding:2rem 0;">' + emptyMsg + '</p>';
         return;
       }
