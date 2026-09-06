@@ -184,22 +184,11 @@
   .quote-band{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .quote-band blockquote{
     margin:0;font-family:'Fraunces',serif;font-weight:500;
-    font-size:clamp(20px,2.6vw,27px);line-height:1.5;color:var(--ink);max-width:820px;
+    font-size:clamp(17px,2vw,22px);line-height:1.65;color:var(--ink);max-width:860px;
   }
   .quote-band cite{
-    display:block;margin-top:16px;font-family:'Work Sans',sans-serif;font-style:normal;
+    display:block;margin-top:18px;font-family:'Work Sans',sans-serif;font-style:normal;
     font-weight:600;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage-deep);
-  }
-  .quote-band .note{font-size:14px;color:var(--ink-soft);margin-top:0;max-width:680px;line-height:1.65;}
-  .quote-more{display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);}
-  .quote-source-link{
-    display:inline-block;margin-top:12px;font-size:13px;font-weight:600;
-    color:var(--sage-deep);text-decoration:underline;text-underline-offset:3px;
-  }
-  .quote-toggle{
-    margin-top:14px;background:none;border:none;padding:0;
-    font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;
-    color:var(--sage-deep);cursor:pointer;text-decoration:underline;text-underline-offset:3px;
   }
 
   /* includes */
@@ -371,15 +360,9 @@
 <section class="quote-band">
   <div class="wrap">
     <blockquote>
-      <span data-i18n="dm.quote.text">"In yoga, if there is diabetes... diabetes is not taken lightly as a disease."</span>
+      <span data-i18n="dm.quote.text">"In yoga, if there is diabetes, we see it as a very fundamental disturbance – diabetes is not taken lightly as a disease. We see that the fundamental structure of the basic body is being disturbed. That is why diabetes happens. And it is different in each individual. For each person, the level of disturbance and the type of disturbance that happens in each system is very different. So it needs to be handled individually. However, irrespective of what the disease is, yoga only aims at balancing and energizing or activating the energy body. The basic premise in yoga is that if your energy body is in full flow and properly balanced, there can be no chronic disease either in your physical body or your mental body. Diabetes will go because we are not treating the disease as such, we are seeing disease only as a manifestation of the disturbance that could be existing in the energy body. So if people are willing to do a certain amount of sadhana to balance and activate their energy body, they can definitely be free of all chronic ailments."</span>
       <cite data-i18n="dm.quote.cite">— Sadhguru</cite>
     </blockquote>
-
-    <div id="quoteMore" class="quote-more">
-      <p class="note" data-i18n="dm.quote.note">In yoga, diabetes is seen as a sign of a deeper disturbance in the body's fundamental structure — not something to be treated lightly. This disturbance is unique to every individual, so it has to be addressed on a personal level. Whatever the ailment, yoga's approach stays the same: balance and energize the body's energy system. The underlying premise is that when this energy is fully balanced and flowing, chronic disease — physical or mental — cannot take hold. So diabetes resolves not because the disease itself is being "treated," but because the disturbance behind it is. With consistent personal practice, Sadhguru says, people can move toward freedom from chronic ailments altogether.</p>
-      <a href="https://isha.sadhguru.org/en/health/residential-programs/diabetes-management-program" target="_blank" rel="noopener" class="quote-source-link" data-i18n="dm.quote.link">Read Sadhguru's full words on the Isha website ↗</a>
-    </div>
-    <button type="button" id="quoteToggle" class="quote-toggle" onclick="toggleQuote(this)" data-i18n="dm.quote.readmore">Read more</button>
   </div>
 </section>
 
@@ -605,14 +588,6 @@
 </div>
 
 <script>
-  function toggleQuote(btn) {
-    var el = document.getElementById('quoteMore');
-    var open = el.style.display === 'block';
-    el.style.display = open ? 'none' : 'block';
-    var isHi = typeof currentLang === 'function' && currentLang() === 'hi';
-    btn.textContent = open ? (isHi ? 'और पढ़ें' : 'Read more') : (isHi ? 'कम दिखाएं' : 'Show less');
-  }
-
   // Wire up dynamic config variables from SITE_CONFIG if present
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof SITE_CONFIG !== 'undefined') {
