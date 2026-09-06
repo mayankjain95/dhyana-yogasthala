@@ -24,86 +24,143 @@
     const name = nameEl ? nameEl.value.trim() : '';
     const phone = phoneEl ? phoneEl.value.trim() : '';
     if (!name || !phone) { alert('Please enter your name and phone number so Shruti can reach you.'); return; }
+
+    const endpoint = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.registrationEndpoint) ? SITE_CONFIG.registrationEndpoint : '';
+    const waNum = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsappNumber) ? SITE_CONFIG.whatsappNumber : '918950867190';
+
+    // Log to Google Sheet asynchronously
+    if (endpoint) {
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          submissionType: 'modal_booking',
+          source: 'Website Modal Booking',
+          programme: program,
+          name: name,
+          phone: phone,
+          email: emailEl ? emailEl.value : '',
+          location: locationEl ? locationEl.value : '',
+          notes: msgEl ? msgEl.value : '',
+          date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        })
+      }).catch(err => console.warn('Sheet log notice:', err));
+    }
+
     // Build WhatsApp message
     const waMsg = encodeURIComponent(
-      `*New Booking Request — Dhyana Yogasthala*
-
-` +
-      `*Program:* ${program}
-` +
-      `*Name:* ${name}
-` +
-      `*Phone:* ${phone}
-` +
-      `*Email:* ${emailEl ? emailEl.value : '—'}
-` +
-      `*Location:* ${locationEl ? locationEl.value : '—'}
-` +
+      `*New Booking Request — Dhyana Yogasthala*\n\n` +
+      `*Program:* ${program}\n` +
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${emailEl ? emailEl.value : '—'}\n` +
+      `*Location:* ${locationEl ? locationEl.value : '—'}\n` +
       `*Message:* ${msgEl ? msgEl.value : '—'}`
     );
     // Show success message first, then open WhatsApp
     document.getElementById('modal-form-content').style.display = 'none';
     document.getElementById('modal-success').style.display = 'block';
     setTimeout(() => {
-      window.open('https://wa.me/918950867190?text=' + waMsg, '_blank');
+      window.open('https://wa.me/' + waNum + '?text=' + waMsg, '_blank');
       setTimeout(closeModal, 1500);
     }, 800);
   }
   function handleContactSubmit() { alert('Thank you for your interest. Shruti will connect with you shortly. 🙏'); }
   document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-  // ── OPTION 2: Formspree contact form submission ──
-  async function submitContactFormspree(e) {
-    e.preventDefault();
-    const name = document.getElementById('cq-name') ? document.getElementById('cq-name').value.trim() : '';
-    const email = document.getElementById('cq-email') ? document.getElementById('cq-email').value.trim() : '';
-    const phone = document.getElementById('cq-phone') ? document.getElementById('cq-phone').value.trim() : '';
-    if (!name || !email) { alert('Please enter your name and email address.'); return; }
+  // ── Contact form submission (Google Sheets + WhatsApp fallback) ──
+  async function submitContactForm(e) {
+    if (e) e.preventDefault();
+    const nameEl = document.getElementById('cq-name');
+    const emailEl = document.getElementById('cq-email');
+    const phoneEl = document.getElementById('cq-phone');
+    const locationEl = document.getElementById('cq-location') || document.querySelector('#contact-enquiry-form select:first-of-type');
+    const programEl = document.getElementById('cq-program') || document.querySelector('#contact-enquiry-form select:last-of-type');
+    const queryEl = document.getElementById('cq-query');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const location = locationEl ? locationEl.value : '';
+    const program = programEl ? programEl.value : '';
+    const query = queryEl ? queryEl.value.trim() : '';
+
+    if (!name && !email && !phone) {
+      alert('Please enter your contact details (name, email, or phone).');
+      return;
+    }
+
     const btn = document.querySelector('#contact-enquiry-form .btn-submit-contact');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    // Collect all form data
-    const locationSel = document.querySelector('#contact-enquiry-form select:first-of-type');
-    const programSel = document.querySelector('#contact-enquiry-form select:last-of-type');
-    const query = document.getElementById('cq-query') ? document.getElementById('cq-query').value : '';
-    const formData = {
-      name, email, phone,
-      location: locationSel ? locationSel.value : '',
-      program: programSel ? programSel.value : '',
-      query,
-      _subject: 'New Enquiry — Dhyana Yogasthala',
+    const origText = btn ? btn.textContent : 'Send Enquiry →';
+    if (btn) {
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+    }
+
+    const endpoint = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.registrationEndpoint)
+      ? SITE_CONFIG.registrationEndpoint
+      : 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
+
+    const waNum = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsappNumber)
+      ? SITE_CONFIG.whatsappNumber
+      : '918950867190';
+
+    const payload = {
+      submissionType: 'enquiry',
+      source: 'Website Contact Form',
+      programme: program || 'General Enquiry',
+      name: name || 'Not specified',
+      phone: phone,
+      email: email,
+      location: location,
+      notes: query,
+      date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
+
     try {
-      // IMPORTANT: Replace 'mbderkvq' below with your actual Formspree form ID
-      // Sign up free at formspree.io, create a form, and paste the ID here
-      const res = await fetch('https://formspree.io/f/mbderkvq', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      if (res.ok) {
-        document.getElementById('contact-success').style.display = 'block';
+      if (endpoint) {
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+      }
+      const successEl = document.getElementById('contact-success');
+      if (successEl) successEl.style.display = 'block';
+      if (btn) {
         btn.textContent = 'Sent ✓';
         btn.style.background = 'var(--forest)';
-      } else {
-        throw new Error('Form submission failed');
       }
+      if (nameEl) nameEl.value = '';
+      if (emailEl) emailEl.value = '';
+      if (phoneEl) phoneEl.value = '';
+      if (queryEl) queryEl.value = '';
     } catch(err) {
-      // Fallback: open WhatsApp if Formspree not yet set up
-      btn.textContent = 'Send Enquiry →';
-      btn.disabled = false;
+      console.error('Contact form submission error:', err);
+      // Fallback: open WhatsApp if error
+      if (btn) {
+        btn.textContent = origText;
+        btn.disabled = false;
+      }
       const waMsg = encodeURIComponent(
-        `*New Enquiry — Dhyana Yogasthala*
-
-*Name:* ${name}
-*Phone:* ${phone}
-*Email:* ${email}
-*Program:* ${programSel ? programSel.value : '—'}
-*Query:* ${query}`
+        `*New Enquiry — Dhyana Yogasthala*\n\n` +
+        `*Name:* ${name || '—'}\n` +
+        `*Phone:* ${phone || '—'}\n` +
+        `*Email:* ${email || '—'}\n` +
+        `*Location:* ${location || '—'}\n` +
+        `*Program:* ${program || '—'}\n` +
+        `*Query:* ${query || '—'}`
       );
-      window.open('https://wa.me/918950867190?text=' + waMsg, '_blank');
+      window.open('https://wa.me/' + waNum + '?text=' + waMsg, '_blank');
+      const successEl = document.getElementById('contact-success');
+      if (successEl) successEl.style.display = 'block';
     }
   }
+
+  // Alias for backward compatibility
+  const submitContactFormspree = submitContactForm;
 
   function toggleNav() {
     const navLinks = document.querySelector('.nav-links');
