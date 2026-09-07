@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/main.css">
 <script src="js/i18n.js"></script>
-<script src="js/config.js?v=5"></script>
+<script src="js/config.js?v=6"></script>
 </head>
 <body>
 
@@ -129,6 +129,7 @@
           p.date     ? '<div>📅 ' + p.date + '</div>'     : '',
           p.time     ? '<div>🕒 ' + p.time + '</div>'     : '',
           p.location ? '<div>📍 ' + p.location + '</div>' : '',
+          p.price    ? '<div>🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + p.price + '</div>' : '',
         ].join('');
         return `
           <div class="practice-card reveal">

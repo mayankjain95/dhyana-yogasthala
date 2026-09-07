@@ -49,9 +49,10 @@
     heroImg.alt = prog.title;
   }
 
-  // Hero label: use direct heroLabel string, OR build from date/time/location
-  const heroLabel = document.getElementById('prog-hero-label');
-  if (heroLabel) {
+  // Hero label: use direct heroLabel string, OR build from date/time/location/price
+  function renderHeroLabel() {
+    const heroLabel = document.getElementById('prog-hero-label');
+    if (!heroLabel) return;
     if (prog.heroLabel) {
       heroLabel.textContent = prog.heroLabel;
     } else {
@@ -59,9 +60,11 @@
       if (prog.date)     parts.push('📅 ' + prog.date);
       if (prog.time)     parts.push('🕒 ' + prog.time);
       if (prog.location) parts.push('📍 ' + prog.location);
+      if (prog.price)    parts.push('🏷️ ' + (typeof currentLang === 'function' && currentLang() === 'hi' ? 'शुल्क: ' : 'Fee: ') + prog.price);
       heroLabel.textContent = parts.join('  ·  ');
     }
   }
+  renderHeroLabel();
 
   setText('prog-hero-title',    t(prog.title, prog.titleHi));
   setText('prog-hero-subtitle', t(prog.subtitle || '', prog.subtitleHi || ''));
@@ -207,6 +210,7 @@
     // Re-render form header and submit button
     if (typeof renderFormHeader === 'function') renderFormHeader();
     if (typeof renderSubmitBtn === 'function') renderSubmitBtn();
+    renderHeroLabel();
   });
 
   let lastRegistrationData = null;
