@@ -82,7 +82,7 @@ const UPCOMING_PROGRAMS = [
     linkText: 'Know More / Enquire',
     linkTextHi: 'अधिक जानें / पूछताछ करें',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'yogasanas-sonepat',
@@ -118,7 +118,7 @@ const UPCOMING_PROGRAMS = [
     linkTextHi: 'अधिक जानें / पंजीकरण करें',
     paymentMsg: 'Please complete the payment of ₹1,000 via UPI to confirm your registration for Asanas Review.',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'kaithal',
