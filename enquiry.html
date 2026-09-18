@@ -23,8 +23,6 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/enquiry.css">
 
-  <!-- Shared Site Config -->
-  <script src="js/config.js"></script>
 </head>
 <body>
 
@@ -41,7 +39,7 @@
 
   <!-- Main Content Landmark -->
   <main class="enquiry-main" id="main-content" role="main">
-    <div class="enquiry-layout">
+    <div class="enquiry-layout" id="enquiryLayout" style="display: none;">
 
       <!-- Left Visual Showcase Column (Workshop Image & Trust Authority) -->
       <aside class="showcase-card" aria-label="About Dhyana Yogasthala Classical Hatha Yoga">
@@ -346,6 +344,39 @@
       </section>
 
     </div>
+    <!-- /enquiryLayout -->
+
+    <!-- 404 Not Found View -->
+    <div class="not-found-layout" id="notFoundLayout" style="display: none;" role="region" aria-label="Page Not Found">
+      <div class="not-found-card">
+        <div class="not-found-badge">404</div>
+        <div class="not-found-glyph" aria-hidden="true">✦</div>
+        <h1 class="not-found-title">Page Not Found</h1>
+        <p class="not-found-desc">
+          The page you are looking for does not exist, has been moved, or is no longer available.
+        </p>
+
+        <div class="not-found-actions">
+          <a href="index.html" class="btn-not-found-primary" aria-label="Return to Dhyana Yogasthala Homepage">
+            <span aria-hidden="true">←</span> Return to Homepage
+          </a>
+          <a
+            href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20am%20looking%20for%20information%20about%20Classical%20Hatha%20Yoga%20classes."
+            class="btn-not-found-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact Dhyana Yogasthala on WhatsApp"
+          >
+            <span aria-hidden="true">💬</span> Contact on WhatsApp
+          </a>
+        </div>
+
+        <p class="not-found-footer-note">
+          Looking for upcoming classical programs? Explore our <a href="index.html#offerings">offerings</a> or connect with our team directly.
+        </p>
+      </div>
+    </div>
+    <!-- /notFoundLayout -->
   </main>
 
   <!-- Success Confirmation Modal (WCAG Dialog) -->

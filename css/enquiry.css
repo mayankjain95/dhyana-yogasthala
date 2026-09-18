@@ -1020,6 +1020,149 @@ body {
 
 
 
+/* ── 404 Not Found Layout ─────────────────────────────────────────────── */
+.not-found-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 62vh;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+.not-found-card {
+  background: var(--warm-dark);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 4px;
+  max-width: 620px;
+  width: 100%;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: var(--ivory);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.not-found-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+  opacity: 0.95;
+}
+
+.not-found-glyph {
+  color: var(--saffron);
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.25em;
+}
+
+.not-found-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.not-found-desc {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--light-muted);
+  max-width: 480px;
+  margin: 0 auto 1.6rem;
+}
+
+.not-found-desc strong {
+  color: var(--gold);
+}
+
+
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-not-found-primary {
+  background: var(--gold);
+  color: var(--dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.85rem 1.8rem;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.btn-not-found-primary:hover {
+  background: #dbb95c;
+  transform: translateY(-1px);
+}
+
+.btn-not-found-whatsapp {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ivory);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.85rem 1.6rem;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.btn-not-found-whatsapp:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.not-found-footer-note {
+  font-size: 0.8rem;
+  color: var(--light-muted);
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.not-found-footer-note a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 .enquiry-footer {
   background: var(--dark);

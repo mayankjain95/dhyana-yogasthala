@@ -72,77 +72,88 @@
   /**
    * 2. Initialize Referral UI with Registry Mapping
    */
-  function getRegistry() {
-    return (typeof REFERRAL_REGISTRY !== 'undefined') ? REFERRAL_REGISTRY : {};
-  }
+  /**
+   * Static referral registry (encapsulated locally inside enquiry module)
+   * Only these 5 static codes are recognized. Any other code or missing code results in 404.
+   */
+  const STATIC_REFERRAL_REGISTRY = {
+    'K9M2X7': { code: 'K9M2X7', name: 'Person 1', category: 'Doctor referral' },
+    'T4P8W1': { code: 'T4P8W1', name: 'Person 2', category: 'Doctor referral' },
+    'R7W3Q9': { code: 'R7W3Q9', name: 'Person 3', category: 'Friend / Family' },
+    'M5V2Q6': { code: 'M5V2Q6', name: 'Person 4', category: 'Friend / Family' },
+    'B8N4L2': { code: 'B8N4L2', name: 'Person 5', category: 'Other' }
+  };
 
   function lookupReferrer(code) {
-    const registry = getRegistry();
     const clean = sanitizeCode(code);
-    return registry[clean] || null;
+    return STATIC_REFERRAL_REGISTRY[clean] || null;
   }
 
   function initReferral() {
     detectedReferralCode = extractReferralCode();
-    const referralBadgeText = document.getElementById('referralBadgeText');
-    const referralStatusTag = document.getElementById('referralStatusTag');
+    const cleanCode = sanitizeCode(detectedReferralCode);
+    const mapped = lookupReferrer(cleanCode);
 
-    // Ensure referralInput is strictly readonly
+    const enquiryLayout = document.getElementById('enquiryLayout');
+    const notFoundLayout = document.getElementById('notFoundLayout');
+
+    // STRICT VALIDATION: If referral code is missing OR unmapped -> Show standard 404 Page Not Found
+    if (!cleanCode || !mapped) {
+      document.title = '404 · Page Not Found | Dhyana Yogasthala';
+      if (enquiryLayout) {
+        enquiryLayout.style.display = 'none';
+      }
+      if (notFoundLayout) {
+        notFoundLayout.style.display = 'flex';
+      }
+      if (banner) {
+        banner.style.display = 'none';
+      }
+      return;
+    }
+
+    // Valid static referral code verified!
+    document.title = 'Enquiry for Classical Hatha Yoga Classes | Dhyana Yogasthala';
+    if (notFoundLayout) {
+      notFoundLayout.style.display = 'none';
+    }
+    if (enquiryLayout) {
+      enquiryLayout.style.display = 'grid';
+    }
+
+    // Ensure referralInput is strictly readonly & locked
     if (referralInput) {
+      referralInput.value = cleanCode;
       referralInput.setAttribute('readonly', 'true');
       referralInput.setAttribute('tabindex', '-1');
     }
 
-    if (detectedReferralCode) {
-      const cleanCode = sanitizeCode(detectedReferralCode);
-      const mapped = lookupReferrer(cleanCode);
+    const referralBadgeText = document.getElementById('referralBadgeText');
+    const referralStatusTag = document.getElementById('referralStatusTag');
 
-      if (referralInput) {
-        referralInput.value = cleanCode;
-      }
+    if (referralBadgeText) {
+      referralBadgeText.textContent = 'Verified';
+      referralBadgeText.classList.add('verified');
+    }
 
-      if (referralBadgeText) {
-        referralBadgeText.textContent = mapped ? 'Verified' : 'Active';
-        referralBadgeText.classList.add('verified');
-      }
+    if (referralStatusTag) {
+      referralStatusTag.textContent = '✓ Verified invitation';
+    }
 
-      if (referralStatusTag) {
-        referralStatusTag.textContent = mapped ? `✓ Verified static code` : `✓ Code applied`;
-      }
+    if (bannerTag) {
+      bannerTag.textContent = cleanCode;
+    }
 
-      if (bannerTag) {
-        bannerTag.textContent = cleanCode;
-      }
+    if (banner) {
+      banner.style.display = 'flex';
+    }
 
-      if (banner) {
-        banner.style.display = 'flex';
-      }
-
-      // Automatically select category if mapped in registry
-      if (mapped && mapped.category && hearAboutSelect) {
-        hearAboutSelect.value = mapped.category;
-        updateConditionalField();
-        if (hearDetailInput) {
-          hearDetailInput.value = `Referral Code: ${cleanCode}`;
-        }
-      }
-    } else {
-      // Direct visit (no referral code in URL)
-      if (referralInput) {
-        referralInput.value = 'DIRECT';
-      }
-
-      if (referralBadgeText) {
-        referralBadgeText.textContent = 'Direct';
-        referralBadgeText.classList.remove('verified');
-      }
-
-      if (referralStatusTag) {
-        referralStatusTag.textContent = 'Direct visit (No referral code)';
-      }
-
-      if (banner) {
-        banner.style.display = 'none';
+    // Automatically select category if mapped in registry
+    if (mapped.category && hearAboutSelect) {
+      hearAboutSelect.value = mapped.category;
+      updateConditionalField();
+      if (hearDetailInput) {
+        hearDetailInput.value = `Referral Code: ${cleanCode}`;
       }
     }
   }
@@ -299,10 +310,17 @@
     const city = document.getElementById('city').value.trim();
     const hearAbout = hearAboutSelect ? hearAboutSelect.value : 'Not specified';
     const hearAboutDetail = (hearDetailInput && hearDetailInput.value.trim()) || '';
-    const reason = (document.getElementById('reason') && document.getElementById('reason').value.trim()) || 'Not provided';
-    const referralCode = (referralInput && referralInput.value.trim().toUpperCase()) || detectedReferralCode || 'DIRECT';
+    const referralCode = (referralInput && referralInput.value.trim().toUpperCase()) || detectedReferralCode || '';
     const mapped = lookupReferrer(referralCode);
-    const referrerPerson = mapped ? mapped.name : (referralCode !== 'DIRECT' ? referralCode : 'Direct Seeker');
+    if (!mapped) {
+      if (statusBanner) {
+        statusBanner.className = 'form-status-banner error';
+        statusBanner.textContent = 'Invalid referral code. Please use an authorized referral link to submit an enquiry.';
+        statusBanner.style.display = 'flex';
+      }
+      return;
+    }
+    const referrerPerson = mapped.name;
 
     // Notes summary combining reason, referral code, and source for sheet columns that map 'notes'
     const notesSummary = [
