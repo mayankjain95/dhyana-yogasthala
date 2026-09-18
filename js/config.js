@@ -26,6 +26,46 @@ const SITE_CONFIG = {
 };
 
 /**
+ * REFERRAL_REGISTRY — Static alphanumeric referral codes mapped to referrers.
+ * In URLs, use the static code: e.g. enquiry.html?ref=K9M2X7
+ * When an enquiry is submitted, both the static code and the mapped person's name are logged to the Google Sheet.
+ *
+ * To map a code to a real person, simply update the 'name' field below:
+ */
+const REFERRAL_REGISTRY = {
+  'K9M2X7': {
+    code: 'K9M2X7',
+    name: 'Person 1',          // Replace with actual name (e.g. 'Dr. Rajesh Sharma')
+    category: 'Doctor referral',
+    notes: 'Partner Referral 1'
+  },
+  'T4P8W1': {
+    code: 'T4P8W1',
+    name: 'Person 2',          // Replace with actual name (e.g. 'Dr. Priya Mehta')
+    category: 'Doctor referral',
+    notes: 'Partner Referral 2'
+  },
+  'R7W3Q9': {
+    code: 'R7W3Q9',
+    name: 'Person 3',          // Replace with actual name (e.g. 'Ananya Verma')
+    category: 'Friend / Family',
+    notes: 'Partner Referral 3'
+  },
+  'M5V2Q6': {
+    code: 'M5V2Q6',
+    name: 'Person 4',          // Replace with actual name (e.g. 'Rahul Kapoor')
+    category: 'Friend / Family',
+    notes: 'Partner Referral 4'
+  },
+  'B8N4L2': {
+    code: 'B8N4L2',
+    name: 'Person 5',          // Replace with actual name (e.g. 'Wellness Center')
+    category: 'Other',
+    notes: 'Partner Referral 5'
+  }
+};
+
+/**
  * UPCOMING_PROGRAMS — single source of truth for all upcoming program cards.
  *
  * To ADD a program    : add a new object below, set active: true.
