@@ -70,23 +70,93 @@
   }
 
   /**
-   * 2. Initialize Referral UI with Registry Mapping
+   * 2. Cryptographic Referral Code Verification (SHA-256)
+   * Plain-text referral codes are NEVER stored in this file.
+   * Anyone downloading or inspecting this script will only see irreversible SHA-256 hashes.
    */
-  /**
-   * Static referral registry (encapsulated locally inside enquiry module)
-   * Only these 5 static codes are recognized. Any other code or missing code results in 404.
-   */
-  const STATIC_REFERRAL_REGISTRY = {
-    'K9M2X7': { code: 'K9M2X7', name: 'Person 1', category: 'Doctor referral' },
-    'T4P8W1': { code: 'T4P8W1', name: 'Person 2', category: 'Doctor referral' },
-    'R7W3Q9': { code: 'R7W3Q9', name: 'Person 3', category: 'Friend / Family' },
-    'M5V2Q6': { code: 'M5V2Q6', name: 'Person 4', category: 'Friend / Family' },
-    'B8N4L2': { code: 'B8N4L2', name: 'Person 5', category: 'Other' }
+  function sha256(ascii) {
+    function rightRotate(value, amount) {
+      return (value >>> amount) | (value << (32 - amount));
+    }
+    const mathPow = Math.pow;
+    const maxWord = mathPow(2, 32);
+    let i, j;
+    let result = '';
+    let words = [];
+    let asciiBitLength = ascii.length * 8;
+    let hash = [];
+    let k = [];
+    let primeCounter = 0;
+    let isComposite = {};
+
+    for (let candidate = 2; primeCounter < 64; candidate++) {
+      if (!isComposite[candidate]) {
+        for (i = 0; i < 313; i += candidate) {
+          isComposite[i] = candidate;
+        }
+        hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+        k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+      }
+    }
+
+    hash = hash.slice(0, 8);
+    ascii += '\x80';
+    while ((ascii.length % 64) - 56) ascii += '\x00';
+
+    for (i = 0; i < ascii.length; i++) {
+      j = ascii.charCodeAt(i);
+      if (j >> 8) return '';
+      words[i >> 2] |= j << ((3 - i) % 4) * 8;
+    }
+
+    words[words.length] = (asciiBitLength / maxWord) | 0;
+    words[words.length] = asciiBitLength;
+
+    for (j = 0; j < words.length;) {
+      let w = words.slice(j, (j += 16));
+      let oldHash = hash;
+      hash = hash.slice(0, 8);
+
+      for (i = 0; i < 64; i++) {
+        let w15 = w[i - 15], w2 = w[i - 2];
+        let s0 = rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3);
+        let s1 = rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10);
+        let ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
+        let temp1 = hash[7] + (rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25)) + ch + k[i] + (w[i] = (i < 16) ? w[i] : (w[i - 16] + s0 + w[i - 7] + s1) | 0);
+        let temp2 = (rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22)) + ((hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]));
+
+        hash = [(temp1 + temp2) | 0].concat(hash);
+        hash[4] = (hash[4] + temp1) | 0;
+      }
+
+      for (i = 0; i < 8; i++) {
+        hash[i] = (hash[i] + oldHash[i]) | 0;
+      }
+    }
+
+    for (i = 0; i < 8; i++) {
+      for (j = 3; j + 1; j--) {
+        let b = (hash[i] >> (j * 8)) & 255;
+        result += ((b < 16) ? 0 : '') + b.toString(16);
+      }
+    }
+    return result;
+  }
+
+  // SHA-256 hashed registry: keys are mathematically irreversible hashes of the valid codes
+  const HASHED_REFERRAL_REGISTRY = {
+    '5f8c645a4a8d644f06bb7583ae93ae0768dc06dee1db272cb4bd27b0b4037f8d': { name: 'Person 1', category: 'Doctor referral' },
+    '20cf5ba6d7b1e811ba53553aed478f6708e8f3c8b857ebe4572de223d36d533d': { name: 'Person 2', category: 'Doctor referral' },
+    'cf5481418297e6414125113edb6debdb9d41b58ddcd38e4fa16f659d4d7a3d78': { name: 'Person 3', category: 'Friend / Family' },
+    'c6244bc9c55d8937fa57db5b77eb5388ba653daf6e7e174bbdee8fd948247951': { name: 'Person 4', category: 'Friend / Family' },
+    '1b50a8b885d0b5ab514d1dcf9faff9027e23803d7241b3debde1da391d8a5736': { name: 'Person 5', category: 'Other' }
   };
 
   function lookupReferrer(code) {
+    if (!code) return null;
     const clean = sanitizeCode(code);
-    return STATIC_REFERRAL_REGISTRY[clean] || null;
+    const hash = sha256(clean);
+    return HASHED_REFERRAL_REGISTRY[hash] || null;
   }
 
   function initReferral() {
