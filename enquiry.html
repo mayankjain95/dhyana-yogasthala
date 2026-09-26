@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enquiry for Classical Hatha Yoga Classes | Dhyana Yogasthala</title>
-  <meta name="description" content="Enquire for Classical Hatha Yoga Classes with Isha Certified Teacher Shruti Jain at Dhyana Yogasthala. Please fill in the details below. We will get back to you within 24 hours.">
+  <meta name="description" content="Enquire for Classical Hatha Yoga Classes with Isha Certified Teacher Shruti Jain at Dhyana Yogasthala. In-person at Sec-15, Sonepat and online.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dhyanayogasthala.in/enquiry.html">
 
@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/enquiry.css">
-
+  <link rel="stylesheet" href="css/enquiry.css?v=2">
+  <script src="js/config.js"></script>
 </head>
 <body>
 
@@ -39,9 +39,9 @@
 
   <!-- Main Content Landmark -->
   <main class="enquiry-main" id="main-content" role="main">
-    <div class="enquiry-layout" id="enquiryLayout" style="display: none;">
+    <div class="enquiry-layout" id="enquiryLayout">
 
-      <!-- Left Visual Showcase Column (Workshop Image & Trust Authority) -->
+      <!-- Left Visual Showcase Column -->
       <aside class="showcase-card" aria-label="About Dhyana Yogasthala Classical Hatha Yoga">
         <div class="showcase-media">
           <img
@@ -65,20 +65,20 @@
           <ul class="trust-signals" role="list">
             <li class="trust-item">
               <span class="trust-icon" aria-hidden="true">✦</span>
-              <span><strong>Isha Certified Teacher:</strong> Guided by Shruti Jain, certified by the Isha School of Hatha Yoga.</span>
+              <span><strong>Isha Certified Teacher:</strong> Guided by Shruti Jain, trained under Sadhguru Gurukulam, Isha Yoga Center, Coimbatore.</span>
             </li>
             <li class="trust-item">
               <span class="trust-icon" aria-hidden="true">✦</span>
-              <span><strong>Personalized Guidance:</strong> Small batches tailored to individual health, flexibility, and goals.</span>
+              <span><strong>Personalized Guidance:</strong> Small batches tailored to your health, flexibility, and goals.</span>
             </li>
             <li class="trust-item">
               <span class="trust-icon" aria-hidden="true">✦</span>
-              <span><strong>Guaranteed Response:</strong> Our team will contact you directly within 24 hours.</span>
+              <span><strong>In-person as well as Online:</strong> In-person sessions at Sec-15, Sonepat and online</span>
             </li>
           </ul>
 
           <div class="showcase-contact">
-            <p class="showcase-contact-text">Have an urgent question before submitting?</p>
+            <p class="showcase-contact-text">Have a quick question before submitting?</p>
             <a
               href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20have%20an%20enquiry%20about%20Classical%20Hatha%20Yoga%20Classes."
               class="btn-whatsapp-direct"
@@ -95,14 +95,6 @@
 
       <!-- Right Form Column -->
       <section class="form-card" aria-labelledby="formHeading">
-
-        <!-- Referral Indicator Banner -->
-        <div class="referral-banner" id="referralBanner" style="display: none;" role="region" aria-label="Referral Information">
-          <div class="referral-banner-text" id="referralBannerText">
-            <span>✦ Referral Applied:</span>
-            <span class="referral-tag" id="referralTag">—</span>
-          </div>
-        </div>
 
         <!-- Form Header Section -->
         <div class="form-header">
@@ -161,7 +153,7 @@
             </div>
           </div>
 
-          <!-- Row 2: Gender Selector -->
+          <!-- Row 2: Gender Selector (Male & Female) -->
           <div class="form-field">
             <fieldset style="border:none;padding:0;margin:0;">
               <legend class="form-label" style="margin-bottom:0.3rem;">
@@ -175,10 +167,6 @@
                 <label class="radio-pill-label" for="genderFemale">
                   <input type="radio" name="gender" id="genderFemale" value="Female">
                   <span>Female</span>
-                </label>
-                <label class="radio-pill-label" for="genderOther">
-                  <input type="radio" name="gender" id="genderOther" value="Other / Prefer not to say">
-                  <span>Other / Prefer not to say</span>
                 </label>
               </div>
             </fieldset>
@@ -236,60 +224,21 @@
           <div class="form-field">
             <label for="hearAbout" class="form-label">
               <span>How did you hear about us?</span>
-              <span class="optional-tag">select one</span>
+              <span class="optional-tag">optional</span>
             </label>
             <div class="select-wrapper">
               <select id="hearAbout" name="hearAbout" class="form-select" aria-describedby="hearAbout-hint">
                 <option value="">— Please Select —</option>
-                <option value="Doctor referral">1. Doctor referral</option>
-                <option value="Friend / Family">2. Friend / Family</option>
-                <option value="Google">3. Google</option>
-                <option value="Other">4. Other</option>
+                <option value="Friend / Family">Friend / Family</option>
+                <option value="Google">Google / Web Search</option>
+                <option value="Social Media">Social Media (Instagram / Facebook)</option>
+                <option value="Other">Other</option>
               </select>
             </div>
-            <span id="hearAbout-hint" class="field-hint">Select the primary way you learned about Dhyana Yogasthala</span>
-
-            <!-- Conditional Expansion for Referrer / Detail -->
-            <div class="conditional-field" id="hearDetailContainer">
-              <label for="hearDetail" class="form-label" id="hearDetailLabel" style="margin-top:0.4rem;">
-                <span>Referrer / Doctor Details</span>
-                <span class="optional-tag">optional</span>
-              </label>
-              <input
-                type="text"
-                id="hearDetail"
-                name="hearDetail"
-                class="form-input"
-                placeholder="Enter name or clinic details"
-              >
-            </div>
+            <span id="hearAbout-hint" class="field-hint">Select how you learned about Dhyana Yogasthala</span>
           </div>
 
-          <!-- Row 5: Referral Code Field (Non-editable / Locked) -->
-          <div class="form-field">
-            <label for="referralCode" class="form-label">
-              <span>Referral Code <span class="lock-indicator" title="Locked unique tracking code" aria-hidden="true">🔒</span></span>
-              <span class="optional-tag" id="referralStatusTag">auto-detected from link</span>
-            </label>
-            <div class="readonly-input-wrap">
-              <input
-                type="text"
-                id="referralCode"
-                name="referralCode"
-                class="form-input form-input-readonly"
-                value="DIRECT"
-                readonly
-                aria-readonly="true"
-                tabindex="-1"
-                autocomplete="off"
-                aria-describedby="referralCode-hint"
-              >
-              <span class="readonly-badge" id="referralBadgeText">Direct</span>
-            </div>
-            <span id="referralCode-hint" class="field-hint">Unique tracking code assigned from your referral link</span>
-          </div>
-
-          <!-- Row 6: Why do you wish to join? -->
+          <!-- Row 5: Why do you wish to join? -->
           <div class="form-field">
             <label for="reason" class="form-label">
               <span>Why do you wish to join the Hatha Yoga classes?</span>
@@ -303,10 +252,10 @@
               placeholder="e.g. Flexibility, back pain relief, managing stress, inner calm, spiritual aspiration, preparing for Sadhana..."
               aria-describedby="reason-hint"
             ></textarea>
-            <span id="reason-hint" class="field-hint">Helps Shruti understand your expectations and current requirements</span>
+            <span id="reason-hint" class="field-hint">Helps Shruti understand your expectations and current health goals</span>
           </div>
 
-          <!-- Row 7: Consent Checkbox -->
+          <!-- Row 6: Consent Checkbox -->
           <div class="agreement-card">
             <label class="checkbox-label" for="consent">
               <input
@@ -345,38 +294,6 @@
 
     </div>
     <!-- /enquiryLayout -->
-
-    <!-- 404 Not Found View -->
-    <div class="not-found-layout" id="notFoundLayout" style="display: none;" role="region" aria-label="Page Not Found">
-      <div class="not-found-card">
-        <div class="not-found-badge">404</div>
-        <div class="not-found-glyph" aria-hidden="true">✦</div>
-        <h1 class="not-found-title">Page Not Found</h1>
-        <p class="not-found-desc">
-          The page you are looking for does not exist, has been moved, or is no longer available.
-        </p>
-
-        <div class="not-found-actions">
-          <a href="index.html" class="btn-not-found-primary" aria-label="Return to Dhyana Yogasthala Homepage">
-            <span aria-hidden="true">←</span> Return to Homepage
-          </a>
-          <a
-            href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20am%20looking%20for%20information%20about%20Classical%20Hatha%20Yoga%20classes."
-            class="btn-not-found-whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact Dhyana Yogasthala on WhatsApp"
-          >
-            <span aria-hidden="true">💬</span> Contact on WhatsApp
-          </a>
-        </div>
-
-        <p class="not-found-footer-note">
-          Looking for upcoming classical programs? Explore our <a href="index.html#offerings">offerings</a> or connect with our team directly.
-        </p>
-      </div>
-    </div>
-    <!-- /notFoundLayout -->
   </main>
 
   <!-- Success Confirmation Modal (WCAG Dialog) -->
@@ -398,7 +315,7 @@
       <div class="success-icon-symbol" aria-hidden="true">🙏</div>
       <h2 class="modal-title" id="successTitle">Enquiry Received!</h2>
       <p class="modal-text" id="successDesc">
-        Thank you, <strong id="successUserName">Seeker</strong>! <span id="successUserRef"></span><br><br>
+        Thank you, <strong id="successUserName">Seeker</strong>!<br><br>
         Your enquiry for Classical Hatha Yoga classes has been received. Shruti and the Dhyana Yogasthala team will connect with you <strong>within 24 hours</strong> to discuss batch timings and registration.
       </p>
 
@@ -417,8 +334,6 @@
       </div>
     </div>
   </div>
-
-
 
   <!-- Page Footer Landmark -->
   <footer class="enquiry-footer" role="contentinfo">
@@ -441,6 +356,6 @@
   </footer>
 
   <!-- Page Logic Script -->
-  <script src="js/enquiry.js"></script>
+  <script src="js/enquiry.js?v=2"></script>
 </body>
 </html>
