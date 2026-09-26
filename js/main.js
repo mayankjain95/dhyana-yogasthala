@@ -168,3 +168,128 @@
       navLinks.classList.toggle('active');
     }
   }
+
+  // ── Gallery Lightbox ────────────────────────────────────────────────────────
+  let currentLightboxIdx = 0;
+  const GALLERY_ITEMS = [
+    {
+      src: 'assets/images/gallery-1.webp',
+      fallback: 'assets/images/gallery-1.jpg',
+      tag: 'Retreat & Mud Space',
+      tagHi: 'रिट्रीट व गहन अभ्यास',
+      title: 'Asana Practice in Sacred Mud Space · Adiyog Yogashala',
+      titleHi: 'पारंपरिक मिट्टी के हॉल में योगासन संरेखण (अदियोग योगशाला)',
+      alt: 'Students practicing Hatha Yoga forward bends in natural mud-walled hall at Adiyog Yogashala with Linga Bhairavi image'
+    },
+    {
+      src: 'assets/images/gallery-2.webp',
+      fallback: 'assets/images/gallery-2.jpg',
+      tag: 'Classical Hatha Yoga',
+      tagHi: 'क्लासिकल हठ योग',
+      title: 'Deep Meditation & Inner Stillness · Sonepat Studio',
+      titleHi: 'गहन ध्यान और आंतरिक शांति (सोनीपत स्टूडियो)',
+      alt: 'Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio'
+    },
+    {
+      src: 'assets/images/gallery-3.webp',
+      fallback: 'assets/images/gallery-3.jpg',
+      tag: 'All Generations',
+      tagHi: 'सभी पीढ़ियां',
+      title: 'Children & Family Yoga · Cultivating Poise & Focus',
+      titleHi: 'बच्चों और युवाओं का योग — एकाग्रता व संतुलन',
+      alt: 'Young boy with eyes closed meditating peacefully alongside family in studio'
+    },
+    {
+      src: 'assets/images/gallery-4.webp',
+      fallback: 'assets/images/gallery-4.jpg',
+      tag: 'Restorative Practices',
+      tagHi: 'पुनर्स्थापनात्मक योग',
+      title: 'Gentle Joint Mobility & Energy Alignment',
+      titleHi: 'पुनर्स्थापनात्मक खिंचाव और ऊर्जा प्रवाह',
+      alt: 'Young woman in seated yoga posture focusing inward on ochre practice mat'
+    },
+    {
+      src: 'assets/images/gallery-5.webp',
+      fallback: 'assets/images/gallery-5.jpg',
+      tag: 'Daily Sadhana',
+      tagHi: 'दैनिक साधना',
+      title: 'Vajrasana Meditation on Handwoven Mat',
+      titleHi: 'प्राकृतिक मैट पर वज्रासन साधना',
+      alt: 'Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat'
+    },
+    {
+      src: 'assets/images/gallery-6.webp',
+      fallback: 'assets/images/gallery-6.jpg',
+      tag: 'Studio Atmosphere',
+      tagHi: 'स्टूडियो वातावरण',
+      title: 'Wall-Supported Dhyana Alignment with Sadhguru’s Presence',
+      titleHi: 'सद्गुरु की पावन उपस्थिति में स्टूडियो साधना सत्र',
+      alt: 'Practitioners seated upright with wall support practicing classical posture under Sadhguru portrait in Sonepat studio'
+    }
+  ];
+
+  function openLightbox(idx) {
+    currentLightboxIdx = idx;
+    const item = GALLERY_ITEMS[idx];
+    if (!item) return;
+    const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
+    const tag = (isHi && item.tagHi) ? item.tagHi : item.tag;
+    const title = (isHi && item.titleHi) ? item.titleHi : item.title;
+
+    const lb = document.getElementById('gallery-lightbox');
+    const img = document.getElementById('lightbox-img');
+    const catEl = document.getElementById('lightbox-cat');
+    const titleEl = document.getElementById('lightbox-title');
+    const countEl = document.getElementById('lightbox-count');
+
+    if (img) {
+      img.src = item.src;
+      img.alt = item.alt;
+    }
+    if (catEl) catEl.textContent = tag;
+    if (titleEl) titleEl.textContent = title;
+    if (countEl) countEl.textContent = (idx + 1) + ' / ' + GALLERY_ITEMS.length;
+
+    if (lb) {
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const closeBtn = lb.querySelector('.lightbox-close');
+      if (closeBtn) closeBtn.focus();
+    }
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('gallery-lightbox');
+    if (lb) {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function nextLightbox() {
+    openLightbox((currentLightboxIdx + 1) % GALLERY_ITEMS.length);
+  }
+
+  function prevLightbox() {
+    openLightbox((currentLightboxIdx - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+  }
+
+  // Keyboard navigation & backdrop clicks
+  document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('gallery-lightbox');
+    if (lb && lb.classList.contains('active')) {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') nextLightbox();
+      else if (e.key === 'ArrowLeft') prevLightbox();
+    } else if (e.key === 'Escape') {
+      const modal = document.getElementById('modal');
+      if (modal && modal.classList.contains('open')) closeModal();
+    }
+  });
+
+  const lbOverlay = document.getElementById('gallery-lightbox');
+  if (lbOverlay) {
+    lbOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+  }

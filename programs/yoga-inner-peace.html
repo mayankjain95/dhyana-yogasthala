@@ -6,19 +6,21 @@
 <title>Yoga for Inner Peace | Free Session | Dhyana Yogasthala</title>
 <meta name="description" content="Join us for a rejuvenating hour dedicated to stillness and self-connection. A free Classical Hatha Yoga session in Sonepat.">
 <meta property="og:title" content="Yoga for Inner Peace | Free Session | Dhyana Yogasthala">
-<meta property="og:description" content="This session will introduce a few simple yet powerful yogic practices designed to release physical tension, calm the mind, and restore natural balance.">
+<meta property="og:description" content="This session introduces simple yet powerful yogic practices designed to release physical tension, calm the mind, and restore natural balance.">
 <meta property="og:image" content="https://dhayanayogasthala.com/assets/images/yoga-inner-peace.webp">
 <meta property="og:url" content="https://dhayanayogasthala.com/programs/yoga-inner-peace.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://dhayanayogasthala.com/programs/yoga-inner-peace.html">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/program.css">
+<link rel="stylesheet" href="../css/program.css?v=2">
 <script src="../js/i18n.js"></script>
-<script src="../js/config.js?v=5"></script>
-<script src="../js/components.js?v=4"></script>
-<!-- ↓ This is the only line that makes this page unique ↓ -->
+<script src="../js/config.js?v=8"></script>
+<script src="../js/components.js?v=6"></script>
+<!-- PROGRAM_ID identifier for program-page.js -->
 <script>const PROGRAM_ID = 'inner-peace';</script>
 </head>
 <body>
@@ -26,32 +28,117 @@
 <div id="wa-float-container"></div>
 <nav id="site-nav"></nav>
 
-<!-- HERO -->
-<section class="maitreyi-hero">
-  <img id="prog-hero-img" src="" alt="" class="maitreyi-hero-img" loading="lazy">
-  <div class="maitreyi-hero-overlay"></div>
-  <div class="maitreyi-hero-content">
-    <div class="maitreyi-label" id="prog-hero-label"></div>
-    <h1 class="maitreyi-hero-title" id="prog-hero-title"></h1>
-    <div class="maitreyi-hero-subtitle" id="prog-hero-subtitle"></div>
-    <p id="prog-hero-desc" style="color:rgba(245,239,224,0.85); font-size:1.05rem; line-height:1.8; margin-bottom:2.5rem; max-width:620px;"></p>
-    <button class="hero-scroll-cta" onclick="document.getElementById('registration').scrollIntoView({behavior:'smooth'})">Register →</button>
-  </div>
-</section>
+<main>
+  <!-- EDITORIAL SPLIT HERO -->
+  <section class="program-split-hero" aria-label="Program Overview">
+    <div class="program-split-inner">
+      
+      <!-- LEFT: Spotlight Poster Card -->
+      <div class="reveal">
+        <div class="poster-spotlight-card">
+          <div class="poster-badge-top">✦ In-Person · Sonepat</div>
+          <div class="poster-badge-free">100% Free</div>
+          <picture>
+            <source srcset="../assets/images/yoga-inner-peace.webp" type="image/webp">
+            <img id="prog-hero-img" src="../assets/images/yoga-inner-peace.webp" alt="Yoga for Inner Peace Free Session Poster" loading="eager" width="700" height="700">
+          </picture>
+          <button type="button" class="poster-zoom-btn" onclick="openPosterModal()" aria-label="Expand poster image">
+            <span>Expand Poster</span> 🔍
+          </button>
+        </div>
 
-<!-- BENEFITS STRIP -->
-<section id="prog-benefits-section" class="about-strip">
-  <div class="about-strip-inner" style="grid-template-columns: 1fr; max-width: 700px;">
-    <div class="reveal">
-      <div class="about-strip-label" style="margin-bottom: 1.5rem; justify-content:center;">Program Benefits</div>
-      <div class="about-highlights" id="prog-benefits-grid"></div>
+        <div class="poster-meta-strip" aria-label="Session details">
+          <div class="poster-meta-item">
+            <span class="meta-icon">📅</span>
+            <div><strong>28th July 2026</strong></div>
+          </div>
+          <div class="poster-meta-item">
+            <span class="meta-icon">🕒</span>
+            <div><strong>12:00 – 1:00 PM</strong></div>
+          </div>
+          <div class="poster-meta-item">
+            <span class="meta-icon">📍</span>
+            <div><strong>Sector-15, Sonepat</strong></div>
+          </div>
+          <div class="poster-meta-item">
+            <span class="meta-icon">🏷️</span>
+            <div><strong>Free (Pre-reg required)</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Editorial Content -->
+      <div class="program-hero-body reveal">
+        <div class="program-tag-eyebrow">✦ DHYANA YOGASTHALA · FREE SESSION</div>
+        <h1 class="program-main-title" id="prog-hero-title">Yoga for <em>Inner Peace</em></h1>
+        
+        <div class="teacher-credential-pill">
+          <span class="dot"></span>
+          <span>Taught in its pristine purity by an Isha Certified Teacher</span>
+        </div>
+
+        <div class="maitreyi-hero-subtitle" id="prog-hero-subtitle"></div>
+        <p class="program-hero-lead" id="prog-hero-desc"></p>
+
+        <!-- CTA -->
+        <div class="hero-cta-group">
+          <button class="hero-scroll-cta" onclick="document.getElementById('registration').scrollIntoView({behavior:'smooth'})">
+            Register for Free Session →
+          </button>
+          <div class="hero-cta-note">
+            ✓ No prior experience required · Pre-registration mandatory
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section id="prog-benefits-section" class="about-strip">
+    <div class="about-strip-inner" style="grid-template-columns:1fr; max-width:820px;">
+      <div class="reveal">
+        <div class="about-strip-label" id="prog-benefits-label" style="margin-bottom:1.5rem; justify-content:center;">Program Benefits</div>
+        <div class="about-highlights" id="prog-benefits-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <div id="prog-form-container"></div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="poster-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Expanded Poster Image" onclick="closePosterModal(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close" onclick="closePosterModal()" aria-label="Close modal">✕</button>
+      <img src="../assets/images/yoga-inner-peace.webp" alt="Yoga for Inner Peace Full Poster" loading="lazy">
     </div>
   </div>
-</section>
+</main>
 
-<!-- REGISTRATION FORM -->
-<div id="prog-form-container"></div>
 <footer id="site-footer"></footer>
-<script src="../js/program-page.js?v=8"></script>
+<script src="../js/program-page.js?v=10"></script>
+
+<script>
+  function openPosterModal() {
+    const modal = document.getElementById('poster-lightbox');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closePosterModal(e) {
+    const modal = document.getElementById('poster-lightbox');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePosterModal();
+  });
+</script>
 </body>
 </html>

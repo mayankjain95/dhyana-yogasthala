@@ -23,6 +23,12 @@ const SITE_CONFIG = {
 
   // Contact email
   email: 'seekwithshruti@gmail.com',
+
+  // Studio Google Maps Location
+  mapsUrl: 'https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r',
+  directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=29.0031183,77.0388958',
+  address: '812, Sector 15, Sonepat, Haryana 131001, India',
+  coordinates: { lat: 29.0031183, lng: 77.0388958 },
 };
 
 /**
@@ -50,6 +56,47 @@ const SITE_CONFIG = {
  *   active       — true = show on main page; false = archived/hidden
  */
 const UPCOMING_PROGRAMS = [
+  {
+    id: 'free-classical-hatha-yoga',
+    tag: '✦ Free Class · In-Person',
+    tagHi: '✦ निशुल्क सत्र · व्यक्तिगत',
+    title: 'Free Classical Hatha Yoga Class',
+    titleHi: 'निशुल्क क्लासिकल हठ योग सत्र',
+    image: 'assets/images/free-classical-hatha-yoga.webp',
+    cardDesc: 'Includes simple yet potent Yogic Practices, Pranayama, Nada Yoga & Guided Meditation to relieve cervical & back pain, boost energy, and restore inner peace.',
+    cardDescHi: 'सरल एवं शक्तिशाली यौगिक अभ्यास, प्राणायाम, नाद योग और निर्देशित ध्यान — सर्वाइकल व पीठ दर्द से राहत, लचीलापन, ऊर्जा वृद्धि और आंतरिक शांति के लिए।',
+    pageDesc: 'Join us for a free, in-person Classical Hatha Yoga class in Sector 15, Sonepat. Taught in its pristine purity as transmitted by Sadhguru, this 75-minute experiential session offers foundational tools to relieve cervical and back pain, boost vitality, and restore natural inner calm. Open to all above 14 years of age; no prior yoga experience required.',
+    pageDescHi: 'सोनीपत के सेक्टर-15 में क्लासिकल हठ योग के इस निशुल्क, व्यक्तिगत सत्र में भाग लें। सद्गुरु द्वारा प्रसारित शुद्धतम परंपरा में सिखाया जाने वाला यह 75-मिनट का अनुभवात्मक सत्र सर्वाइकल व पीठ दर्द से राहत, जीवन ऊर्जा में वृद्धि और प्राकृतिक आंतरिक शांति स्थापित करने के लिए सरल एवं शक्तिशाली तकनीकें प्रदान करता है। 14 वर्ष से अधिक आयु के सभी व्यक्तियों के लिए खुला है; किसी पूर्व अनुभव की आवश्यकता नहीं।',
+    subtitle: '30 Sep (Wed) or 4 Oct (Sun), 2026 | 11:00 AM – 12:15 PM | Sonepat',
+    subtitleHi: '30 सितंबर (बुध) या 4 अक्टूबर (रवि), 2026 | सुबह 11:00 – दोपहर 12:15 बजे | सोनीपत',
+    benefits: [
+      'Relieve Cervical & Back Pain',
+      'Improve flexibility & mobility',
+      'Develop focus & mental clarity',
+      'Improves energy levels',
+      'Brings Inner peace and calm',
+    ],
+    benefitsHi: [
+      'सर्वाइकल और पीठ दर्द से राहत',
+      'लचीलापन और शारीरिक गतिशीलता में सुधार',
+      'एकाग्रता और मानसिक स्पष्टता का विकास',
+      'दैनिक ऊर्जा स्तर में वृद्धि',
+      'आंतरिक शांति और मन की स्थिरता',
+    ],
+    date: '30 Sep (Wed) or 4 Oct (Sun), 2026',
+    dateHi: '30 सितंबर (बुध) या 4 अक्टूबर (रवि), 2026',
+    time: '11:00 AM – 12:15 PM (75 mins)',
+    timeHi: 'सुबह 11:00 – दोपहर 12:15 बजे (75 मिनट)',
+    location: 'Dhyana Yogasthala, 812, Sec-15, Sonepat',
+    locationHi: 'ध्याना योगस्थल, 812, सेक्टर-15, सोनीपत',
+    price: 'Free (Pre-registration required)',
+    priceHi: 'निशुल्क (पूर्व पंजीकरण अनिवार्य)',
+    link: 'programs/free-classical-hatha-yoga.html',
+    linkText: 'Register for Free Session',
+    linkTextHi: 'निशुल्क सत्र के लिए पंजीकरण करें',
+    isFree: true,
+    active: true,
+  },
   {
     id: 'diabetes-management',
     tag: '✦ Sonepat · 3-Day Program',
@@ -315,7 +362,7 @@ const UPCOMING_PROGRAMS = [
     linkTextHi: 'अधिक जानें / पंजीकरण करें',
     paymentMsg: 'Please complete the payment of ₹3,500 via UPI to confirm your registration for Surya Kriya.',
     isFree: false,
-    active: true,
+    active: false,
   },
   {
     id: 'cervical-back-pain-workshop',

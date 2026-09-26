@@ -160,14 +160,87 @@
   .teacher-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.2rem;}
   .pill{background:white;border:1px solid rgba(200,98,42,0.25);padding:0.35rem 0.9rem;font-size:0.68rem;letter-spacing:0.08em;color:var(--saffron);text-transform:uppercase;}
 
-  /* LOCATIONS */
-  #locations{background:var(--ivory);}
-  .loc-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:2rem;margin-top:3rem;max-width:800px;}
-  .loc-card{padding:2.5rem 2rem;border:1px solid rgba(200,98,42,0.15);background:white;position:relative;overflow:hidden;}
+  /* GALLERY */
+  #gallery{background:var(--warm-dark);position:relative;overflow:hidden;}
+  #gallery .section-title{color:var(--ivory);}
+  #gallery .section-label{color:var(--gold);}
+  #gallery .section-label::before{background:var(--gold);}
+  .gallery-intro{color:var(--light-muted);max-width:680px;line-height:1.8;margin-bottom:2.5rem;font-weight:300;}
+  .gallery-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.5rem;}
+  .gallery-item{position:relative;border-radius:3px;overflow:hidden;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.2);cursor:pointer;display:flex;flex-direction:column;min-height:300px;transition:transform 0.35s ease,border-color 0.35s ease,box-shadow 0.35s ease;}
+  .gallery-item:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 30px rgba(0,0,0,0.45);}
+  .gallery-item:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  .gallery-item.col-span-2{grid-column:span 2;}
+  .gallery-img-wrap{position:relative;width:100%;height:100%;min-height:280px;overflow:hidden;}
+  .gallery-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(0.2,0.8,0.2,1),opacity 0.3s;}
+  .gallery-item:hover .gallery-img{transform:scale(1.05);opacity:0.95;}
+  .gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,12,8,0.1) 40%,rgba(14,12,8,0.88) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem;transition:background 0.3s ease;}
+  .gallery-item:hover .gallery-overlay{background:linear-gradient(180deg,rgba(14,12,8,0.05) 20%,rgba(14,12,8,0.94) 100%);}
+  .gallery-tag{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
+  .gallery-caption{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ivory);line-height:1.3;font-weight:400;}
+  .gallery-zoom-badge{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:rgba(30,23,16,0.8);border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;opacity:0;transform:scale(0.85);transition:opacity 0.3s,transform 0.3s;}
+  .gallery-item:hover .gallery-zoom-badge{opacity:1;transform:scale(1);}
+  
+  .gallery-invite-card{background:linear-gradient(135deg,rgba(201,168,76,0.1) 0%,rgba(30,23,16,0.85) 100%);border:1px solid rgba(201,168,76,0.3);padding:2.2rem;display:flex;flex-direction:column;justify-content:center;border-radius:3px;}
+  .gallery-invite-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--ivory);margin-bottom:0.8rem;line-height:1.25;}
+  .gallery-invite-desc{font-size:0.88rem;color:var(--light-muted);line-height:1.75;margin-bottom:1.5rem;font-weight:300;}
+
+  /* LIGHTBOX */
+  .gallery-lightbox{position:fixed;inset:0;z-index:2000;background:rgba(10,8,6,0.96);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:2rem;}
+  .gallery-lightbox.active{display:flex;animation:fadeUp 0.25s ease;}
+  .lightbox-inner{position:relative;max-width:960px;width:100%;max-height:92vh;display:flex;flex-direction:column;align-items:center;}
+  .lightbox-img-box{position:relative;max-width:100%;max-height:75vh;display:flex;align-items:center;justify-content:center;}
+  .lightbox-img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:2px;box-shadow:0 15px 40px rgba(0,0,0,0.6);border:1px solid rgba(201,168,76,0.3);}
+  .lightbox-bar{margin-top:1rem;display:flex;justify-content:space-between;align-items:center;width:100%;color:var(--ivory);padding:0 0.5rem;}
+  .lightbox-info{display:flex;flex-direction:column;gap:0.2rem;}
+  .lightbox-cat{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+  .lightbox-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ivory);}
+  .lightbox-count{font-size:0.75rem;letter-spacing:0.1em;color:var(--light-muted);}
+  .lightbox-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(201,168,76,0.35);color:var(--ivory);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;font-size:1.2rem;}
+  .lightbox-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+  .lightbox-close{position:absolute;top:-45px;right:0;}
+  .lightbox-nav-prev{position:absolute;left:-60px;top:50%;transform:translateY(-50%);}
+  .lightbox-nav-next{position:absolute;right:-60px;top:50%;transform:translateY(-50%);}
+  @media(max-width:1100px){
+    .lightbox-nav-prev{left:10px;background:rgba(30,23,16,0.85);}
+    .lightbox-nav-next{right:10px;background:rgba(30,23,16,0.85);}
+    .lightbox-close{top:10px;right:10px;background:rgba(30,23,16,0.85);}
+  }
+
+  /* LOCATIONS & GOOGLE MAPS */
+  #locations{background:var(--ivory);position:relative;}
+  .locations-intro{color:var(--muted);max-width:680px;line-height:1.8;margin-bottom:2.5rem;font-weight:300;}
+  .loc-cards-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.8rem;margin-bottom:3rem;}
+  .loc-card{padding:2.2rem 1.8rem;border:1px solid rgba(200,98,42,0.2);background:white;position:relative;border-radius:4px;box-shadow:0 6px 20px rgba(46,32,24,0.04);transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;}
+  .loc-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(46,32,24,0.08);}
   .loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--saffron);}
-  .loc-icon{font-size:1.8rem;margin-bottom:1rem;}
-  .loc-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--warm-dark);margin-bottom:0.5rem;}
-  .loc-detail{font-size:0.85rem;color:var(--muted);line-height:1.7;font-weight:300;}
+  .loc-card.featured-loc{border-color:rgba(201,168,76,0.5);box-shadow:0 8px 24px rgba(201,168,76,0.12);}
+  .loc-card.featured-loc::before{background:var(--gold);height:4px;}
+  .loc-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:0.7rem;}
+  .featured-loc .loc-badge{color:var(--gold);}
+  .loc-icon{font-size:1.8rem;margin-bottom:0.8rem;}
+  .loc-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--warm-dark);margin-bottom:0.8rem;line-height:1.25;}
+  .loc-detail{font-size:0.86rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:1.4rem;}
+  .loc-actions{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:auto;}
+  .btn-loc-primary{background:var(--saffron);color:var(--ivory);padding:0.6rem 1.2rem;border-radius:2px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;transition:all 0.25s;}
+  .btn-loc-primary:hover{background:var(--deep-saffron);transform:translateY(-1px);}
+  .btn-loc-outline{background:transparent;color:var(--warm-dark);border:1px solid rgba(46,32,24,0.3);padding:0.6rem 1.2rem;border-radius:2px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;transition:all 0.25s;}
+  .btn-loc-outline:hover{background:var(--warm-dark);color:var(--ivory);border-color:var(--warm-dark);}
+
+  /* MAP EMBED CARD */
+  .map-embed-card{border:1px solid rgba(200,98,42,0.22);background:white;border-radius:4px;overflow:hidden;box-shadow:0 12px 35px rgba(30,23,16,0.07);}
+  .map-header-bar{padding:1.2rem 1.8rem;background:var(--warm-dark);color:var(--ivory);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem;border-bottom:2px solid var(--gold);}
+  .map-header-info{display:flex;flex-direction:column;gap:0.3rem;}
+  .map-title-row{display:flex;align-items:center;gap:0.7rem;flex-wrap:wrap;}
+  .map-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--ivory);font-weight:500;}
+  .map-coords{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.12);padding:0.25rem 0.6rem;border-radius:2px;border:1px solid rgba(201,168,76,0.25);}
+  .map-sub{font-size:0.82rem;color:var(--light-muted);font-weight:300;}
+  .map-header-actions{display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;}
+  .map-iframe-wrap{position:relative;width:100%;height:450px;background:#e5e3df;}
+  .map-iframe-wrap iframe{width:100%;height:100%;border:0;display:block;}
+  .map-quick-links{padding:1rem 1.8rem;background:var(--cream);border-top:1px solid rgba(200,98,42,0.12);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.8rem;color:var(--muted);}
+  .map-quick-links a{color:var(--saffron);text-decoration:none;font-weight:500;}
+  .map-quick-links a:hover{text-decoration:underline;}
 
   /* CONTACT */
   #contact{background:var(--dark);}
@@ -221,7 +294,11 @@
     .about-yoga-left{position:static;top:auto;}
     .quote-block{padding:1.25rem 1.25rem 1.25rem 1.5rem;margin-top:1.5rem;}
     .teacher-photo-wrap{max-width:240px;}
-    .loc-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+    .gallery-item.col-span-2{grid-column:span 2;}
+    .loc-cards-grid{grid-template-columns:1fr;}
+    .map-header-bar{flex-direction:column;align-items:flex-start;}
+    .map-iframe-wrap{height:360px;}
     .hero-badges{display:none;}
     .form-row{grid-template-columns:1fr;}
     nav{padding:1rem 4vw; flex-wrap: wrap;}
@@ -233,4 +310,7 @@
   @media(max-width:600px){
     section{padding:3.5rem 5vw;}
     .practices-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-item.col-span-2{grid-column:span 1;}
+    .map-iframe-wrap{height:300px;}
   }

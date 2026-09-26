@@ -30,6 +30,7 @@
     <li><a href="#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
     <li><a href="#offerings" data-i18n="nav.offerings">Offerings</a></li>
     <li><a href="#teacher" data-i18n="nav.teacher">Teacher</a></li>
+    <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
     <li><a href="#locations" data-i18n="nav.locations">Locations</a></li>
     <li><a href="#" class="nav-wa" data-wa="default" data-i18n="nav.consult">🌿 Consult Teacher</a></li>
     <li><a href="#contact" class="nav-cta" data-i18n="nav.enquire">Enquire</a></li>
@@ -126,10 +127,10 @@
         const desc  = (isHi && p.cardDescHi) ? p.cardDescHi : p.cardDesc;
         const link  = (isHi && p.linkTextHi) ? p.linkTextHi : p.linkText;
         const meta = [
-          p.date     ? '<div>📅 ' + p.date + '</div>'     : '',
-          p.time     ? '<div>🕒 ' + p.time + '</div>'     : '',
-          p.location ? '<div>📍 ' + p.location + '</div>' : '',
-          p.price    ? '<div>🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + p.price + '</div>' : '',
+          p.date     ? '<div>📅 ' + (isHi && p.dateHi ? p.dateHi : p.date) + '</div>'         : '',
+          p.time     ? '<div>🕒 ' + (isHi && p.timeHi ? p.timeHi : p.time) + '</div>'         : '',
+          p.location ? '<div>📍 ' + (isHi && p.locationHi ? p.locationHi : p.location) + '</div>' : '',
+          p.price    ? '<div>🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + (isHi && p.priceHi ? p.priceHi : p.price) + '</div>' : '',
         ].join('');
         return `
           <div class="practice-card reveal">
@@ -307,20 +308,215 @@
   </div>
 </section>
 
-<!-- LOCATIONS -->
+<!-- SACRED SPACES & GALLERY -->
+<section id="gallery">
+  <div class="section-label" data-i18n="gallery.label">Sacred Atmosphere &amp; Glimpses</div>
+  <h2 class="section-title" data-i18n="gallery.title">Moments of Stillness, Discipline &amp; Transformation</h2>
+  <p class="gallery-intro" data-i18n="gallery.sub">Glimpses from our dedicated yoga studio in Sector 15, Sonepat, and residential weekend immersions at Adiyog Yogashala mud space.</p>
+  
+  <div class="gallery-grid">
+    <!-- Item 1: Mud Space Asanas (Landscape - spans 2 cols on desktop) -->
+    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(0)" aria-haspopup="dialog" aria-label="View photo: Asana Practice in Sacred Mud Space">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-1.webp" type="image/webp">
+          <img src="assets/images/gallery-1.jpg" alt="Students practicing Hatha Yoga forward bends in natural mud-walled hall at Adiyog Yogashala with Linga Bhairavi image" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag1">Retreat &amp; Mud Space</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap1">Asana Practice in Sacred Mud Space (Adiyog Yogashala)</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2: Meditation In Stillness (Portrait - 1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(1)" aria-haspopup="dialog" aria-label="View photo: Deep Meditation & Inner Stillness">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-2.webp" type="image/webp">
+          <img src="assets/images/gallery-2.jpg" alt="Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag2">Classical Hatha Yoga</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap2">Deep Meditation &amp; Inner Stillness (Sonepat Studio)</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 3: Children's Yoga (1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(2)" aria-haspopup="dialog" aria-label="View photo: Children & Family Yoga">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-3.webp" type="image/webp">
+          <img src="assets/images/gallery-3.jpg" alt="Young boy with eyes closed meditating peacefully alongside family in studio" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag3">All Generations</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap3">Children &amp; Family Yoga — Poise &amp; Balance</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 4: Restorative Practice (1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(3)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(3)" aria-haspopup="dialog" aria-label="View photo: Restorative Stretch & Energy Alignment">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-4.webp" type="image/webp">
+          <img src="assets/images/gallery-4.jpg" alt="Young woman in seated yoga posture focusing inward on ochre practice mat" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag4">Restorative Yoga</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap4">Gentle Joint Mobility &amp; Energy Alignment</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 5: Vajrasana Meditation (1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(4)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(4)" aria-haspopup="dialog" aria-label="View photo: Vajrasana Meditation on Handwoven Mat">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-5.webp" type="image/webp">
+          <img src="assets/images/gallery-5.jpg" alt="Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag5">Daily Sadhana</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap5">Vajrasana Meditation on Handwoven Mat</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 6: Studio Dhyana Session with Sadhguru Presence (Landscape/wide or 2 cols) -->
+    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(5)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(5)" aria-haspopup="dialog" aria-label="View photo: Studio Sadhana Session with Sadhguru Presence">
+      <div class="gallery-img-wrap">
+        <picture>
+          <source srcset="assets/images/gallery-6.webp" type="image/webp">
+          <img src="assets/images/gallery-6.jpg" alt="Practitioners seated upright with wall support practicing classical posture under Sadhguru portrait in Sonepat studio" class="gallery-img" loading="lazy">
+        </picture>
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag6">Studio Atmosphere</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap6">Wall-Supported Dhyana Alignment with Sadhguru’s Presence</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 7: Experience Atmosphere Invite Card (1 col) -->
+    <div class="gallery-invite-card reveal">
+      <div style="font-size:1.8rem;margin-bottom:0.8rem;">🌿</div>
+      <h3 class="gallery-invite-title" data-i18n="gallery.invite.title">Experience the Consecrated Space</h3>
+      <p class="gallery-invite-desc" data-i18n="gallery.invite.desc">Step into our peaceful studio in Sector 15, Sonepat. Experience authentic Classical Hatha Yoga taught with uncompromising geometric precision.</p>
+      <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20visit%20the%20studio%20or%20know%20more%20about%20upcoming%20classes." target="_blank" class="btn-wa-earthy" style="align-self:flex-start;font-size:0.75rem;" data-i18n="gallery.invite.btn">🌿 Schedule a Studio Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS & GOOGLE MAPS -->
 <section id="locations">
   <div class="section-label" data-i18n="locations.label">Find Us</div>
-  <h2 class="section-title" data-i18n="locations.title">Where We Teach</h2>
-  <div class="loc-grid">
-    <div class="loc-card reveal">
-      <div class="loc-icon">🏛</div>
-      <div class="loc-name" data-i18n="loc.sonepat.name">Sonepat</div>
-      <div class="loc-detail" data-i18n="loc.sonepat.detail">In-person workshops and regular classes at the heart of Dhyana Yogasthala.<br><br>812, Sector 15, Sonepat,<br>Haryana, India</div>
+  <h2 class="section-title" data-i18n="locations.title">Where We Teach &amp; How to Reach</h2>
+  <p class="locations-intro" data-i18n="locations.sub">Visit our dedicated studio in Sector 15, Sonepat, experience immersive retreats at our rural mud space, or join live guided sessions online from anywhere.</p>
+
+  <div class="loc-cards-grid">
+    <!-- Card 1: Main Studio Sonepat -->
+    <div class="loc-card featured-loc reveal">
+      <div class="loc-badge" data-i18n="loc.sonepat.badge">Primary Studio · Sonepat</div>
+      <div class="loc-icon">🏛️</div>
+      <h3 class="loc-name" data-i18n="loc.sonepat.name">Dhyana Yogasthala · Sonepat</h3>
+      <div class="loc-detail" data-i18n="loc.sonepat.detail">
+        <strong>812, Sector 15, Sonepat, Haryana 131001, India</strong><br><br>
+        <strong>Timings:</strong> Morning &amp; Evening Batches (By appointment / registration)<br>
+        <strong>Environment:</strong> Dedicated, tranquil consecrated space equipped with authentic natural mats and props.
+      </div>
+      <div class="loc-actions">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer" class="btn-loc-primary" data-i18n="loc.directions.btn">
+          📍 Get Directions
+        </a>
+        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer" class="btn-loc-outline" data-i18n="loc.openmaps.btn">
+          Open in Maps ↗
+        </a>
+      </div>
     </div>
+
+    <!-- Card 2: Rural Retreat Mud Space -->
     <div class="loc-card reveal">
+      <div class="loc-badge" data-i18n="loc.mud.badge">Residential Retreats</div>
+      <div class="loc-icon">🌿</div>
+      <h3 class="loc-name" data-i18n="loc.mud.name">Adiyog Yogashala (Mud Space)</h3>
+      <div class="loc-detail" data-i18n="loc.mud.detail">
+        <strong>Nirthan Village, Sonepat, Haryana</strong><br><br>
+        A consecrated, eco-friendly mud-plastered hall constructed with natural materials. Naturally cooled and insulated from city noise, designed specifically for intensive multi-day Classical Hatha Yoga retreats.
+      </div>
+      <div class="loc-actions">
+        <a href="#offerings" class="btn-loc-outline">
+          Explore Retreats →
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: Online Sessions -->
+    <div class="loc-card reveal">
+      <div class="loc-badge" data-i18n="loc.online.badge">Worldwide Access</div>
       <div class="loc-icon">💻</div>
-      <div class="loc-name" data-i18n="loc.online.name">Online</div>
-      <div class="loc-detail" data-i18n="loc.online.detail">Live sessions with flexible batch timings — morning &amp; evening options available.<br><br><em>Anywhere in India</em></div>
+      <h3 class="loc-name" data-i18n="loc.online.name">Live Online Sessions</h3>
+      <div class="loc-detail" data-i18n="loc.online.detail">
+        <strong>Interactive Video Sessions across India &amp; Abroad</strong><br><br>
+        Live, interactive programmes with detailed alignment guidance and personalised correction. Includes the flagship <em>Sthira</em> programme designed for professionals and students.
+      </div>
+      <div class="loc-actions">
+        <a href="#contact" class="btn-loc-outline">
+          Enquire Online →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Google Map Embed Card -->
+  <div class="map-embed-card reveal">
+    <div class="map-header-bar">
+      <div class="map-header-info">
+        <div class="map-title-row">
+          <span class="map-title">Dhyana Yogasthala | Sadhguru Gurukulam</span>
+          <span class="map-coords">29.0031° N, 77.0389° E</span>
+        </div>
+        <span class="map-sub">812, Sector 15, Sonepat, Haryana 131001 · Isha Certified Classical Hatha Yoga</span>
+      </div>
+      <div class="map-header-actions">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.75rem;">
+          Get Driving Directions ↗
+        </a>
+        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;border-color:rgba(201,168,76,0.5);">
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+    <div class="map-iframe-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3493.5855026601446!2d77.0363208754029!3d29.003118275463765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390db11644390b87%3A0x3e19d926058ae62c!2sDhyana%20Yogasthala%20%7C%20Sadhguru%20Gurukulam!5e0!3m2!1sen!2sin!4v1727330000000!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Dhyana Yogasthala | Sadhguru Gurukulam Location Map, Sector 15, Sonepat">
+      </iframe>
+    </div>
+    <div class="map-quick-links">
+      <div>📍 <strong>Address:</strong> 812, Sector 15, Sonepat, Haryana 131001</div>
+      <div>
+        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer">
+          Open in Google Maps App ↗
+        </a>
+        &nbsp;·&nbsp;
+        <a href="https://maps.apple.com/?daddr=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer">
+          Apple Maps ↗
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -390,11 +586,32 @@
       <a href="#what-is-yoga" data-i18n="footer.what-is-yoga">What is Classical Hatha Yoga</a>
       <a href="#offerings" data-i18n="footer.offerings">Offerings</a>
       <a href="#teacher" data-i18n="footer.teacher">Teacher</a>
+      <a href="#gallery" data-i18n="footer.gallery">Gallery</a>
+      <a href="#locations" data-i18n="footer.locations">Location &amp; Map</a>
       <a href="#contact" data-i18n="footer.contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 Dhyana Yogasthala. Shruti Jain, Sonepat.</div>
+    <div class="footer-copy">© 2026 Dhyana Yogasthala. Shruti Jain, Sonepat.</div>
   </div>
 </footer>
+
+<!-- GALLERY LIGHTBOX MODAL -->
+<div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Photo Viewer">
+  <div class="lightbox-inner">
+    <button class="lightbox-btn lightbox-close" onclick="closeLightbox()" aria-label="Close photo viewer">✕</button>
+    <button class="lightbox-btn lightbox-nav-prev" onclick="prevLightbox()" aria-label="Previous photo">‹</button>
+    <button class="lightbox-btn lightbox-nav-next" onclick="nextLightbox()" aria-label="Next photo">›</button>
+    <div class="lightbox-img-box">
+      <img src="assets/images/gallery-1.webp" alt="Gallery preview" id="lightbox-img" class="lightbox-img">
+    </div>
+    <div class="lightbox-bar">
+      <div class="lightbox-info">
+        <span class="lightbox-cat" id="lightbox-cat">Retreat &amp; Mud Space</span>
+        <div class="lightbox-title" id="lightbox-title">Asana Practice in Sacred Mud Space</div>
+      </div>
+      <div class="lightbox-count" id="lightbox-count">1 / 6</div>
+    </div>
+  </div>
+</div>
 
 <!-- BOOKING MODAL -->
 <div class="modal-overlay" id="modal">

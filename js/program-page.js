@@ -321,10 +321,12 @@
 
   function collectData() {
     const rawNotes = val('p-notes');
+    const slotStr = radio('p-date-slot') ? ('Preferred Session Date: ' + radio('p-date-slot')) : '';
     const emergencyStr = val('p-emergency') ? ('Emergency Contact: ' + val('p-emergency')) : '';
     const pregnancyStr = radio('p-pregnancy') ? ('Pregnancy/Recent Birth: ' + radio('p-pregnancy')) : '';
     
     let combinedNotes = rawNotes;
+    if (slotStr) combinedNotes = slotStr + (combinedNotes ? '\n' + combinedNotes : '');
     if (emergencyStr) combinedNotes += (combinedNotes ? '\n' : '') + emergencyStr;
     if (pregnancyStr) combinedNotes += (combinedNotes ? '\n' : '') + pregnancyStr;
 
@@ -335,6 +337,7 @@
       source:         prog.title + ' registration page',
       programme:      prog.title,
       isFree:         prog.isFree,
+      dateSlot:       radio('p-date-slot') || '',
       name:           val('p-name'),
       age:            val('p-age'),
       gender:         radio('p-gender'),
@@ -362,7 +365,9 @@
   }
 
   function buildWhatsAppMessage(data) {
+    const slotLine = data.dateSlot ? ('Preferred Date: ' + data.dateSlot + '\n') : '';
     return 'Hi Shruti, I have registered for ' + prog.title + '.\n\n' +
+      slotLine +
       'Name: ' + data.name + '\nAge: ' + data.age + ' | Gender: ' + data.gender + '\n' +
       'Phone: ' + data.phone + '\nEmail: ' + data.email + '\nCity: ' + data.city + '\n' +
       'Emergency Contact: ' + (data.emergency || '—') + '\n\n' +
