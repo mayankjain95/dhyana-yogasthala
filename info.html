@@ -271,6 +271,114 @@
       color: var(--ink-dim);
     }
 
+    .trial-lead {
+      margin: 0 0 1rem;
+      font-size: 0.98rem;
+      line-height: 1.58;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .trial-pills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 420px) {
+      .trial-pills {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trial-pill {
+      background: rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(239, 230, 212, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.65rem;
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: var(--ink-dim);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .trial-pill strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .trial-subheading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.18rem;
+      color: var(--gold);
+      margin: 1.15rem 0 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .trial-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .trial-highlights li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--ink-dim);
+    }
+
+    .trial-highlights .bullet {
+      color: var(--gold);
+      font-size: 0.85rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .trial-highlights strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .trial-prep-box {
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(199, 154, 61, 0.24);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .trial-prep-box .prep-title {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .trial-prep-box p {
+      margin: 0;
+      color: var(--ink-dim);
+    }
+
+    .trial-prep-box strong {
+      color: var(--ink);
+    }
+
     .trial-meta {
       display: flex;
       justify-content: space-between;
@@ -783,17 +891,63 @@
           <span class="trial-label" id="trial-badge">FREE TRIAL CLASS</span>
           <span class="trial-mode">Studio &amp; Online</span>
         </div>
-        <p class="trial-desc">Simple yet potent yogic practice, pranayama, nada yoga &amp; guided meditation.</p>
+
+        <p class="trial-lead">
+          Experience Classical Hatha Yoga taught in pristine purity by Isha Certified Teacher Shruti Jain.
+        </p>
+
+        <!-- Feature Pills -->
+        <div class="trial-pills" role="list">
+          <div class="trial-pill" role="listitem">⏱️ <span><strong>75 Mins</strong> Experiential Session</span></div>
+          <div class="trial-pill" role="listitem">🏷️ <span><strong>100% Free</strong> · No Hidden Charges</span></div>
+          <div class="trial-pill" role="listitem">🧘 <span><strong>Beginner Friendly</strong> · Mats Provided</span></div>
+          <div class="trial-pill" role="listitem">📍 <span><strong>Sec-15 Sonepat</strong> &amp; Live Online</span></div>
+        </div>
+
+        <!-- Curriculum Practices -->
+        <div class="trial-curriculum">
+          <h3 class="trial-subheading">What You Will Experience</h3>
+          <ul class="trial-highlights" role="list">
+            <li>
+              <span class="bullet" aria-hidden="true">✦</span>
+              <span><strong>Spinal &amp; Joint Health:</strong> Upa-yoga movements to relieve cervical, neck &amp; back tension. Develops mental clarity and focus.</span>
+            </li>
+            <li>
+              <span class="bullet" aria-hidden="true">✦</span>
+              <span><strong>Nadi Shuddhi Pranayama:</strong> Essential breath regulation to balance life energies and steady the mind.</span>
+            </li>
+            <li>
+              <span class="bullet" aria-hidden="true">✦</span>
+              <span><strong>Nada Yoga:</strong> Sacred sounds to quiet mental turbulence.</span>
+            </li>
+            <li>
+              <span class="bullet" aria-hidden="true">✦</span>
+              <span><strong>Guided Dhyana:</strong> Meditative inward stillness for effortless calm.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Preparation -->
+        <div class="trial-prep-box">
+          <strong class="prep-title">Important Preparation</strong>
+          <p>
+            • <strong>Empty stomach condition:</strong> 1.5 hours after full meal<br>
+            • <strong>Attire:</strong> Comfortable loose cotton clothing.<br>
+            • <strong>Yoga Mats:</strong> Please bring your yoga mat if you have one. 🙂
+          </p>
+        </div>
+
         <div class="trial-meta">
           <div>
             <span>Date</span>
-            <strong>4 Oct or 5 Oct</strong>
+            <strong>4 Oct 2026</strong>
           </div>
           <div>
             <span>Duration</span>
             <strong>75 minutes</strong>
           </div>
         </div>
+
         <a
           class="btn btn-primary"
           href="free-trial-register.html"

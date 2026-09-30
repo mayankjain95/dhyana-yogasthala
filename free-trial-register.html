@@ -112,7 +112,7 @@
     <div class="hero-badge-tag">✦ DHYANA YOGASTHALA · FREE TRIAL REGISTRATION</div>
     <h1 class="reg-page-title" id="reg-title">Register for <em>Free Classical Hatha Yoga</em></h1>
     <p class="reg-page-lead">
-      Experience foundational yogic practices, sacred breath regulation, sound resonance, and guided meditation taught in pristine purity by Isha Certified Teacher Shruti Jain.
+      Experience Classical Hatha Yoga taught in pristine purity by Isha Certified Teacher Shruti Jain.
     </p>
 
     <div class="hero-feature-pills" role="list">
@@ -149,8 +149,8 @@
             <div class="key-detail-row">
               <span class="icon" aria-hidden="true">📅</span>
               <div>
-                <strong>Date Options</strong>
-                <span>4 Oct (Sun) or 5 Oct (Mon), 2026</span>
+                <strong>Session Date</strong>
+                <span>4 Oct 2026 (Sunday)</span>
               </div>
             </div>
             <div class="key-detail-row">
@@ -184,7 +184,7 @@
             <ul class="showcase-highlights" role="list">
               <li>
                 <span class="bullet" aria-hidden="true">✦</span>
-                <span><strong>Spinal &amp; Joint Health:</strong> Upa-yoga movements to relieve cervical, neck &amp; back tension.</span>
+                <span><strong>Spinal &amp; Joint Health:</strong> Upa-yoga movements to relieve cervical, neck &amp; back tension. Develops mental clarity and focus.</span>
               </li>
               <li>
                 <span class="bullet" aria-hidden="true">✦</span>
@@ -192,7 +192,7 @@
               </li>
               <li>
                 <span class="bullet" aria-hidden="true">✦</span>
-                <span><strong>Nada Yoga:</strong> Sacred acoustic resonance to quiet mental turbulence.</span>
+                <span><strong>Nada Yoga:</strong> Sacred sounds to quiet mental turbulence.</span>
               </li>
               <li>
                 <span class="bullet" aria-hidden="true">✦</span>
@@ -207,9 +207,9 @@
               Important Preparation
             </strong>
             <p style="color:var(--ink-dim);line-height:1.5;margin:0;">
-              • <strong>Empty stomach condition:</strong> 2.5 hours after full meal, or 1.5 hours after snack.<br>
+              • <strong>Empty stomach condition:</strong> 1.5 hours after full meal<br>
               • <strong>Attire:</strong> Comfortable loose cotton clothing.<br>
-              • <strong>Yoga Mats:</strong> Provided at the studio; you may also bring your own.
+              • <strong>Yoga Mats:</strong> Please bring your yoga mat if you have one. 🙂
             </p>
           </div>
 
@@ -274,24 +274,14 @@
             <!-- Date Batch Selector -->
             <div class="form-field" style="margin-bottom:1.4rem;">
               <label class="form-label">
-                <span>Select Preferred Date <span class="req-marker" aria-hidden="true">*</span></span>
+                <span>Session Date <span class="req-marker" aria-hidden="true">*</span></span>
               </label>
-              <div class="batch-selector-grid" role="radiogroup" aria-label="Select Preferred Date">
-                <!-- Batch Option 1: 4 Oct -->
+              <div class="batch-selector-grid" role="radiogroup" aria-label="Session Date" style="grid-template-columns:1fr;">
+                <!-- Batch Option: 4 Oct -->
                 <label class="batch-card-label" for="batchOct4">
                   <input type="radio" name="dateSlot" id="batchOct4" value="4 Oct 2026 (Sunday)" checked>
                   <div class="batch-date-row">
                     <span class="batch-date-title">4 Oct 2026 (Sunday)</span>
-                    <span class="batch-check-indicator" aria-hidden="true">✓</span>
-                  </div>
-                  <span class="batch-time-sub">11:00 AM – 12:15 PM IST (75 mins)</span>
-                </label>
-
-                <!-- Batch Option 2: 5 Oct -->
-                <label class="batch-card-label" for="batchOct5">
-                  <input type="radio" name="dateSlot" id="batchOct5" value="5 Oct 2026 (Monday)">
-                  <div class="batch-date-row">
-                    <span class="batch-date-title">5 Oct 2026 (Monday)</span>
                     <span class="batch-check-indicator" aria-hidden="true">✓</span>
                   </div>
                   <span class="batch-time-sub">11:00 AM – 12:15 PM IST (75 mins)</span>
@@ -304,20 +294,15 @@
               <label class="form-label">
                 <span>Select Attendance Mode <span class="req-marker" aria-hidden="true">*</span></span>
               </label>
-              <div class="mode-selector-row" role="radiogroup" aria-label="Select Attendance Mode">
+              <div class="mode-selector-row" role="radiogroup" aria-label="Select Attendance Mode" style="grid-template-columns:1fr;">
                 <label class="mode-card-label" for="modeStudio">
-                  <input type="radio" name="attendanceMode" id="modeStudio" value="Studio (Sector-15, Sonepat)" checked>
-                  <div class="mode-text-box">
-                    <span class="mode-title">In-Person Studio</span>
-                    <span class="mode-desc">Sec-15, Sonepat</span>
-                  </div>
-                </label>
-
-                <label class="mode-card-label" for="modeOnline">
-                  <input type="radio" name="attendanceMode" id="modeOnline" value="Live Online (Zoom)">
-                  <div class="mode-text-box">
-                    <span class="mode-title">Live Online</span>
-                    <span class="mode-desc">Interactive via Zoom</span>
+                  <input type="radio" name="attendanceMode" id="modeStudio" value="In-Person Studio (Sec-15, Sonepat)" checked>
+                  <div class="mode-text-box" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+                    <div>
+                      <span class="mode-title" style="display:block;font-weight:600;color:var(--gold-light);">In-Person Studio</span>
+                      <span class="mode-desc" style="display:block;font-size:0.8rem;color:var(--ink-dim);">Sec-15, Sonepat</span>
+                    </div>
+                    <span class="batch-check-indicator" aria-hidden="true" style="color:var(--gold);font-weight:bold;font-size:1.05rem;">✓</span>
                   </div>
                 </label>
               </div>
@@ -441,46 +426,6 @@
                 <span id="email-error" class="field-error" role="alert"></span>
               </div>
             </div>
-
-            <!-- Row 4: City & Emergency Contact -->
-            <div class="form-grid-2" style="margin-top:0.6rem;">
-              <div class="form-field">
-                <label for="city" class="form-label">
-                  <span>City &amp; Country <span class="req-marker" aria-hidden="true">*</span></span>
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  class="form-input"
-                  placeholder="e.g. Sonepat, Delhi, India"
-                  autocomplete="address-level2"
-                  required
-                  aria-required="true"
-                  aria-describedby="city-hint city-error"
-                >
-                <span id="city-hint" class="field-hint">Where you are currently based</span>
-                <span id="city-error" class="field-error" role="alert"></span>
-              </div>
-
-              <div class="form-field">
-                <label for="emergency" class="form-label">
-                  <span>Emergency Contact Details <span class="req-marker" aria-hidden="true">*</span></span>
-                </label>
-                <input
-                  type="text"
-                  id="emergency"
-                  name="emergency"
-                  class="form-input"
-                  placeholder="Name (Relation) — Mobile number"
-                  required
-                  aria-required="true"
-                  aria-describedby="emergency-hint emergency-error"
-                >
-                <span id="emergency-hint" class="field-hint">E.g., Priya (Sister) — +91 98765 43210</span>
-                <span id="emergency-error" class="field-error" role="alert"></span>
-              </div>
-            </div>
           </fieldset>
 
           <!-- ── SECTION 3: Aspirations & Prior Experience ── -->
@@ -541,30 +486,8 @@
               <span>Health Information &amp; Precautions</span>
             </legend>
 
-            <!-- Pregnancy Status for women -->
-            <div class="form-field">
-              <label class="form-label">
-                <span>For women: Are you currently pregnant, planning for pregnancy or given birth in the last 3 months? <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
-              <div class="radio-pill-group" role="radiogroup" aria-required="true" aria-describedby="pregnancy-error">
-                <label class="radio-pill-label" for="pregYes">
-                  <input type="radio" name="pregnancy" id="pregYes" value="Yes" required>
-                  <span>Yes</span>
-                </label>
-                <label class="radio-pill-label" for="pregNo">
-                  <input type="radio" name="pregnancy" id="pregNo" value="No">
-                  <span>No</span>
-                </label>
-                <label class="radio-pill-label" for="pregNA">
-                  <input type="radio" name="pregnancy" id="pregNA" value="NA" checked>
-                  <span>Not Applicable</span>
-                </label>
-              </div>
-              <span id="pregnancy-error" class="field-error" role="alert"></span>
-            </div>
-
             <!-- Physical / Mental Ailments -->
-            <div class="form-field" style="margin-top:1rem;">
+            <div class="form-field">
               <label for="health" class="form-label">
                 <span>Physical or Mental Ailments / Conditions <span class="req-marker" aria-hidden="true">*</span></span>
               </label>
@@ -578,31 +501,12 @@
                 aria-required="true"
                 aria-describedby="health-hint health-error"
               ></textarea>
-              <span id="health-hint" class="field-hint">Helps Shruti offer gentle modifications where appropriate</span>
+              <span id="health-hint" class="field-hint">Helps Shruti offer gentle modifications where appropriate (write 'None' if no conditions)</span>
               <span id="health-error" class="field-error" role="alert"></span>
             </div>
 
-            <!-- Illness / Injury in last 3 years -->
-            <div class="form-field" style="margin-top:0.8rem;">
-              <label for="injury" class="form-label">
-                <span>Illness, Serious Injury or Surgery in the Last 3 Years <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
-              <textarea
-                id="injury"
-                name="injury"
-                class="form-textarea"
-                rows="2"
-                placeholder="Please describe any fracture, surgery, or medical procedure, or write 'None'"
-                required
-                aria-required="true"
-                aria-describedby="injury-hint injury-error"
-              ></textarea>
-              <span id="injury-hint" class="field-hint">Write 'None' if you have had no surgery or major injury</span>
-              <span id="injury-error" class="field-error" role="alert"></span>
-            </div>
-
             <!-- Confidentiality badge -->
-            <div class="confidential-box" role="note">
+            <div class="confidential-box" role="note" style="margin-top:1.1rem;">
               <span aria-hidden="true">🔒</span>
               <span><strong>Medical Confidentiality:</strong> All health details are kept strictly confidential and used only by Shruti to tailor your practice experience.</span>
             </div>
@@ -689,8 +593,6 @@
             </button>
 
             <div class="form-trust-notes">
-              <span>✦ <strong>100% Free Entry</strong> · Zero Fees</span>
-              <span>🔒 <strong>Data Safe</strong> · Never Shared</span>
               <span>⚡ <strong>Confirmation</strong> within 24 Hours</span>
             </div>
           </div>

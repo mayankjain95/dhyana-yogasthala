@@ -60,13 +60,9 @@
       'gender',
       'mobile',
       'email',
-      'city',
-      'emergency',
       'goal',
       'experience',
-      'pregnancy',
       'health',
-      'injury',
       'consentTerms',
       'consentContact'
     ].forEach(clearFieldError);
@@ -134,44 +130,12 @@
       if (!firstInvalidEl) firstInvalidEl = document.getElementById('email');
     }
 
-    // City & State
-    const city = val('city');
-    if (!city || city.length < 2) {
-      setFieldError('city', 'Please enter your city / location.');
-      isValid = false;
-      if (!firstInvalidEl) firstInvalidEl = document.getElementById('city');
-    }
-
-    // Emergency Contact
-    const emergency = val('emergency');
-    if (!emergency || emergency.length < 5) {
-      setFieldError('emergency', 'Please provide emergency contact details (Name, Relationship & Phone).');
-      isValid = false;
-      if (!firstInvalidEl) firstInvalidEl = document.getElementById('emergency');
-    }
-
-    // Pregnancy Question (for women safety)
-    const pregnancy = radioVal('pregnancy');
-    if (!pregnancy) {
-      setFieldError('pregnancy', 'Please answer the pregnancy / recent birth question (select NA if not applicable).');
-      isValid = false;
-      if (!firstInvalidEl) firstInvalidEl = document.getElementById('pregNA');
-    }
-
     // Health Condition
     const health = val('health');
     if (!health) {
       setFieldError('health', "Please fill in this health information field (write 'None' if not applicable).");
       isValid = false;
       if (!firstInvalidEl) firstInvalidEl = document.getElementById('health');
-    }
-
-    // Illness/Injury
-    const injury = val('injury');
-    if (!injury) {
-      setFieldError('injury', "Please fill in this illness / injury field (write 'None' if not applicable).");
-      isValid = false;
-      if (!firstInvalidEl) firstInvalidEl = document.getElementById('injury');
     }
 
     // Consent: Terms & Accuracy
@@ -208,12 +172,10 @@
     const rawMobile = val('mobile').replace(/\D/g, '');
     const mobileFull = `+91 ${rawMobile}`;
     const selectedDate = radioVal('dateSlot') || '4 Oct 2026 (Sunday)';
-    const selectedMode = radioVal('attendanceMode') || 'Studio (Sector-15, Sonepat)';
+    const selectedMode = radioVal('attendanceMode') || 'In-Person Studio (Sec-15, Sonepat)';
     const goal = radioVal('goal') || 'Overall Health & Inner well-being';
     const experience = radioVal('experience') || 'No';
-    const pregnancy = radioVal('pregnancy') || 'NA';
     const health = val('health');
-    const injury = val('injury');
     const notes = val('notes');
 
     // Build combined notes summary
@@ -222,7 +184,6 @@
     if (selectedMode) notesArray.push(`Attendance Mode: ${selectedMode}`);
     if (goal) notesArray.push(`Aspiration: ${goal}`);
     if (experience) notesArray.push(`Prior Yoga: ${experience}`);
-    if (pregnancy) notesArray.push(`Pregnancy/Birth status: ${pregnancy}`);
     if (notes) notesArray.push(`Participant Notes: ${notes}`);
 
     const combinedNotes = notesArray.join(' | ');
@@ -251,19 +212,13 @@
       phone: mobileFull,
       mobile: mobileFull,
       email: val('email'),
-      city: val('city'),
-      location: val('city'),
-      emergency: val('emergency'),
-      emergencyContact: val('emergency'),
 
       // Yogic & Health Information
       goal: goal,
       experience: experience,
       practicedBefore: experience,
-      pregnancy: pregnancy,
       health: health,
       ailments: health,
-      injury: injury,
       notes: combinedNotes,
       rawNotes: notes,
 
@@ -331,13 +286,10 @@
       `• *Mode:* ${data.attendanceMode}\n` +
       `• *Age:* ${data.age} yrs | *Gender:* ${data.gender}\n` +
       `• *Mobile:* ${data.phone}\n` +
-      `• *Email:* ${data.email}\n` +
-      `• *City:* ${data.city}\n` +
-      `• *Emergency Contact:* ${data.emergency}\n\n` +
+      `• *Email:* ${data.email}\n\n` +
       `• *Aspiration:* ${data.goal}\n` +
       `• *Prior Experience:* ${data.experience}\n` +
-      `• *Health Condition:* ${data.health}\n` +
-      `• *Illness/Injury (3 yrs):* ${data.injury}\n` +
+      (data.health ? `• *Health Condition:* ${data.health}\n` : '') +
       (data.rawNotes ? `• *Notes:* ${data.rawNotes}\n` : '') +
       `\nPlease confirm my seat and share session instructions. 🙏`
     );
@@ -437,9 +389,6 @@
       }
       if (target.name === 'gender') {
         clearFieldError('gender');
-      }
-      if (target.name === 'pregnancy') {
-        clearFieldError('pregnancy');
       }
     });
   }

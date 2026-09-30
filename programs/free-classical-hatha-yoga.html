@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Classical Hatha Yoga Class | Dhyana Yogasthala, Sonepat</title>
-<meta name="description" content="Join our free, in-person Classical Hatha Yoga class in Sector 15, Sonepat on 4 Oct or 5 Oct 2026. Simple yet potent yogic practices, pranayama, Nada Yoga & guided meditation.">
+<meta name="description" content="Join our free, in-person Classical Hatha Yoga class in Sector 15, Sonepat on 4 Oct 2026. Simple yet potent yogic practices, pranayama, Nada Yoga & guided meditation.">
 <meta property="og:title" content="Free Classical Hatha Yoga Class | Dhyana Yogasthala, Sonepat">
-<meta property="og:description" content="Relieve cervical & back pain, boost energy, and experience inner calm. Free in-person session in Sonepat on 4 Oct or 5 Oct 2026.">
+<meta property="og:description" content="Relieve cervical & back pain, boost energy, and experience inner calm. Free in-person session in Sonepat on 4 Oct 2026.">
 <meta property="og:image" content="https://dhayanayogasthala.com/assets/images/free-classical-hatha-yoga.webp">
 <meta property="og:url" content="https://dhayanayogasthala.com/programs/free-classical-hatha-yoga.html">
 <meta property="og:type" content="website">
@@ -48,7 +48,7 @@
         <div class="poster-meta-strip" aria-label="Session details">
           <div class="poster-meta-item">
             <span class="meta-icon">📅</span>
-            <div><strong data-i18n="free.meta.date">4 Oct or 5 Oct 2026</strong></div>
+            <div><strong data-i18n="free.meta.date">4 Oct 2026 (Sunday)</strong></div>
           </div>
           <div class="poster-meta-item">
             <span class="meta-icon">🕒</span>
@@ -114,10 +114,10 @@
         <!-- Interactive Batch Selector Box -->
         <div class="hero-batch-box">
           <div class="hero-batch-header">
-            <span class="hero-batch-title" data-i18n="free.hero.batch.title">Choose Your Preferred Date &amp; Batch</span>
+            <span class="hero-batch-title" data-i18n="free.hero.batch.title">Session Date &amp; Timing</span>
             <span class="hero-batch-urgency" data-i18n="free.hero.batch.urgency">Limited Mats Available</span>
           </div>
-          <div class="hero-batch-cards" role="radiogroup" aria-label="Select Date Batch">
+          <div class="hero-batch-cards" role="radiogroup" aria-label="Session Date and Time" style="grid-template-columns:1fr;">
             <!-- Batch 1 -->
             <div class="hero-batch-card active" id="batch-card-1" tabindex="0" role="radio" aria-checked="true" onclick="selectDateBatch(1)" onkeydown="if(event.key==='Enter'||event.key===' ')selectDateBatch(1)">
               <div class="hero-batch-date">
@@ -125,14 +125,6 @@
                 <span class="check-badge">✓</span>
               </div>
               <div class="hero-batch-time" data-i18n="free.hero.batch1.sub">11:00 AM – 12:15 PM (75 mins)</div>
-            </div>
-            <!-- Batch 2 -->
-            <div class="hero-batch-card" id="batch-card-2" tabindex="0" role="radio" aria-checked="false" onclick="selectDateBatch(2)" onkeydown="if(event.key==='Enter'||event.key===' ')selectDateBatch(2)">
-              <div class="hero-batch-date">
-                <span data-i18n="free.hero.batch2.title">5 Oct 2026 (Monday)</span>
-                <span class="check-badge"></span>
-              </div>
-              <div class="hero-batch-time" data-i18n="free.hero.batch2.sub">11:00 AM – 12:15 PM (75 mins)</div>
             </div>
           </div>
         </div>
@@ -331,9 +323,9 @@
       </details>
 
       <details class="faq-item">
-        <summary class="faq-summary" data-i18n="free.q3">Can I attend both dates (4 Oct &amp; 5 Oct)?</summary>
+        <summary class="faq-summary" data-i18n="free.q3">Can I bring family members or friends with me?</summary>
         <div class="faq-body" data-i18n="free.a3">
-          Due to limited studio mat capacity, please register for either Sunday, 4 Oct OR Monday, 5 Oct so others in the community also have an opportunity to participate.
+          Yes, absolutely! You are welcome to invite friends and family. Due to limited studio mat capacity, please ensure each person registers individually so we can reserve their spot.
         </div>
       </details>
 
@@ -366,35 +358,20 @@
 <script>
   // Global batch state
   const BATCH_1_VAL = "4 Oct 2026 (Sunday) | 11:00 AM – 12:15 PM";
-  const BATCH_2_VAL = "5 Oct 2026 (Monday) | 11:00 AM – 12:15 PM";
   let activeBatchIndex = 1;
 
   function selectDateBatch(index) {
-    activeBatchIndex = index;
+    activeBatchIndex = index || 1;
     const card1 = document.getElementById('batch-card-1');
-    const card2 = document.getElementById('batch-card-2');
-    
-    if (card1 && card2) {
-      if (index === 1) {
-        card1.classList.add('active');
-        card1.setAttribute('aria-checked', 'true');
-        card1.querySelector('.check-badge').textContent = '✓';
-        card2.classList.remove('active');
-        card2.setAttribute('aria-checked', 'false');
-        card2.querySelector('.check-badge').textContent = '';
-      } else {
-        card2.classList.add('active');
-        card2.setAttribute('aria-checked', 'true');
-        card2.querySelector('.check-badge').textContent = '✓';
-        card1.classList.remove('active');
-        card1.setAttribute('aria-checked', 'false');
-        card1.querySelector('.check-badge').textContent = '';
-      }
+    if (card1) {
+      card1.classList.add('active');
+      card1.setAttribute('aria-checked', 'true');
+      const badge = card1.querySelector('.check-badge');
+      if (badge) badge.textContent = '✓';
     }
 
     // Sync with form radio button if rendered
-    const targetVal = index === 1 ? BATCH_1_VAL : BATCH_2_VAL;
-    const radio = document.querySelector(`input[name="p-date-slot"][value="${targetVal}"]`);
+    const radio = document.querySelector(`input[name="p-date-slot"][value="${BATCH_1_VAL}"]`);
     if (radio) {
       radio.checked = true;
     }
@@ -439,19 +416,13 @@
         slotWrap.style.cssText = 'background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);padding:1.4rem;border-radius:4px;margin-bottom:1.2rem;';
         slotWrap.innerHTML = `
           <label style="color:var(--gold);font-weight:500;margin-bottom:0.8rem;display:block;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;">
-            Choose Your Preferred Date &amp; Batch <span class="req">*</span>
+            Session Date &amp; Time <span class="req">*</span>
           </label>
           <div class="radio-group" style="display:flex;flex-direction:column;gap:0.75rem;">
             <label class="radio-option" style="padding:0.9rem 1.1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);border-radius:3px;display:flex;align-items:center;gap:0.9rem;cursor:pointer;transition:all 0.2s ease;">
-              <input type="radio" name="p-date-slot" value="${BATCH_1_VAL}" ${activeBatchIndex === 1 ? 'checked' : ''} onchange="selectDateBatch(1)" style="accent-color:var(--gold);width:18px;height:18px;">
+              <input type="radio" name="p-date-slot" value="${BATCH_1_VAL}" checked style="accent-color:var(--gold);width:18px;height:18px;">
               <span style="color:var(--ivory);font-size:0.95rem;">
                 <strong>4 Oct 2026 (Sunday)</strong> · 11:00 AM – 12:15 PM (75 mins)
-              </span>
-            </label>
-            <label class="radio-option" style="padding:0.9rem 1.1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);border-radius:3px;display:flex;align-items:center;gap:0.9rem;cursor:pointer;transition:all 0.2s ease;">
-              <input type="radio" name="p-date-slot" value="${BATCH_2_VAL}" ${activeBatchIndex === 2 ? 'checked' : ''} onchange="selectDateBatch(2)" style="accent-color:var(--gold);width:18px;height:18px;">
-              <span style="color:var(--ivory);font-size:0.95rem;">
-                <strong>5 Oct 2026 (Monday)</strong> · 11:00 AM – 12:15 PM (75 mins)
               </span>
             </label>
           </div>
