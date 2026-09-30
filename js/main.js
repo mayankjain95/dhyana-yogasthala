@@ -173,26 +173,15 @@
   let currentLightboxIdx = 0;
   const GALLERY_ITEMS = [
     {
-      src: 'assets/images/gallery-1.webp',
-      fallback: 'assets/images/gallery-1.jpg',
-      tag: 'Retreat & Mud Space',
-      tagHi: 'रिट्रीट व गहन अभ्यास',
-      title: 'Asana Practice in Sacred Mud Space · Adiyog Yogashala',
-      titleHi: 'पारंपरिक मिट्टी के हॉल में योगासन संरेखण (अदियोग योगशाला)',
-      alt: 'Students practicing Hatha Yoga forward bends in natural mud-walled hall at Adiyog Yogashala with Linga Bhairavi image'
-    },
-    {
-      src: 'assets/images/gallery-2.webp',
-      fallback: 'assets/images/gallery-2.jpg',
-      tag: 'Classical Hatha Yoga',
-      tagHi: 'क्लासिकल हठ योग',
-      title: 'Deep Meditation & Inner Stillness · Sonepat Studio',
-      titleHi: 'गहन ध्यान और आंतरिक शांति (सोनीपत स्टूडियो)',
-      alt: 'Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio'
+      src: 'assets/images/gallery-group-meditation.webp',
+      tag: 'Studio Sadhana',
+      tagHi: 'स्टूडियो साधना',
+      title: 'Group Dhyana & Meditative Stillness · Sonepat Studio',
+      titleHi: 'गहन ध्यान और सामूहिक साधना (सोनीपत स्टूडियो)',
+      alt: 'Practitioners seated in silent meditation on mats at Dhyana Yogasthala Sonepat studio'
     },
     {
       src: 'assets/images/gallery-3.webp',
-      fallback: 'assets/images/gallery-3.jpg',
       tag: 'All Generations',
       tagHi: 'सभी पीढ़ियां',
       title: 'Children & Family Yoga · Cultivating Poise & Focus',
@@ -200,8 +189,15 @@
       alt: 'Young boy with eyes closed meditating peacefully alongside family in studio'
     },
     {
+      src: 'assets/images/gallery-2.webp',
+      tag: 'Classical Hatha Yoga',
+      tagHi: 'क्लासिकल हठ योग',
+      title: 'Deep Meditation & Inner Stillness · Sonepat Studio',
+      titleHi: 'गहन ध्यान और आंतरिक शांति (सोनीपत स्टूडियो)',
+      alt: 'Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio'
+    },
+    {
       src: 'assets/images/gallery-4.webp',
-      fallback: 'assets/images/gallery-4.jpg',
       tag: 'Restorative Practices',
       tagHi: 'पुनर्स्थापनात्मक योग',
       title: 'Gentle Joint Mobility & Energy Alignment',
@@ -210,7 +206,6 @@
     },
     {
       src: 'assets/images/gallery-5.webp',
-      fallback: 'assets/images/gallery-5.jpg',
       tag: 'Daily Sadhana',
       tagHi: 'दैनिक साधना',
       title: 'Vajrasana Meditation on Handwoven Mat',
@@ -218,13 +213,12 @@
       alt: 'Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat'
     },
     {
-      src: 'assets/images/gallery-6.webp',
-      fallback: 'assets/images/gallery-6.jpg',
-      tag: 'Studio Atmosphere',
-      tagHi: 'स्टूडियो वातावरण',
-      title: 'Wall-Supported Dhyana Alignment with Sadhguru’s Presence',
-      titleHi: 'सद्गुरु की पावन उपस्थिति में स्टूडियो साधना सत्र',
-      alt: 'Practitioners seated upright with wall support practicing classical posture under Sadhguru portrait in Sonepat studio'
+      src: 'assets/images/gallery-asana-practice.webp',
+      tag: 'Asana Alignment',
+      tagHi: 'आसन संरेखण',
+      title: 'Spine Alignment & Posture Sadhana in Guided Batch',
+      titleHi: 'रीढ़ का संरेखण और शास्त्रीय आसन अभ्यास (सोनीपत स्टूडियो)',
+      alt: 'Yoga practitioners engaged in spine alignment and classical posture at Dhyana Yogasthala'
     }
   ];
 

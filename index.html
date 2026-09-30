@@ -80,17 +80,6 @@
   <h2 class="section-title" style="color:var(--ivory);" data-i18n="upcoming.title">Upcoming Programs</h2>
   <div class="practices-grid" id="upcoming-programs-grid">
     <!-- Cards are rendered dynamically from UPCOMING_PROGRAMS in js/config.js -->
-    <!-- ARCHIVED: Three-Day Classical Hatha Yoga Retreat
-    {
-      tag: '✦ Nirthan Village, Sonepat',
-      title: 'Three-Day Classical Hatha Yoga Retreat',
-      image: 'assets/images/retreat-poster.webp',
-      cardDesc: 'Join us at the sacred mud space of Adiyog Yogashala for a deeply transformative three-day retreat.',
-      date: '17–19 July', time: '', location: '',
-      link: 'programs/retreat.html', linkText: 'Know More / Explore',
-      isFree: false, active: false,
-    }
-    ARCHIVED -->
   </div>
 </section>
 
@@ -209,7 +198,7 @@
 <section id="offerings">
   <div class="section-label" data-i18n="offerings.label">What We Offer</div>
   <h2 class="section-title" data-i18n="offerings.title">Offerings</h2>
-  <p class="practices-intro" data-i18n="offerings.intro">Explore our diverse range of programmes — from intensive workshops to immersive retreats.</p>
+  <p class="practices-intro" data-i18n="offerings.intro">Explore our diverse range of programmes — from foundational practices to intensive workshops.</p>
   <div class="practices-grid" id="offerings-grid">
     <!-- Rendered dynamically from OFFERINGS in js/config.js -->
   </div>
@@ -312,46 +301,25 @@
 <section id="gallery">
   <div class="section-label" data-i18n="gallery.label">Sacred Atmosphere &amp; Glimpses</div>
   <h2 class="section-title" data-i18n="gallery.title">Moments of Stillness, Discipline &amp; Transformation</h2>
-  <p class="gallery-intro" data-i18n="gallery.sub">Glimpses from our dedicated yoga studio in Sector 15, Sonepat, and residential weekend immersions at Adiyog Yogashala mud space.</p>
+  <p class="gallery-intro" data-i18n="gallery.sub">Glimpses of authentic sadhana, discipline, and transformation from our dedicated yoga studio in Sector 15, Sonepat.</p>
   
   <div class="gallery-grid">
-    <!-- Item 1: Mud Space Asanas (Landscape - spans 2 cols on desktop) -->
-    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(0)" aria-haspopup="dialog" aria-label="View photo: Asana Practice in Sacred Mud Space">
+    <!-- Item 1: Group Meditation (2 cols) -->
+    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(0)" aria-haspopup="dialog" aria-label="View photo: Group Dhyana & Meditative Stillness">
       <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-1.webp" type="image/webp">
-          <img src="assets/images/gallery-1.jpg" alt="Students practicing Hatha Yoga forward bends in natural mud-walled hall at Adiyog Yogashala with Linga Bhairavi image" class="gallery-img" loading="lazy">
-        </picture>
+        <img src="assets/images/gallery-group-meditation.webp" alt="Practitioners seated in silent meditation on mats at Dhyana Yogasthala Sonepat studio" class="gallery-img" loading="lazy">
         <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
         <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag1">Retreat &amp; Mud Space</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap1">Asana Practice in Sacred Mud Space (Adiyog Yogashala)</h3>
+          <span class="gallery-tag" data-i18n="gallery.tag6">Studio Sadhana</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap6">Group Dhyana &amp; Meditative Stillness (Sonepat Studio)</h3>
         </div>
       </div>
     </div>
 
-    <!-- Item 2: Meditation In Stillness (Portrait - 1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(1)" aria-haspopup="dialog" aria-label="View photo: Deep Meditation & Inner Stillness">
+    <!-- Item 2: Children's Yoga (1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(1)" aria-haspopup="dialog" aria-label="View photo: Children & Family Yoga">
       <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-2.webp" type="image/webp">
-          <img src="assets/images/gallery-2.jpg" alt="Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio" class="gallery-img" loading="lazy">
-        </picture>
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag2">Classical Hatha Yoga</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap2">Deep Meditation &amp; Inner Stillness (Sonepat Studio)</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- Item 3: Children's Yoga (1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(2)" aria-haspopup="dialog" aria-label="View photo: Children & Family Yoga">
-      <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-3.webp" type="image/webp">
-          <img src="assets/images/gallery-3.jpg" alt="Young boy with eyes closed meditating peacefully alongside family in studio" class="gallery-img" loading="lazy">
-        </picture>
+        <img src="assets/images/gallery-3.webp" alt="Young boy with eyes closed meditating peacefully alongside family in studio" class="gallery-img" loading="lazy">
         <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
         <div class="gallery-overlay">
           <span class="gallery-tag" data-i18n="gallery.tag3">All Generations</span>
@@ -360,13 +328,22 @@
       </div>
     </div>
 
+    <!-- Item 3: Deep Meditation in Stillness (1 col) -->
+    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(2)" aria-haspopup="dialog" aria-label="View photo: Deep Meditation & Inner Stillness">
+      <div class="gallery-img-wrap">
+        <img src="assets/images/gallery-2.webp" alt="Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio" class="gallery-img" loading="lazy">
+        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
+        <div class="gallery-overlay">
+          <span class="gallery-tag" data-i18n="gallery.tag2">Classical Hatha Yoga</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap2">Deep Meditation &amp; Inner Stillness (Sonepat Studio)</h3>
+        </div>
+      </div>
+    </div>
+
     <!-- Item 4: Restorative Practice (1 col) -->
     <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(3)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(3)" aria-haspopup="dialog" aria-label="View photo: Restorative Stretch & Energy Alignment">
       <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-4.webp" type="image/webp">
-          <img src="assets/images/gallery-4.jpg" alt="Young woman in seated yoga posture focusing inward on ochre practice mat" class="gallery-img" loading="lazy">
-        </picture>
+        <img src="assets/images/gallery-4.webp" alt="Young woman in seated yoga posture focusing inward on ochre practice mat" class="gallery-img" loading="lazy">
         <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
         <div class="gallery-overlay">
           <span class="gallery-tag" data-i18n="gallery.tag4">Restorative Yoga</span>
@@ -378,10 +355,7 @@
     <!-- Item 5: Vajrasana Meditation (1 col) -->
     <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(4)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(4)" aria-haspopup="dialog" aria-label="View photo: Vajrasana Meditation on Handwoven Mat">
       <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-5.webp" type="image/webp">
-          <img src="assets/images/gallery-5.jpg" alt="Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat" class="gallery-img" loading="lazy">
-        </picture>
+        <img src="assets/images/gallery-5.webp" alt="Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat" class="gallery-img" loading="lazy">
         <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
         <div class="gallery-overlay">
           <span class="gallery-tag" data-i18n="gallery.tag5">Daily Sadhana</span>
@@ -390,17 +364,14 @@
       </div>
     </div>
 
-    <!-- Item 6: Studio Dhyana Session with Sadhguru Presence (Landscape/wide or 2 cols) -->
-    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(5)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(5)" aria-haspopup="dialog" aria-label="View photo: Studio Sadhana Session with Sadhguru Presence">
+    <!-- Item 6: Spine Alignment & Asana Sadhana (2 cols) -->
+    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(5)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(5)" aria-haspopup="dialog" aria-label="View photo: Spine Alignment & Posture Sadhana">
       <div class="gallery-img-wrap">
-        <picture>
-          <source srcset="assets/images/gallery-6.webp" type="image/webp">
-          <img src="assets/images/gallery-6.jpg" alt="Practitioners seated upright with wall support practicing classical posture under Sadhguru portrait in Sonepat studio" class="gallery-img" loading="lazy">
-        </picture>
+        <img src="assets/images/gallery-asana-practice.webp" alt="Yoga practitioners engaged in spine alignment and classical posture at Dhyana Yogasthala" class="gallery-img" loading="lazy">
         <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
         <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag6">Studio Atmosphere</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap6">Wall-Supported Dhyana Alignment with Sadhguru’s Presence</h3>
+          <span class="gallery-tag" data-i18n="gallery.tag7">Asana Alignment</span>
+          <h3 class="gallery-caption" data-i18n="gallery.cap7">Spine Alignment &amp; Posture Sadhana in Guided Batch</h3>
         </div>
       </div>
     </div>
@@ -419,7 +390,7 @@
 <section id="locations">
   <div class="section-label" data-i18n="locations.label">Find Us</div>
   <h2 class="section-title" data-i18n="locations.title">Where We Teach &amp; How to Reach</h2>
-  <p class="locations-intro" data-i18n="locations.sub">Visit our dedicated studio in Sector 15, Sonepat, experience immersive retreats at our rural mud space, or join live guided sessions online from anywhere.</p>
+  <p class="locations-intro" data-i18n="locations.sub">Visit our dedicated studio in Sector 15, Sonepat, or join live guided sessions online from anywhere.</p>
 
   <div class="loc-cards-grid">
     <!-- Card 1: Main Studio Sonepat -->
@@ -442,23 +413,7 @@
       </div>
     </div>
 
-    <!-- Card 2: Rural Retreat Mud Space -->
-    <div class="loc-card reveal">
-      <div class="loc-badge" data-i18n="loc.mud.badge">Residential Retreats</div>
-      <div class="loc-icon">🌿</div>
-      <h3 class="loc-name" data-i18n="loc.mud.name">Adiyog Yogashala (Mud Space)</h3>
-      <div class="loc-detail" data-i18n="loc.mud.detail">
-        <strong>Nirthan Village, Sonepat, Haryana</strong><br><br>
-        A consecrated, eco-friendly mud-plastered hall constructed with natural materials. Naturally cooled and insulated from city noise, designed specifically for intensive multi-day Classical Hatha Yoga retreats.
-      </div>
-      <div class="loc-actions">
-        <a href="#offerings" class="btn-loc-outline">
-          Explore Retreats →
-        </a>
-      </div>
-    </div>
-
-    <!-- Card 3: Online Sessions -->
+    <!-- Card 2: Online Sessions -->
     <div class="loc-card reveal">
       <div class="loc-badge" data-i18n="loc.online.badge">Worldwide Access</div>
       <div class="loc-icon">💻</div>
@@ -601,12 +556,12 @@
     <button class="lightbox-btn lightbox-nav-prev" onclick="prevLightbox()" aria-label="Previous photo">‹</button>
     <button class="lightbox-btn lightbox-nav-next" onclick="nextLightbox()" aria-label="Next photo">›</button>
     <div class="lightbox-img-box">
-      <img src="assets/images/gallery-1.webp" alt="Gallery preview" id="lightbox-img" class="lightbox-img">
+      <img src="assets/images/gallery-group-meditation.webp" alt="Gallery preview" id="lightbox-img" class="lightbox-img">
     </div>
     <div class="lightbox-bar">
       <div class="lightbox-info">
-        <span class="lightbox-cat" id="lightbox-cat">Retreat &amp; Mud Space</span>
-        <div class="lightbox-title" id="lightbox-title">Asana Practice in Sacred Mud Space</div>
+        <span class="lightbox-cat" id="lightbox-cat">Studio Sadhana</span>
+        <div class="lightbox-title" id="lightbox-title">Group Dhyana &amp; Meditative Stillness (Sonepat Studio)</div>
       </div>
       <div class="lightbox-count" id="lightbox-count">1 / 6</div>
     </div>

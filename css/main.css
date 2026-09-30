@@ -210,7 +210,7 @@
   /* LOCATIONS & GOOGLE MAPS */
   #locations{background:var(--ivory);position:relative;}
   .locations-intro{color:var(--muted);max-width:680px;line-height:1.8;margin-bottom:2.5rem;font-weight:300;}
-  .loc-cards-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:1.8rem;margin-bottom:3rem;}
+  .loc-cards-grid{display:grid;grid-template-columns:repeat(2, 1fr);max-width:960px;gap:1.8rem;margin:0 auto 3rem;}
   .loc-card{padding:2.2rem 1.8rem;border:1px solid rgba(200,98,42,0.2);background:white;position:relative;border-radius:4px;box-shadow:0 6px 20px rgba(46,32,24,0.04);transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;}
   .loc-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(46,32,24,0.08);}
   .loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--saffron);}
