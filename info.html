@@ -280,16 +280,10 @@
     }
 
     .trial-pills {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
       margin-bottom: 1.2rem;
-    }
-
-    @media (max-width: 420px) {
-      .trial-pills {
-        grid-template-columns: 1fr;
-      }
     }
 
     .trial-pill {
@@ -889,7 +883,7 @@
       <section class="trial-card" aria-labelledby="trial-badge">
         <div class="trial-badge-row">
           <span class="trial-label" id="trial-badge">FREE TRIAL CLASS</span>
-          <span class="trial-mode">Studio &amp; Online</span>
+          <span class="trial-mode">In-Person Studio</span>
         </div>
 
         <p class="trial-lead">
@@ -899,9 +893,8 @@
         <!-- Feature Pills -->
         <div class="trial-pills" role="list">
           <div class="trial-pill" role="listitem">⏱️ <span><strong>75 Mins</strong> Experiential Session</span></div>
-          <div class="trial-pill" role="listitem">🏷️ <span><strong>100% Free</strong> · No Hidden Charges</span></div>
-          <div class="trial-pill" role="listitem">🧘 <span><strong>Beginner Friendly</strong> · Mats Provided</span></div>
-          <div class="trial-pill" role="listitem">📍 <span><strong>Sec-15 Sonepat</strong> &amp; Live Online</span></div>
+          <div class="trial-pill" role="listitem">🧘 <span><strong>Beginner Friendly</strong></span></div>
+          <div class="trial-pill" role="listitem">📍 <span><strong>Sec-15 Sonepat</strong></span></div>
         </div>
 
         <!-- Curriculum Practices -->
