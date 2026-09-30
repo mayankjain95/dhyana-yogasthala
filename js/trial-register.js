@@ -207,7 +207,7 @@
   function collectFormData() {
     const rawMobile = val('mobile').replace(/\D/g, '');
     const mobileFull = `+91 ${rawMobile}`;
-    const selectedDate = radioVal('dateSlot') || '30 Sep 2026 (Wednesday)';
+    const selectedDate = radioVal('dateSlot') || '4 Oct 2026 (Sunday)';
     const selectedMode = radioVal('attendanceMode') || 'Studio (Sector-15, Sonepat)';
     const goal = radioVal('goal') || 'Overall Health & Inner well-being';
     const experience = radioVal('experience') || 'No';
