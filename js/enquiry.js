@@ -214,6 +214,22 @@
       hours: '2-2.5 hours',
       price: 7500,
       priceFormatted: '₹7,500'
+    },
+    'prenatal-yoga': {
+      id: 'prenatal-yoga',
+      title: 'Prenatal Yoga',
+      days: '3 days',
+      hours: '2 hours',
+      price: 4500,
+      priceFormatted: '₹4,500'
+    },
+    'overall-health': {
+      id: 'overall-health',
+      title: 'Overall Health and Well-being',
+      days: '3 days',
+      hours: '2 hours',
+      price: 4500,
+      priceFormatted: '₹4,500'
     }
   };
 
