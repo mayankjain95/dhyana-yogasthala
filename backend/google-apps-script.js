@@ -508,7 +508,7 @@ function sendAdminNotificationEmail(data) {
   const experience = data.experience || data.practicedBefore || data.priorYoga || '';
   const payment = data.paymentStatus || (data.finalFeePerPerson ? ('₹' + data.finalFeePerPerson) : (data.amount ? ('₹' + data.amount) : ''));
   const source = data.source || 'dhyanayogasthala.in';
-  const time = data.date || Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd MMM yyyy, hh:mm a (IST)');
+  const time = data.date || (Utilities.formatDate(new Date(), 'Asia/Kolkata', 'dd MMM yyyy, hh:mm a') + ' IST');
 
   // Determine Email Subject
   let subject = data.emailSubject;
