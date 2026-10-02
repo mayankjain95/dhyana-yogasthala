@@ -23,7 +23,7 @@ const SITE_CONFIG = {
 
   // Contact email
   email: 'seekwithshruti@gmail.com',
-  adminNotificationEmail: 'mayank.jain875@gmail.com',
+  adminNotificationEmail: 'seekwithshruti@gmail.com',
 
   // Studio Google Maps Location
   mapsUrl: 'https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r',

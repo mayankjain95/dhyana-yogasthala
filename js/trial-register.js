@@ -224,7 +224,7 @@
 
       // Consent & Timestamp
       consentAgreed: true,
-      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : '',
       emailSubject: `🌿 Free Trial Registration: ${val('fullName')} — ${selectedDate || 'Upcoming Session'} (${selectedMode || 'In-Person'})`,
       submittedAt: new Date().toISOString(),
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
