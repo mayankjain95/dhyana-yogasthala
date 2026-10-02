@@ -629,6 +629,8 @@
     activeModalTrigger = submitBtn;
     if (successModal) {
       successModal.classList.add('active');
+      const mainEl = document.getElementById('main-content');
+      if (mainEl) mainEl.setAttribute('aria-hidden', 'true');
       const firstBtn = successModal.querySelector('button, a');
       if (firstBtn) firstBtn.focus();
     }
@@ -638,6 +640,9 @@
     if (successModal) {
       successModal.classList.remove('active');
     }
+    const mainEl = document.getElementById('main-content');
+    if (mainEl) mainEl.removeAttribute('aria-hidden');
+
     if (activeModalTrigger) {
       activeModalTrigger.focus();
       activeModalTrigger = null;
@@ -649,10 +654,34 @@
     }
   }
 
-  // Keyboard accessibility: Escape key closes modal
+  // Keyboard accessibility: Escape key closes modal & Tab focus is strictly trapped
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && successModal && successModal.classList.contains('active')) {
+    if (!successModal || !successModal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
       closeSuccessModal();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusables = successModal.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first || !successModal.contains(document.activeElement)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last || !successModal.contains(document.activeElement)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
   });
 

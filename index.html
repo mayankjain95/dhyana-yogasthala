@@ -8,32 +8,37 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Dhyana Yogasthala | Classical Hatha Yoga">
 <meta property="og:description" content="Ancient yogic practices in their purest form. Sonepat & online sessions across India.">
-<meta property="og:image" content="https://dhayanayogasthala.com/assets/images/hero-bg.webp">
-<meta property="og:url" content="https://dhayanayogasthala.com/">
+<meta property="og:image" content="https://dhyanayogasthala.in/assets/images/hero-bg.webp">
+<meta property="og:url" content="https://dhyanayogasthala.in/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://dhayanayogasthala.com/">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://dhyanayogasthala.in/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/images/hero-bg.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/main.css">
-<script src="js/i18n.js"></script>
-<script src="js/config.js?v=6"></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/config.js?v=6" defer></script>
 </head>
 <body>
 
-<a href="#" class="wa-float" target="_blank" title="Chat with Shruti on WhatsApp" data-wa="default">🌿</a>
+<a href="#" class="wa-float" target="_blank" aria-label="Chat with Shruti on WhatsApp" title="Chat with Shruti on WhatsApp" data-wa="default">
+  <span aria-hidden="true">🌿</span>
+</a>
 
 <nav>
   <a href="#hero" class="nav-logo">Dhyana<span>Yogasthala</span></a>
-  <button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">☰</button>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links-menu" onclick="toggleNav()">☰</button>
+  <ul class="nav-links" id="nav-links-menu">
     <li><a href="#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
     <li><a href="#offerings" data-i18n="nav.offerings">Offerings</a></li>
     <li><a href="#teacher" data-i18n="nav.teacher">Teacher</a></li>
     <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
     <li><a href="#locations" data-i18n="nav.locations">Locations</a></li>
     <li><a href="#" class="nav-wa" data-wa="default" data-i18n="nav.consult">🌿 Consult Teacher</a></li>
-    <li><a href="#contact" class="nav-cta" data-i18n="nav.enquire">Enquire</a></li>
+    <li><a href="enquiry.html" class="nav-cta" data-i18n="nav.enquire">Programme Enquiry</a></li>
     <li>
       <div class="lang-toggle" title="Switch Language / भाषा बदलें">
         <button class="lang-opt" data-lang="en" onclick="toggleLang('en')">EN</button>
@@ -44,7 +49,7 @@
 </nav>
 
 <section id="hero">
-  <img src="assets/images/hero-bg.webp" alt="Yoga practice" class="hero-bg-img">
+  <img src="assets/images/hero-bg.webp" alt="Classical Hatha Yoga Practice at Dhyana Yogasthala" class="hero-bg-img" fetchpriority="high" width="1920" height="1080">
   <div class="hero-bg-overlay"></div>
   <div class="hero-mandala">
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="0.5">
@@ -144,7 +149,11 @@
       grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    renderUpcoming();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderUpcoming);
+    } else {
+      renderUpcoming();
+    }
     document.addEventListener('langchange', renderUpcoming);
   })();
 </script>
@@ -250,7 +259,11 @@
       grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    renderOfferings();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderOfferings);
+    } else {
+      renderOfferings();
+    }
     document.addEventListener('langchange', renderOfferings);
   })();
 </script>
@@ -502,19 +515,29 @@
     </div>
     <div class="contact-form reveal" id="contact-enquiry-form">
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" id="cq-name" name="name" placeholder="Your Full Name"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="cq-email" name="email" placeholder="your@email.com"></div>
+        <div class="form-group">
+          <label for="cq-name">Your Name</label>
+          <input type="text" id="cq-name" name="name" autocomplete="name" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-group">
+          <label for="cq-email">Email Address</label>
+          <input type="email" id="cq-email" name="email" autocomplete="email" placeholder="your@email.com">
+        </div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Phone Number</label><input type="tel" id="cq-phone" name="phone" placeholder="+91 XXXXX XXXXX"></div>
-        <div class="form-group"><label>Location Preference</label>
+        <div class="form-group">
+          <label for="cq-phone">Phone Number</label>
+          <input type="tel" id="cq-phone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="cq-location">Location Preference</label>
           <select id="cq-location"><option>Sonepat — In Person</option><option>Online Session</option><option>Not sure yet</option></select>
         </div>
       </div>
       <div class="form-group">
-        <label>Program of Interest</label>
+        <label for="cq-program">Program of Interest</label>
         <select id="cq-program">
-          <option>— Select a program —</option>
+          <option value="">— Select a program —</option>
           <option>Diabetes Management Program</option>
           <option>Sthira — Online for CA Students</option>
           <option>Maitreyi — One-on-One Personalised</option>
@@ -525,7 +548,10 @@
           <option>Pre-Natal Yoga</option>
         </select>
       </div>
-      <div class="form-group"><label>Your Query</label><textarea id="cq-query" name="query" rows="4" maxlength="1500" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea></div>
+      <div class="form-group">
+        <label for="cq-query">Your Query</label>
+        <textarea id="cq-query" name="query" rows="4" maxlength="1500" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea>
+      </div>
       <button class="btn-submit-contact" onclick="submitContactForm(event)" data-i18n="contact.form.submit">Send Enquiry →</button>
       <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;" data-i18n="contact.success">
         Thank you for your interest. Shruti will connect with you shortly. 🙏
@@ -569,46 +595,47 @@
 </div>
 
 <!-- BOOKING MODAL -->
-<div class="modal-overlay" id="modal">
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="Close booking dialog">×</button>
     <div id="modal-form-content">
       <div class="modal-title" id="modal-title">Book a Program</div>
       <div class="modal-subtitle">DHYANA YOGASTHALA · CLASSICAL HATHA YOGA</div>
       <div class="modal-form">
         <!-- 1. Personal Details -->
         <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-bottom:0.5rem;">Personal Details</div>
-        <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
-        <div class="form-group"><label>Age *</label><input type="number" placeholder="Your age" required></div>
-        <div class="form-group"><label>Gender *</label>
-          <select required><option value="">— Select —</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select>
+        <div class="form-group"><label for="bm-fullname">Full Name *</label><input type="text" id="bm-fullname" placeholder="Your full name" autocomplete="name" required></div>
+        <div class="form-group"><label for="bm-age">Age *</label><input type="number" id="bm-age" placeholder="Your age" inputmode="numeric" min="1" max="120" required></div>
+        <div class="form-group"><label for="bm-gender">Gender *</label>
+          <select id="bm-gender" required><option value="">— Select —</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select>
         </div>
-        <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
-        <div class="form-group"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
-        <div class="form-group"><label>City &amp; Country *</label><input type="text" placeholder="E.g. Delhi, India" required></div>
-        <div class="form-group"><label>Location Preference</label>
-          <select><option>Sonepat — In Person</option><option>Online</option></select>
+        <div class="form-group"><label for="bm-phone">Phone / WhatsApp *</label><input type="tel" id="bm-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel" inputmode="numeric" required></div>
+        <div class="form-group"><label for="bm-email">Email *</label><input type="email" id="bm-email" placeholder="your@email.com" autocomplete="email" required></div>
+        <div class="form-group"><label for="bm-city">City &amp; Country *</label><input type="text" id="bm-city" placeholder="E.g. Delhi, India" required></div>
+        <div class="form-group"><label for="bm-location">Location Preference</label>
+          <select id="bm-location"><option>Sonepat — In Person</option><option>Online</option></select>
         </div>
         
         <!-- 2. Goals -->
         <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">What Are You Hoping to Achieve?</div>
         <div class="form-group">
-          <select><option>Physical well-being</option><option>Stress management</option><option>Overall Health & Inner well-being</option><option>Mental and emotional well-being</option><option>Spiritual growth</option></select>
+          <label for="bm-goals" style="display:none;">Primary Goal</label>
+          <select id="bm-goals"><option>Physical well-being</option><option>Stress management</option><option>Overall Health &amp; Inner well-being</option><option>Mental and emotional well-being</option><option>Spiritual growth</option></select>
         </div>
 
         <!-- 3. Health & Background -->
         <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">Health Information</div>
-        <div class="form-group"><label>Have you practiced yoga before?</label>
-          <select><option>Yes</option><option>No</option></select>
+        <div class="form-group"><label for="bm-practiced">Have you practiced yoga before?</label>
+          <select id="bm-practiced"><option>Yes</option><option>No</option></select>
         </div>
-        <div class="form-group"><label>Any physical or mental ailments? *</label><textarea rows="3" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
-        <div class="form-group"><label>Any serious illness/surgery in last 3 years? *</label><textarea rows="2" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
+        <div class="form-group"><label for="bm-ailments">Any physical or mental ailments? *</label><textarea id="bm-ailments" rows="3" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
+        <div class="form-group"><label for="bm-illness">Any serious illness/surgery in last 3 years? *</label><textarea id="bm-illness" rows="2" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
 
         <!-- 4. Consent -->
         <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">Declaration</div>
         <div class="form-group" style="margin-top:0.5rem;">
           <label style="display:flex;align-items:flex-start;gap:0.5rem;text-transform:none;letter-spacing:normal;font-size:0.8rem;color:var(--light-muted);">
-            <input type="checkbox" required style="margin-top:0.2rem;">
+            <input type="checkbox" id="bm-consent" required style="margin-top:0.2rem;">
             <span>I hereby am willing to undertake the program completely. I understand that participation in yoga practices is voluntary. I will not communicate the contents of the program to anyone else.</span>
           </label>
         </div>

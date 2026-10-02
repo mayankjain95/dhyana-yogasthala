@@ -5,14 +5,53 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+  let lastActiveModalTrigger = null;
   function openModal(program) {
+    lastActiveModalTrigger = document.activeElement;
     document.getElementById('modal-title').textContent = program;
     document.getElementById('modal-form-content').style.display = 'block';
     document.getElementById('modal-success').style.display = 'none';
-    document.getElementById('modal').classList.add('open');
+    const modal = document.getElementById('modal');
+    modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    const firstFocus = modal.querySelector('button, input, select, textarea');
+    if (firstFocus) firstFocus.focus();
   }
-  function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastActiveModalTrigger && typeof lastActiveModalTrigger.focus === 'function') {
+      lastActiveModalTrigger.focus();
+    }
+  }
+
+  // Modal keyboard accessibility: Escape & Tab focus trap
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('modal');
+    if (!modal || !modal.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      closeModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusables = modal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first || !modal.contains(document.activeElement)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last || !modal.contains(document.activeElement)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  });
   function submitBooking() {
     // Collect form data from modal
     const program = document.getElementById('modal-title').textContent;
