@@ -535,6 +535,8 @@
       notes: notesSummary,
       query: notesSummary,
       consentAgreed: true,
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject: `🌿 New Yoga Registration: ${name} — ${prog.title} (${prog.priceFormatted})`,
       submittedAt: new Date().toISOString(),
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };

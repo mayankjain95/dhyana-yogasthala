@@ -353,6 +353,9 @@
       health:         val('p-health'),
       injury:         val('p-injury'),
       notes:          combinedNotes,
+      notifyEmail:    (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject:   `🌿 New Registration: ${val('p-name')} — ${prog.title}${prog.fee ? ' (' + prog.fee + ')' : ''}`,
+      date:           new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
   }
 

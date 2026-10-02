@@ -85,6 +85,8 @@
           email: emailEl ? emailEl.value : '',
           location: locationEl ? locationEl.value : '',
           notes: msgEl ? msgEl.value : '',
+          notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+          emailSubject: `🧘 New Program Booking: ${name} — ${program || 'Yoga Program'}`,
           date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         })
       }).catch(err => console.warn('Sheet log notice:', err));
@@ -163,6 +165,8 @@
       email: email,
       location: location,
       notes: query,
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject: `💬 New Website Contact Enquiry: ${name} — ${program || 'General Enquiry'}`,
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 

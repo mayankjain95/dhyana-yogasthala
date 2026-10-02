@@ -336,6 +336,9 @@
       email: email,
       city: city,
       notes: 'Accommodation: ' + accRadio.parentElement.textContent.trim() + ' | Amount: ' + totalDisplay,
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject: '🕉️ Spiritual Retreat Registration: ' + name + ' (' + totalDisplay + ')',
+      date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       submittedAt: new Date().toISOString()
     };
 
@@ -378,7 +381,10 @@
             phone: retreatData.phone,
             email: retreatData.email,
             city: retreatData.city,
-            notes: retreatData.notes
+            notes: retreatData.notes,
+            notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+            emailSubject: '💳 Spiritual Retreat Payment Claimed: ' + retreatData.name,
+            date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
           })
         }).catch(e => console.warn('Sheet notice:', e));
       }

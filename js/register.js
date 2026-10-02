@@ -136,7 +136,10 @@
       finalFeePerPerson:fee.final,
       health:getValue('health'),
       priorYoga:getValue('prior-yoga'),
-      notes:getValue('notes')
+      notes:getValue('notes'),
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject: `🧘 Sthira Registration: ${getValue('name')} (${getValue('ca-level') || 'CA Student'}) — ₹${fee.final.toLocaleString('en-IN')}`,
+      date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
   }
 
@@ -236,6 +239,9 @@ Please confirm my registration.`;
       groupPeople:data.groupPeople,
       finalFeePerPerson:data.finalFeePerPerson,
       paymentStatus:'User clicked I Have Paid',
+      notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : 'mayank.jain875@gmail.com',
+      emailSubject: `💳 Sthira Payment Claimed: ${data.name} — ₹${Number(data.finalFeePerPerson || 0).toLocaleString('en-IN')}`,
+      date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       notes:data.notes || ''
     };
   }
