@@ -23,8 +23,8 @@
    * add them to the `customProgramScanners` map below.
    */
   const SCANNER_CONFIG = {
-    upiId: 'shruti.shruti.jain84@okaxis',
-    payeeName: 'Dhyana Yogasthala',
+    upiId: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.upiId) ? SITE_CONFIG.upiId : 'shruti.shruti.jain84@okaxis',
+    payeeName: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.upiName) ? SITE_CONFIG.upiName : 'Dhyana Yogasthala',
     currency: 'INR',
     transactionNote: 'Payment',
     fallbackQrImage: 'assets/images/upi-qr.webp'
