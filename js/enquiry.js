@@ -69,22 +69,10 @@
 
   function initReferralTracking() {
     detectedReferralCode = extractReferralCode();
-    const banner = document.getElementById('referralBanner');
-    const bannerCode = document.getElementById('referralBannerCode');
-    const bannerVerified = document.getElementById('referralBannerVerified');
     const hiddenField = document.getElementById('referralCode');
 
     if (detectedReferralCode) {
       if (hiddenField) hiddenField.value = detectedReferralCode;
-      if (bannerCode) bannerCode.textContent = detectedReferralCode;
-
-      const mapped = REFERRAL_REGISTRY[detectedReferralCode];
-      if (bannerVerified) {
-        bannerVerified.textContent = mapped ? `✓ Verified (${mapped.name})` : '✓ Code Applied';
-      }
-      if (banner) {
-        banner.style.display = 'flex';
-      }
     } else {
       if (hiddenField) hiddenField.value = 'DIRECT';
     }
