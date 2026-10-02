@@ -7,10 +7,10 @@
 <meta name="description" content="Explore Classical Hatha Yoga workshops at Dhyana Yogasthala — Angamardana, Surya Kriya, Yogasanas, and more. Ranging from one to five days.">
 <link rel="canonical" href="https://dhayanayogasthala.com/programs/workshops.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/base.css?v=2">
+<link rel="stylesheet" href="../css/main.css?v=2">
 <script src="../js/i18n.js"></script>
-<script src="../js/config.js?v=5"></script>
+<script src="../js/config.js?v=8"></script>
 <script src="../js/components.js?v=3"></script>
 </head>
 <body>
@@ -45,6 +45,7 @@
     if (!grid || typeof WORKSHOPS === 'undefined') return;
     const active = WORKSHOPS.filter(w => w.active !== false);
     grid.innerHTML = active.map(w => {
+      const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
       const bText = t(w.cardBenefits, w.cardBenefitsHi || w.cardBenefits);
       const benefitsHtml = (bText && bText.length)
         ? `<ul class="practice-benefits">${bText.map(b => `<li>${b}</li>`).join('')}</ul>`
@@ -53,6 +54,13 @@
         ? `<div class="practice-meta">
              ${w.cardDuration ? `<span class="practice-duration">${w.cardDuration}</span>` : ''}
              ${w.cardTarget   ? `<span class="practice-target">${t(w.cardTarget, w.cardTargetHi || w.cardTarget)}</span>`     : ''}
+           </div>`
+        : '';
+      const priceVal = isHi && w.priceHi ? w.priceHi : w.price;
+      const priceHtml = priceVal
+        ? `<div class="practice-price-row" style="margin-top:auto;padding-top:0.85rem;border-top:1px solid rgba(245,239,224,0.1);display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+             <span style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--light-muted);">${isHi ? 'कार्यक्रम शुल्क' : 'Program Fee'}</span>
+             <span style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold);font-weight:600;letter-spacing:0.02em;">🏷️ ${priceVal}</span>
            </div>`
         : '';
       return `
@@ -66,7 +74,8 @@
             <div class="practice-desc">${t(w.cardDesc, w.cardDescHi)}</div>
             ${benefitsHtml}
             ${metaHtml}
-            <a href="${w.link.replace('programs/', '')}" class="btn-book" style="text-align:center;display:block;">${t(w.linkText, w.linkTextHi)}</a>
+            ${priceHtml}
+            <a href="${w.link.replace('programs/', '')}" class="btn-book" style="text-align:center;display:block;margin-top:0;">${t(w.linkText, w.linkTextHi)}</a>
           </div>
         </div>`;
     }).join('');

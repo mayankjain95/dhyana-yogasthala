@@ -208,9 +208,9 @@
       name: val('fullName'),
       fullName: val('fullName'),
       age: val('age'),
-      gender: radioVal('gender'),
-      phone: mobileFull,
-      mobile: mobileFull,
+      phone: rawMobile, // Clean 10-digit number prevents Google Sheets formula error
+      mobile: rawMobile,
+      fullPhone: mobileFull,
       email: val('email'),
 
       // Yogic & Health Information

@@ -525,7 +525,7 @@
           <option>Pre-Natal Yoga</option>
         </select>
       </div>
-      <div class="form-group"><label>Your Query</label><textarea id="cq-query" name="query" rows="4" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea></div>
+      <div class="form-group"><label>Your Query</label><textarea id="cq-query" name="query" rows="4" maxlength="1500" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea></div>
       <button class="btn-submit-contact" onclick="submitContactForm(event)" data-i18n="contact.form.submit">Send Enquiry →</button>
       <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;" data-i18n="contact.success">
         Thank you for your interest. Shruti will connect with you shortly. 🙏
@@ -601,8 +601,8 @@
         <div class="form-group"><label>Have you practiced yoga before?</label>
           <select><option>Yes</option><option>No</option></select>
         </div>
-        <div class="form-group"><label>Any physical or mental ailments? *</label><textarea rows="3" placeholder="Please describe, or write 'None'" required></textarea></div>
-        <div class="form-group"><label>Any serious illness/surgery in last 3 years? *</label><textarea rows="2" placeholder="Please describe, or write 'None'" required></textarea></div>
+        <div class="form-group"><label>Any physical or mental ailments? *</label><textarea rows="3" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
+        <div class="form-group"><label>Any serious illness/surgery in last 3 years? *</label><textarea rows="2" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
 
         <!-- 4. Consent -->
         <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">Declaration</div>

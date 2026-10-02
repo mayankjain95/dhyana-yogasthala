@@ -561,7 +561,7 @@
           </div>
           <div class="field">
             <label for="message" data-i18n="dm.form.l.msg">Message (optional)</label>
-            <textarea id="message" name="message" placeholder="Any questions, or your current health condition" data-i18n-placeholder="dm.form.ph.msg"></textarea>
+            <textarea id="message" name="message" maxlength="1500" placeholder="Any questions, or your current health condition" data-i18n-placeholder="dm.form.ph.msg"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="dm.form.submit">Submit Enquiry</button>
           <div class="success-msg" id="successMsg">Thank you! We've received your enquiry and will connect with you shortly. 🙏</div>
@@ -620,15 +620,23 @@
 
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+      alert(isHi ? 'कृपया 10 अंकों का मान्य मोबाइल नंबर दर्ज करें।' : 'Please enter a valid 10-digit mobile number.');
+      submitBtn.textContent = isHi ? 'पूछताछ सबमिट करें' : 'Submit Enquiry';
+      submitBtn.disabled = false;
+      return;
+    }
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
     const data = {
+      formKey: 'enquiry-classical-hatha-2026',
       submissionType: 'enquiry',
       source: 'Diabetes Management Program page',
       programme: 'Diabetes Management Program',
       name: name,
-      phone: phone,
+      phone: cleanPhone,
       email: email,
       notes: message,
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })

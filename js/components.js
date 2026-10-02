@@ -158,11 +158,11 @@ const PROGRAM_FORM_TEMPLATE = `
         </div>
         <div class="form-group full"><label data-i18n="form.health.ailments">Please indicate if you currently or previously have had any physical or mental ailments. Give details of the nature, duration, and any treatment. <span class="req">*</span></label>
           <div class="form-hint" style="margin-bottom:0.6rem;" data-i18n="form.health.ailments.hint">E.g. — Neck/Backache, Joint issues, Chronic pain, Depression, Diabetes, Heart condition, High/Low BP, Hernia</div>
-          <textarea id="p-health" rows="4" placeholder="Please describe your condition(s), or write 'None'" data-i18n-placeholder="form.health.ailments.ph" required></textarea>
+          <textarea id="p-health" rows="4" maxlength="1500" placeholder="Please describe your condition(s), or write 'None'" data-i18n-placeholder="form.health.ailments.ph" required></textarea>
           <span class="form-hint" data-i18n="form.health.confidential">All information is strictly confidential and used only to personalise your programme.</span>
         </div>
         <div class="form-group full"><label data-i18n="form.health.injury">If you had any serious illness, injury or surgery in last 3 years, please give details. <span class="req">*</span></label>
-          <textarea id="p-injury" rows="3" placeholder="Please describe, or write 'None'" data-i18n-placeholder="form.health.injury.ph" required></textarea>
+          <textarea id="p-injury" rows="3" maxlength="1500" placeholder="Please describe, or write 'None'" data-i18n-placeholder="form.health.injury.ph" required></textarea>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@ const PROGRAM_FORM_TEMPLATE = `
     <div class="form-section reveal">
       <div class="form-section-title" data-i18n="form.notes.title">Anything Else?</div>
       <div class="form-group"><label data-i18n="form.notes.label">Is there anything else you would like the instructor to know before the session?</label>
-        <textarea id="p-notes" rows="4" placeholder="Your questions, expectations, or anything that would help Shruti support you better..." data-i18n-placeholder="form.notes.ph"></textarea>
+        <textarea id="p-notes" rows="4" maxlength="1500" placeholder="Your questions, expectations, or anything that would help Shruti support you better..." data-i18n-placeholder="form.notes.ph"></textarea>
       </div>
     </div>
     <div class="submit-area reveal">

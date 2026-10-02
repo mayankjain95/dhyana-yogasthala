@@ -23,7 +23,9 @@
     const msgEl = document.querySelector('#modal-form-content textarea');
     const name = nameEl ? nameEl.value.trim() : '';
     const phone = phoneEl ? phoneEl.value.trim() : '';
-    if (!name || !phone) { alert('Please enter your name and phone number so Shruti can reach you.'); return; }
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (!name || name.length < 2) { alert('Please enter your full name (minimum 2 characters).'); return; }
+    if (!cleanPhone || cleanPhone.length < 10) { alert('Please enter a valid 10-digit mobile number so Shruti can reach you.'); return; }
 
     const endpoint = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.registrationEndpoint) ? SITE_CONFIG.registrationEndpoint : '';
     const waNum = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsappNumber) ? SITE_CONFIG.whatsappNumber : '918950867190';
@@ -35,11 +37,12 @@
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
-          submissionType: 'modal_booking',
+          formKey: 'enquiry-classical-hatha-2026',
+          submissionType: 'enquiry',
           source: 'Website Modal Booking',
-          programme: program,
+          programme: program || 'Modal Booking',
           name: name,
-          phone: phone,
+          phone: cleanPhone,
           email: emailEl ? emailEl.value : '',
           location: locationEl ? locationEl.value : '',
           notes: msgEl ? msgEl.value : '',
@@ -82,12 +85,17 @@
     const name = nameEl ? nameEl.value.trim() : '';
     const email = emailEl ? emailEl.value.trim() : '';
     const phone = phoneEl ? phoneEl.value.trim() : '';
+    const cleanPhone = phone.replace(/\D/g, '');
     const location = locationEl ? locationEl.value : '';
     const program = programEl ? programEl.value : '';
     const query = queryEl ? queryEl.value.trim() : '';
 
-    if (!name && !email && !phone) {
-      alert('Please enter your contact details (name, email, or phone).');
+    if (!name || name.length < 2) {
+      alert('Please enter your full name (minimum 2 characters).');
+      return;
+    }
+    if (!cleanPhone || cleanPhone.length < 10) {
+      alert('Please enter a valid 10-digit mobile number.');
       return;
     }
 
@@ -107,11 +115,12 @@
       : '918950867190';
 
     const payload = {
+      formKey: 'enquiry-classical-hatha-2026',
       submissionType: 'enquiry',
       source: 'Website Contact Form',
       programme: program || 'General Enquiry',
-      name: name || 'Not specified',
-      phone: phone,
+      name: name,
+      phone: cleanPhone,
       email: email,
       location: location,
       notes: query,

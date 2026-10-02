@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enquiry for Classical Hatha Yoga Classes | Dhyana Yogasthala</title>
-  <meta name="description" content="Enquire for Classical Hatha Yoga Classes with Isha Certified Teacher Shruti Jain at Dhyana Yogasthala. In-person at Sec-15, Sonepat and online.">
+  <title>Program Registration & Enquiry | Dhyana Yogasthala</title>
+  <meta name="description" content="Register for Classical Hatha Yoga programmes at Dhyana Yogasthala with Isha Certified Teacher Shruti Jain. In-person at Sec-15, Sonepat and online.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dhyanayogasthala.in/enquiry.html">
 
   <!-- Open Graph / Social Media Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Enquiry for Classical Hatha Yoga Classes | Dhyana Yogasthala">
-  <meta property="og:description" content="Authentic Classical Hatha Yoga in its purest form. Fill in your details and we will connect with you within 24 hours.">
+  <meta property="og:title" content="Program Registration & Enquiry | Dhyana Yogasthala">
+  <meta property="og:description" content="Authentic Classical Hatha Yoga in its purest form. Select your programme and complete your registration.">
   <meta property="og:image" content="https://dhyanayogasthala.in/assets/images/offering-workshops.webp">
   <meta property="og:url" content="https://dhyanayogasthala.in/enquiry.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,8 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/enquiry.css?v=2">
+  <link rel="stylesheet" href="css/enquiry.css?v=3">
   <script src="js/config.js"></script>
+  <script src="js/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -69,18 +70,18 @@
             </li>
             <li class="trust-item">
               <span class="trust-icon" aria-hidden="true">✦</span>
-              <span><strong>Personalized Guidance:</strong> Small batches tailored to your health, flexibility, and goals.</span>
+              <span><strong>Personalized Guidance:</strong> Small batches tailored to your health, flexibility, and therapeutic goals.</span>
             </li>
             <li class="trust-item">
               <span class="trust-icon" aria-hidden="true">✦</span>
-              <span><strong>In-person as well as Online:</strong> In-person sessions at Sec-15, Sonepat and online</span>
+              <span><strong>In-person as well as Online:</strong> In-person sessions at Sec-15, Sonepat and live online sessions.</span>
             </li>
           </ul>
 
           <div class="showcase-contact">
-            <p class="showcase-contact-text">Have a quick question before submitting?</p>
+            <p class="showcase-contact-text">Have a question or need assistance with registration?</p>
             <a
-              href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20have%20an%20enquiry%20about%20Classical%20Hatha%20Yoga%20Classes."
+              href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20have%20an%20enquiry%20about%20Yoga%20Programmes."
               class="btn-whatsapp-direct"
               target="_blank"
               rel="noopener noreferrer"
@@ -99,163 +100,179 @@
         <!-- Form Header Section -->
         <div class="form-header">
           <div class="form-prelabel">Dhyana Yogasthala · Sonepat &amp; Online</div>
-          <h1 class="form-main-title" id="formHeading">Enquiry for Classical Hatha Yoga Classes</h1>
+          <h1 class="form-main-title" id="formHeading">Yoga Programme Registration</h1>
           <p class="form-desc">
-            Please fill in the details below. We will get back to you <strong>within 24 hours</strong>.
+            Please enter your name, phone number, and select a programme to view the fee and payment scanner.
           </p>
+        </div>
+
+        <!-- Referral Banner (Auto-revealed when referral link/code is present) -->
+        <div id="referralBanner" class="referral-banner" style="display:none;" role="status">
+          <div class="referral-banner-text">
+            <span>🌿</span>
+            <span>Invitation Code Applied: <strong id="referralBannerCode" class="referral-tag">DIRECT</strong></span>
+          </div>
+          <span class="readonly-badge verified" id="referralBannerVerified">✓ Verified Referral</span>
         </div>
 
         <!-- Live Status/Error Banner -->
         <div id="formStatusBanner" class="form-status-banner" role="alert" aria-live="assertive"></div>
 
-        <!-- Enquiry Form -->
+        <!-- Registration & Enquiry Form -->
         <form class="enquiry-form" id="enquiryForm" novalidate>
+          <input type="hidden" id="referralCode" name="referralCode" value="">
 
-          <!-- Row 1: Full Name & Age -->
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label for="fullName" class="form-label">
-                <span>Full Name <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                class="form-input"
-                placeholder="e.g. Ananya Sharma"
-                autocomplete="name"
-                required
-                aria-required="true"
-                aria-describedby="fullName-hint fullName-error"
-              >
-              <span id="fullName-hint" class="field-hint">Your legal or preferred name</span>
-              <span id="fullName-error" class="field-error" role="alert"></span>
-            </div>
-
-            <div class="form-field">
-              <label for="age" class="form-label">
-                <span>Age <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
-              <input
-                type="number"
-                id="age"
-                name="age"
-                class="form-input"
-                placeholder="e.g. 28"
-                min="8"
-                max="99"
-                required
-                aria-required="true"
-                aria-describedby="age-hint age-error"
-              >
-              <span id="age-hint" class="field-hint">Years (min. 8 years)</span>
-              <span id="age-error" class="field-error" role="alert"></span>
-            </div>
-          </div>
-
-          <!-- Row 2: Gender Selector (Male & Female) -->
+          <!-- 1. Full Name -->
           <div class="form-field">
-            <fieldset style="border:none;padding:0;margin:0;">
-              <legend class="form-label" style="margin-bottom:0.3rem;">
-                <span>Gender <span class="req-marker" aria-hidden="true">*</span></span>
-              </legend>
-              <div class="radio-pill-group" role="radiogroup" aria-required="true" aria-describedby="gender-error">
-                <label class="radio-pill-label" for="genderMale">
-                  <input type="radio" name="gender" id="genderMale" value="Male" required>
-                  <span>Male</span>
-                </label>
-                <label class="radio-pill-label" for="genderFemale">
-                  <input type="radio" name="gender" id="genderFemale" value="Female">
-                  <span>Female</span>
-                </label>
-              </div>
-            </fieldset>
-            <span id="gender-error" class="field-error" role="alert"></span>
+            <label for="fullName" class="form-label">
+              <span>Full Name <span class="req-marker" aria-hidden="true">*</span></span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              class="form-input"
+              placeholder="e.g. Ananya Sharma"
+              autocomplete="name"
+              required
+              aria-required="true"
+              aria-describedby="fullName-hint fullName-error"
+            >
+            <span id="fullName-hint" class="field-hint">Your legal or preferred name</span>
+            <span id="fullName-error" class="field-error" role="alert"></span>
           </div>
 
-          <!-- Row 3: Mobile & City -->
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label for="mobile" class="form-label">
-                <span>Mobile Number <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
-              <div class="mobile-input-group">
-                <div class="mobile-prefix" aria-hidden="true">
-                  <span>🇮🇳</span> +91
-                </div>
-                <input
-                  type="tel"
-                  id="mobile"
-                  name="mobile"
-                  class="form-input"
-                  placeholder="98765 43210"
-                  autocomplete="tel-national"
-                  pattern="[0-9]{10}"
-                  required
-                  aria-required="true"
-                  aria-describedby="mobile-hint mobile-error"
-                >
+          <!-- 2. Phone / Mobile Number -->
+          <div class="form-field">
+            <label for="mobile" class="form-label">
+              <span>Phone Number <span class="req-marker" aria-hidden="true">*</span></span>
+            </label>
+            <div class="mobile-input-group">
+              <div class="mobile-prefix" aria-hidden="true">
+                <span>🇮🇳</span> +91
               </div>
-              <span id="mobile-hint" class="field-hint">10-digit number for WhatsApp / call confirmation</span>
-              <span id="mobile-error" class="field-error" role="alert"></span>
-            </div>
-
-            <div class="form-field">
-              <label for="city" class="form-label">
-                <span>City / Location <span class="req-marker" aria-hidden="true">*</span></span>
-              </label>
               <input
-                type="text"
-                id="city"
-                name="city"
+                type="tel"
+                id="mobile"
+                name="mobile"
                 class="form-input"
-                placeholder="e.g. Sonepat, Delhi, Mumbai"
-                autocomplete="address-level2"
+                placeholder="98765 43210"
+                autocomplete="tel-national"
+                pattern="[0-9]{10}"
+                inputmode="numeric"
+                maxlength="10"
                 required
                 aria-required="true"
-                aria-describedby="city-hint city-error"
+                aria-describedby="mobile-hint mobile-error"
               >
-              <span id="city-hint" class="field-hint">Helps us recommend In-person or Online batches</span>
-              <span id="city-error" class="field-error" role="alert"></span>
             </div>
+            <span id="mobile-hint" class="field-hint">10-digit number for WhatsApp / call confirmation</span>
+            <span id="mobile-error" class="field-error" role="alert"></span>
           </div>
 
-          <!-- Row 4: How did you hear about us? -->
+          <!-- 3. Programmes Offered Dropdown -->
           <div class="form-field">
-            <label for="hearAbout" class="form-label">
-              <span>How did you hear about us?</span>
-              <span class="optional-tag">optional</span>
+            <label for="programSelect" class="form-label">
+              <span>Select Programme <span class="req-marker" aria-hidden="true">*</span></span>
             </label>
             <div class="select-wrapper">
-              <select id="hearAbout" name="hearAbout" class="form-select" aria-describedby="hearAbout-hint">
-                <option value="">— Please Select —</option>
-                <option value="Friend / Family">Friend / Family</option>
-                <option value="Google">Google / Web Search</option>
-                <option value="Social Media">Social Media (Instagram / Facebook)</option>
-                <option value="Other">Other</option>
+              <select
+                id="programSelect"
+                name="program"
+                class="form-select"
+                required
+                aria-required="true"
+                aria-describedby="programSelect-hint programSelect-error"
+              >
+                <option value="">— Select a Programme Offered —</option>
+                <option value="asthma">Asthma — 4 days | 2 hours | Rs 4,500</option>
+                <option value="sinusitis">Sinusitis — 4 days | 2 hours | Rs 5,500</option>
+                <option value="tinnitus-vertigo">Tinnitus &amp; Vertigo — 2 days | 1 hour | Rs 2,000</option>
+                <option value="diabetes">Diabetes — 5 days | 2 hours | Rs 5,500</option>
+                <option value="hypertension">Hypertension — 5 days | 2 hours | Rs 5,500</option>
+                <option value="cervical-back-pain">Cervical / Back Pain — 4 days | 2 hours | Rs 4,500</option>
+                <option value="joint-problems">Joint Problems — 6 days | 2 hours | Rs 6,500</option>
+                <option value="hormonal-menstrual">Hormonal Imbalance / Menstrual Problems — 5 days | 2 hours | Rs 5,500</option>
+                <option value="reproductive-organ">Reproductive Organ Related disease — 6 days | 2.5 hours | Rs 6,500</option>
+                <option value="skin-diseases">Skin Diseases — 5 days | 2 hours | Rs 5,500</option>
+                <option value="weight-loss">Weight Loss — 4 days | 2.5 hours | Rs 5,500</option>
+                <option value="mental-health">Mental Imbalance / Depression / Mood Disorder / Psychosis / Anxiety — 4 days | 2.5 hours | Rs 4,500</option>
+                <option value="cancer">Cancer — 5 days | 2 hours | Rs 6,500</option>
+                <option value="cardiac-diseases">Cardiac diseases — 5 days | 2 hours | Rs 6,500</option>
+                <option value="gastrointestinal">Gastrointestinal problem / Gastritis / Heart Burn — 6 days | 2-2.5 hours | Rs 7,500</option>
               </select>
             </div>
-            <span id="hearAbout-hint" class="field-hint">Select how you learned about Dhyana Yogasthala</span>
+            <span id="programSelect-hint" class="field-hint">Select a programme to display the fee amount and dynamic payment scanner</span>
+            <span id="programSelect-error" class="field-error" role="alert"></span>
           </div>
 
-          <!-- Row 5: Why do you wish to join? -->
-          <div class="form-field">
-            <label for="reason" class="form-label">
-              <span>Why do you wish to join the Hatha Yoga classes?</span>
-              <span class="optional-tag">optional</span>
-            </label>
-            <textarea
-              id="reason"
-              name="reason"
-              class="form-textarea"
-              rows="3"
-              placeholder="e.g. Flexibility, back pain relief, managing stress, inner calm, spiritual aspiration, preparing for Sadhana..."
-              aria-describedby="reason-hint"
-            ></textarea>
-            <span id="reason-hint" class="field-hint">Helps Shruti understand your expectations and current health goals</span>
+          <!-- Dynamic Payment Scanner Section (Revealed upon selecting a program) -->
+          <div id="paymentSection" class="payment-section" style="display:none;" aria-live="polite">
+            <div class="payment-card">
+              
+              <!-- Payment Header with Program Summary & Amount -->
+              <div class="payment-header">
+                <div class="payment-header-info">
+                  <span class="payment-badge">Selected Programme</span>
+                  <h2 class="payment-prog-title" id="payProgTitle">Asthma</h2>
+                  <div class="payment-prog-meta">
+                    <span class="meta-tag" id="payProgDays">4 days</span>
+                    <span class="meta-dot">·</span>
+                    <span class="meta-tag" id="payProgHours">2 hours</span>
+                  </div>
+                </div>
+
+                <div class="payment-amount-box">
+                  <span class="payment-amount-label">Programme Fee</span>
+                  <div class="payment-amount-value" id="payProgAmount">₹4,500</div>
+                  <span class="payment-amount-note">One-time registration</span>
+                </div>
+              </div>
+
+              <!-- Payment Scanner Code Container -->
+              <div class="payment-scanner-container">
+                <div class="scanner-box">
+                  <div class="qr-frame" id="qrFrame" aria-label="Dynamic UPI QR Code Scanner">
+                    <div id="dynamicQrCode" class="dynamic-qr-render"></div>
+                    <div class="qr-loading-spinner" id="qrLoadingSpinner" aria-hidden="true"></div>
+                  </div>
+                  <div class="qr-brand-tag">
+                    <span class="upi-icon" aria-hidden="true">📱</span>
+                    <span>Scan with any UPI App</span>
+                  </div>
+                </div>
+
+                <div class="payment-instructions">
+                  <div class="pay-step">
+                    <span class="pay-step-badge">1</span>
+                    <div class="pay-step-text">
+                      <strong>Scan the QR code</strong> using Google Pay, PhonePe, Paytm, BHIM, or any UPI app.
+                    </div>
+                  </div>
+
+                  <div class="pay-step">
+                    <span class="pay-step-badge">2</span>
+                    <div class="pay-step-text">
+                      Confirm payment of <strong class="pay-highlight-amt" id="payInstructionsAmount">₹4,500</strong>, then click <strong>Register Now</strong> below.
+                    </div>
+                  </div>
+
+                  <a
+                    href="#"
+                    id="payUpiDirectBtn"
+                    class="btn-upi-intent"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Open UPI App to Pay on Mobile →</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
           </div>
 
-          <!-- Row 6: Consent Checkbox -->
+          <!-- Consent Checkbox -->
           <div class="agreement-card">
             <label class="checkbox-label" for="consent">
               <input
@@ -272,20 +289,20 @@
             <span id="consent-error" class="field-error" role="alert" style="margin-left:2.1rem;margin-top:0.4rem;"></span>
           </div>
 
-          <!-- Submit Button & Privacy Assurance -->
+          <!-- Registration Button & Privacy Assurance -->
           <div class="form-actions">
             <button
               type="submit"
               class="btn-submit-enquiry"
               id="submitBtn"
-              aria-label="Submit your class enquiry"
+              aria-label="Submit your registration"
             >
               <span class="submit-spinner" aria-hidden="true"></span>
-              <span class="btn-text">Submit Enquiry →</span>
+              <span class="btn-text">Register Now →</span>
             </button>
 
             <p class="privacy-notice">
-              🔒 <span>Privacy Guaranteed:</span> Your contact information is kept strictly confidential and will never be shared. We will reach out via Phone or WhatsApp within 24 hours.
+              🔒 <span>Privacy Guaranteed:</span> Your contact information is kept strictly confidential. Dhyana Yogasthala will get in touch with you within 24 hours to confirm your registration.
             </p>
           </div>
 
@@ -312,12 +329,39 @@
         aria-label="Close confirmation dialog"
         onclick="window.EnquiryApp.closeSuccessModal()"
       >×</button>
+      
       <div class="success-icon-symbol" aria-hidden="true">🙏</div>
-      <h2 class="modal-title" id="successTitle">Enquiry Received!</h2>
-      <p class="modal-text" id="successDesc">
-        Thank you, <strong id="successUserName">Seeker</strong>!<br><br>
-        Your enquiry for Classical Hatha Yoga classes has been received. Shruti and the Dhyana Yogasthala team will connect with you <strong>within 24 hours</strong> to discuss batch timings and registration.
-      </p>
+      <h2 class="modal-title" id="successTitle">Registration Received</h2>
+      
+      <div class="modal-text" id="successDesc">
+        <p class="modal-confirm-lead">
+          Thank you for registering. <strong>Dhyana Yogasthala</strong> will get in touch with you within 24 hours to confirm your registration.
+        </p>
+
+        <!-- Registration Summary Details -->
+        <div class="modal-summary-card" id="modalSummaryCard">
+          <div class="summary-row">
+            <span class="summary-label">Participant:</span>
+            <strong class="summary-val" id="summaryParticipantName">—</strong>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Phone:</span>
+            <strong class="summary-val" id="summaryParticipantPhone">—</strong>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Programme:</span>
+            <strong class="summary-val" id="summaryProgrammeTitle">—</strong>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Amount:</span>
+            <strong class="summary-val summary-fee" id="summaryProgrammeFee">—</strong>
+          </div>
+          <div class="summary-row" id="summaryReferralRow" style="display:none;">
+            <span class="summary-label">Referral Code:</span>
+            <strong class="summary-val" id="summaryReferralCode">—</strong>
+          </div>
+        </div>
+      </div>
 
       <div class="modal-actions">
         <button
@@ -326,11 +370,15 @@
           onclick="window.EnquiryApp.openWhatsAppChat()"
         >
           <span aria-hidden="true">🌿</span>
-          <span>Open WhatsApp to Connect Now</span>
+          <span>Connect on WhatsApp for Quick Confirmation</span>
         </button>
-        <a href="index.html" class="btn-modal-secondary">
-          Return to Main Website
-        </a>
+        <button
+          type="button"
+          class="btn-modal-secondary"
+          onclick="window.EnquiryApp.closeSuccessModal()"
+        >
+          Done &amp; Close
+        </button>
       </div>
     </div>
   </div>
@@ -356,6 +404,6 @@
   </footer>
 
   <!-- Page Logic Script -->
-  <script src="js/enquiry.js?v=2"></script>
+  <script src="js/enquiry.js?v=3"></script>
 </body>
 </html>

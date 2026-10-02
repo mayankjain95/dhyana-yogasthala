@@ -11,6 +11,8 @@
   .nav-wa{background:rgba(139,105,20,0.85);color:var(--ivory)!important;padding:0.45rem 1rem;border-radius:2px;font-size:0.72rem;display:flex;align-items:center;gap:0.4rem;transition:background 0.3s!important;}
   .nav-wa:hover{background:var(--earthy)!important;}
   .nav-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.8rem;cursor:pointer;}
+  .nav-back{color:var(--light-muted);text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;display:inline-flex;align-items:center;gap:0.4rem;font-family:'Jost',sans-serif;}
+  .nav-back:hover{color:var(--gold);}
 
   /* HERO */
   #hero{min-height:100vh;background:var(--warm-dark);display:flex;align-items:center;position:relative;overflow:hidden;padding:0 4vw;}

@@ -53,14 +53,15 @@
   function renderHeroLabel() {
     const heroLabel = document.getElementById('prog-hero-label');
     if (!heroLabel) return;
+    const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
     if (prog.heroLabel) {
-      heroLabel.textContent = prog.heroLabel;
+      heroLabel.textContent = (isHi && prog.heroLabelHi) ? prog.heroLabelHi : prog.heroLabel;
     } else {
       const parts = [];
-      if (prog.date)     parts.push('📅 ' + prog.date);
-      if (prog.time)     parts.push('🕒 ' + prog.time);
-      if (prog.location) parts.push('📍 ' + prog.location);
-      if (prog.price)    parts.push('🏷️ ' + (typeof currentLang === 'function' && currentLang() === 'hi' ? 'शुल्क: ' : 'Fee: ') + prog.price);
+      if (prog.date)     parts.push('📅 ' + (isHi && prog.dateHi ? prog.dateHi : prog.date));
+      if (prog.time)     parts.push('🕒 ' + (isHi && prog.timeHi ? prog.timeHi : prog.time));
+      if (prog.location) parts.push('📍 ' + (isHi && prog.locationHi ? prog.locationHi : prog.location));
+      if (prog.price)    parts.push('🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + (isHi && prog.priceHi ? prog.priceHi : prog.price));
       heroLabel.textContent = parts.join('  ·  ');
     }
   }
