@@ -1230,7 +1230,7 @@
 
   <div class="foot wrap">
     Dhyana Yogasthala · 812, Sector-15, Sonepat, Haryana &nbsp;·&nbsp; <span
-      id="footEmail">seekwithshruti@gmail.com</span> &nbsp;·&nbsp; Classical Hatha Yoga, Isha Certified
+      id="footEmail" data-email></span> &nbsp;·&nbsp; Classical Hatha Yoga, Isha Certified
   </div>
 
   <!-- sticky mobile CTA -->
@@ -1245,7 +1245,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       if (typeof SITE_CONFIG !== 'undefined') {
         const waNumber = SITE_CONFIG.whatsappNumber || '918950867190';
-        const email = SITE_CONFIG.email || 'seekwithshruti@gmail.com';
+        const email = SITE_CONFIG.email || '';
 
         const waBtn = document.getElementById('directWaBtn');
         if (waBtn) {

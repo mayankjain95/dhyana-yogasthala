@@ -67,6 +67,9 @@ function injectFooter(type = 'main') {
   if (el) {
     el.innerHTML = type === 'subpage' ? FOOTER_SUBPAGE : FOOTER_MAIN;
     applyWaLinks(el);
+    if (typeof applyEmailLinks === 'function') {
+      applyEmailLinks(el);
+    }
     if (typeof applyLang === 'function' && typeof currentLang === 'function') {
       applyLang(currentLang());
     }

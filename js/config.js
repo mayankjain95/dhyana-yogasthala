@@ -789,9 +789,12 @@ function applyWaLinks() {
 }
 
 /** Applies correct mailto href + display text to all elements with [data-email] attribute */
-function applyEmailLinks() {
-  document.querySelectorAll('[data-email]').forEach(el => {
-    el.href = `mailto:${SITE_CONFIG.email}`;
+function applyEmailLinks(root) {
+  if (typeof SITE_CONFIG === 'undefined' || !SITE_CONFIG.email) return;
+  (root || document).querySelectorAll('[data-email]').forEach(el => {
+    if (el.tagName === 'A') {
+      el.href = `mailto:${SITE_CONFIG.email}`;
+    }
     el.textContent = SITE_CONFIG.email;
   });
 }
