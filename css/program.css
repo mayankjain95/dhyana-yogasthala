@@ -110,6 +110,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
   font-weight:600;
   box-shadow:0 4px 14px rgba(200,98,42,0.5);
 }
+.poster-spotlight-card .poster-badge-price{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:4;
+  background:linear-gradient(135deg, var(--saffron) 0%, #8b6914 100%);
+  color:var(--ivory);
+  font-size:0.7rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:0.35rem 0.8rem;
+  border-radius:20px;
+  font-weight:600;
+  box-shadow:0 4px 14px rgba(200,98,42,0.5);
+  border:1px solid rgba(201,168,76,0.35);
+}
 .poster-spotlight-card picture, .poster-spotlight-card img{
   display:block;
   width:100%;
