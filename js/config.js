@@ -96,7 +96,7 @@ const UPCOMING_PROGRAMS = [
     linkText: 'Register for Free Session',
     linkTextHi: 'निशुल्क सत्र के लिए पंजीकरण करें',
     isFree: true,
-    active: true,
+    active: false,
   },
   {
     id: 'diabetes-management',
