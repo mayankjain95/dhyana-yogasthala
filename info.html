@@ -7,6 +7,10 @@
   <meta name="description" content="Ancient Classical Hatha Yoga transmitted in its purest form in Sonepat and Online by Isha Certified Teacher Shruti Jain. Join our Free Trial Class or explore programs.">
   <meta name="theme-color" content="#221b16">
   <link rel="canonical" href="https://dhyanayogasthala.in/info.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
@@ -157,16 +161,20 @@
       transition: transform 0.6s ease;
     }
 
-    .emblem {
-      width: 52px;
+    .emblem,
+    .emblem-img {
+      width: 64px;
       height: 64px;
       margin: 0 auto 1.1rem;
       display: block;
-      filter: drop-shadow(0 2px 8px rgba(199, 154, 61, 0.4));
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 10px rgba(199, 154, 61, 0.45));
       transition: transform 0.3s ease;
     }
-    .hero:hover .emblem {
-      transform: scale(1.04);
+    .hero:hover .emblem,
+    .hero:hover .emblem-img {
+      transform: scale(1.06);
     }
 
     .mark {
@@ -862,12 +870,7 @@
       <div class="hero-bg" aria-hidden="true"></div>
 
       <!-- Sacred Yogic Emblem -->
-      <svg class="emblem" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <path d="M26 6C22 14 18 18 18 24C18 29 21.5 33 26 33C30.5 33 34 29 34 24C34 18 30 14 26 6Z" stroke="#c79a3d" stroke-width="1.4"/>
-        <path d="M8 40C8 34 15 30 26 30C37 30 44 34 44 40" stroke="#c79a3d" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M4 46C4 46 12 42 26 42C40 42 48 46 48 46" stroke="#c79a3d" stroke-width="1.2" opacity="0.7" stroke-linecap="round"/>
-        <path d="M12 52C12 52 18 49 26 49C34 49 40 52 40 52" stroke="#c79a3d" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
-      </svg>
+      <img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Emblem" class="emblem-img" width="64" height="64">
 
       <p class="mark"><strong>Dhyana Yogasthala</strong> &nbsp;·&nbsp; Classical Hatha Yoga</p>
 

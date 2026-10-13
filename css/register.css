@@ -1,7 +1,9 @@
 
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4vw;background:rgba(30,23,16,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);}
-  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);text-decoration:none;}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:0.7rem;}
   .nav-logo span{color:var(--ivory);font-style:italic;}
+  .nav-logo-img{width:36px;height:36px;border-radius:50%;object-fit:contain;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.3);transition:transform 0.3s ease;}
+  .nav-logo:hover .nav-logo-img{transform:scale(1.05);}
   .nav-back{color:var(--light-muted);text-decoration:none;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;display:flex;align-items:center;gap:0.5rem;}
   .nav-back:hover{color:var(--gold);}
 

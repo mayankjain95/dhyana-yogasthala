@@ -12,7 +12,7 @@ const LANG_TOGGLE_HTML = `
 </div>`;
 
 const NAV_MAIN = `
-<a href="index.html#hero" class="nav-logo">Dhyana<span>Yogasthala</span></a>
+<a href="index.html#hero" class="nav-logo"><img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="nav-logo-img" width="36" height="36">Dhyana<span>Yogasthala</span></a>
 <button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">☰</button>
 <ul class="nav-links">
   <li><a href="index.html#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
@@ -25,7 +25,7 @@ const NAV_MAIN = `
 </ul>`;
 
 const NAV_SUBPAGE = `
-<a href="../index.html" class="nav-logo">Dhyana<span>Yogasthala</span></a>
+<a href="../index.html" class="nav-logo"><img src="../assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="nav-logo-img" width="36" height="36">Dhyana<span>Yogasthala</span></a>
 <div style="display:flex;align-items:center;gap:1.2rem;">
   <a href="../index.html" class="nav-back" data-i18n="nav.back">← Back to Main Site</a>
   ${LANG_TOGGLE_HTML}
@@ -33,7 +33,7 @@ const NAV_SUBPAGE = `
 
 const FOOTER_MAIN = `
 <div class="footer-inner">
-  <div class="footer-logo">Dhyana Yogasthala<small data-i18n="footer.tagline">Classical Hatha Yoga · Isha Certified</small></div>
+  <div class="footer-logo"><img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="footer-logo-img" width="44" height="44"><div>Dhyana Yogasthala<small data-i18n="footer.tagline">Classical Hatha Yoga · Isha Certified</small></div></div>
   <div class="footer-links">
     <a href="index.html#what-is-yoga" data-i18n="footer.what-is-yoga">What is Classical Hatha Yoga</a>
     <a href="index.html#offerings" data-i18n="footer.offerings">Offerings</a>
@@ -44,7 +44,7 @@ const FOOTER_MAIN = `
 </div>`;
 
 const FOOTER_SUBPAGE = `
-<a href="../index.html" class="footer-logo">Dhyana<span>Yogasthala</span></a>
+<a href="../index.html" class="footer-logo"><img src="../assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="footer-logo-img" width="40" height="40">Dhyana<span>Yogasthala</span></a>
 <span class="footer-copy">© ${(typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG.year : '2026')} Dhyana Yogasthala · Shruti Jain, Sonepat</span>
 <a href="../index.html" class="footer-back" data-i18n="nav.back">← Back to Main Site</a>`;
 
