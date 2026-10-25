@@ -80,7 +80,7 @@
 
   /**
    * PROGRAM CATALOGUE
-   * 15 Classical Hatha Yoga Therapeutic & Wellness Programmes
+   * 18 Classical Hatha Yoga Therapeutic & Wellness Programmes (Doctors Collaboration)
    */
   const PROGRAM_CATALOG = {
     'asthma': {
@@ -115,13 +115,13 @@
       price: 5500,
       priceFormatted: '₹5,500'
     },
-    'hypertension': {
-      id: 'hypertension',
-      title: 'Hypertension',
-      days: '5 days',
+    'physical-health': {
+      id: 'physical-health',
+      title: 'Physical health and overall inner well-being',
+      days: '3 days',
       hours: '2 hours',
-      price: 5500,
-      priceFormatted: '₹5,500'
+      price: 3500,
+      priceFormatted: '₹3,500'
     },
     'cervical-back-pain': {
       id: 'cervical-back-pain',
@@ -144,8 +144,16 @@
       title: 'Hormonal Imbalance / Menstrual Problems',
       days: '5 days',
       hours: '2 hours',
-      price: 5500,
-      priceFormatted: '₹5,500'
+      price: 6500,
+      priceFormatted: '₹6,500'
+    },
+    'face-glow-yoga': {
+      id: 'face-glow-yoga',
+      title: 'Face Glow Yoga',
+      days: '2 days',
+      hours: '2 hours',
+      price: 3500,
+      priceFormatted: '₹3,500'
     },
     'reproductive-organ': {
       id: 'reproductive-organ',
@@ -158,10 +166,10 @@
     'skin-diseases': {
       id: 'skin-diseases',
       title: 'Skin Diseases',
-      days: '5 days',
+      days: '4 days',
       hours: '2 hours',
-      price: 5500,
-      priceFormatted: '₹5,500'
+      price: 4500,
+      priceFormatted: '₹4,500'
     },
     'weight-loss': {
       id: 'weight-loss',
@@ -197,9 +205,9 @@
     },
     'gastrointestinal': {
       id: 'gastrointestinal',
-      title: 'Gastrointestinal Problem / Gastritis / Heart Burn',
+      title: 'Gastrointestinal Problems / Gastritis / Heartburn',
       days: '6 days',
-      hours: '2-2.5 hours',
+      hours: '2.5 hours',
       price: 7500,
       priceFormatted: '₹7,500'
     },
@@ -208,16 +216,33 @@
       title: 'Prenatal Yoga',
       days: '3 days',
       hours: '2 hours',
-      price: 4500,
-      priceFormatted: '₹4,500'
+      price: 6500,
+      priceFormatted: '₹6,500'
     },
+    'eye-care-yoga': {
+      id: 'eye-care-yoga',
+      title: 'Eye care Yoga',
+      days: '5 days',
+      hours: '2 hours',
+      price: 5500,
+      priceFormatted: '₹5,500'
+    },
+    // Backwards compatibility aliases
     'overall-health': {
       id: 'overall-health',
-      title: 'Overall Health and Well-being',
+      title: 'Physical health and overall inner well-being',
       days: '3 days',
       hours: '2 hours',
-      price: 4500,
-      priceFormatted: '₹4,500'
+      price: 3500,
+      priceFormatted: '₹3,500'
+    },
+    'hypertension': {
+      id: 'hypertension',
+      title: 'Hypertension',
+      days: '5 days',
+      hours: '2 hours',
+      price: 5500,
+      priceFormatted: '₹5,500'
     }
   };
 

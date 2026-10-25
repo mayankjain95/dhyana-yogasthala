@@ -152,8 +152,8 @@ const PROGRAM_FORM_TEMPLATE = `
     <div class="form-section reveal">
       <div class="form-section-title" data-i18n="form.health.title">Health Information</div>
       <div class="form-grid">
-        <div class="form-group full"><label data-i18n="form.health.preg">For women, are you currently pregnant, planning for pregnancy or given birth in last 3 months? <span class="req">*</span></label>
-          <div class="radio-group-inline" style="margin-top:0.5rem;">
+        <div class="form-group full" id="p-pregnancy-group"><label id="p-pregnancy-label" data-i18n="form.health.preg">For women, are you currently pregnant, planning for pregnancy or given birth in last 3 months? <span class="req">*</span></label>
+          <div class="radio-group-inline" id="p-pregnancy-radios" style="margin-top:0.5rem;">
             <label class="radio-option"><input type="radio" name="p-pregnancy" value="Yes"> <span data-i18n="form.yes">Yes</span></label>
             <label class="radio-option"><input type="radio" name="p-pregnancy" value="No"> <span data-i18n="form.no">No</span></label>
             <label class="radio-option"><input type="radio" name="p-pregnancy" value="NA"> <span data-i18n="form.na">NA</span></label>

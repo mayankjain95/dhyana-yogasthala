@@ -139,6 +139,54 @@
       paymentConsentBlock.style.display = prog.isFree ? 'none' : '';
     }
 
+    // ── 7b. Customize health pregnancy field for Pre-Natal Yoga ─────────────
+    function renderPregnancyField() {
+      if (prog.id !== 'pre-natal-yoga') return;
+      const group = document.getElementById('p-pregnancy-group');
+      if (!group) return;
+      const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
+      const labelText = isHi
+        ? 'आप वर्तमान में गर्भावस्था के किस महीने में हैं? <span class="req">*</span>'
+        : 'Which month of pregnancy are you currently in? <span class="req">*</span>';
+      const placeholderText = isHi
+        ? '— गर्भावस्था का महीना चुनें —'
+        : '— Select Month of Pregnancy —';
+
+      const options = [
+        { val: '1st Month (Weeks 1-4)', en: '1st Month (Weeks 1–4)', hi: 'पहला महीना (सप्ताह 1–4)' },
+        { val: '2nd Month (Weeks 5-8)', en: '2nd Month (Weeks 5–8)', hi: 'दूसरा महीना (सप्ताह 5–8)' },
+        { val: '3rd Month (Weeks 9-12)', en: '3rd Month (Weeks 9–12)', hi: 'तीसरा महीना (सप्ताह 9–12)' },
+        { val: '4th Month (Weeks 13-16)', en: '4th Month (Weeks 13–16)', hi: 'चौथा महीना (सप्ताह 13–16)' },
+        { val: '5th Month (Weeks 17-20)', en: '5th Month (Weeks 17–20)', hi: 'पाँचवाँ महीना (सप्ताह 17–20)' },
+        { val: '6th Month (Weeks 21-24)', en: '6th Month (Weeks 21–24)', hi: 'छठा महीना (सप्ताह 21–24)' },
+        { val: '7th Month (Weeks 25-28)', en: '7th Month (Weeks 25–28)', hi: 'सातवाँ महीना (सप्ताह 25–28)' },
+        { val: '8th Month (Weeks 29-32)', en: '8th Month (Weeks 29–32)', hi: 'आठवाँ महीना (सप्ताह 29–32)' },
+        { val: '9th Month (Weeks 33-40)', en: '9th Month (Weeks 33–40)', hi: 'नौवाँ महीना (सप्ताह 33–40)' },
+        { val: 'Planning for pregnancy', en: 'Planning for pregnancy', hi: 'गर्भावस्था की योजना बना रही हैं' },
+        { val: 'Postnatal (Recently given birth)', en: 'Postnatal (Recently given birth)', hi: 'प्रसवोत्तर (हाल ही में जन्म दिया)' }
+      ];
+
+      const existingSelect = document.getElementById('p-pregnancy-month');
+      const currentVal = existingSelect ? existingSelect.value : '';
+
+      group.innerHTML = `
+        <label id="p-pregnancy-label" style="display:block;margin-bottom:0.4rem;">${labelText}</label>
+        <select id="p-pregnancy-month" name="p-pregnancy-month" required style="width:100%;margin-top:0.4rem;">
+          <option value="">${placeholderText}</option>
+          ${options.map(opt => `<option value="${opt.val}" ${currentVal === opt.val ? 'selected' : ''}>${isHi ? opt.hi : opt.en}</option>`).join('')}
+        </select>
+        <span class="form-hint" style="margin-top:0.35rem;display:block;">${isHi ? 'यह श्रुति को आपके त्रैमासिक (trimester) के अनुसार सुरक्षित और उपयुक्त अभ्यासों को अनुकूलित करने में मदद करता है।' : 'Helps Shruti tailor safe, gentle practices suited to your specific stage of pregnancy.'}</span>
+      `;
+
+      // Auto-select Female gender for prenatal yoga if none selected
+      const checkedGender = document.querySelector('input[name="p-gender"]:checked');
+      if (!checkedGender) {
+        const femaleRadio = document.querySelector('input[name="p-gender"][value="Female"]');
+        if (femaleRadio) femaleRadio.checked = true;
+      }
+    }
+    renderPregnancyField();
+
     // ── 8. Submit button text & note ─────────────────────────────────────────
     function renderSubmitBtn() {
       const submitBtn = document.querySelector('.btn-submit-main');
@@ -211,6 +259,7 @@
       // Re-render form header and submit button
       if (typeof renderFormHeader === 'function') renderFormHeader();
       if (typeof renderSubmitBtn === 'function') renderSubmitBtn();
+      if (typeof renderPregnancyField === 'function') renderPregnancyField();
       renderHeroLabel();
     });
 
@@ -310,7 +359,11 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('p-email'))) return 'Please enter a valid email address.';
       if ((val('p-city') || '').length < 2) return 'Please enter your city and country.';
       if ((val('p-emergency') || '').length < 5) return 'Please enter emergency contact details.';
-      if (!radio('p-pregnancy')) return 'Please answer the pregnancy question.';
+      if (prog.id === 'pre-natal-yoga') {
+        if (!val('p-pregnancy-month')) return 'Please select which month of pregnancy you are currently in.';
+      } else {
+        if (!radio('p-pregnancy')) return 'Please answer the pregnancy question.';
+      }
       if (!val('p-health')) return "Please fill in the health details field (write 'None' if not applicable).";
       if (!val('p-injury')) return "Please fill in the illness/injury field (write 'None' if not applicable).";
       if (radio('p-consent') !== 'Yes') return 'Please confirm the declaration by selecting Yes.';
@@ -321,10 +374,14 @@
     }
 
     function collectData() {
+      const isPrenatal = prog.id === 'pre-natal-yoga';
       const rawNotes = val('p-notes');
       const slotStr = radio('p-date-slot') ? ('Preferred Session Date: ' + radio('p-date-slot')) : '';
       const emergencyStr = val('p-emergency') ? ('Emergency Contact: ' + val('p-emergency')) : '';
-      const pregnancyStr = radio('p-pregnancy') ? ('Pregnancy/Recent Birth: ' + radio('p-pregnancy')) : '';
+      const pregVal = isPrenatal ? val('p-pregnancy-month') : radio('p-pregnancy');
+      const pregnancyStr = pregVal
+        ? ((isPrenatal ? 'Month of Pregnancy: ' : 'Pregnancy/Recent Birth: ') + pregVal)
+        : '';
 
       let combinedNotes = rawNotes;
       if (slotStr) combinedNotes = slotStr + (combinedNotes ? '\n' + combinedNotes : '');
@@ -349,7 +406,8 @@
         goal: radio('p-goal'),
         experience: radio('p-practiced'),
         practicedBefore: radio('p-practiced'),
-        pregnancy: radio('p-pregnancy'),
+        pregnancy: pregVal,
+        pregnancyMonth: isPrenatal ? pregVal : '',
         health: val('p-health'),
         injury: val('p-injury'),
         notes: combinedNotes,
@@ -370,13 +428,16 @@
 
     function buildWhatsAppMessage(data) {
       const slotLine = data.dateSlot ? ('Preferred Date: ' + data.dateSlot + '\n') : '';
+      const pregLine = (prog.id === 'pre-natal-yoga')
+        ? ('Month of Pregnancy: ' + (data.pregnancy || '—') + '\n')
+        : ('Pregnancy/Birth in last 3 months: ' + (data.pregnancy || '—') + '\n');
       return 'Hi Shruti, I have registered for ' + prog.title + '.\n\n' +
         slotLine +
         'Name: ' + data.name + '\nAge: ' + data.age + ' | Gender: ' + data.gender + '\n' +
         'Phone: ' + data.phone + '\nEmail: ' + data.email + '\nCity: ' + data.city + '\n' +
         'Emergency Contact: ' + (data.emergency || '—') + '\n\n' +
         'Goal: ' + (data.goal || '—') + '\nPrior experience: ' + (data.practicedBefore || '—') + '\n' +
-        'Pregnancy/Birth in last 3 months: ' + (data.pregnancy || '—') + '\n' +
+        pregLine +
         'Health details: ' + data.health + '\nIllness/Injury (last 3 yrs): ' + data.injury + '\n' +
         'Additional notes: ' + (data.notes || '—') + '\n\nPlease confirm my registration.';
     }
