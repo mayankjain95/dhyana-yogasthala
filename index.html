@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/main.css">
 <script src="js/i18n.js" defer></script>
-<script src="js/config.js?v=6" defer></script>
+<script src="js/config.js?v=7" defer></script>
 </head>
 <body>
 
@@ -130,11 +130,17 @@
           p.location ? '<div>📍 ' + (isHi && p.locationHi ? p.locationHi : p.location) + '</div>' : '',
           p.price    ? '<div>🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + (isHi && p.priceHi ? p.priceHi : p.price) + '</div>' : '',
         ].join('');
+        const imgHtml = p.imgContain
+          ? `<div class="practice-card-img-wrap" style="height:240px;position:relative;background:#15100B;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+               <img src="${p.image}" aria-hidden="true" style="position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);object-fit:cover;filter:blur(20px) brightness(0.3);transform:scale(1.15);pointer-events:none;" alt="">
+               <img src="${p.image}" alt="${title}" class="practice-card-img" style="position:relative;width:100%;height:100%;object-fit:contain;z-index:1;opacity:1;" loading="lazy">
+             </div>`
+          : `<div class="practice-card-img-wrap" style="height:240px;">
+               <img src="${p.image}" alt="${title}" class="practice-card-img" style="height:240px;object-fit:cover;object-position:center top;" loading="lazy">
+             </div>`;
         return `
           <div class="practice-card reveal">
-            <div class="practice-card-img-wrap">
-              <img src="${p.image}" alt="${title}" class="practice-card-img" style="object-position:center top;" loading="lazy">
-            </div>
+            ${imgHtml}
             <div class="practice-card-body">
               <div class="practice-tag">${tag}</div>
               <div class="practice-name">${title}</div>
@@ -239,11 +245,17 @@
         const benefitsHtml = (p.cardBenefits && p.cardBenefits.length)
           ? `<ul class="practice-benefits">${p.cardBenefits.map(b => `<li>${b}</li>`).join('')}</ul>`
           : '';
+        const imgHtml = p.imgContain
+          ? `<div class="practice-card-img-wrap" style="height:240px;position:relative;background:#15100B;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+               <img src="${p.image}" aria-hidden="true" style="position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);object-fit:cover;filter:blur(20px) brightness(0.3);transform:scale(1.15);pointer-events:none;" alt="">
+               <img src="${p.image}" alt="${title}" class="practice-card-img" style="position:relative;width:100%;height:100%;object-fit:contain;z-index:1;opacity:1;" loading="lazy">
+             </div>`
+          : `<div class="practice-card-img-wrap" style="height:240px;">
+               <img src="${p.image}" alt="${title}" class="practice-card-img" style="height:240px;object-fit:cover;object-position:center top;" loading="lazy">
+             </div>`;
         return `
           <div class="${cardClass}">
-            <div class="practice-card-img-wrap">
-              <img src="${p.image}" alt="${title}" class="practice-card-img" loading="lazy">
-            </div>
+            ${imgHtml}
             <div class="practice-card-body">
               <div class="practice-tag">${tag}</div>
               <div class="practice-name">${title}</div>
