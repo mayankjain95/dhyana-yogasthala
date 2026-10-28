@@ -62,10 +62,13 @@ section{padding:72px 24px}
 .card p{font-size:18px;font-weight:600;color:var(--ink)}
 /* details */
 .details{background:var(--soft);border-radius:32px;padding:48px 40px}
-.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
-.ditem{background:#fff;border-radius:18px;padding:20px 22px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:32px}
+.ditem{display:flex;align-items:flex-start;gap:16px;background:#fff;border-radius:18px;padding:22px;box-shadow:0 2px 12px rgba(38,32,23,.03)}
+.dicon{flex:none;width:42px;height:42px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--mid)}
+.dicon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dcontent{flex:1;min-width:0}
 .ditem small{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
-.ditem b{display:block;font-size:20px;margin-top:6px;line-height:1.3}
+.ditem b{display:block;font-size:19px;margin-top:4px;line-height:1.3}
 .details .note{margin-top:24px;color:var(--muted);font-size:17px}
 /* teacher */
 .teacher{display:flex;flex-wrap:wrap;gap:32px;align-items:center;background:#fff;border-radius:28px;padding:28px;margin-top:36px}
@@ -151,11 +154,26 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <p class="eyebrow">Programme details</p>
 <h2>Everything at a glance</h2>
 <div class="dgrid">
-<div class="ditem"><small>When</small><b>Every Sunday, 11 AM–12 PM</b></div>
-<div class="ditem"><small>Where</small><b>Live Zoom session</b></div>
-<div class="ditem"><small>Fee</small><b>₹2,000 per month</b></div>
-<div class="ditem"><small>Batch size</small><b>Maximum of 5 children</b></div>
-<div class="ditem"><small>Age group</small><b>7 to 13 years</b></div>
+<div class="ditem">
+  <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+  <div class="dcontent"><small>When</small><b>Every Sunday, 11 AM–12 PM</b></div>
+</div>
+<div class="ditem">
+  <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+  <div class="dcontent"><small>Where</small><b>Live Zoom session</b></div>
+</div>
+<div class="ditem">
+  <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+  <div class="dcontent"><small>Fee</small><b>₹2,000 per month</b></div>
+</div>
+<div class="ditem">
+  <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+  <div class="dcontent"><small>Batch size</small><b>Maximum of 5 children</b></div>
+</div>
+<div class="ditem">
+  <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+  <div class="dcontent"><small>Age group</small><b>7 to 13 years</b></div>
+</div>
 </div>
 <p class="note">Each batch is kept small so that every child gets personal attention.</p>
 </div>
@@ -238,9 +256,22 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
     var cityVal = g('city');
     var notesVal = g('notes');
 
-    if (!parentName || !childName || !ageVal || !phoneVal) {
+    var missing = [];
+    if (!parentName) missing.push("parent’s name");
+    if (!childName) missing.push("child’s name");
+    if (!ageVal) missing.push("child’s age");
+    if (!phoneVal) missing.push("phone number");
+
+    if (missing.length > 0) {
       err.style.display = 'block';
-      err.textContent = 'Please fill in the parent’s name, child’s name, age and phone number.';
+      if (missing.length === 1) {
+        err.textContent = 'Please fill in the ' + missing[0] + '.';
+      } else if (missing.length === 2) {
+        err.textContent = 'Please fill in the ' + missing[0] + ' and ' + missing[1] + '.';
+      } else {
+        var lastField = missing.pop();
+        err.textContent = 'Please fill in the ' + missing.join(', ') + ', and ' + lastField + '.';
+      }
       return;
     }
     err.style.display = 'none';
