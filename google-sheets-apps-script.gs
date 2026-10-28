@@ -27,8 +27,11 @@ const WORKSHOP_KEYS = [
   'bhastrika-kriya-2026',
   'jala-neti-2026',
   'pre-natal-yoga-2026',
+  'pregnancy-yoga-2026',
   'childrens-yoga-workshop-2026',
   'childrens-yoga-2026',
+  'cervical-back-pain-workshop-2026',
+  'cervical-back-pain-2026',
   'spiritual-retreat-2026'
 ];
 const ENQUIRY_FORM_KEY = 'enquiry-classical-hatha-2026';
@@ -299,17 +302,17 @@ function appendMaitreyiRegistration(payload) {
   ensureHeaders(sheet, MAITREYI_HEADERS);
   sheet.appendRow([
     payload.submittedAt || new Date().toISOString(),
-    payload.source || 'Maitreyi registration page',
-    payload.programme || 'Maitreyi',
-    payload.name || '',
+    payload.source || 'Workshop registration page',
+    payload.programme || 'Workshop',
+    payload.name || payload.fullName || '',
     payload.age || '',
     payload.gender || '',
     formatPhoneNumber(payload.phone),
     payload.email || '',
     payload.city || '',
-    payload.goal || '',
-    payload.healthGoal || '',
-    payload.timing || '',
+    payload.goal || payload.format || payload.dateSlot || '',
+    payload.healthGoal || payload.pregnancy || payload.pregnancyMonth || '',
+    payload.timing || payload.slot || payload.dateSlot || '',
     payload.experience || '',
     payload.days || '',
     payload.diet || '',
@@ -452,13 +455,11 @@ function validateEnquiryPayload(payload) {
 }
 
 function validateMaitreyiPayload(payload) {
-  if (!payload.name || String(payload.name).trim().length < 2) return 'Name is required';
+  var name = payload.name || payload.fullName;
+  if (!name || String(name).trim().length < 2) return 'Name is required';
   var phoneDigits = String(payload.phone || payload.mobile || '').replace(/\D/g, '');
   if (phoneDigits.length < 8) return 'Phone is required';
-  if (!payload.email || !String(payload.email).includes('@')) return 'Valid email is required';
-  if (payload.submissionType !== 'payment_confirmation') {
-    if (!payload.city || String(payload.city).trim().length < 2) return 'City is required';
-  }
+  if (payload.email && !String(payload.email).includes('@')) return 'Valid email is required';
   if (String(payload.notes || '').length > 3000) return 'Notes are too long';
   if (String(payload.health || '').length > 3000) return 'Health details are too long';
   return '';
