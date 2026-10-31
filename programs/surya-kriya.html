@@ -9,7 +9,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../assets/images/practice-surya-kriya.webp" type="image/webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* BRAND COLOURS */
@@ -114,7 +118,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div class="btns"><a class="btn btn-main" href="#register">Register Now</a></div>
 <ul class="chips"><li>16–18 Nov (11am–1pm) or 20–22 Nov (3–5pm)</li><li>3 days · 2 hours each</li><li>₹3,500</li><li>Age 14+</li></ul>
 </div>
-<div class="art"><img src="../assets/images/practice-surya-kriya.webp" alt="A woman in a lunge with her face lifted towards the sky, practising yoga outdoors" onerror="this.src='../assets/images/practice-surya-kriya.jpg'"></div>
+<div class="art"><img src="../assets/images/practice-surya-kriya.webp" alt="A woman in a lunge with her face lifted towards the sky, practising yoga outdoors" width="1024" height="682" loading="eager" fetchpriority="high" decoding="async" onerror="this.src='../assets/images/practice-surya-kriya.webp'"></div>
 </div>
 </div>
 </header>
@@ -165,7 +169,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <p class="eyebrow">Meet your teacher</p>
 <h2>Learn from a trained Classical Hatha Yoga teacher</h2>
 <div class="teacher">
-<figure class="tphoto"><img src="../assets/images/teacher-shruti-jain.webp" alt="Shruti Jain, Classical Hatha Yoga teacher" onerror="this.src='https://dhyanayogasthala.in/assets/images/teacher-shruti-jain.webp';this.onerror=function(){this.closest('figure').remove();}"></figure>
+<figure class="tphoto"><img src="../assets/images/teacher-shruti-jain.webp" alt="Shruti Jain, Classical Hatha Yoga teacher" width="800" height="938" loading="lazy" decoding="async" onerror="this.src='https://dhyanayogasthala.in/assets/images/teacher-shruti-jain.webp';this.onerror=function(){this.closest('figure').remove();}"></figure>
 <div class="tbody"><h3 class="serif" style="font-size:30px">Shruti Jain</h3><p style="margin-top:6px;font-weight:700;color:var(--mid)">Classical Hatha Yoga Teacher | Sadhguru Gurukulam</p>
 <p>A Chartered Accountant by qualification, Shruti spent over five years working in the corporate world before choosing to pursue yoga.</p>
 <p>She completed over 2,000 hours of rigorous Classical Hatha Yoga teacher training under the guidance of Sadhguru at Isha Yoga Center, Coimbatore.</p></div>
@@ -251,7 +255,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div id="pay">
 <h3>Scan to pay ₹3,500</h3>
 <p>Pay using any UPI app, then confirm your payment on WhatsApp.</p>
-<img id="qr-img" src="../assets/images/upi-qr.webp" alt="UPI payment QR code" onerror="this.onerror=null;this.src='payment-qr.png';this.onerror=function(){this.style.display='none';document.getElementById('noqr').style.display='block';}">
+<img id="qr-img" src="../assets/images/upi-qr.webp" alt="UPI payment QR code" width="1440" height="2000" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';document.getElementById('noqr').style.display='block';">
 <p id="noqr" style="display:none">Please message us on WhatsApp and we will share the payment details.</p>
 <a id="wa" class="btn btn-dark" href="#" target="_blank" rel="noopener">Confirm on WhatsApp</a>
 </div>

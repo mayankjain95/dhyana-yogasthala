@@ -173,6 +173,7 @@
     const mobileFull = `+91 ${rawMobile}`;
     const selectedDate = radioVal('dateSlot') || '4 Oct 2026 (Sunday)';
     const selectedMode = radioVal('attendanceMode') || 'In-Person Studio (Sec-15, Sonepat)';
+    const gender = radioVal('gender') || '';
     const goal = radioVal('goal') || 'Overall Health & Inner well-being';
     const experience = radioVal('experience') || 'No';
     const health = val('health');
@@ -182,6 +183,7 @@
     const notesArray = [];
     if (selectedDate) notesArray.push(`Preferred Session: ${selectedDate}`);
     if (selectedMode) notesArray.push(`Attendance Mode: ${selectedMode}`);
+    if (gender) notesArray.push(`Gender: ${gender}`);
     if (goal) notesArray.push(`Aspiration: ${goal}`);
     if (experience) notesArray.push(`Prior Yoga: ${experience}`);
     if (notes) notesArray.push(`Participant Notes: ${notes}`);
@@ -208,6 +210,7 @@
       name: val('fullName'),
       fullName: val('fullName'),
       age: val('age'),
+      gender: gender,
       phone: rawMobile, // Clean 10-digit number prevents Google Sheets formula error
       mobile: rawMobile,
       fullPhone: mobileFull,

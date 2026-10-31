@@ -10,8 +10,11 @@
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../assets/images/childrens-yoga-class.webp" type="image/webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* BRAND COLOURS: swap in the exact hex codes from the main website */
@@ -117,9 +120,9 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <h1>Classical Hatha Yoga for Children</h1>
 <p class="lead">A live Sunday class that teaches traditional practices suited to growing bodies, with personal attention for every child.</p>
 <div class="btns"><a class="btn btn-main" href="#register">Register Now</a></div>
-<ul class="chips"><li>Every Sunday, 11 AM–12 PM</li><li>₹2,000 per month</li><li>Promo: Family50, Family25</li><li>Maximum of 5 children</li></ul>
+<ul class="chips"><li>Every Sunday, 11 AM–12 PM</li><li>₹2,000 per month</li><li>Maximum of 5 children</li></ul>
 </div>
-<div class="art"><img src="../assets/images/childrens-yoga-class.webp" alt="Children standing with eyes closed and palms joined in a yoga class" onerror="this.src='../assets/images/childrens-yoga-class.jpg'"></div>
+<div class="art"><img src="../assets/images/childrens-yoga-class.webp" alt="Children standing with eyes closed and palms joined in a yoga class" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async" onerror="this.src='../assets/images/childrens-yoga-class.webp'"></div>
 </div>
 </div>
 </header>
@@ -164,7 +167,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 </div>
 <div class="ditem">
   <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
-  <div class="dcontent"><small>Fee</small><b>₹2,000 per month</b><span style="display:block;font-size:13px;color:var(--mid);font-weight:700;margin-top:4px;">Promo codes: <strong>Family50</strong> (50% off) · <strong>Family25</strong> (25% off)</span></div>
+  <div class="dcontent"><small>Fee</small><b>₹2,000 per month</b></div>
 </div>
 <div class="ditem">
   <div class="dicon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -184,7 +187,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <p class="eyebrow">Meet your teacher</p>
 <h2>Trained specifically to teach children</h2>
 <div class="teacher">
-<figure class="tphoto"><img src="https://dhyanayogasthala.in/assets/images/teacher-shruti-jain.webp" alt="Shruti Jain, Classical Hatha Yoga teacher" onerror="this.src='../assets/images/teacher-shruti-jain.webp';this.onerror=function(){this.closest('figure').remove();}"></figure>
+<figure class="tphoto"><img src="../assets/images/teacher-shruti-jain.webp" alt="Shruti Jain, Classical Hatha Yoga teacher" width="800" height="938" loading="lazy" decoding="async" onerror="this.src='../assets/images/teacher-shruti-jain.webp';this.onerror=function(){this.closest('figure').remove();}"></figure>
 <div class="tbody"><h3 class="serif" style="font-size:30px">Shruti Jain</h3><p style="margin-top:6px;font-weight:700;color:var(--mid)">Classical Hatha Yoga Teacher</p><p>Shruti has completed over 2,000 hours of Hatha Yoga teacher training under Sadhguru Gurukulam, Isha Yoga Center, Coimbatore. She is specifically trained to conduct Classical Hatha Yoga programmes for children.</p></div>
 </div>
 </div>
@@ -204,7 +207,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <details><summary>Does a parent need to stay with the child during the class?</summary><p>No. Once the class setup is ready, children can be on their own in the room. It usually works better that way.</p></details>
 <details><summary>What if my child misses a class?</summary><p>Inform the teacher in advance. If the reason is genuine, she can arrange a backup class so your child can continue with the rest of the batch.</p></details>
 <details><summary>Does my child need to practise between classes?</summary><p>Yes. Children practise together on Sundays and are encouraged to practise on their own, if not daily then at least three days a week. The teacher keeps track of how each child is doing.</p></details>
-<details><summary>What is the fee, and how do I register?</summary><p>The standard fee is ₹2,000, paid monthly. Special family offers are available: use promo code <strong>Family50</strong> (50% off) or <strong>Family25</strong> (25% off) when registering. Fill in the form below and the scan QR code will automatically reflect your discounted fee.</p></details>
+<details><summary>What is the fee, and how do I register?</summary><p>The standard fee is ₹2,000, paid monthly. If a promo or referral code has been shared with you, you can enter it in the registration form below and your fee will automatically be adjusted. Fill in the form below and the scan QR code will reflect the final fee.</p></details>
 </div>
 </div>
 </section>
@@ -220,7 +223,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div class="field"><label for="f-age">Child’s age</label><select id="f-age" name="age" required><option value="">Select</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option></select></div>
 <div class="field"><label for="f-phone">WhatsApp / phone number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
 <div class="field"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2"></div>
-<div class="field"><label for="f-promo">Promo code <span>(optional)</span></label><input id="f-promo" name="promo" placeholder="e.g. Family50, Family25" style="text-transform:uppercase;"></div>
+<div class="field"><label for="f-promo">Promo code <span>(optional)</span></label><input id="f-promo" name="promo" placeholder="Enter code if shared with you" style="text-transform:uppercase;"><small id="promo-msg" style="display:none;font-size:12px;font-weight:600;margin-top:4px;"></small></div>
 <div class="field full"><label for="f-notes">Any medical or physical concern? <span>(optional)</span></label><textarea id="f-notes" name="notes" rows="3"></textarea></div>
 </div>
 <button type="submit" class="btn btn-main">Register</button>
@@ -229,7 +232,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div id="pay">
 <h3 id="pay-title">Scan to pay ₹2,000</h3>
 <p id="pay-sub">Pay the first month’s fee using any UPI app, then confirm your payment on WhatsApp.</p>
-<img id="qr-img" src="../assets/images/upi-qr.webp" alt="UPI payment QR code" onerror="this.onerror=null;this.src='payment-qr.png';this.onerror=function(){this.style.display='none';document.getElementById('noqr').style.display='block';}">
+<img id="qr-img" src="../assets/images/upi-qr.webp" alt="UPI payment QR code" width="1440" height="2000" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';document.getElementById('noqr').style.display='block';">
 <p id="noqr" style="display:none">Please message us on WhatsApp and we will share the payment details.</p>
 <a id="wa" class="btn btn-dark" href="#" target="_blank" rel="noopener">Confirm on WhatsApp</a>
 </div>
@@ -243,6 +246,40 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 (function(){
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
   var lastData = null;
+
+  var promoInput = document.getElementById('f-promo');
+  var promoMsg = document.getElementById('promo-msg');
+  function checkPromoLive() {
+    if (!promoInput || !promoMsg) return;
+    var clean = promoInput.value.trim().toUpperCase().replace(/\s+/g, '');
+    if (clean === 'FAMILY50') {
+      promoMsg.style.display = 'block';
+      promoMsg.style.color = '#2E6930';
+      promoMsg.textContent = '✓ 50% family discount applied (₹1,000 / month)';
+    } else if (clean === 'FAMILY25') {
+      promoMsg.style.display = 'block';
+      promoMsg.style.color = '#2E6930';
+      promoMsg.textContent = '✓ 25% family discount applied (₹1,500 / month)';
+    } else if (clean.length >= 3) {
+      promoMsg.style.display = 'block';
+      promoMsg.style.color = 'var(--mid)';
+      promoMsg.textContent = 'Promo code entered: ' + promoInput.value.trim();
+    } else {
+      promoMsg.style.display = 'none';
+      promoMsg.textContent = '';
+    }
+  }
+  if (promoInput) {
+    promoInput.addEventListener('input', checkPromoLive);
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var pCode = params.get('promo') || params.get('code') || params.get('ref');
+      if (pCode) {
+        promoInput.value = pCode.trim().toUpperCase();
+        checkPromoLive();
+      }
+    } catch(e) {}
+  }
 
   document.getElementById('regform').addEventListener('submit', function(e){
     e.preventDefault();
