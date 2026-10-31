@@ -16,7 +16,7 @@ const NAV_MAIN = `
 <button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">☰</button>
 <ul class="nav-links">
   <li><a href="index.html#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
-  <li><a href="index.html#offerings" data-i18n="nav.offerings">Offerings</a></li>
+  <li><a href="offerings.html" data-i18n="nav.offerings">Offerings</a></li>
   <li><a href="index.html#teacher" data-i18n="nav.teacher">Teacher</a></li>
   <li><a href="index.html#locations" data-i18n="nav.locations">Locations</a></li>
   <li><a href="#" class="nav-wa" data-wa="default" data-i18n="nav.consult">🌿 Consult Teacher</a></li>
@@ -27,6 +27,7 @@ const NAV_MAIN = `
 const NAV_SUBPAGE = `
 <a href="../index.html" class="nav-logo"><img src="../assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="nav-logo-img" width="36" height="36">Dhyana<span>Yogasthala</span></a>
 <div style="display:flex;align-items:center;gap:1.2rem;">
+  <a href="../offerings.html" class="nav-back">All Offerings</a>
   <a href="../index.html" class="nav-back" data-i18n="nav.back">← Back to Main Site</a>
   ${LANG_TOGGLE_HTML}
 </div>`;
@@ -36,7 +37,7 @@ const FOOTER_MAIN = `
   <div class="footer-logo"><img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="footer-logo-img" width="44" height="44"><div>Dhyana Yogasthala<small data-i18n="footer.tagline">Classical Hatha Yoga · Isha Certified</small></div></div>
   <div class="footer-links">
     <a href="index.html#what-is-yoga" data-i18n="footer.what-is-yoga">What is Classical Hatha Yoga</a>
-    <a href="index.html#offerings" data-i18n="footer.offerings">Offerings</a>
+    <a href="offerings.html" data-i18n="footer.offerings">Offerings</a>
     <a href="index.html#teacher" data-i18n="footer.teacher">Teacher</a>
     <a href="index.html#contact" data-i18n="footer.contact">Contact</a>
   </div>

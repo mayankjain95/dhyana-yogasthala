@@ -4,574 +4,719 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhyana Yogasthala | Classical Hatha Yoga with Shruti Jain</title>
-<meta name="description" content="Classical Hatha Yoga in Sonepat and online. One-on-one and group programmes by Shruti Jain, Isha Certified Teacher.">
-<!-- Open Graph -->
-<meta property="og:title" content="Dhyana Yogasthala | Classical Hatha Yoga">
-<meta property="og:description" content="Ancient yogic practices in their purest form. Sonepat & online sessions across India.">
-<meta property="og:image" content="https://dhyanayogasthala.in/assets/images/hero-bg.webp">
-<meta property="og:url" content="https://dhyanayogasthala.in/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://dhyanayogasthala.in/">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-v2.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/images/hero-bg.webp" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/main.css">
-<script src="js/i18n.js" defer></script>
-<script src="js/config.js?v=7" defer></script>
+<link rel="canonical" href="https://dhyanayogasthala.in/">
+<meta name="description" content="Classical Hatha Yoga in Sonipat and online. Guided programmes by Shruti Jain, Isha Certified Teacher.">
+<meta property="og:title" content="Dhyana Yogasthala | Classical Hatha Yoga with Shruti Jain">
+<meta property="og:description" content="Ancient yogic practices in their purest form. Sonipat & live online sessions across India.">
+<meta property="og:image" content="https://dhyanayogasthala.in/assets/images/hero-yoga-practice.jpg">
+<meta property="og:url" content="https://dhyanayogasthala.in/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--saffron:#C8622A;--deep-saffron:#A04820;--terracotta:#D4845A;--gold:#C9A84C;--ivory:#F5EFE0;--cream:#FAF6ED;--dark:#1E1710;--warm-dark:#2E2018;--forest:#3D5A40;--muted:#7A6A58;--light-muted:#B5A898;--earthy:#8B6914;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4vw;background:rgba(30,23,16,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;letter-spacing:0.04em;color:var(--gold);text-decoration:none;}
+  .nav-logo span{color:var(--ivory);font-style:italic;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+  .nav-links a{color:var(--light-muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-cta{background:var(--saffron);color:var(--ivory)!important;padding:0.5rem 1.2rem;border-radius:2px;}
+  .nav-cta:hover{background:var(--deep-saffron)!important;}
+  .nav-wa{background:rgba(139,105,20,0.85);color:var(--ivory)!important;padding:0.45rem 1rem;border-radius:2px;font-size:0.72rem;display:flex;align-items:center;gap:0.4rem;transition:background 0.3s!important;}
+  .nav-wa:hover{background:var(--earthy)!important;}
+
+  /* HERO */
+  #hero{min-height:100vh;background:var(--warm-dark);display:flex;align-items:center;position:relative;overflow:hidden;padding:0 4vw;}
+  .hero-bg-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:0.55;object-position:center center;}
+  .hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,23,16,0.96) 35%,rgba(30,23,16,0.3) 75%,rgba(30,23,16,0.15) 100%);}
+  .hero-mandala{position:absolute;right:-5vw;top:50%;transform:translateY(-50%);width:55vw;max-width:700px;opacity:0.06;}
+  .hero-mandala svg{width:100%;height:100%;animation:slowspin 80s linear infinite;}
+  @keyframes slowspin{to{transform:rotate(360deg);}}
+  .hero-line{position:absolute;left:0;bottom:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .hero-content{position:relative;z-index:2;max-width:760px;animation:fadeUp 1.2s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+  .hero-label{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;}
+  .hero-label::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);}
+  .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5.2vw,4.6rem);font-weight:300;line-height:1.1;color:var(--ivory);margin-bottom:1.2rem;}
+  .hero-title em{font-style:italic;color:var(--terracotta);}
+  .hero-sub{font-size:1rem;line-height:1.8;color:var(--light-muted);max-width:560px;margin-bottom:2.5rem;font-weight:300;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
+  .btn-primary{background:var(--saffron);color:var(--ivory);padding:0.85rem 2rem;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.3s,transform 0.2s;}
+  .btn-primary:hover{background:var(--deep-saffron);transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--gold);padding:0.85rem 2rem;border:1px solid var(--gold);cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;}
+  .btn-outline:hover{background:var(--gold);color:var(--dark);}
+  .btn-wa-earthy{background:rgba(139,105,20,0.9);color:var(--ivory);padding:0.85rem 1.6rem;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:background 0.3s,transform 0.2s;}
+  .btn-wa-earthy:hover{background:var(--earthy);transform:translateY(-2px);}
+  .hero-badges{position:absolute;right:4vw;bottom:8vh;z-index:2;display:flex;flex-direction:column;gap:0.8rem;}
+  .badge{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);padding:0.6rem 1.2rem;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light-muted);text-align:center;}
+  .badge strong{display:block;color:var(--gold);font-size:1rem;font-weight:400;}
+
+  /* FLOATING WA */
+  .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:500;background:rgba(139,105,20,0.92);color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(139,105,20,0.5);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;font-size:1.4rem;}
+  .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(139,105,20,0.65);}
+
+  section{padding:6rem 4vw;}
+  .section-label{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;}
+  .section-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--saffron);}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;}
+  .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.5rem 0;}
+
+  /* ABOUT */
+  #about-yoga{background:var(--ivory);}
+  .about-yoga-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start;overflow:hidden;}
+  .about-yoga-left{z-index:1;}
+  .quote-block{border-left:3px solid var(--saffron);padding:1.5rem 1.5rem 1.5rem 2rem;background:white;margin-top:2rem;}
+  .quote-block p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;line-height:1.7;color:var(--warm-dark);}
+  .quote-block cite{display:block;margin-top:0.8rem;font-size:0.75rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;}
+  .about-yoga-text p{line-height:1.9;color:var(--muted);margin-bottom:1.1rem;font-weight:300;font-size:0.95rem;position:relative;z-index:2;}
+  .about-yoga-text strong{color:var(--warm-dark);font-weight:500;}
+
+  /* PRACTICES */
+  #programs{background:var(--dark);}
+  #programs .section-title{color:var(--ivory);}
+  #programs .section-label{color:var(--gold);}
+  #programs .section-label::before{background:var(--gold);}
+  .practices-intro{color:var(--light-muted);max-width:600px;line-height:1.8;margin-bottom:3rem;font-weight:300;}
+  .programs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5px;background:rgba(201,168,76,0.15);}
+  .practice-card{background:var(--warm-dark);padding:0;position:relative;overflow:hidden;transition:background 0.3s;display:flex;flex-direction:column;}
+  .practice-card-img-wrap{display:block;overflow:hidden;height:200px;flex-shrink:0;}
+  .practice-card-img{width:100%;height:200px;object-fit:cover;display:block;opacity:0.85;transition:opacity 0.3s,transform 0.4s;}
+  .practice-card:hover .practice-card-img{opacity:1;transform:scale(1.03);}
+  .practice-card-body{padding:1.8rem;flex:1;display:flex;flex-direction:column;}
+  .practice-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width 0.4s ease;}
+  .practice-card:hover{background:#2A1E12;}
+  .practice-card:hover::after{width:100%;}
+  .practice-card.featured{background:linear-gradient(135deg,#2E1A0A,#1E1710);border:1px solid rgba(201,168,76,0.2);}
+  .practice-tag{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+  .practice-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:0.6rem;font-weight:400;}
+  .practice-desc{font-size:0.85rem;color:var(--light-muted);line-height:1.7;margin-bottom:1rem;font-weight:300;}
+  .practice-benefits{list-style:none;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:0.4rem;flex:1;}
+  .practice-benefits li{font-size:0.82rem;color:var(--light-muted);padding-left:1rem;position:relative;line-height:1.5;font-weight:300;}
+  .practice-benefits li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+  .practice-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.4rem;}
+  .practice-duration{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta);}
+  .practice-target{font-size:0.7rem;color:var(--muted);font-style:italic;}
+  .btn-book{width:100%;background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.65rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;margin-top:auto;}
+  .btn-book:hover{background:var(--saffron);border-color:var(--saffron);color:var(--ivory);}
+  .btn-consult{width:100%;background:rgba(139,105,20,0.12);border:1px solid rgba(139,105,20,0.4);color:#c9a84c;padding:0.55rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s;margin-top:0.5rem;text-decoration:none;display:block;text-align:center;}
+  .btn-consult:hover{background:var(--earthy);color:var(--ivory);border-color:var(--earthy);}
+
+  /* TESTIMONIALS */
+  #testimonials{background:var(--warm-dark);padding:5rem 4vw;}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;}
+  .testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);padding:2rem;position:relative;}
+  .testi-quote-mark{font-size:3rem;color:var(--gold);opacity:0.3;font-family:'Cormorant Garamond',serif;line-height:1;margin-bottom:0.5rem;}
+  .testi-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;color:var(--ivory);line-height:1.75;margin-bottom:1.2rem;}
+  .testi-author{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);}
+
+  /* TEACHER - smaller photo, concise */
+  #teacher{background:var(--cream);}
+  .teacher-grid{display:grid;grid-template-columns:0.45fr 1.9fr;gap:3rem;align-items:start;}
+  .teacher-photo-wrap{position:relative;}
+  .teacher-photo-bg{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;background:#E8E3DB;}
+  .teacher-photo-actual{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .teacher-frame{position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid var(--gold);z-index:-1;opacity:0.4;}
+  .teacher-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--warm-dark);margin-bottom:0.3rem;}
+  .teacher-title-line{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--saffron);margin-bottom:1.5rem;}
+  .teacher-bio p{line-height:1.9;color:var(--muted);margin-bottom:0.9rem;font-weight:300;font-size:0.93rem;}
+  .teacher-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.2rem;}
+  .pill{background:white;border:1px solid rgba(200,98,42,0.25);padding:0.35rem 0.9rem;font-size:0.68rem;letter-spacing:0.08em;color:var(--saffron);text-transform:uppercase;}
+
+  /* LOCATIONS */
+  #locations{background:var(--ivory);}
+  .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+  .loc-card{padding:2.5rem 2rem;border:1px solid rgba(200,98,42,0.15);background:white;position:relative;overflow:hidden;}
+  .loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--saffron);}
+  .loc-icon{font-size:1.8rem;margin-bottom:1rem;}
+  .loc-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--warm-dark);margin-bottom:0.5rem;}
+  .loc-detail{font-size:0.85rem;color:var(--muted);line-height:1.7;font-weight:300;}
+
+  /* CONTACT */
+  #contact{background:var(--dark);}
+  #contact .section-title{color:var(--ivory);}
+  #contact .section-label{color:var(--gold);}
+  #contact .section-label::before{background:var(--gold);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;margin-top:3rem;}
+  .contact-info{display:flex;flex-direction:column;gap:1.5rem;}
+  .contact-item{display:flex;gap:1rem;align-items:flex-start;}
+  .contact-icon{width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .contact-item-text label{display:block;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+  .contact-item-text span{color:var(--light-muted);font-size:0.9rem;font-weight:300;}
+  .contact-form{display:flex;flex-direction:column;gap:1.2rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+  .form-group label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--light-muted);}
+  .form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--ivory);padding:0.8rem 1rem;font-family:'Jost',sans-serif;font-size:0.88rem;font-weight:300;outline:none;transition:border-color 0.3s;resize:none;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+  .form-group select option{background:var(--dark);}
+  .btn-submit-contact{background:var(--saffron);color:var(--ivory);border:none;padding:1rem 2.5rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;align-self:flex-start;transition:background 0.3s,transform 0.2s;}
+  .btn-submit-contact:hover{background:var(--deep-saffron);transform:translateY(-2px);}
+
+  footer{background:#0E0C08;padding:3rem 4vw;border-top:1px solid rgba(201,168,76,0.15);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);}
+  .footer-logo small{display:block;font-size:0.65rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;font-family:'Jost',sans-serif;margin-top:0.3rem;}
+  .footer-links{display:flex;gap:2rem;}
+  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{color:var(--muted);font-size:0.72rem;}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:900px){
+    .about-yoga-grid,.teacher-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+    .loc-grid{grid-template-columns:1fr;}
+    .hero-badges{display:none;}
+    .form-row{grid-template-columns:1fr;}
+    nav{padding:1rem 4vw;}
+    .nav-links{display:none;}
+  }
+  @media(max-width:600px){.programs-grid{grid-template-columns:1fr;}}
+
+  /* ---- Restructure additions ---- */
+  .programs-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .practice-desc{flex:1;}
+  .chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0 0 1.3rem;}
+  .chip{font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta);border:1px solid rgba(212,132,90,0.35);padding:0.25rem 0.6rem;line-height:1.4;}
+  a.btn-book{display:block;text-align:center;text-decoration:none;}
+  .teacher-pills{margin-top:1.4rem;}
+  .wa-ico{width:1.15em;height:1.15em;flex-shrink:0;fill:currentColor;display:inline-block;vertical-align:-0.15em;}
+  .wa-float .wa-ico{width:30px;height:30px;}
+  .btn-wa-earthy .wa-ico{width:1.3em;height:1.3em;}
+  .wa-btn-stack{display:flex;flex-direction:column;line-height:1.25;text-align:left;}
+  .wa-btn-stack small{font-size:0.62rem;letter-spacing:0.12em;opacity:0.85;text-transform:uppercase;}
+  .wa-btn-stack b{font-weight:500;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;}
+  /* testimonials: tabs + swipeable cards */
+  .t-tabs{display:flex;flex-wrap:wrap;gap:0.6rem;margin:2.2rem 0 1.6rem;}
+  .t-tab{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--light-muted);padding:0.65rem 1.3rem;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;}
+  .t-tab:hover,.t-tab.active{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+  .t-panel{display:none;}
+  .t-panel.active{display:block;}
+  .t-track{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .t-track::-webkit-scrollbar{display:none;}
+  .t-track .testi-card{flex:0 0 calc((100% - 1.2rem)/2);scroll-snap-align:start;margin:0;}
+  .t-track.single .testi-card{flex-basis:min(100%,780px);}
+  .t-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;}
+  .t-nav{display:flex;gap:0.5rem;}
+  .t-nav.hidden{visibility:hidden;}
+  .t-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,168,76,0.5);background:transparent;color:var(--gold);cursor:pointer;font-size:1.1rem;transition:all 0.2s;}
+  .t-nav button:hover:not(:disabled){background:var(--gold);color:var(--dark);}
+  .t-nav button:disabled{opacity:0.3;cursor:default;}
+  @media(max-width:700px){.t-track .testi-card{flex-basis:88%;}}
+  #testimonials{background:var(--warm-dark);padding:5rem 4vw;}
+  #testimonials .section-title{color:var(--ivory);margin-bottom:0;}
+  #testimonials .section-label{color:var(--gold);}
+  #testimonials .section-label::before{background:var(--gold);}
+  .testi-group{margin-top:3rem;}
+  .testi-group-head{display:flex;align-items:center;gap:1rem;margin-bottom:0.2rem;}
+  .testi-group-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--terracotta);font-style:italic;}
+  .testi-group-head::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.25);}
+  .testi-role{display:block;font-size:0.72rem;color:var(--light-muted);margin-top:0.3rem;letter-spacing:0.04em;font-weight:300;}
+  .testi-text + .testi-text{margin-top:-0.4rem;}
+  .testi-card{display:flex;flex-direction:column;}
+  .testi-author{margin-top:auto;}
+  .testi-cta{margin-top:1.6rem;}
+  .testimonials-grid.two{grid-template-columns:repeat(2,1fr);}
+  .testimonials-grid.one{grid-template-columns:minmax(0,780px);}
+  /* about + Sadhguru */
+  .about-yoga-text .btn-primary{margin-top:0.8rem;}
+  .guru{margin:1.8rem 0 0;max-width:470px;display:flex;gap:1.2rem;align-items:flex-start;}
+  .guru img{display:block;flex:0 0 150px;width:150px;height:188px;max-width:150px;max-height:188px;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:16px;margin:0;}
+  .guru blockquote{margin:0;border-left:3px solid var(--saffron);padding:0.2rem 0 0.2rem 1.2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;line-height:1.6;color:var(--warm-dark);flex:1;}
+  @media(max-width:520px){.guru{flex-direction:column;}.guru img{flex:none;width:140px;height:175px;}}
+  .guru cite{display:block;margin-top:0.6rem;font-style:normal;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--saffron);}
+  /* why */
+  #why{background:linear-gradient(135deg,var(--forest) 0%,#2A3E2C 100%);}
+  #why .section-title{color:var(--ivory);}
+  #why .section-label{color:var(--gold);}
+  #why .section-label::before{background:var(--gold);}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem;margin-top:2.5rem;}
+  .why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.25);padding:2rem 1.7rem;}
+  .why-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);margin-bottom:0.6rem;}
+  .why-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--ivory);margin-bottom:0.6rem;}
+  .why-card p{font-size:0.88rem;line-height:1.75;color:rgba(245,239,224,0.78);font-weight:300;}
+  /* faqs */
+  #faqs{background:var(--cream);}
+  .faq-list{max-width:860px;margin-top:2.5rem;}
+  .faq-list details{border-bottom:1px solid rgba(200,98,42,0.2);}
+  .faq-list summary{cursor:pointer;list-style:none;padding:1.2rem 2.2rem 1.2rem 0;font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--warm-dark);position:relative;line-height:1.35;}
+  .faq-list summary::-webkit-details-marker{display:none;}
+  .faq-list summary::after{content:'+';position:absolute;right:0.2rem;top:1rem;font-size:1.6rem;color:var(--saffron);transition:transform 0.25s;font-family:'Jost',sans-serif;font-weight:300;}
+  .faq-list details[open] summary::after{transform:rotate(45deg);}
+  .faq-list details p{padding:0 2.2rem 1.3rem 0;color:var(--muted);font-size:0.93rem;line-height:1.85;font-weight:300;}
+  .faq-list details a{color:var(--saffron);}
+  .btn-more{display:inline-block;padding:0.45rem 1.1rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;font-size:0.6rem;transition:all 0.25s;}
+  #programs .section-title{font-size:clamp(1.7rem,2.4vw,2.1rem);}
+  /* upcoming programs */
+  #upcoming{background:var(--ivory);}
+  #upcoming .section-title{color:var(--warm-dark);font-size:clamp(1.9rem,2.8vw,2.4rem);}
+  .up-list{display:grid;gap:1rem;margin-top:2rem;max-width:960px;}
+  .up-row{display:grid;grid-template-columns:1.3fr 1.1fr 150px;gap:1.5rem;align-items:center;background:#fff;border:1px solid rgba(200,98,42,0.15);border-left:4px solid var(--saffron);padding:1.2rem 1.6rem;}
+  .up-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--warm-dark);line-height:1.2;}
+  .up-meta{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;}
+  .up-when{font-weight:500;color:var(--warm-dark);}
+  .up-when small{display:block;color:var(--muted);font-weight:300;font-size:0.85rem;margin-top:0.2rem;}
+  .up-btn{display:block;text-align:center;text-decoration:none;background:var(--saffron);color:#fff;padding:0.7rem 1.5rem;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.25s;white-space:nowrap;}
+  .up-btn:hover{background:var(--deep-saffron);}
+  @media(max-width:760px){.up-row{grid-template-columns:1fr;gap:0.9rem;}.up-btn{text-align:center;}}
+  .btn-more:hover{background:var(--gold);color:var(--dark);}
+  /* footer with logos */
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .footer-brand img{height:104px;width:auto;display:block;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:0.6rem 1.6rem;}
+  .footer-cert{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;}
+  .footer-cert img{height:62px;width:auto;display:block;opacity:0.92;}
+  .footer-cert span{font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--light-muted);}
+  .footer-copy{width:100%;text-align:center;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.08);}
+  @media(max-width:760px){.footer-inner{flex-direction:column;text-align:center;}.footer-cert{align-items:center;}}
+  /* locations: 2 cards, map, gallery */
+  .loc-grid{grid-template-columns:repeat(2,1fr);}
+  .loc-map{margin-top:2rem;border:1px solid rgba(200,98,42,0.15);background:#fff;overflow:hidden;}
+  .loc-map iframe{display:block;width:100%;height:380px;border:0;}
+  .loc-map-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:0.9rem 1.2rem;font-size:0.85rem;color:var(--muted);}
+  .loc-map-bar a{color:var(--saffron);text-decoration:none;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;font-size:0.75rem;}
+  .loc-map-bar a:hover{text-decoration:underline;}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:2rem;}
+  .gallery figure{margin:0;aspect-ratio:1/1;overflow:hidden;background:#E8E3DB;}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
+  .gallery figure:hover img{transform:scale(1.04);}
+  @media(max-width:900px){.loc-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.programs-grid{grid-template-columns:1fr;} .faq-list summary{font-size:1.12rem;} .gallery{grid-template-columns:repeat(2,1fr);gap:0.5rem;} .loc-map iframe{height:300px;} .testimonials-grid.two,.testimonials-grid.one{grid-template-columns:1fr;}}
+  @media(max-width:700px){.testimonials-grid.two,.testimonials-grid.one{grid-template-columns:1fr;}}
+
+  /* ===== Theme: matches the program landing pages ===== */
+  :root{--ink:#1E3A2B;--bg:#FCF5E9;--soft:#F3E3CF;--mid:#9A3A1C;--accent:#B8431E;--mut:#52504A;--peach:#F0B27A;}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);}
+  h1,h2,h3,.section-title,.practice-name,.teacher-name,.testi-text,.testi-group-name,.why-card h3,.why-num,.faq-list summary,.loc-name,.footer-logo{font-family:'Fraunces',Georgia,serif;}
+  .section-label{color:var(--mid);font-weight:800;letter-spacing:0.13em;font-size:0.78rem;}
+  .section-label::before{background:var(--mid);}
+  .section-title{font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.1;color:var(--ink);}
+  /* nav */
+  nav{background:rgba(252,245,233,0.94);border-bottom:1px solid rgba(30,58,43,0.12);}
+  .nav-logo{font-family:'Nunito',sans-serif;font-weight:800;letter-spacing:0.14em;font-size:0.85rem;text-transform:uppercase;color:var(--ink);}
+  .nav-logo span{color:var(--mid);font-style:normal;}
+  .nav-links a{color:var(--ink);font-weight:700;font-size:0.78rem;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{background:var(--accent);color:#fff!important;border-radius:999px;padding:0.55rem 1.3rem;}
+  .nav-cta:hover{background:var(--mid)!important;}
+  .nav-wa{background:transparent;border:2px solid var(--ink);color:var(--ink)!important;border-radius:999px;padding:0.4rem 1rem;}
+  .nav-wa:hover{background:var(--ink)!important;color:#fff!important;}
+  /* buttons */
+  .btn-primary,.btn-submit-contact{background:var(--accent);color:#fff;border-radius:999px;font-weight:800;text-transform:none;letter-spacing:0;font-size:1rem;padding:0.95rem 2.1rem;}
+  .btn-primary:hover,.btn-submit-contact:hover{background:var(--mid);}
+  .btn-wa-earthy{background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-weight:800;padding:0.8rem 1.6rem;}
+  .btn-wa-earthy:hover{background:var(--ink);color:#fff;}
+  .wa-btn-stack b{font-weight:800;letter-spacing:0.02em;text-transform:none;font-size:1rem;}
+  .btn-outline{border:2px solid #fff;color:#fff;border-radius:999px;font-weight:800;text-transform:none;letter-spacing:0;font-size:1rem;}
+  .btn-outline:hover{background:#fff;color:var(--ink);}
+  .wa-float{background:var(--ink);box-shadow:0 4px 20px rgba(30,58,43,0.4);}
+  /* hero */
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;}
+  .nav-mark{height:40px;width:auto;display:block;}
+  .hs1{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(1.2rem,1.9vw,1.5rem);line-height:1.45;color:var(--ink);margin-bottom:0.9rem;}
+  .hs2{display:block;font-size:1rem;color:var(--mid);font-weight:700;line-height:1.6;}
+  .hero-sub{max-width:none;margin-bottom:0;}
+  .t-tab{border-color:rgba(240,178,122,0.45);color:#DCE6DF;border-radius:999px;font-family:'Nunito',sans-serif;font-weight:800;letter-spacing:0.02em;text-transform:none;font-size:0.9rem;}
+  .t-tab:hover,.t-tab.active{background:var(--peach);color:var(--ink);border-color:var(--peach);}
+  .t-nav button{border-color:rgba(240,178,122,0.5);color:var(--peach);}
+  .t-nav button:hover:not(:disabled){background:var(--peach);color:var(--ink);}
+  .guru blockquote{border-left-color:var(--accent);font-family:'Fraunces',Georgia,serif;font-weight:500;color:var(--ink);}
+  .guru cite{color:var(--accent);font-family:'Nunito',sans-serif;font-weight:800;}
+  .guru img{border-radius:16px;}
+  .footer-cert span{color:#A9BBB0;}
+  .btn-more{border:2px solid var(--ink);color:var(--ink);border-radius:999px;font-weight:800;text-transform:none;letter-spacing:0;font-size:0.74rem;padding:0.3rem 0.95rem;border-width:1.5px;}
+  #programs .section-title{font-size:clamp(24px,2.6vw,30px);}
+  #upcoming{background:#fff;}
+  #upcoming .section-title{color:var(--ink);font-size:clamp(28px,3.4vw,38px);}
+  .up-row{background:var(--bg);border:none;border-radius:20px;}
+  .up-name{font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--mid);font-size:1.3rem;}
+  .up-meta{color:var(--mut);font-weight:700;}
+  .up-when{color:var(--ink);font-weight:800;}
+  .up-when small{color:var(--mut);font-weight:600;}
+  .up-btn{background:var(--accent);border-radius:999px;font-weight:800;text-transform:none;letter-spacing:0;font-size:0.95rem;padding:0.7rem 1.5rem;}
+  .up-btn:hover{background:var(--mid);}
+  .btn-more:hover{background:var(--ink);color:#fff;}
+  #hero{min-height:auto;display:block;background:linear-gradient(180deg,var(--soft),var(--bg));padding:130px 4vw 80px;}
+  .hero-wrap{max-width:none;margin:0;display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;}
+  @media(max-width:860px){.hero-wrap{grid-template-columns:1fr;gap:32px;}}
+  .hero-content{max-width:none;animation:none;}
+  .hero-label{color:var(--mid);font-weight:800;letter-spacing:0.13em;font-size:0.78rem;}
+  .hero-label::before{background:var(--mid);}
+  .hero-title{font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--ink);font-size:clamp(34px,4.8vw,58px);line-height:1.08;}
+  .hero-title em{color:var(--mid);font-style:normal;}
+  .hero-sub{color:var(--mut);font-size:1.05rem;font-weight:400;max-width:520px;}
+  .art{border-radius:36px;overflow:hidden;aspect-ratio:3/2;width:100%;background:#261711;}
+  .art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+  /* programs */
+  #programs{background:var(--bg);}
+  #programs .section-title{color:var(--ink);}
+  .programs-grid{background:none;gap:20px;}
+  .practice-card{background:#fff;border-radius:24px;box-shadow:0 2px 14px rgba(30,58,43,0.07);}
+  .practice-card:hover{background:#fff;box-shadow:0 8px 26px rgba(30,58,43,0.13);}
+  .practice-card::after{display:none;}
+  .practice-card-img{opacity:1;}
+  .practice-name{color:var(--mid);font-weight:700;font-size:1.4rem;}
+  .practice-desc{color:var(--mut);font-weight:400;font-size:0.95rem;}
+  .chip{background:var(--soft);border:none;color:var(--ink);border-radius:999px;font-weight:700;text-transform:none;letter-spacing:0;font-size:0.78rem;padding:0.32rem 0.8rem;}
+  a.btn-book{background:var(--accent);border:none;color:#fff;border-radius:999px;font-weight:800;text-transform:none;letter-spacing:0;font-size:0.95rem;padding:0.85rem;}
+  a.btn-book:hover{background:var(--mid);}
+  /* teacher */
+  #teacher{background:var(--soft);}
+  .teacher-name{color:var(--ink);font-weight:700;}
+  .teacher-title-line{color:var(--mid);font-weight:800;}
+  .teacher-bio p{color:var(--mut);font-weight:400;font-size:1rem;}
+  .teacher-bio strong{color:var(--ink);}
+  .teacher-photo-bg{border-radius:28px;}
+  .teacher-frame{display:none;}
+  /* testimonials */
+  #testimonials{background:var(--ink);}
+  #testimonials .section-label,#why .section-label,#contact .section-label{color:var(--peach);}
+  #testimonials .section-label::before,#why .section-label::before,#contact .section-label::before{background:var(--peach);}
+  #testimonials .section-title,#contact .section-title{color:#fff;}
+  .testi-card{background:rgba(255,255,255,0.07);border:1px solid rgba(240,178,122,0.25);border-radius:24px;}
+  .testi-text{font-style:italic;font-weight:500;color:#fff;}
+  .testi-quote-mark{color:var(--peach);}
+  .testi-author{color:var(--peach);font-weight:800;}
+  .testi-role{color:#C5D3CA;}
+  .testi-group-name{color:var(--peach);font-weight:500;}
+  .testi-group-head::after{background:rgba(240,178,122,0.3);}
+  /* about */
+  #about-yoga{background:var(--bg);}
+  .about-yoga-text p{color:var(--mut);font-weight:400;font-size:1.02rem;}
+  .about-yoga-text strong{color:var(--ink);font-weight:700;}
+  .divider{background:linear-gradient(90deg,var(--accent),transparent);}
+  /* why */
+  #why{background:var(--soft);}
+  #why .section-title{color:var(--ink);}
+  #why .section-label{color:var(--mid);}
+  #why .section-label::before{background:var(--mid);}
+  .why-card{background:#fff;border:none;border-radius:24px;text-align:center;padding:2.2rem 1.7rem;}
+  .why-num{color:var(--accent);font-weight:700;}
+  .why-card h3{color:var(--mid);font-weight:700;font-size:1.3rem;}
+  .why-card p{color:var(--mut);font-weight:400;font-size:0.95rem;}
+  /* faqs */
+  #faqs{background:var(--bg);}
+  .faq-list summary{color:var(--ink);font-weight:700;font-size:1.15rem;}
+  .faq-list summary::after{color:var(--accent);}
+  .faq-list details{border-bottom:1px solid rgba(30,58,43,0.15);}
+  .faq-list details p{color:var(--mut);font-weight:400;font-size:1rem;}
+  .faq-list details a{color:var(--accent);}
+  /* locations */
+  #locations{background:var(--soft);}
+  .loc-card{border:none;border-radius:24px;}
+  .loc-card::before{background:var(--accent);}
+  .loc-name{color:var(--mid);font-weight:700;}
+  .loc-detail{color:var(--mut);font-weight:400;font-size:0.95rem;}
+  .loc-map{border:none;border-radius:24px;}
+  .loc-map-bar{color:var(--mut);}
+  .loc-map-bar a{color:var(--accent);font-weight:800;}
+  .gallery figure{border-radius:20px;}
+  /* contact */
+  #contact{background:var(--ink);}
+  .contact-item-text label,.form-group label{color:var(--peach);font-weight:700;}
+  .contact-item-text span{color:#DCE6DF;font-weight:400;}
+  .contact-icon{border-radius:12px;border-color:rgba(240,178,122,0.4);background:rgba(240,178,122,0.1);}
+  #contact .btn-wa-earthy{color:#fff;border-color:#fff;}
+  #contact .btn-wa-earthy:hover{background:#fff;color:var(--ink);}
+  .form-group input,.form-group select,.form-group textarea{border-radius:14px;border:1px solid rgba(255,255,255,0.18);font-weight:400;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--peach);}
+  .form-group select option{background:var(--ink);}
+  /* footer */
+  footer{background:#14281D;}
+  .footer-logo{color:var(--peach);}
+  .footer-logo small,.footer-links a,.footer-copy{color:#A9BBB0;}
+  .footer-links a:hover{color:var(--peach);}
+
+  .nav-toggle{display:none;background:transparent;border:none;font-size:1.6rem;color:var(--ink);cursor:pointer;padding:0.2rem 0.5rem;line-height:1;}
+  @media(max-width:900px){
+    .nav-toggle{display:block;}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(252,245,233,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,58,43,0.15);flex-direction:column;padding:1.5rem 4vw;gap:1.2rem;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+    .nav-links.active{display:flex;}
+  }
+
+</style>
 </head>
 <body>
 
-<a href="#" class="wa-float" target="_blank" aria-label="Chat with Shruti on WhatsApp" title="Chat with Shruti on WhatsApp" data-wa="default">
-  <span aria-hidden="true">🌿</span>
-</a>
+<a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." class="wa-float" target="_blank" title="Chat with Shruti on WhatsApp" aria-label="Chat on WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
 <nav>
-  <a href="#hero" class="nav-logo"><img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="nav-logo-img" width="36" height="36">Dhyana<span>Yogasthala</span></a>
-  <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links-menu" onclick="toggleNav()">☰</button>
+  <a href="#hero" class="nav-logo"><img class="nav-mark" src="assets/images/logo-mark-gold-clean.png" alt="Dhyana Yogasthala Logo" width="40" height="40">Dhyana<span>Yogasthala</span></a>
+  <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" onclick="toggleNav()">☰</button>
   <ul class="nav-links" id="nav-links-menu">
-    <li><a href="#what-is-yoga" data-i18n="nav.what-is-yoga">What is Classical Hatha Yoga</a></li>
-    <li><a href="#offerings" data-i18n="nav.offerings">Offerings</a></li>
-    <li><a href="#teacher" data-i18n="nav.teacher">Teacher</a></li>
-    <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-    <li><a href="#locations" data-i18n="nav.locations">Locations</a></li>
-    <li><a href="#" class="nav-wa" data-wa="default" data-i18n="nav.consult">🌿 Consult Teacher</a></li>
-    <li><a href="enquiry.html" class="nav-cta" data-i18n="nav.enquire">Programme Enquiry</a></li>
-    <li>
-      <div class="lang-toggle" title="Switch Language / भाषा बदलें">
-        <button class="lang-opt" data-lang="en" onclick="toggleLang('en')">EN</button>
-        <button class="lang-opt" data-lang="hi" onclick="toggleLang('hi')">हिं</button>
-      </div>
-    </li>
+    <li><a href="offerings.html">Offerings</a></li>
+    <li><a href="#teacher">Teacher</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" rel="noopener" class="nav-wa"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Consult a Teacher</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire</a></li>
   </ul>
 </nav>
 
 <section id="hero">
-  <img src="assets/images/hero-bg.webp" alt="Classical Hatha Yoga Practice at Dhyana Yogasthala" class="hero-bg-img" fetchpriority="high" width="1920" height="1080">
-  <div class="hero-bg-overlay"></div>
-  <div class="hero-mandala">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="0.5">
-      <circle cx="200" cy="200" r="180"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="120"/>
-      <circle cx="200" cy="200" r="90"/><circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="30"/>
-      <line x1="200" y1="20" x2="200" y2="380"/><line x1="20" y1="200" x2="380" y2="200"/>
-      <line x1="73" y1="73" x2="327" y2="327"/><line x1="327" y1="73" x2="73" y2="327"/>
-      <polygon points="200,40 370,300 30,300" stroke-opacity="0.5"/>
-      <polygon points="200,360 30,100 370,100" stroke-opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="hero-content">
-    <div class="hero-label" data-i18n="hero.label">Classical Hatha Yoga · Isha Certified</div>
-    <h1 class="hero-title" data-i18n="hero.title">Where the Body<br>becomes a <em>Sacred</em><br>Instrument</h1>
-    <p class="hero-sub" data-i18n="hero.sub">Ancient yogic practices transmitted in their purest form. Sonepat &amp; online sessions across India.</p>
-    <div class="hero-btns">
-      <a href="#offerings" class="btn-primary" data-i18n="hero.explore">Explore Offerings</a>
-      <a href="#contact" class="btn-outline" data-i18n="hero.book">Book a Session</a>
-      <a href="#" target="_blank" class="btn-wa-earthy" data-wa="default" data-i18n="hero.wa">🌿 Consult a Teacher</a>
-    </div>
-  </div>
-  <div class="hero-badges">
-    <div class="badge" data-i18n="hero.badge.certified"><strong>Isha</strong>Certified Teacher</div>
-    <div class="badge" data-i18n="hero.badge.practices"><strong>10+</strong>Practices</div>
-  </div>
-  <div class="hero-line"></div>
-</section>
-
-
-<!-- UPCOMING PROGRAMS -->
-<section id="upcoming" style="background:var(--warm-dark);padding:5rem 4vw;">
-  <div class="section-label" style="color:var(--gold);" data-i18n="upcoming.label">Don't Miss Out</div>
-  <h2 class="section-title" style="color:var(--ivory);" data-i18n="upcoming.title">Upcoming Programs</h2>
-  <div class="practices-grid" id="upcoming-programs-grid">
-    <!-- Cards are rendered dynamically from UPCOMING_PROGRAMS in js/config.js -->
-  </div>
-</section>
-
-<script>
-  (function () {
-    function renderUpcoming() {
-      const grid = document.getElementById('upcoming-programs-grid');
-      if (!grid || typeof UPCOMING_PROGRAMS === 'undefined') return;
-      const active = UPCOMING_PROGRAMS.filter(p => p.active);
-      if (!active.length) {
-        const emptyMsg = (typeof t === 'function')
-          ? t(
-              'No programs scheduled yet. You can request for a program by <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">sending an enquiry</a>.',
-              'अभी कोई कार्यक्रम निर्धारित नहीं है। आप <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">एक पूछताछ भेजकर</a> कार्यक्रम का अनुरोध कर सकते हैं।'
-            )
-          : 'No programs scheduled yet. You can request for a program by <a href="#contact" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">sending an enquiry</a>.';
-        // Hide the grid (avoids its background tint + display:grid interfering)
-        grid.style.display = 'none';
-        // Insert a clean sibling element after the grid
-        const existing = document.getElementById('upcoming-empty-state');
-        if (!existing) {
-          const empty = document.createElement('div');
-          empty.id = 'upcoming-empty-state';
-          empty.style.cssText = 'text-align:center;padding:3rem 2rem;';
-          empty.innerHTML = `<p style="color:var(--light-muted);font-size:1.05rem;line-height:1.9;letter-spacing:0.01em;">${emptyMsg}</p>`;
-          grid.parentNode.insertBefore(empty, grid.nextSibling);
-        }
-        return;
-      }
-      grid.innerHTML = active.map(p => {
-        const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
-        const title = (isHi && p.titleHi) ? p.titleHi : p.title;
-        const tag   = (isHi && p.tagHi)   ? p.tagHi   : p.tag;
-        const desc  = (isHi && p.cardDescHi) ? p.cardDescHi : p.cardDesc;
-        const link  = (isHi && p.linkTextHi) ? p.linkTextHi : p.linkText;
-        const meta = [
-          p.date     ? '<div>📅 ' + (isHi && p.dateHi ? p.dateHi : p.date) + '</div>'         : '',
-          p.time     ? '<div>🕒 ' + (isHi && p.timeHi ? p.timeHi : p.time) + '</div>'         : '',
-          p.location ? '<div>📍 ' + (isHi && p.locationHi ? p.locationHi : p.location) + '</div>' : '',
-          p.price    ? '<div>🏷️ ' + (isHi ? 'शुल्क: ' : 'Fee: ') + (isHi && p.priceHi ? p.priceHi : p.price) + '</div>' : '',
-        ].join('');
-        const imgHtml = p.imgContain
-          ? `<div class="practice-card-img-wrap" style="height:240px;position:relative;background:#15100B;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-               <img src="${p.image}" aria-hidden="true" style="position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);object-fit:cover;filter:blur(20px) brightness(0.3);transform:scale(1.15);pointer-events:none;" alt="">
-               <img src="${p.image}" alt="${title}" class="practice-card-img" style="position:relative;width:100%;height:100%;object-fit:contain;z-index:1;opacity:1;" loading="lazy">
-             </div>`
-          : `<div class="practice-card-img-wrap" style="height:240px;">
-               <img src="${p.image}" alt="${title}" class="practice-card-img" style="height:240px;object-fit:cover;object-position:center top;" loading="lazy">
-             </div>`;
-        return `
-          <div class="practice-card reveal">
-            ${imgHtml}
-            <div class="practice-card-body">
-              <div class="practice-tag">${tag}</div>
-              <div class="practice-name">${title}</div>
-              <div class="practice-desc">${desc}</div>
-              <div style="margin-bottom:1rem;font-size:0.85rem;color:var(--light-muted);line-height:1.6;">${meta}</div>
-              <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${link}</a>
-            </div>
-          </div>`;
-      }).join('');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-        });
-      }, { threshold: 0.1 });
-      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', renderUpcoming);
-    } else {
-      renderUpcoming();
-    }
-    document.addEventListener('langchange', renderUpcoming);
-  })();
-</script>
-
-
-<!-- WHAT IS YOGA -->
-<section id="what-is-yoga">
-  <div class="yoga-intro-grid">
-    <div class="yoga-intro-left reveal">
-      <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span><span data-i18n="yoga.section.label">A Question Worth Asking</span></div>
-      <h2 class="yoga-headline">
-        <span class="line1" data-i18n="yoga.headline.line1">Yoga is not a solution<br>for everything in life.</span>
-        <span class="line2" data-i18n="yoga.headline.line2">Yoga could be exactly<br>what you need right now.</span>
-      </h2>
-      <div style="margin-top:1.5rem;padding:1rem 1.4rem;border:1px solid rgba(201,168,76,0.3);display:inline-block;background:rgba(201,168,76,0.06);">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-style:italic;" data-i18n="yoga.question">Would you like to try it?</p>
+  <div class="hero-wrap">
+    <div class="hero-content">
+      <div class="hero-label">Dhyana Yogasthala</div>
+      <h1 class="hero-title">Take charge of your body and mind with <em>Classical Hatha Yoga</em></h1>
+      <p class="hero-sub"><span class="hs1">Authentic yogic practices taught by Shruti Jain, a Classical Hatha Yoga teacher trained under Sadhguru Gurukulam.</span><span class="hs2">In-person programs in Sonipat, Haryana, and live online sessions across India.</span></p>
+      <div class="hero-btns" style="margin-top:2rem;">
+        <a href="offerings.html" class="btn-primary">Explore our offerings</a>
+        <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" class="btn-wa-earthy"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Consult a teacher</a>
       </div>
     </div>
-    <div class="yoga-intro-right reveal">
-      <p class="yoga-para" data-i18n="yoga.para1">What is Yoga, first of all? Think — what do you think it is? When you utter the word yoga, everyone has a notion of what it could be or should be. <strong>People think yoga means standing on your head,</strong> and normal means standing on your feet.</p>
-      <p class="yoga-para" data-i18n="yoga.para2">The word Yoga means <strong>Union</strong> — or we can say, being in tune with existence. Right now, how you experience yourself is as body and mind. Body going through physical ailments, or mind going through stress and overthinking — this is happening simply because these two are not in tune with existence.</p>
-      <div class="yoga-animal-block">
-        <p data-i18n="yoga.animal">Have you ever seen an animal going through stress or developing knee pain? No — because they are in tune with nature. It is only humans who are miserable. Yoga, created by the ancient yogis, simply brings that natural attunement back. Physical health, mental wellbeing, joy — these become a natural consequence.</p>
-      </div>
-      <p class="yoga-cta-text" data-i18n="yoga.cta">Simple yet powerful tools.<br>You already have everything you need.</p>
-    </div>
+    <div class="art"><img src="assets/images/hero-yoga-practice.jpg" alt="Classical Hatha Yoga practice at Dhyana Yogasthala" loading="eager" width="1600" height="1064"></div>
   </div>
 </section>
 
-<!-- ABOUT CLASSICAL HATHA YOGA -->
-<section id="about-yoga">
-  <div class="about-yoga-grid">
-    <div class="about-yoga-left">
-      <div class="section-label" data-i18n="about.label">Ancient Science</div>
-      <h2 class="section-title" data-i18n="about.title">What is Classical<br>Hatha Yoga?</h2>
-      <div class="divider"></div>
-      <div class="quote-block">
-        <p data-i18n="about.quote">"Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment."</p>
-        <cite data-i18n="about.quote.cite">— Sadhguru</cite>
+<!-- WHAT WE OFFER -->
+<section id="programs">
+  <h2 class="section-title" style="margin-bottom:2rem;">What We Offer</h2>
+  <div class="programs-grid">
+    <div class="practice-card reveal">
+      <a href="programs/surya-kriya.html" class="practice-card-img-wrap" aria-label="Surya Kriya"><img src="assets/images/practice-surya-kriya-v2.jpg" alt="Surya Kriya" class="practice-card-img" loading="lazy" width="1100" height="733"></a>
+      <div class="practice-card-body">
+        <div class="practice-name"><a href="programs/surya-kriya.html" style="color:inherit;text-decoration:none;">Surya Kriya</a></div>
+        <div class="practice-desc">Learn a traditional 21-step yogic practice designed to support physical health and inner balance.</div>
+        <div class="chips"><span class="chip">Beginner-friendly</span><span class="chip">In-person</span><span class="chip">3 days for 2 hours</span></div>
+        <a href="programs/surya-kriya.html" class="btn-book">Explore program</a>
       </div>
     </div>
-    <div class="about-yoga-text reveal">
-      <p data-i18n="about.p1">Classical Hatha Yoga is a meticulous science — not exercise, not stretching, but a precise technology for aligning the body, mind, and energy with the laws of existence. Rooted in a tradition preserved in its purity for thousands of years, it offers a path to health, joy, and inner wellbeing far beyond physical fitness.</p>
-      <p data-i18n="about.p2">At Dhyana Yogasthala, every practice is offered exactly as <strong>transmitted by Sadhguru through the Sadhguru Gurukulam</strong> — one of the most rigorous yoga teacher training programmes in the world. Not as fitness choreography, but as a sacred process of transformation.</p>
-      <p data-i18n="about.p3">These are not beliefs or philosophies. They are technologies that <strong>work, if you work them.</strong></p>
+    <div class="practice-card reveal">
+      <a href="programs/pre-natal-yoga.html" class="practice-card-img-wrap" aria-label="Prenatal Yoga"><img src="assets/images/practice-prenatal-yoga-v2.jpg" alt="Prenatal Yoga" class="practice-card-img" style="object-position:center top;" loading="lazy" width="1100" height="880"></a>
+      <div class="practice-card-body">
+        <div class="practice-name"><a href="programs/pre-natal-yoga.html" style="color:inherit;text-decoration:none;">Prenatal Yoga</a></div>
+        <div class="practice-desc">Learn specially designed yogic practices to support the physical and physiological changes of pregnancy and prepare for natural birth. Taught step-by-step in small intimate batches of 2–3 women for personal attention.</div>
+        <div class="chips"><span class="chip">Beginner-friendly</span><span class="chip">In-person</span><span class="chip">3 days for 2 hours</span></div>
+        <a href="programs/pre-natal-yoga.html" class="btn-book">Explore program</a>
+      </div>
+    </div>
+    <div class="practice-card reveal">
+      <a href="programs/yoga-cervical-back-pain-workshop.html" class="practice-card-img-wrap" aria-label="Cervical &amp; Back Pain Workshop"><img src="assets/images/practice-cervical-back-pain-v2.jpg" alt="Cervical and Back Pain Yoga Workshop" class="practice-card-img" loading="lazy" width="900" height="600"></a>
+      <div class="practice-card-body">
+        <div class="practice-name"><a href="programs/yoga-cervical-back-pain-workshop.html" style="color:inherit;text-decoration:none;">Cervical &amp; Back Pain Workshop</a></div>
+        <div class="practice-desc">Learn a guided 10-minute yogic practice to relieve chronic cervical and back pain.</div>
+        <div class="chips"><span class="chip">Beginner-friendly</span><span class="chip">Online</span><span class="chip">1 hour</span><span class="chip">Every Sunday 10am–11am &amp; 7–8pm</span></div>
+        <a href="programs/yoga-cervical-back-pain-workshop.html" class="btn-book">Explore program</a>
+      </div>
+    </div>
+    <div class="practice-card reveal">
+      <a href="programs/childrens-yoga.html" class="practice-card-img-wrap" aria-label="Classical Hatha Yoga for Children"><img src="assets/images/practice-childrens-yoga-v2.jpg" alt="Classical Hatha Yoga for Children" class="practice-card-img" loading="lazy" width="900" height="599"></a>
+      <div class="practice-card-body">
+        <div class="practice-name"><a href="programs/childrens-yoga.html" style="color:inherit;text-decoration:none;">Classical Hatha Yoga for Children</a></div>
+        <div class="practice-desc">Introduce children to classical yogic practices in a small, guided online group.</div>
+        <div class="chips"><span class="chip">Beginner-friendly</span><span class="chip">Online</span><span class="chip">1 hour</span><span class="chip">Every Sunday 11am–12pm</span></div>
+        <a href="programs/childrens-yoga.html" class="btn-book">Explore program</a>
+      </div>
     </div>
   </div>
+  <div style="text-align:center;margin-top:2rem;"><a href="offerings.html" class="btn-more">View all offerings →</a></div>
 </section>
 
-<!-- OFFERINGS -->
-<section id="offerings">
-  <div class="section-label" data-i18n="offerings.label">What We Offer</div>
-  <h2 class="section-title" data-i18n="offerings.title">Offerings</h2>
-  <p class="practices-intro" data-i18n="offerings.intro">Explore our diverse range of programmes — from foundational practices to intensive workshops.</p>
-  <div class="practices-grid" id="offerings-grid">
-    <!-- Rendered dynamically from OFFERINGS in js/config.js -->
-  </div>
-</section>
-
-<script>
-  (function () {
-    function renderOfferings() {
-      const grid = document.getElementById('offerings-grid');
-      if (!grid || typeof OFFERINGS === 'undefined') return;
-      const active = OFFERINGS.filter(p => p.active !== false);
-      const isHi = typeof currentLang === 'function' && currentLang() === 'hi';
-      grid.innerHTML = active.map(p => {
-        const cardClass = 'practice-card' + (p.featured ? ' featured' : '') + ' reveal';
-        const title = (isHi && p.titleHi) ? p.titleHi : p.title;
-        const tag   = (isHi && p.tagHi)   ? p.tagHi   : p.tag;
-        const desc  = (isHi && p.cardDescHi) ? p.cardDescHi : p.cardDesc;
-        const link  = (isHi && p.linkTextHi) ? p.linkTextHi : p.linkText;
-        const metaHtml = (p.cardDuration || p.cardTarget)
-          ? `<div class="practice-meta">
-               ${p.cardDuration ? `<span class="practice-duration">${p.cardDuration}</span>` : ''}
-               ${p.cardTarget   ? `<span class="practice-target">${p.cardTarget}</span>`     : ''}
-             </div>`
-          : '';
-        const benefitsHtml = (p.cardBenefits && p.cardBenefits.length)
-          ? `<ul class="practice-benefits">${p.cardBenefits.map(b => `<li>${b}</li>`).join('')}</ul>`
-          : '';
-        const imgHtml = p.imgContain
-          ? `<div class="practice-card-img-wrap" style="height:240px;position:relative;background:#15100B;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-               <img src="${p.image}" aria-hidden="true" style="position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);object-fit:cover;filter:blur(20px) brightness(0.3);transform:scale(1.15);pointer-events:none;" alt="">
-               <img src="${p.image}" alt="${title}" class="practice-card-img" style="position:relative;width:100%;height:100%;object-fit:contain;z-index:1;opacity:1;" loading="lazy">
-             </div>`
-          : `<div class="practice-card-img-wrap" style="height:240px;">
-               <img src="${p.image}" alt="${title}" class="practice-card-img" style="height:240px;object-fit:cover;object-position:center top;" loading="lazy">
-             </div>`;
-        return `
-          <div class="${cardClass}">
-            ${imgHtml}
-            <div class="practice-card-body">
-              <div class="practice-tag">${tag}</div>
-              <div class="practice-name">${title}</div>
-              <div class="practice-desc">${desc}</div>
-              ${benefitsHtml}
-              ${metaHtml}
-              <a href="${p.link}" class="btn-book" style="text-align:center;display:block;">${link}</a>
-            </div>
-          </div>`;
-      }).join('');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
-        });
-      }, { threshold: 0.1 });
-      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', renderOfferings);
-    } else {
-      renderOfferings();
-    }
-    document.addEventListener('langchange', renderOfferings);
-  })();
-</script>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="background:var(--warm-dark);padding:5rem 4vw;">
-  <div class="section-label" style="color:var(--gold);"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);margin-right:0.8rem;"></span><span data-i18n="testi.label">What People Say</span></div>
-  <h2 class="section-title" style="color:var(--ivory);" data-i18n="testi.title">From Those Who Have Practised</h2>
-  <div class="testimonials-grid">
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.1.text">Surya Kriya keeps me very energetic and alive the whole day.</p><div class="testi-author" data-i18n="testi.1.author">— Kalpana</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.2.text">I am able to focus for a longer period of time.</p><div class="testi-author" data-i18n="testi.2.author">— Simone, United States</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.3.text">Not just physical wellbeing — the practices created clarity and inner balance.</p><div class="testi-author" data-i18n="testi.3.author">— Programme Participant</div></div>
-    <div class="testi-card reveal"><div class="testi-quote-mark">"</div><p class="testi-text" data-i18n="testi.4.text">One of the most immediate effects I've noticed is the significant reduction in stress levels. It's as if with each yoga session, a weight is lifted off my shoulders, leaving me feeling lighter and more at ease.</p><div class="testi-author" data-i18n="testi.4.author">— Programme Participant</div></div>
-  </div>
-</section>
 
 <!-- TEACHER -->
 <section id="teacher">
-  <div class="section-label" data-i18n="teacher.section.label">The Teacher</div>
+  <div class="section-label">Meet Your Teacher</div>
   <div class="teacher-grid">
     <div class="teacher-photo-wrap">
       <div class="teacher-photo-bg">
-        <img src="assets/images/teacher-shruti-jain.webp" alt="Shruti Jain" class="teacher-photo-actual">
+        <img src="assets/images/teacher-shruti-jain-v2.jpg" alt="Shruti Jain — Classical Hatha Yoga Teacher" class="teacher-photo-actual" loading="lazy" width="800" height="938">
       </div>
       <div class="teacher-frame"></div>
     </div>
     <div class="reveal">
-      <h2 class="teacher-name" data-i18n="teacher.name">Shruti Jain</h2>
-      <div class="teacher-title-line" data-i18n="teacher.title.line">CA · Classical Hatha Yoga Teacher · Isha Certified</div>
+      <h2 class="teacher-name">Shruti Jain</h2>
+      <div class="teacher-title-line">Chartered Accountant · Classical Hatha Yoga Teacher</div>
       <div class="teacher-bio">
-        <p data-i18n="teacher.bio1">Shruti Jain's journey spans worlds most would consider unrelated — Chartered Accountancy, corporate life, and the ancient science of Classical Hatha Yoga. After qualifying as a CA, she spent nearly <strong>five years in the corporate world</strong> with organisations such as <strong>PricewaterhouseCoopers</strong> and <strong>MaxLife Insurance</strong> — before choosing to follow a deeper calling. She then spent <strong>24+ months at the Isha Yoga Center, Coimbatore</strong>, completing an intensive 21-week teacher training at the Sadhguru Gurukulam — one of the most demanding yoga teacher training programmes in the world — immersing herself in Yoga in its truest essence.</p>
-        <p data-i18n="teacher.bio2">Over the years she has shared these practices with a remarkable range of people: from young children to officers of the Indian Army, from homemakers to CEOs of leading organisations. She brings the precision of a CA and the sensitivity of a dedicated practitioner to every class.</p>
-        <p data-i18n="teacher.bio3">Shruti teaches in <strong>Sonepat</strong> and offers online sessions — bringing Classical Hatha Yoga to those who need it most.</p>
-        <p></p>
-      </div>
-      <div class="teacher-pills">
-        <span class="pill" data-i18n="teacher.pill.certified">Isha Certified</span>
-        <span class="pill" data-i18n="teacher.pill.ca">CA Background</span>
-        <span class="pill" data-i18n="teacher.pill.training">21 Classical Hatha Yoga Teacher Training</span>
-        <span class="pill" data-i18n="teacher.pill.sonepat">Sonepat</span>
-        <span class="pill" data-i18n="teacher.pill.online">Online</span>
+        <p>After qualifying as a Chartered Accountant in 2016 and spending nearly five years with organisations such as <strong>PricewaterhouseCoopers</strong> and <strong>MaxLife Insurance</strong>, Shruti chose to follow a deeper calling.</p>
+        <p>She underwent intensive Classical Hatha Yoga teacher training at <strong>Sadhguru Gurukulam, Isha Yoga Center, Coimbatore</strong>, completing more than <strong>2,000 hours</strong> of training.</p>
+        <p>She had the opportunity to touch <strong>1000+ lives</strong> from young children to officers of the Indian Army, from homemakers to CEOs of leading organisations.</p>
+        <p>Today, she offers guided Classical Hatha Yoga programs for adults, children and expectant mothers, both in person in Sonipat and online.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SACRED SPACES & GALLERY -->
-<section id="gallery">
-  <div class="section-label" data-i18n="gallery.label">Sacred Atmosphere &amp; Glimpses</div>
-  <h2 class="section-title" data-i18n="gallery.title">Moments of Stillness, Discipline &amp; Transformation</h2>
-  <p class="gallery-intro" data-i18n="gallery.sub">Glimpses of authentic sadhana, discipline, and transformation from our dedicated yoga studio in Sector 15, Sonepat.</p>
-  
-  <div class="gallery-grid">
-    <!-- Item 1: Group Meditation (2 cols) -->
-    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(0)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(0)" aria-haspopup="dialog" aria-label="View photo: Group Dhyana & Meditative Stillness">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-group-meditation.webp" alt="Practitioners seated in silent meditation on mats at Dhyana Yogasthala Sonepat studio" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag6">Studio Sadhana</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap6">Group Dhyana &amp; Meditative Stillness (Sonepat Studio)</h3>
-        </div>
-      </div>
-    </div>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">Testimonials</div>
+  <h2 class="section-title">From Those Who Have Practised</h2>
 
-    <!-- Item 2: Children's Yoga (1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(1)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(1)" aria-haspopup="dialog" aria-label="View photo: Children & Family Yoga">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-3.webp" alt="Young boy with eyes closed meditating peacefully alongside family in studio" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag3">All Generations</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap3">Children &amp; Family Yoga — Poise &amp; Balance</h3>
-        </div>
-      </div>
+  <div class="t-tabs" role="tablist">
+    <button type="button" class="t-tab active" role="tab" aria-selected="true" data-t="surya">Surya Kriya</button>
+    <button type="button" class="t-tab" role="tab" aria-selected="false" data-t="prenatal">Prenatal Yoga</button>
+    <button type="button" class="t-tab" role="tab" aria-selected="false" data-t="back">Cervical &amp; Back Pain</button>
+  </div>
+  <div class="t-panel active" id="t-surya" role="tabpanel">
+    <div class="t-track">
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I have derived immense physical and psychological benefits from Isha Hatha Yoga practices. I don’t miss out on Surya Kriya, which keeps me very energetic and alive the whole day no matter how many hours I am up.</p><div class="testi-author">Kalpana Kiran Maniar<span class="testi-role">CIO &amp; President, Edelweiss Financial Services Ltd.</span></div></div>
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I noticed a difference in terms of my productivity at work. After practicing Surya Kriya, I am able to focus for a longer period of time as well.</p><div class="testi-author">Simone<span class="testi-role">US</span></div></div>
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I feel very stable and blissful while I am doing Surya Kriya. That time I spend with myself is just working on me in another way, in another dimension. It's just me and my breathing and I want to keep going all day.</p><div class="testi-author">Vasundhara<span class="testi-role">Delhi</span></div></div>
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I think of all the practices, Surya Kriya is the one which I love the most. It is just the right cocktail between physical movement, pranayam, and other aspects that you feel the transformation the moment you start doing it.</p><div class="testi-author">Poyha</div></div>
     </div>
-
-    <!-- Item 3: Deep Meditation in Stillness (1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(2)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(2)" aria-haspopup="dialog" aria-label="View photo: Deep Meditation & Inner Stillness">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-2.webp" alt="Young man sitting cross-legged in silent meditative stillness in Sonepat yoga studio" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag2">Classical Hatha Yoga</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap2">Deep Meditation &amp; Inner Stillness (Sonepat Studio)</h3>
-        </div>
-      </div>
+    <div class="t-foot">
+      <a href="programs/surya-kriya.html" class="btn-outline">Explore program</a>
+      <div class="t-nav"><button type="button" class="t-prev" aria-label="Previous">&larr;</button><button type="button" class="t-next" aria-label="Next">&rarr;</button></div>
     </div>
-
-    <!-- Item 4: Restorative Practice (1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(3)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(3)" aria-haspopup="dialog" aria-label="View photo: Restorative Stretch & Energy Alignment">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-4.webp" alt="Young woman in seated yoga posture focusing inward on ochre practice mat" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag4">Restorative Yoga</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap4">Gentle Joint Mobility &amp; Energy Alignment</h3>
-        </div>
-      </div>
+  </div>
+  <div class="t-panel" id="t-prenatal" role="tabpanel">
+    <div class="t-track single">
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">This was my second child and I could clearly see the difference. Usually, as pregnancy progresses, it gets tougher. For me, after the program, it was the opposite.</p><p class="testi-text">My sleep quality had improved. My digestion had improved. I was able to do a lot of activities without feeling tired. Emotionally, I felt more relaxed, joyful and happier after the program.</p><div class="testi-author">Krithika Bairawan<span class="testi-role">Mother of two, on her second pregnancy</span></div></div>
     </div>
-
-    <!-- Item 5: Vajrasana Meditation (1 col) -->
-    <div class="gallery-item reveal" role="button" tabindex="0" onclick="openLightbox(4)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(4)" aria-haspopup="dialog" aria-label="View photo: Vajrasana Meditation on Handwoven Mat">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-5.webp" alt="Practitioner in white kurta and green salwar meditating in Vajrasana on natural mat" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag5">Daily Sadhana</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap5">Vajrasana Meditation on Handwoven Mat</h3>
-        </div>
-      </div>
+    <div class="t-foot">
+      <a href="programs/pre-natal-yoga.html" class="btn-outline">Explore program</a>
+      <div class="t-nav"><button type="button" class="t-prev" aria-label="Previous">&larr;</button><button type="button" class="t-next" aria-label="Next">&rarr;</button></div>
     </div>
-
-    <!-- Item 6: Spine Alignment & Asana Sadhana (2 cols) -->
-    <div class="gallery-item col-span-2 reveal" role="button" tabindex="0" onclick="openLightbox(5)" onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(5)" aria-haspopup="dialog" aria-label="View photo: Spine Alignment & Posture Sadhana">
-      <div class="gallery-img-wrap">
-        <img src="assets/images/gallery-asana-practice.webp" alt="Yoga practitioners engaged in spine alignment and classical posture at Dhyana Yogasthala" class="gallery-img" loading="lazy">
-        <div class="gallery-zoom-badge" aria-hidden="true">🔍</div>
-        <div class="gallery-overlay">
-          <span class="gallery-tag" data-i18n="gallery.tag7">Asana Alignment</span>
-          <h3 class="gallery-caption" data-i18n="gallery.cap7">Spine Alignment &amp; Posture Sadhana in Guided Batch</h3>
-        </div>
-      </div>
+  </div>
+  <div class="t-panel" id="t-back" role="tabpanel">
+    <div class="t-track">
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I had an L4–L5 disc protrusion, and the doctors said I would never be able to bend forward again. Practising the yogic practice taught in the session consistently helped me heal completely over time.</p><div class="testi-author">Deepak<span class="testi-role">Yoga Teacher</span></div></div>
+      <div class="testi-card"><div class="testi-quote-mark">"</div><p class="testi-text">I work in finance, and long hours of sitting gave me back pain that spread to my leg as well. I saw a physiotherapist and tried all sorts of exercise and yoga. Then I came across this practice. Within a few weeks, my back pain healed completely, and my back feels much stronger now.</p><div class="testi-author">Shreya<span class="testi-role">PricewaterhouseCoopers</span></div></div>
     </div>
+    <div class="t-foot">
+      <a href="programs/yoga-cervical-back-pain-workshop.html" class="btn-outline">Explore program</a>
+      <div class="t-nav"><button type="button" class="t-prev" aria-label="Previous">&larr;</button><button type="button" class="t-next" aria-label="Next">&rarr;</button></div>
+    </div>
+  </div></section>
 
-    <!-- Item 7: Experience Atmosphere Invite Card (1 col) -->
-    <div class="gallery-invite-card reveal">
-      <div style="font-size:1.8rem;margin-bottom:0.8rem;">🌿</div>
-      <h3 class="gallery-invite-title" data-i18n="gallery.invite.title">Experience the Consecrated Space</h3>
-      <p class="gallery-invite-desc" data-i18n="gallery.invite.desc">Step into our peaceful studio in Sector 15, Sonepat. Experience authentic Classical Hatha Yoga taught with uncompromising geometric precision.</p>
-      <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20visit%20the%20studio%20or%20know%20more%20about%20upcoming%20classes." target="_blank" class="btn-wa-earthy" style="align-self:flex-start;font-size:0.75rem;" data-i18n="gallery.invite.btn">🌿 Schedule a Studio Visit</a>
+<!-- WHAT IS CLASSICAL HATHA YOGA -->
+<section id="about-yoga">
+  <div class="about-yoga-grid">
+    <div class="about-yoga-left">
+      <div class="section-label">Ancient Science</div>
+      <h2 class="section-title">What Is Classical<br>Hatha Yoga?</h2>
+      <div class="divider"></div>
+      <figure class="guru reveal">
+        <img src="assets/images/sadhguru.jpg" alt="Sadhguru" width="150" height="188">
+        <blockquote>“Your physical health, your psychological wellbeing, and your spiritual possibility depend on how well aligned you are with existence. Essentially, Hatha Yoga is towards establishing this alignment.”<cite>— Sadhguru</cite></blockquote>
+      </figure>
+    </div>
+    <div class="about-yoga-text reveal">
+      <p>Classical Hatha Yoga is a meticulous ancient science, not exercise, not stretching, but a precise technology for aligning the body, mind and energy with the existence. It offers a holistic path to health, joy and inner well-being.</p>
+      <p>At Dhyana Yogasthala, every practice is offered exactly as <strong>transmitted by Sadhguru through the Sadhguru Gurukulam</strong> — one of the most rigorous yoga teacher training programmes in the world. Not as fitness choreography, but as a sacred process of transformation.</p>
+      <a href="offerings.html" class="btn-primary">Explore our offerings</a>
     </div>
   </div>
 </section>
 
-<!-- LOCATIONS & GOOGLE MAPS -->
+<!-- WHY DHYANA YOGASTHALA -->
+<section id="why">
+  <div class="section-label">Our Approach</div>
+  <h2 class="section-title">Why Learn at Dhyana Yogasthala?</h2>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-num">01</div><h3>Traditional Training</h3><p>Learn Classical Hatha Yoga from a teacher trained at Sadhguru Gurukulam, with 2000+ hours of training at Isha Yoga Center.</p></div>
+    <div class="why-card reveal"><div class="why-num">02</div><h3>Guided Learning</h3><p>Learn with a teacher guiding you, not just by following a recorded video.</p></div>
+    <div class="why-card reveal"><div class="why-num">03</div><h3>Small-Group Attention</h3><p>Selected programs have limited seats to allow for a more personalised learning experience.</p></div>
+    <div class="why-card reveal"><div class="why-num">04</div><h3>Practise on Your Own</h3><p>Our workshops teach every practice in fine detail, so you can do it by yourself — wherever you are, even while travelling, at a time that suits you.</p></div>
+  </div>
+</section>
+
+<!-- FAQS -->
+<section id="faqs">
+  <div class="section-label">Questions</div>
+  <h2 class="section-title">FAQs</h2>
+  <div class="faq-list">
+    <details><summary>Who will teach the programs?</summary><p>The programs are led by Shruti Jain, a Classical Hatha Yoga teacher trained at Sadhguru Gurukulam.</p></details>
+    <details><summary>Are the programs conducted online or in person?</summary><p>Dhyana Yogasthala offers in-person programs in Sonipat and selected live online programs. The format is specified on each program page.</p></details>
+    <details><summary>Who can attend?</summary><p>Anyone aged 14 and above can attend. The Children’s program is for ages 7–13.</p></details>
+    <details><summary>Do I need any prior yoga experience?</summary><p>No prior experience is needed.</p></details>
+    <details><summary>I have a medical condition. Can I still join?</summary><p>Please <a href="https://wa.me/918950867190?text=Namaskaram%20Shruti%2C%20I%20have%20a%20question%20about%20the%20Surya%20Kriya%20program." target="_blank">write to the teacher</a> before registering and consult your doctor as well, if you aren’t sure.</p></details>
+    <details><summary>Are the programs suitable during pregnancy?</summary><p>The Prenatal Yoga Program is designed specifically for expectant mothers. You can register for that program.</p></details>
+    <details><summary>How big is the batch?</summary><p>2–3 people in the in-person programs (Surya Kriya and Prenatal Yoga). 8–10 children in the Children’s program.</p></details>
+    <details><summary>I wanted a daily yoga class. After attending the workshop, I feel I may forget the practice, and can’t do it properly later?</summary><p>Workshop has been designed in a way that takes care of this aspect. Stay in personal touch with the teacher. You will be guided within 24 hours on what to do if you have any doubts. The review after three to four weeks will settle any remaining queries.<br><br>It has worked for thousands of people. Don't worry :)</p></details>
+    <details><summary>How can I register?</summary><p>Select your preferred program and follow the registration instructions. You can also contact the teacher on WhatsApp for assistance.</p></details>
+    <details><summary>What if the next batch dates haven't been announced?</summary><p>You can enquire about the upcoming batch and request to be notified when dates are confirmed.</p></details>
+    <details><summary>What is the cancellation policy?</summary><p>If you have registered, we are sure you want to be there. If you can’t make it, please let the teacher know one day in advance. If the reason is urgent and genuine, your place will be rescheduled and you can join the next program.</p></details>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
 <section id="locations">
-  <div class="section-label" data-i18n="locations.label">Find Us</div>
-  <h2 class="section-title" data-i18n="locations.title">Where We Teach &amp; How to Reach</h2>
-  <p class="locations-intro" data-i18n="locations.sub">Visit our dedicated studio in Sector 15, Sonepat, or join live guided sessions online from anywhere.</p>
-
-  <div class="loc-cards-grid">
-    <!-- Card 1: Main Studio Sonepat -->
-    <div class="loc-card featured-loc reveal">
-      <div class="loc-badge" data-i18n="loc.sonepat.badge">Primary Studio · Sonepat</div>
-      <div class="loc-icon">🏛️</div>
-      <h3 class="loc-name" data-i18n="loc.sonepat.name">Dhyana Yogasthala · Sonepat</h3>
-      <div class="loc-detail" data-i18n="loc.sonepat.detail">
-        <strong>812, Sector 15, Sonepat, Haryana 131001, India</strong><br><br>
-        <strong>Timings:</strong> Morning &amp; Evening Batches (By appointment / registration)<br>
-        <strong>Environment:</strong> Dedicated, tranquil consecrated space.
-      </div>
-      <div class="loc-actions">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer" class="btn-loc-primary" data-i18n="loc.directions.btn">
-          📍 Get Directions
-        </a>
-        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer" class="btn-loc-outline" data-i18n="loc.openmaps.btn">
-          Open in Maps ↗
-        </a>
-      </div>
-    </div>
-
-    <!-- Card 2: Online Sessions -->
+  <div class="section-label">Find Us</div>
+  <h2 class="section-title">Where We Teach</h2>
+  <div class="loc-grid">
     <div class="loc-card reveal">
-      <div class="loc-badge" data-i18n="loc.online.badge">Worldwide Access</div>
+      <div class="loc-icon">🏛</div>
+      <div class="loc-name">Sonipat</div>
+      <div class="loc-detail">In-person workshops and regular classes at the heart of Dhyana Yogasthala.<br><br>812, Sector 15, Sonipat,<br>Haryana, India</div>
+    </div>
+    <div class="loc-card reveal">
       <div class="loc-icon">💻</div>
-      <h3 class="loc-name" data-i18n="loc.online.name">Live Online Sessions</h3>
-      <div class="loc-detail" data-i18n="loc.online.detail">
-        <strong>Interactive Video Sessions across India &amp; Abroad</strong><br><br>
-        Live, interactive programmes with detailed alignment guidance and personalised correction.
-      </div>
-      <div class="loc-actions">
-        <a href="#contact" class="btn-loc-outline">
-          Enquire Online →
-        </a>
-      </div>
+      <div class="loc-name">Online</div>
+      <div class="loc-detail">Live sessions with flexible batch timings — morning &amp; evening options available.<br><br><em>Anywhere in India</em></div>
     </div>
   </div>
-
-  <!-- Interactive Google Map Embed Card -->
-  <div class="map-embed-card reveal">
-    <div class="map-header-bar">
-      <div class="map-header-info">
-        <div class="map-title-row">
-          <span class="map-title">Dhyana Yogasthala | Sadhguru Gurukulam</span>
-          <span class="map-coords">29.0031° N, 77.0389° E</span>
-        </div>
-        <span class="map-sub">812, Sector 15, Sonepat, Haryana 131001 · Isha Certified Classical Hatha Yoga</span>
-      </div>
-      <div class="map-header-actions">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.75rem;">
-          Get Driving Directions ↗
-        </a>
-        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer" class="btn-outline" style="padding:0.6rem 1.2rem;font-size:0.75rem;border-color:rgba(201,168,76,0.5);">
-          View on Google Maps
-        </a>
-      </div>
-    </div>
-    <div class="map-iframe-wrap">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3493.5855026601446!2d77.0363208754029!3d29.003118275463765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390db11644390b87%3A0x3e19d926058ae62c!2sDhyana%20Yogasthala%20%7C%20Sadhguru%20Gurukulam!5e0!3m2!1sen!2sin!4v1727330000000!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Dhyana Yogasthala | Sadhguru Gurukulam Location Map, Sector 15, Sonepat">
-      </iframe>
-    </div>
-    <div class="map-quick-links">
-      <div>📍 <strong>Address:</strong> 812, Sector 15, Sonepat, Haryana 131001</div>
-      <div>
-        <a href="https://www.google.com/maps/place/Dhyana+Yogasthala+%7C+Sadhguru+Gurukulam/@29.0031183,77.0388958,17z/data=!3m1!4b1!4m6!3m5!1s0x390db11644390b87:0x3e19d926058ae62c!8m2!3d29.0031183!4d77.0388958!16s%2Fg%2F11njpmkd_r" target="_blank" rel="noopener noreferrer">
-          Open in Google Maps App ↗
-        </a>
-        &nbsp;·&nbsp;
-        <a href="https://maps.apple.com/?daddr=29.0031183,77.0388958" target="_blank" rel="noopener noreferrer">
-          Apple Maps ↗
-        </a>
-      </div>
-    </div>
+  <div class="loc-map reveal">
+    <iframe src="https://www.google.com/maps?q=29.0032616,77.0388489&amp;z=17&amp;output=embed" title="Dhyana Yogasthala location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <div class="loc-map-bar"><span>812, Sector 15, Sonipat, Haryana</span><a href="https://www.google.com/maps/place/29%C2%B000'11.7%22N+77%C2%B002'19.9%22E/@29.0032616,77.036274,17z/data=!3m1!4b1!4m4!3m3!8m2!3d29.0032616!4d77.0388489?hl=en&amp;entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+  </div>
+  <div class="gallery">
+    <figure class="reveal"><img src="assets/images/gallery-student-studio.jpg" alt="A student practising at the studio" loading="lazy" width="700" height="700"></figure>
+    <figure class="reveal"><img src="assets/images/gallery-the-studio.jpg" alt="The Dhyana Yogasthala studio" loading="lazy" width="700" height="700"></figure>
+    <figure class="reveal"><img src="assets/images/gallery-class-in-session.jpg" alt="A yoga class in session" loading="lazy" width="700" height="700"></figure>
+    <figure class="reveal"><img src="assets/images/gallery-pranayama-practice.jpg" alt="Pranayama breathing practice" loading="lazy" width="700" height="700"></figure>
+    <figure class="reveal"><img src="assets/images/gallery-learning-together.jpg" alt="Students learning together" loading="lazy" width="700" height="700"></figure>
+    <figure class="reveal"><img src="assets/images/gallery-practice-hall.jpg" alt="The practice hall" loading="lazy" width="700" height="700"></figure>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" data-i18n="contact.label">Connect</div>
-  <h2 class="section-title" data-i18n="contact.title">Reach Out to Us</h2>
+  <div class="section-label">Connect</div>
+  <h2 class="section-title">Reach Out to Us</h2>
   <div class="contact-grid">
     <div>
       <div class="contact-info">
         <div class="contact-item">
           <div class="contact-icon">📍</div>
-          <div class="contact-item-text"><label data-i18n="contact.address.label">Address</label><span>812, Sector 15, Sonepat, Haryana</span></div>
+          <div class="contact-item-text"><label>Address</label><span>812, Sector 15, Sonipat, Haryana</span></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
-          <div class="contact-item-text"><label data-i18n="contact.phone.label">Phone / WhatsApp</label><span>+91 89508 67190</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <div class="contact-item-text"><label data-i18n="contact.email.label">Email</label><span><a data-email style="color:inherit;text-decoration:none;"></a></span></div>
+          <div class="contact-item-text"><label>Phone / WhatsApp</label><span>+91 89508 67190</span></div>
         </div>
         <div class="contact-item" style="margin-top:0.5rem;">
-          <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" class="btn-wa-earthy" style="font-size:0.78rem;" data-i18n="contact.wa.btn">🌿 Click here to consult a teacher</a>
+          <a href="https://wa.me/918950867190?text=Hi%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20yoga%20programmes." target="_blank" class="btn-wa-earthy"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span class="wa-btn-stack"><small>Click here to</small><b>Consult a teacher</b></span></a>
         </div>
       </div>
     </div>
     <div class="contact-form reveal" id="contact-enquiry-form">
       <div class="form-row">
-        <div class="form-group">
-          <label for="cq-name">Your Name</label>
-          <input type="text" id="cq-name" name="name" autocomplete="name" placeholder="Your Full Name" required>
-        </div>
-        <div class="form-group">
-          <label for="cq-email">Email Address</label>
-          <input type="email" id="cq-email" name="email" autocomplete="email" placeholder="your@email.com">
-        </div>
+        <div class="form-group"><label>Your Name</label><input type="text" id="cq-name" name="name" placeholder="Full name"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="cq-email" name="email" placeholder="your@email.com"></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label for="cq-phone">Phone Number</label>
-          <input type="tel" id="cq-phone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="+91 XXXXX XXXXX" required>
-        </div>
-        <div class="form-group">
-          <label for="cq-location">Location Preference</label>
-          <select id="cq-location"><option>Sonepat — In Person</option><option>Online Session</option><option>Not sure yet</option></select>
+        <div class="form-group"><label>Phone Number</label><input type="tel" id="cq-phone" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label>Location Preference</label>
+          <select><option>Sonipat — In Person</option><option>Online Session</option><option>Not sure yet</option></select>
         </div>
       </div>
       <div class="form-group">
-        <label for="cq-program">Program of Interest</label>
-        <select id="cq-program">
-          <option value="">— Select a program —</option>
-          <option>Diabetes Management Program</option>
-          <option>Sthira — Online for CA Students</option>
-          <option>Maitreyi — One-on-One Personalised</option>
-          <option>Basic Program (All Ages / Mobility)</option>
-          <option>Angamardana</option><option>Surya Kriya</option>
-          <option>Yogasanas</option><option>Bhuta Shuddhi</option><option>Shanmukhi Mudra</option>
-          <option>Eye Care Practices</option><option>Bhastrika Kriya</option><option>Jala Neti</option>
-          <option>Pre-Natal Yoga</option>
-          <option>Children's Yoga</option>
-          <option>Cervical &amp; Back Pain Yoga</option>
+        <label>Program of Interest</label>
+        <select>
+          <option>— Select a program —</option>
+          <option>Surya Kriya</option>
+          <option>Prenatal Yoga</option>
+          <option>Cervical &amp; Back Pain Workshop</option>
+          <option>Classical Hatha Yoga for Children</option>
+          <option>Others</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="cq-query">Your Query</label>
-        <textarea id="cq-query" name="query" rows="4" maxlength="1500" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea>
-      </div>
-      <button class="btn-submit-contact" onclick="submitContactForm(event)" data-i18n="contact.form.submit">Send Enquiry →</button>
-      <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;" data-i18n="contact.success">
+      <div class="form-group"><label>Your Query</label><textarea id="cq-query" name="query" rows="4" placeholder="Tell us about yourself, any health conditions, or questions you have..."></textarea></div>
+      <button class="btn-submit-contact" onclick="submitContactFormspree(event)">Send Enquiry →</button>
+      <div id="contact-success" style="display:none;margin-top:1rem;padding:1rem 1.2rem;background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);color:var(--gold);font-size:0.88rem;line-height:1.6;">
         Thank you for your interest. Shruti will connect with you shortly. 🙏
       </div>
     </div>
@@ -580,97 +725,143 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="assets/images/logo-badge.webp" alt="Dhyana Yogasthala Logo" class="footer-logo-img" width="44" height="44">
-      <div>Dhyana Yogasthala<small data-i18n="footer.tagline">Classical Hatha Yoga · Isha Certified</small></div>
-    </div>
+    <div class="footer-brand"><img src="assets/images/footer-logo.png" alt="Dhyana Yogasthala Logo" loading="lazy" width="560" height="556"></div>
     <div class="footer-links">
-      <a href="#what-is-yoga" data-i18n="footer.what-is-yoga">What is Classical Hatha Yoga</a>
-      <a href="#offerings" data-i18n="footer.offerings">Offerings</a>
-      <a href="#teacher" data-i18n="footer.teacher">Teacher</a>
-      <a href="#gallery" data-i18n="footer.gallery">Gallery</a>
-      <a href="#locations" data-i18n="footer.locations">Location &amp; Map</a>
-      <a href="#contact" data-i18n="footer.contact">Contact</a>
+      <a href="offerings.html">Offerings</a>
+      <a href="#teacher">Teacher</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Dhyana Yogasthala. Shruti Jain, Sonepat.</div>
+    <div class="footer-cert"><img src="assets/images/footer-cert-badge.png" alt="Classical Hatha Yoga, Sadhguru Gurukulam Certified Teacher" loading="lazy" width="640" height="169"></div>
+    <div class="footer-copy">© 2025 Dhyana Yogasthala. Shruti Jain, Sonipat.</div>
   </div>
 </footer>
 
-<!-- GALLERY LIGHTBOX MODAL -->
-<div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Photo Viewer">
-  <div class="lightbox-inner">
-    <button class="lightbox-btn lightbox-close" onclick="closeLightbox()" aria-label="Close photo viewer">✕</button>
-    <button class="lightbox-btn lightbox-nav-prev" onclick="prevLightbox()" aria-label="Previous photo">‹</button>
-    <button class="lightbox-btn lightbox-nav-next" onclick="nextLightbox()" aria-label="Next photo">›</button>
-    <div class="lightbox-img-box">
-      <img src="assets/images/gallery-group-meditation.webp" alt="Gallery preview" id="lightbox-img" class="lightbox-img">
-    </div>
-    <div class="lightbox-bar">
-      <div class="lightbox-info">
-        <span class="lightbox-cat" id="lightbox-cat">Studio Sadhana</span>
-        <div class="lightbox-title" id="lightbox-title">Group Dhyana &amp; Meditative Stillness (Sonepat Studio)</div>
-      </div>
-      <div class="lightbox-count" id="lightbox-count">1 / 6</div>
-    </div>
-  </div>
-</div>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 
-<!-- BOOKING MODAL -->
-<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close booking dialog">×</button>
-    <div id="modal-form-content">
-      <div class="modal-title" id="modal-title">Book a Program</div>
-      <div class="modal-subtitle">DHYANA YOGASTHALA · CLASSICAL HATHA YOGA</div>
-      <div class="modal-form">
-        <!-- 1. Personal Details -->
-        <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-bottom:0.5rem;">Personal Details</div>
-        <div class="form-group"><label for="bm-fullname">Full Name *</label><input type="text" id="bm-fullname" placeholder="Your full name" autocomplete="name" required></div>
-        <div class="form-group"><label for="bm-age">Age *</label><input type="number" id="bm-age" placeholder="Your age" inputmode="numeric" min="1" max="120" required></div>
-        <div class="form-group"><label for="bm-gender">Gender *</label>
-          <select id="bm-gender" required><option value="">— Select —</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select>
-        </div>
-        <div class="form-group"><label for="bm-phone">Phone / WhatsApp *</label><input type="tel" id="bm-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel" inputmode="numeric" required></div>
-        <div class="form-group"><label for="bm-email">Email *</label><input type="email" id="bm-email" placeholder="your@email.com" autocomplete="email" required></div>
-        <div class="form-group"><label for="bm-city">City &amp; Country *</label><input type="text" id="bm-city" placeholder="E.g. Delhi, India" required></div>
-        <div class="form-group"><label for="bm-location">Location Preference</label>
-          <select id="bm-location"><option>Sonepat — In Person</option><option>Online</option></select>
-        </div>
-        
-        <!-- 2. Goals -->
-        <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">What Are You Hoping to Achieve?</div>
-        <div class="form-group">
-          <label for="bm-goals" style="display:none;">Primary Goal</label>
-          <select id="bm-goals"><option>Physical well-being</option><option>Stress management</option><option>Overall Health &amp; Inner well-being</option><option>Mental and emotional well-being</option><option>Spiritual growth</option></select>
-        </div>
+  
+  function toggleNav() {
+    const nl = document.querySelector('.nav-links');
+    const btn = document.querySelector('.nav-toggle');
+    if (nl) {
+      const act = nl.classList.toggle('active');
+      if (btn) btn.setAttribute('aria-expanded', act);
+    }
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      const nl = document.querySelector('.nav-links');
+      if (nl && nl.classList.contains('active')) nl.classList.remove('active');
+    });
+  });
 
-        <!-- 3. Health & Background -->
-        <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">Health Information</div>
-        <div class="form-group"><label for="bm-practiced">Have you practiced yoga before?</label>
-          <select id="bm-practiced"><option>Yes</option><option>No</option></select>
-        </div>
-        <div class="form-group"><label for="bm-ailments">Any physical or mental ailments? *</label><textarea id="bm-ailments" rows="3" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
-        <div class="form-group"><label for="bm-illness">Any serious illness/surgery in last 3 years? *</label><textarea id="bm-illness" rows="2" maxlength="1000" placeholder="Please describe, or write 'None'" required></textarea></div>
+  // ── Contact Form Submission (Google Sheets + Formspree + WhatsApp) ──
+  async function submitContactFormspree(e) {
+    e.preventDefault();
+    const name = document.getElementById('cq-name') ? document.getElementById('cq-name').value.trim() : '';
+    const email = document.getElementById('cq-email') ? document.getElementById('cq-email').value.trim() : '';
+    const phone = document.getElementById('cq-phone') ? document.getElementById('cq-phone').value.trim() : '';
+    if (!name || !email) { alert('Please enter your name and email address.'); return; }
+    const btn = document.querySelector('#contact-enquiry-form .btn-submit-contact');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    // Collect all form data
+    const locationSel = document.querySelector('#contact-enquiry-form select:first-of-type');
+    const programSel = document.querySelector('#contact-enquiry-form select:last-of-type');
+    const query = document.getElementById('cq-query') ? document.getElementById('cq-query').value : '';
+    const formData = {
+      name, email, phone,
+      location: locationSel ? locationSel.value : '',
+      program: programSel ? programSel.value : '',
+      query,
+      _subject: 'New Enquiry — Dhyana Yogasthala',
+    };
+    try {
+      // Also post to Google Apps Script endpoint if configured
+      const gsEndpoint = 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
+      try {
+        fetch(gsEndpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            formKey: 'enquiry-classical-hatha-2026',
+            submissionType: 'enquiry',
+            source: 'Website Contact Form',
+            programme: programSel ? programSel.value : 'General Enquiry',
+            name: name,
+            phone: phone.replace(/\D/g, ''),
+            email: email,
+            location: locationSel ? locationSel.value : '',
+            notes: query,
+            notifyEmail: 'seekwithshruti@gmail.com',
+            emailSubject: 'New Website Contact Enquiry: ' + (name || 'Anonymous') + ' — ' + (programSel ? programSel.value : 'General Enquiry'),
+            date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+          })
+        }).catch(e => console.warn('GS note:', e));
+      } catch(e) {}
 
-        <!-- 4. Consent -->
-        <div class="form-section-title" style="color:var(--gold);font-size:1.1rem;margin-top:1rem;margin-bottom:0.5rem;">Declaration</div>
-        <div class="form-group" style="margin-top:0.5rem;">
-          <label style="display:flex;align-items:flex-start;gap:0.5rem;text-transform:none;letter-spacing:normal;font-size:0.8rem;color:var(--light-muted);">
-            <input type="checkbox" id="bm-consent" required style="margin-top:0.2rem;">
-            <span>I hereby am willing to undertake the program completely. I understand that participation in yoga practices is voluntary. I will not communicate the contents of the program to anyone else.</span>
-          </label>
-        </div>
-        
-        <button class="btn-primary" onclick="submitBooking()" style="width:100%;text-align:center;margin-top:1rem;">Submit Booking Request →</button>
-      </div>
-    </div>
-    <div class="success-msg" id="modal-success">
-      <div class="check">🙏</div>
-      <p>Thank you for your interest.<br>Shruti will connect with you shortly. 🙏</p><p style="font-size:0.8rem;color:var(--light-muted);margin-top:0.8rem;">Opening WhatsApp to send your details…</p>
-    </div>
-  </div>
-</div>
+      const res = await fetch('https://formspree.io/f/mbderkvq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (res.ok) {
+        document.getElementById('contact-success').style.display = 'block';
+        btn.textContent = 'Sent ✓';
+        btn.style.background = 'var(--forest)';
+      } else {
+        throw new Error('Form submission fallback');
+      }
+    } catch(err) {
+      // Fallback: open WhatsApp if Formspree not yet set up
+      btn.textContent = 'Send Enquiry →';
+      btn.disabled = false;
+      const waMsg = encodeURIComponent(
+        `*New Enquiry — Dhyana Yogasthala*
 
-<script src="js/main.js"></script>
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email}
+*Program:* ${programSel ? programSel.value : '—'}
+*Query:* ${query}`
+      );
+      window.open('https://wa.me/918950867190?text=' + waMsg, '_blank');
+    }
+  }
+
+  // Testimonials: tabs + swipeable cards
+  (function(){
+    var tabs=document.querySelectorAll('.t-tab'),panels=document.querySelectorAll('.t-panel');
+    function sync(p){
+      var tr=p.querySelector('.t-track'),nav=p.querySelector('.t-nav'),pv=p.querySelector('.t-prev'),nx=p.querySelector('.t-next');
+      var can=tr.scrollWidth>tr.clientWidth+4;nav.classList.toggle('hidden',!can);
+      pv.disabled=tr.scrollLeft<=2;nx.disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-2;
+    }
+    function show(id){
+      tabs.forEach(function(t){var on=t.dataset.t===id;t.classList.toggle('active',on);t.setAttribute('aria-selected',on);});
+      panels.forEach(function(p){var on=p.id==='t-'+id;p.classList.toggle('active',on);if(on){p.querySelector('.t-track').scrollLeft=0;sync(p);}});
+    }
+    tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.t);});});
+    panels.forEach(function(p){
+      var tr=p.querySelector('.t-track');
+      p.querySelector('.t-prev').addEventListener('click',function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'});});
+      p.querySelector('.t-next').addEventListener('click',function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'});});
+      tr.addEventListener('scroll',function(){sync(p);});
+    });
+    function cur(){return document.querySelector('.t-panel.active');}
+    window.addEventListener('resize',function(){sync(cur());});
+    window.addEventListener('load',function(){sync(cur());});
+    sync(cur());
+  })();
+
+</script>
 </body>
 </html>
