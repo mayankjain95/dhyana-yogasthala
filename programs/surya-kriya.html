@@ -78,9 +78,15 @@ details a{color:var(--mid);font-weight:700}
 .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px}
 .field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
 .field label span{font-weight:600;color:var(--muted)}
-.field input,.field textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid #E2D6BC;border-radius:14px;padding:13px 16px}
-.field input:focus,.field textarea:focus{outline:3px solid var(--accent);border-color:var(--mid)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid #E2D6BC;border-radius:14px;padding:13px 16px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--accent);border-color:var(--mid)}
 .field.full{grid-column:1/-1}
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.tcard{background:var(--soft);border-radius:28px;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.tcard p{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.55;color:var(--ink)}
+.tcard cite{font-style:normal;font-weight:800;color:var(--mid);font-size:15px;display:block}
+.tcard cite span{display:block;font-weight:600;color:var(--muted);font-size:13px;margin-top:2px}
 .formcard button{border:0;cursor:pointer;font-family:inherit;margin-top:28px;width:100%}
 #err{display:none;margin-top:16px;text-align:center;font-weight:700;color:#9A2F1F}
 #pay{display:none;margin-top:32px;background:var(--soft);border-radius:24px;padding:32px;text-align:center}
@@ -97,7 +103,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div class="wrap">
 <div class="nav">
 <a href="../index.html" class="brand" style="text-decoration:none">Dhyana Yogasthala</a>
-<a class="btn btn-line" style="padding:10px 22px;font-size:15px" href="https://wa.me/918950867190?text=Namaskaram%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Surya%20Kriya%20program.">Ask on WhatsApp</a>
+<a class="btn btn-line" style="padding:10px 22px;font-size:15px" href="https://wa.me/918950867190?text=Namaskaram%20Shruti%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Surya%20Kriya%20program.">Click here to consult a teacher</a>
 </div>
 <div class="hero-grid">
 <div>
@@ -106,7 +112,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <p class="tag">Being in Sync with the Sun</p>
 <p class="lead">A holistic process for health, wellness and inner well-being.</p>
 <div class="btns"><a class="btn btn-main" href="#register">Register Now</a></div>
-<ul class="chips"><li>3 days · 2 hours each</li><li>₹3,500</li><li>Age 14+</li></ul>
+<ul class="chips"><li>16–18 Nov (11am–1pm) or 20–22 Nov (3–5pm)</li><li>3 days · 2 hours each</li><li>₹3,500</li><li>Age 14+</li></ul>
 </div>
 <div class="art"><img src="../assets/images/practice-surya-kriya.webp" alt="A woman in a lunge with her face lifted towards the sky, practising yoga outdoors" onerror="this.src='../assets/images/practice-surya-kriya.jpg'"></div>
 </div>
@@ -139,7 +145,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <h2>Everything at a glance</h2>
 <div class="dgrid">
 <div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></span><div><small>Duration</small><b>3 days, 2 hours each</b></div></div>
-<div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h2M14 14h2M8 17h2"/></svg></span><div><small>Dates</small><b>Next batch: message us to confirm</b></div></div>
+<div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h2M14 14h2M8 17h2"/></svg></span><div><small>Upcoming Batches</small><b>16–18 Nov · 11:00 AM–1:00 PM<br><span style="font-size:15px;color:#B7C7BF">or</span> 20–22 Nov · 3:00 PM–5:00 PM</b></div></div>
 <div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v4.5h-4.5"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><div><small>Follow-up</small><b>Review after 3–4 weeks</b></div></div>
 <div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16M4 9h16M9 4c6 0 6 8 0 8H7l8 8"/></svg></span><div><small>Fee</small><b>₹3,500 <span style="font-weight:600;font-size:16px;color:#B7C7BF">(workshop and review included)</span></b></div></div>
 <div class="ditem"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E0A030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.4.2 4 2.2 4 5"/></svg></span><div><small>Who can join</small><b>Age 14 and above</b></div></div>
@@ -163,6 +169,35 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div class="tbody"><h3 class="serif" style="font-size:30px">Shruti Jain</h3><p style="margin-top:6px;font-weight:700;color:var(--mid)">Classical Hatha Yoga Teacher | Sadhguru Gurukulam</p>
 <p>A Chartered Accountant by qualification, Shruti spent over five years working in the corporate world before choosing to pursue yoga.</p>
 <p>She completed over 2,000 hours of rigorous Classical Hatha Yoga teacher training under the guidance of Sadhguru at Isha Yoga Center, Coimbatore.</p></div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<p class="eyebrow">In their words</p>
+<h2>What participants say</h2>
+<div class="tgrid">
+  <div class="tcard">
+    <p>“I have derived immense physical and psychological benefits from Isha Hatha Yoga practices. I don’t miss out on Surya Kriya, which keeps me very energetic and alive the whole day no matter how many hours I am up. I feel blessed when my breath awareness is heightened during these practices. Truly fortunate to receive this tool!”</p>
+    <cite>Kalpana Kiran Maniar<span>CIO &amp; President, Edelweiss Financial Services Ltd.</span></cite>
+  </div>
+  <div class="tcard">
+    <p>“With Surya Kriya, I noticed right away within a few weeks of practicing an incredible strength and flexibility in the spine, to a point where I feel like I am standing much taller and much straighter.”</p>
+    <cite>Alison Marie<span>United States</span></cite>
+  </div>
+  <div class="tcard">
+    <p>“I noticed a difference in terms of my productivity at work. After practicing Surya Kriya, I am able to just pay attention to what I need to do at that time. I am able to focus for a longer period of time as well.”</p>
+    <cite>Simone</cite>
+  </div>
+  <div class="tcard">
+    <p>“I feel very stable and blissful while I am doing Surya Kriya. That time I spend with myself is just working on me in another way, in another dimension. It's just me and my breathing and I want to keep going all day.”</p>
+    <cite>Vasundhara<span>Delhi</span></cite>
+  </div>
+  <div class="tcard">
+    <p>“I think of all the practices, Surya Kriya is the one which I love the most. It is just the right cocktail between physical movement, pranayam, and other aspects that you feel the transformation the moment you start doing it.”</p>
+    <cite>Poyha</cite>
+  </div>
 </div>
 </div>
 </section>
@@ -198,6 +233,12 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <h2>Register</h2>
 <form id="regform" novalidate>
 <div class="fgrid">
+<div class="field full"><label for="f-batch">Select batch</label>
+  <select id="f-batch" name="batch" required>
+    <option value="16–18 Nov | 11:00 AM–1:00 PM">16–18 Nov | 11:00 AM–1:00 PM</option>
+    <option value="20–22 Nov | 3:00 PM–5:00 PM">20–22 Nov | 3:00 PM–5:00 PM</option>
+  </select>
+</div>
 <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
 <div class="field"><label for="f-age">Age</label><input id="f-age" name="age" type="number" min="14" max="100" inputmode="numeric"></div>
 <div class="field"><label for="f-phone">WhatsApp / phone number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
@@ -231,6 +272,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
     var g = function(n){ return (f.elements[n].value || '').trim(); };
     var err = document.getElementById('err');
     
+    var batchVal = g('batch') || '16–18 Nov | 11:00 AM–1:00 PM';
     var nameVal = g('name');
     var ageVal = g('age');
     var phoneVal = g('phone');
@@ -263,12 +305,12 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
       phone: phoneVal,
       city: cityVal || '—',
       fee: '₹3,500',
-      dateSlot: 'Next batch: message us to confirm',
-      timing: '3 days, 2 hours each (Review after 3–4 weeks)',
+      dateSlot: batchVal,
+      timing: batchVal + ' (3 days, 2 hours each)',
       mode: 'In-person workshop',
-      notes: notesVal || 'None',
+      notes: 'Batch: ' + batchVal + (notesVal ? '\nNotes: ' + notesVal : ''),
       health: notesVal || 'None',
-      emailSubject: '☀️ New Registration: ' + nameVal + ' — Surya Kriya',
+      emailSubject: '☀️ New Registration: ' + nameVal + ' — Surya Kriya (' + batchVal.split('|')[0].trim() + ')',
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
     lastData = payload;
@@ -288,12 +330,13 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
     var lines = [
       'Namaskaram Shruti, I have registered for the Surya Kriya program and completed the payment.',
       '',
+      'Selected Batch: ' + batchVal,
       'Name: ' + nameVal,
       'Age: ' + (ageVal || '—'),
       'Phone: ' + phoneVal,
       'City: ' + (cityVal || '—'),
-      'Notes: ' + (notesVal || '—'),
-      'Fee: ₹3,500 (workshop & review included)'
+      'Fee: ₹3,500 (workshop & review included)',
+      'Notes: ' + (notesVal || '—')
     ];
     document.getElementById('wa').href = 'https://wa.me/918950867190?text=' + encodeURIComponent(lines.join('\n'));
 
@@ -324,8 +367,8 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
             name: lastData.name,
             phone: lastData.phone,
             city: lastData.city,
-            notes: 'Fee: ₹3,500 (workshop & review included)',
-            emailSubject: '💳 Payment Confirmation: ' + lastData.name + ' — Surya Kriya'
+            notes: 'Fee: ₹3,500 | Batch: ' + (lastData.dateSlot || ''),
+            emailSubject: '💳 Payment Confirmation: ' + lastData.name + ' — Surya Kriya (' + (lastData.dateSlot ? lastData.dateSlot.split('|')[0].trim() : '') + ')'
           })
         }).catch(function(err){ console.error('Payment sheet error:', err); });
       } catch(err) {
