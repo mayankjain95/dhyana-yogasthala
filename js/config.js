@@ -104,7 +104,7 @@ const UPCOMING_PROGRAMS = [
     title: 'Prenatal Yoga',
     titleHi: 'प्रसव पूर्व योग (प्रेनैटल योग)',
     image: 'assets/images/practice-pre-natal-yoga.webp',
-    cardDesc: 'A gentle, guided way to feel calm, strong and prepared for the birth, for you and your baby. Taught step-by-step in small intimate batches of 2–3 women for personal attention.',
+    cardDesc: 'A gentle, guided way to feel calm, strong and prepared for the birth, for you and your baby.',
     cardDescHi: 'आपके और आपके शिशु के लिए प्रसव के प्रति शांत, सशक्त और तैयार महसूस करने का एक सौम्य, निर्देशित तरीका। 2–3 महिलाओं के छोटे बैच में व्यक्तिगत ध्यान।',
     pageDesc: 'Pregnancy Yoga 🌿\n\nA gentle, guided way to feel calm, strong and prepared for the birth, for you and your baby.\n\nWorkshop: 3 days, 2 hours each\nFollow-up: Review after 3–4 weeks\nBatch size: 2–3 women, for personal attention\nWho can join: More than 3 months pregnant',
     pageDescHi: 'प्रसव पूर्व योग 🌿\n\nगर्भवती माताओं के लिए कोमल योगिक अभ्यासों का एक विशेष रूप से चयनित क्रम — शारीरिक आराम, भावनात्मक संतुलन और मातृत्व की यात्रा के लिए आध्यात्मिक तैयारी का समर्थन करता है।',
