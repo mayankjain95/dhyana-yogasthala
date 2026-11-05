@@ -102,7 +102,7 @@
   .payment-step{display:flex;align-items:flex-start;gap:0.8rem;color:var(--light-muted);font-size:0.85rem;line-height:1.5;}
   .payment-step-num{background:var(--saffron);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;flex-shrink:0;margin-top:0.1rem;}
   .qr-wrap{text-align:center;background:white;padding:1.2rem;margin-bottom:1.2rem;border:1px solid rgba(0,0,0,0.06);}
-  .qr-img{width:190px;height:auto;display:block;margin:0 auto;}
+  .qr-img{width:210px;max-width:100%;height:auto;aspect-ratio:1440/2000;display:block;margin:0 auto;border-radius:12px;}
   .qr-upi{font-size:0.78rem;color:var(--muted);margin-top:0.6rem;}
   .qr-upi strong{display:block;font-size:0.85rem;color:var(--dark);margin-bottom:0.2rem;}
   .payment-done-btn{width:100%;background:var(--gold);color:var(--dark);border:none;padding:0.95rem;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.3s;font-weight:500;}

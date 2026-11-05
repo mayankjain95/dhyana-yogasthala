@@ -213,7 +213,7 @@ const PROGRAM_FORM_TEMPLATE = `
         <div class="payment-step"><div class="payment-step-num">3</div><span data-i18n="pay.step3">Click "I Have Paid" — Shruti will confirm your registration within 24 hours</span></div>
       </div>
       <div class="qr-wrap">
-        <img src="../assets/images/upi-qr.webp" alt="UPI QR — Shruti Jain" class="qr-img">
+        <img src="../assets/images/upi-qr.webp" alt="UPI QR — Shruti Jain" class="qr-img" width="210" height="292" style="height:auto;aspect-ratio:1440/2000;" loading="lazy" decoding="async">
         <div class="qr-upi"><strong>UPI ID: shruti.shruti.jain84@okaxis</strong> <span data-i18n="pay.upi.help">Scan with any UPI app · Seek with Shruti</span></div>
       </div>
       <button class="payment-done-btn" data-i18n="pay.btn" onclick="handlePaymentDone()">✓ I Have Paid — Complete Registration</button>
