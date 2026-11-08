@@ -395,11 +395,12 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
       fee: '₹6,500',
       notes: (notesVal ? notesVal : '') + (formatVal ? '\nFormat: ' + formatVal : '') + (monthsVal ? '\nMonths pregnant: ' + monthsVal : ''),
       health: notesVal || 'None',
+      notifyEmail: 'seekwithshruti@gmail.com',
       emailSubject: '🌿 New Registration: ' + nameVal + ' — Pregnancy Yoga (' + monthsVal + ' months)',
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 
-    // Send registration payload to Google Sheets backend
+    // Send registration payload to Google Sheets backend (automatically triggers instant email notification to seekwithshruti@gmail.com)
     try {
       fetch(SCRIPT_URL, {
         method: 'POST',

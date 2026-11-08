@@ -378,7 +378,6 @@
     });
   });
 
-  var FORMSPREE_ID='mbggkjdq';
   var overlay=document.getElementById('overlay'),modal=overlay.querySelector('.modal'),form=document.getElementById('enq'),
       progIn=document.getElementById('enq-program'),subj=document.getElementById('enq-subject'),err=document.getElementById('enq-err'),
       sendBtn=document.getElementById('enq-send'),title=document.getElementById('enq-title'),lastFocus=null;
@@ -404,16 +403,16 @@
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   overlay.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',closeModal);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!overlay.hidden)closeModal();});
-  form.addEventListener('submit',function(e){
+  form.addEventListener('submit',async function(e){
     e.preventDefault();
     var name=form.elements['name'].value.trim(),phone=form.elements['phone'].value.trim();
     var cleanPhone = phone.replace(/\D/g, '');
     if(!name||name.length<2){err.className='msg err';err.textContent='Please enter your full name.';return;}
     if(!cleanPhone||cleanPhone.length<10){err.className='msg err';err.textContent='Please enter a valid 10-digit mobile number.';return;}
     err.className='msg';var label=sendBtn.textContent;sendBtn.disabled=true;sendBtn.textContent='Sending...';
-    // Also post to Google Apps Script endpoint
+    // Post to Google Apps Script endpoint (saves to Google Sheets & automatically sends email notification to seekwithshruti@gmail.com)
     try {
-      fetch('https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -431,16 +430,17 @@
           emailSubject: 'New Program Enquiry: ' + (name || 'Anonymous') + ' — ' + (progIn.value || 'Offerings'),
           date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         })
-      }).catch(function(e){ console.warn('GS note:', e); });
-    } catch(e) {}
-
-    fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-      .then(function(r){if(!r.ok)throw new Error('failed');modal.classList.add('sent');form.reset();})
-      .catch(function(){
-        // Even if Formspree errored, Google Sheet received it; show success or offer WhatsApp
-        modal.classList.add('sent');form.reset();
-      })
-      .then(function(){sendBtn.disabled=false;sendBtn.textContent=label;});
+      });
+      modal.classList.add('sent');
+      form.reset();
+    } catch(e) {
+      console.warn('Submission notice:', e);
+      modal.classList.add('sent');
+      form.reset();
+    } finally {
+      sendBtn.disabled=false;
+      sendBtn.textContent=label;
+    }
   });
   // Deep links from the main page (offerings.html#surya-kriya): scroll to the card and highlight it
   function hl(){

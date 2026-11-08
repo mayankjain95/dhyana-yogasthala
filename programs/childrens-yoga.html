@@ -354,12 +354,13 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
       mode: 'Live Zoom',
       notes: (promoTag ? 'Promo: ' + promoTag + '\n' : '') + (notesVal ? 'Medical/Physical concern: ' + notesVal : '') + (cityVal ? '\nCity: ' + cityVal : ''),
       health: notesVal || 'None',
+      notifyEmail: 'seekwithshruti@gmail.com',
       emailSubject: '🌿 New Registration: ' + childName + ' (Parent: ' + parentName + ') — Children\'s Yoga' + (promoClean ? ' [' + promoClean + ']' : ''),
       date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
     lastData = payload;
 
-    // Send registration payload to Google Sheets backend
+    // Send registration payload to Google Sheets backend (automatically triggers instant email notification to seekwithshruti@gmail.com)
     try {
       fetch(SCRIPT_URL, {
         method: 'POST',
@@ -420,6 +421,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
             phone: lastData.phone,
             city: lastData.city,
             notes: 'Fee: ' + lastData.fee + (lastData.promoCode !== 'None' ? ' | Promo: ' + lastData.promoCode : ''),
+            notifyEmail: 'seekwithshruti@gmail.com',
             emailSubject: '💳 Payment Confirmation: ' + lastData.name + ' — Children\'s Yoga'
           })
         }).catch(function(err){ console.error('Payment sheet error:', err); });

@@ -317,6 +317,8 @@
             city: lastRegistrationData.city,
             goal: lastRegistrationData.goal,
             notes: lastRegistrationData.notes,
+            notifyEmail: (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.adminNotificationEmail) ? SITE_CONFIG.adminNotificationEmail : '',
+            emailSubject: '💳 Payment Confirmation: ' + lastRegistrationData.name + ' — ' + prog.title
           });
         }
       } catch (err) {

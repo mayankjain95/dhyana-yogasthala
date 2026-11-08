@@ -32,7 +32,8 @@ const WORKSHOP_KEYS = [
   'childrens-yoga-2026',
   'cervical-back-pain-workshop-2026',
   'cervical-back-pain-2026',
-  'spiritual-retreat-2026'
+  'spiritual-retreat-2026',
+  'free-sadhana-session-2026'
 ];
 const ENQUIRY_FORM_KEY = 'enquiry-classical-hatha-2026';
 const ENQUIRY_SHEET_NAME = 'Programme Registrations & Enquiries';
@@ -41,7 +42,7 @@ const TRIAL_FORM_KEY = 'info-trial-registration-2026';
 const TRIAL_SHEET_NAME = 'Free Trial Registrations';
 
 // Admin notification email recipient
-const ADMIN_NOTIFICATION_EMAIL = 'mayank.jain875@gmail.com';
+const ADMIN_NOTIFICATION_EMAIL = 'seekwithshruti@gmail.com';
 
 const TRIAL_HEADERS = [
   'Submitted At',

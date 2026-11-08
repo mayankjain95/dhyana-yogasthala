@@ -69,7 +69,7 @@ function submitBooking() {
   const endpoint = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.registrationEndpoint) ? SITE_CONFIG.registrationEndpoint : '';
   const waNum = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsappNumber) ? SITE_CONFIG.whatsappNumber : '918950867190';
 
-  // Log to Google Sheet asynchronously
+  // Log to Google Sheet asynchronously (automatically triggers instant email notification to seekwithshruti@gmail.com)
   if (endpoint) {
     fetch(endpoint, {
       method: 'POST',

@@ -125,9 +125,7 @@ footer.s{padding:0 24px 48px;text-align:center;font-size:14px;color:var(--muted)
 <div class="wrap">
 <div class="formcard">
 <h2>Register</h2>
-<form id="regform" action="https://formspree.io/f/mbggkjdq" method="POST" novalidate>
-<input type="hidden" name="_subject" value="New registration: Free Sadhana Session">
-<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+<form id="regform" novalidate>
 <div class="fgrid">
 <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
 <div class="field"><label for="f-age">Age</label><input id="f-age" name="age" type="number" min="1" max="100" inputmode="numeric"></div>
@@ -158,9 +156,31 @@ document.getElementById('regform').addEventListener('submit',function(e){
   if(!g('name')||!g('phone')||!g('practice')){err.style.display='block';err.textContent='Please fill in your name, phone number and the practice you wish to join.';return;}
   err.style.display='none';
   var label=btn.textContent;btn.disabled=true;btn.textContent='Submitting...';
-  fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-    .then(function(r){
-      if(!r.ok)throw new Error('Request failed');
+
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
+  var payload = {
+    formKey: 'free-sadhana-session-2026',
+    submissionType: 'registration',
+    source: 'free-sadhana-session.html',
+    programme: 'Free Guided Sadhana (' + g('practice') + ')',
+    name: g('name'),
+    age: g('age') || '—',
+    phone: g('phone'),
+    city: g('city') || '—',
+    fee: 'Free',
+    notes: 'Regular: ' + (g('regular') || '—') + '\nLast practiced: ' + (g('last_practiced') || '—') + '\nBenefits: ' + (g('benefits') || '—') + (g('notes') ? ('\nNotes: ' + g('notes')) : ''),
+    notifyEmail: 'seekwithshruti@gmail.com',
+    emailSubject: '🌿 Free Sadhana Registration: ' + g('name') + ' — ' + g('practice'),
+    date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+  };
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
+    .then(function(){
       f.style.display='none';
       var p=document.getElementById('done');p.style.display='block';p.scrollIntoView({behavior:'smooth',block:'center'});
     })

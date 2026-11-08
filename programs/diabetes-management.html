@@ -1301,7 +1301,7 @@
       };
 
       try {
-        // Send to shared Google Sheets endpoint
+        // Send to shared Google Sheets endpoint (automatically triggers instant email notification to seekwithshruti@gmail.com)
         if (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.registrationEndpoint) {
           await fetch(SITE_CONFIG.registrationEndpoint, {
             method: 'POST',

@@ -845,44 +845,32 @@
       _subject: 'New Enquiry — Dhyana Yogasthala',
     };
     try {
-      // Also post to Google Apps Script endpoint if configured
+      // Post to Google Apps Script endpoint (saves to Google Sheets & automatically sends email notification to seekwithshruti@gmail.com)
       const gsEndpoint = 'https://script.google.com/macros/s/AKfycbz8Cdz6OreMzP6xb9iZeT9t_HOJhhNDLd__PNDSwFGw3cJaxG8-krPxoK5qPgjaFmtE0g/exec';
-      try {
-        fetch(gsEndpoint, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            formKey: 'enquiry-classical-hatha-2026',
-            submissionType: 'enquiry',
-            source: 'Website Contact Form',
-            programme: programSel ? programSel.value : 'General Enquiry',
-            name: name,
-            phone: cleanPhone,
-            email: email,
-            location: locationSel ? locationSel.value : '',
-            notes: query,
-            notifyEmail: 'seekwithshruti@gmail.com',
-            emailSubject: 'New Website Contact Enquiry: ' + (name || 'Anonymous') + ' — ' + (programSel ? programSel.value : 'General Enquiry'),
-            date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-          })
-        }).catch(e => console.warn('GS note:', e));
-      } catch(e) {}
-
-      const res = await fetch('https://formspree.io/f/mbderkvq', {
+      await fetch(gsEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          formKey: 'enquiry-classical-hatha-2026',
+          submissionType: 'enquiry',
+          source: 'Website Contact Form',
+          programme: programSel ? programSel.value : 'General Enquiry',
+          name: name,
+          phone: cleanPhone,
+          email: email,
+          location: locationSel ? locationSel.value : '',
+          notes: query,
+          notifyEmail: 'seekwithshruti@gmail.com',
+          emailSubject: 'New Website Contact Enquiry: ' + (name || 'Anonymous') + ' — ' + (programSel ? programSel.value : 'General Enquiry'),
+          date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        })
       });
-      if (res.ok) {
-        document.getElementById('contact-success').style.display = 'block';
-        btn.textContent = 'Sent ✓';
-        btn.style.background = 'var(--forest)';
-      } else {
-        throw new Error('Form submission fallback');
-      }
+      document.getElementById('contact-success').style.display = 'block';
+      btn.textContent = 'Sent ✓';
+      btn.style.background = 'var(--forest)';
     } catch(err) {
-      // Fallback: open WhatsApp if Formspree not yet set up
+      // Fallback: open WhatsApp if error
       btn.textContent = 'Send Enquiry →';
       btn.disabled = false;
       const waMsg = encodeURIComponent(

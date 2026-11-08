@@ -21,7 +21,7 @@ const SITE_CONFIG = {
   upiId: 'shruti.shruti.jain84@okaxis',
   upiName: 'Shruti Jain',
 
-  // Contact email
+  // Contact email & notifications
   email: 'seekwithshruti@gmail.com',
   adminNotificationEmail: 'seekwithshruti@gmail.com',
 
