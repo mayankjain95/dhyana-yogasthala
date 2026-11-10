@@ -33,7 +33,8 @@ const WORKSHOP_KEYS = [
   'cervical-back-pain-workshop-2026',
   'cervical-back-pain-2026',
   'spiritual-retreat-2026',
-  'free-sadhana-session-2026'
+  'free-sadhana-session-2026',
+  'daily-yoga-classes-2026'
 ];
 const ENQUIRY_FORM_KEY = 'enquiry-classical-hatha-2026';
 const ENQUIRY_SHEET_NAME = 'Programme Registrations & Enquiries';
