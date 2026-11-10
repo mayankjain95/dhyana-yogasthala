@@ -10,7 +10,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/images/daily-yoga-hero.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&display=swap">
 <style>
 :root{
@@ -47,9 +46,10 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:40px}
 .hero h1{font-size:clamp(2.6rem,6.2vw,4.6rem);letter-spacing:-.01em}
 .hero .lede{font-size:1.3rem;color:var(--muted);margin:22px 0 32px;max-width:30ch;font-family:var(--serif);font-weight:500;font-style:italic}
+.eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
+.chips li{background:var(--sand);border-radius:999px;padding:8px 18px;font-weight:700;font-size:14px;color:var(--forest)}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.hero figure{margin:0}
-.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 62%;border-radius:20px}
 
 .bar{background:var(--forest);color:#f4ecda;padding:26px 0}
 .bar ul{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -62,9 +62,11 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .head h2{font-size:clamp(1.9rem,4vw,2.7rem)}
 .head p{margin-top:12px;color:var(--muted)}
 .includes{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--forest)}
-.includes li{padding:26px 16px 6px 0;font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--forest);line-height:1.25}
+.includes li{padding:26px 16px 6px 0;font-family:var(--serif);font-size:1.45rem;font-weight:500;color:var(--forest);line-height:1.25}
 .includes li+li{padding-left:22px;border-left:1px solid var(--line)}
-.includes small{font-family:var(--sans);font-size:1rem;color:var(--muted);font-weight:400}
+.includes .ico{width:38px;height:38px;color:var(--rust);margin-bottom:14px;display:block}
+.includes b{display:block;font-weight:500}
+.includes small{display:block;font-family:var(--sans);font-size:.95rem;color:var(--muted);font-weight:400;margin-top:4px}
 
 .benefits{background:var(--sand)}
 .ben-list{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
@@ -133,8 +135,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   section{padding:56px 0}
   .brand img{height:50px}
   .brand{font-size:1.1rem}
-  .hero .wrap,.teacher .wrap,.join .wrap{grid-template-columns:1fr;gap:36px}
-  .hero img{aspect-ratio:4/3}
+  .teacher .wrap,.join .wrap{grid-template-columns:1fr;gap:36px}
   .teacher figure{max-width:420px}
   .bar ul{grid-template-columns:1fr}
   .includes{grid-template-columns:1fr 1fr}
@@ -171,14 +172,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="hero">
     <div class="wrap">
       <div>
+        <p class="eyebrow">5 days a week · Mon–Fri</p>
         <h1>Daily Yoga Classes in Sonepat</h1>
         <p class="lede">Classical Hatha Yoga program structured by Sadhguru.</p>
+        <ul class="chips">
+          <li>5 days a week · Mon–Fri</li>
+          <li>4:00 – 5:10 p.m.</li>
+          <li>Batch starts 12 Nov</li>
+          <li>Sec-15, Sonepat</li>
+        </ul>
         <div class="cta-row">
           <a class="btn alt" href="#register">Register now</a>
           <a class="btn ghost" href="tel:+918950867190"><small>Click here to</small> consult a teacher</a>
         </div>
       </div>
-      <figure><img src="assets/images/daily-yoga-hero.webp" alt="Two yoga practitioners in a forward-bending pose outdoors" width="1400" height="931" fetchpriority="high" decoding="async"></figure>
     </div>
   </div>
 
@@ -191,7 +198,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </li>
         <li>
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <div><span>Monday to Friday</span><strong>4:00 – 5:10 p.m.</strong></div>
+          <div><span>Schedule</span><strong>5 days a week · Mon–Fri (4:00 – 5:10 p.m.)</strong></div>
         </li>
         <li>
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -205,10 +212,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="wrap">
       <div class="head"><h2>Each class includes</h2></div>
       <ul class="includes">
-        <li>Asanas</li>
-        <li>Pranayama</li>
-        <li>Nada Yoga <small>(Mantra Yoga)</small></li>
-        <li>Guided Meditations</li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M12 7c-2 0-4 1.5-4 3.5 0 2 1.5 3.5 4 3.5s4-1.5 4-3.5C16 8.5 14 7 12 7zM6 21c1-3 3-5 6-5s5 2 6 5M5 14l3-2M19 14l-3-2"/></svg>
+          <b>Asanas</b>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1120 12H2"/></svg>
+          <b>Pranayama</b>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3a9 9 0 00-6.36 15.36M12 3a9 9 0 016.36 15.36M12 7a5 5 0 00-3.54 8.54M12 7a5 5 0 013.54 8.54"/></svg>
+          <b>Nada Yoga</b>
+          <small>(Mantra Yoga)</small>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="2.5"/><path d="M12 11c-2.5 0-5 1.5-5 4v1h10v-1c0-2.5-2.5-4-5-4z"/><path d="M4 19c2-1 4-1.5 8-1.5s6 .5 8 1.5M7 16l-3 4M17 16l3 4"/></svg>
+          <b>Guided Meditations</b>
+        </li>
       </ul>
     </div>
   </section>
@@ -262,10 +282,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <details><summary>I only want to focus on physical health. Will it help?</summary><p>Yes, it will be supportive in improving physical health, mobility, flexibility, raising energy levels and immunity.</p></details>
       <details><summary>Do I need any prior yoga experience?</summary><p>No prior experience is needed.</p></details>
       <details><summary>Do I need to be on an empty stomach?</summary><p>Please keep a gap of four hours after a full meal before the class. You can have a light snack until 2.5 hours before the program starts. If you have any health concern about maintaining this gap, consult the teacher and she will guide you accordingly.</p></details>
-      <details><summary>I’m scared something may happen.</summary><p>The practices are taught step by step, and the batch is small, so you receive personal attention. You don’t need to worry about getting it wrong.</p></details>
+      <details><summary>I am scared. I may get injured.</summary><p>The practices are taught step by step, and the batch is small, so you receive personal attention. You don’t need to worry about getting it wrong.</p></details>
       <details><summary>I have a medical condition. Can I still join?</summary><p>Please <a href="https://wa.me/918950867190?text=Namaskaram%20Shruti%2C%20I%20have%20a%20question%20about%20the%20daily%20yoga%20classes." target="_blank" rel="noopener">write to the teacher</a> before registering, and consult your doctor as well.</p></details>
       <details><summary>What is the fee?</summary><p>₹3,300/month</p></details>
-      <details><summary>How many days in a week?</summary><p>5 days, Monday to Friday</p></details>
+      <details><summary>How many days in a week?</summary><p>5 days a week. Mon–Fri</p></details>
       <details><summary>When is the batch starting?</summary><p>It is starting on 12 Nov.</p></details>
       <details><summary>How do I register?</summary><p>Fill in the registration form below. A QR code will appear for payment, and you can confirm your payment on WhatsApp.</p></details>
       <details><summary>I have more questions that are not listed here.</summary><p>Tap “Consult a teacher” below and ask her directly.</p></details>
